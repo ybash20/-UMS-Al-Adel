@@ -14,8 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('footer');
+    return view('layouts.master');
 });
+
+Route::get('/lib', function () {
+    return view('library');
+});
+
+
 Route::get('/student', function () {
     return view('student');
 })->name('student');

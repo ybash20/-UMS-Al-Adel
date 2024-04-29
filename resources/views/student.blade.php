@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Student</title>
+@extends('layouts.master')
+  @section('title','Student')
+      
+  @section('main')
   <style>
     .center {
       display: flex;
@@ -32,45 +29,46 @@
 
     @media (max-width: 768px) {
       .center {
-        flex-direction: column;
+        flex-direction: flex;
         margin-bottom: 30px;
+        margin-top: 30px;
+        /* margin-left: 30px;
+        margin-right: 30px; */
+      }
+      .image-container{
+        width: 25%;
       }
     }
   </style>
-</head>
-<body>
-  <div class="center">
-    <div class="image-container">
-      <figure>
-        <a href="{{ route('grades') }}">
-          <img src="{{ asset('vendor/crudbooster/assets/grades.png') }}" alt="الدرجات">
-        </a>
-        <figcaption>الدرجات</figcaption>
-      </figure>
-    </div>
 
-    <div class="image-container">
-      <figure>
-        <a href="{{ route('timetables') }}">
-          <img src="{{ asset('vendor/crudbooster/assets/timetables.png') }}" alt="الجداول الدراسية">
-        </a>
-        <figcaption>الجداول الدراسية</figcaption>
-      </figure>
-    </div>
-  
-   <div class="center">
-    <div class="image-container">
-      <figure>
-        <a href="{{ route('studyplan') }}">
-          <img src="{{ asset('vendor/crudbooster/assets/study_plan.png') }}" alt="الخطة الدراسية">    
-        </a> 
-             <figcaption>الخطة الدراسية</figcaption>
-      </figure>
-    </div>
-   </div>
+<div class="center">
+  <div class="image-container">
+    <figure>
+      <a href="{{ route('grades') }}">
+        <img src="{{ asset('vendor/crudbooster/assets/grades.png') }}" alt="الدرجات">
+      </a>
+      <figcaption>الدرجات</figcaption>
+    </figure>
   </div>
-  <footer>
-    @include('footer')
-  </footer>
-</body>
-</html>
+
+  <div class="image-container">
+    <figure>
+      <a href="{{ route('timetables') }}">
+        <img src="{{ asset('vendor/crudbooster/assets/timetables.png') }}" alt="الجداول الدراسية">
+      </a>
+      <figcaption>الجداول الدراسية</figcaption>
+    </figure>
+  </div>
+
+ <div class="center">
+  <div class="image-container">
+    <figure>
+      <a href="{{ route('studyplan') }}">
+        <img src="{{ asset('vendor/crudbooster/assets/study_plan.png') }}" alt="الخطة الدراسية">    
+      </a> 
+           <figcaption>الخطة الدراسية</figcaption>
+    </figure>
+  </div>
+ </div>
+</div>
+  @endsection

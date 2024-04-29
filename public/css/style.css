@@ -77,7 +77,7 @@ a {
   width: 100%;
   left: 0; }
   .site-navbar-wrap a {
-    color: lightblue; }
+    color: #007bff; }
   .site-navbar-wrap .site-navbar-top {
     font-size: 0.8rem; }
 
@@ -85,6 +85,7 @@ a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
 
 .site-navbar {
+  background-color:#007bff52;
   margin-bottom: 0px;
   width: 100%; }
   .site-navbar .site-logo {
