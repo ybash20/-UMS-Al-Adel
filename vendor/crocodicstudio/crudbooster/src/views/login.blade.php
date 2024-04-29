@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>{{cbLang("page_title_login")}} </title>
@@ -161,7 +161,8 @@ body{
             @endif
             <div class="form_1 data_info">
             <div>
-                <p class='login-box-msg'>{{cbLang("Label-employer")}}</p>      
+                <p class='login-box-msg'>{{cbLang("Label-employer")}}</p>  
+                <img src="{{ asset('vendor/crudbooster/assets/empployee.png') }}" width="250" height="150">    
               <input autocomplete='off' type="text" class="input" name='email' required placeholder="Email"/>
             </div>
             <div>
@@ -187,7 +188,8 @@ body{
            {{-- end form1 --}}
            <div class="form_2 data_info">
 			<form>
-                <p class='login-box-msg'>{{cbLang("Label-student")}}</p>      
+                <p class='login-box-msg'>{{cbLang("Label-student")}}</p>  
+                <img src="{{ asset('vendor/crudbooster/assets/student.png') }}" width="250" height="150">    
 				<div>
 					<div>
 						<input type="text" name="username" class="input" id="ID"  placeholder="ID">
