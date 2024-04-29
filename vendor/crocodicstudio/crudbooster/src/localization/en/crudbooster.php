@@ -1,5 +1,16 @@
 <?php
 return [
+    'title_MenuManagement'=>' Menu Management',
+    'title-dashboard'=>'Dashboard',
+    'name-collage' =>'Al-Adel',
+    'Label-student' =>'form student',
+    'LOCKSCREEN'=>'LOCKSCREEN',
+    'text_helper'=>'kklrjlkrjglrgjrglkjgrklgjrkgjw',
+    'menu_lang'=>'language',
+    'Application Setting'=>' Application Setting ',
+    'Login Register Style'=>'Login Register Style',
+    'Email Setting'=>'Email Setting',
+    'Label-employer'=>'form  employer',
     'email_footer' => 'Do not reply any email to this email address. This email sent automatically by our system. ',
     'login_message' => 'Please login to start your session',
     'text_forgot_password' => 'Forgot the password ?',

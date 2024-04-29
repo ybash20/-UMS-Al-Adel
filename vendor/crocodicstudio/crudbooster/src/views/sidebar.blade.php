@@ -18,9 +18,18 @@
 
 
         <div class='main-menu'>
-
-            <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
+            <li class="header">{{cbLang("menu_lang")}}</li>
+            <form id="langForm" method="get" action="" class="form_select">
+                <button name="lang" value="ar"<?php if ($_GET['lang'] == 'ar') echo ' selected'; ?>>
+                   عربي
+                </button>
+                <button name="lang" value="en"<?php if ($_GET['lang'] == 'en') echo ' selected'; ?>>
+                    English
+                </button>
+                <!-- إضافة المزيد من الخيارات حسب الحاجة -->
+            </form>
+            <!-- Sidebar Menu -->
                 <li class="header">{{cbLang("menu_navigation")}}</li>
                 <!-- Optionally, you can add icons to the links -->
 
@@ -99,7 +108,7 @@
                             ?>
                             <li class="<?=($gs == Request::get('group')) ? 'active' : ''?>"><a
                                         href='{{route("SettingsControllerGetShow")}}?group={{urlencode($gs)}}&m=0'><i class='fa fa-wrench'></i>
-                                    <span>{{$gs}}</span></a></li>
+                                        <span>{{cbLang($gs)}}</span></a></li>
                             <?php endforeach;?>
                         </ul>
                     </li>

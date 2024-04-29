@@ -1,5 +1,16 @@
 <?php
 return [
+    'title_MenuManagement'=>'ادارة القوائم',
+    'name-collage' =>'جامعة العادل',
+    'menu_lang'=>'اللغة',
+    'LOCKSCREEN'=>'شاشة القفل',
+    'title-dashboard'=>'لوحة التحكم',
+    'Application Setting'=>' اعدادات النظام',
+    'Login Register Style'=>'شكل تسجيل الدخول',
+    'Email Setting'=>'اعدادت البريد',
+    'Al-Adel Unveristiy'=>'جامعة العادل',
+    'Label-student' =>'واجهة الطالب',
+    'Label-employer'=>'واجهة الموظف',
     'email_footer' => 'هذه رسالة تلقائية ، الرجاء عدم الرد مباشرة على هذا البريد الإلكتروني .',
     'login_message' => 'الرجاء تسجيل الدخول',
     'text_forgot_password' => 'نسيت كلمة المرور ?',
@@ -11,6 +22,10 @@ return [
     'text_view_all_notification' => 'عرض الكل',
     'label_button_profile' => "الملف الشخصي",
     'filter_dialog_title' => 'فرز متقدم',
+    'filter_rows_total' => 'Total rows',
+    'filter_rows_to' => 'to',
+    'filter_rows_of' => 'of',
+
 
     'text_enter_the_password' => 'فضلا ادخل كلمة المرور لاستعادة جلسة العمل',
     'text_or_sign_in' => 'او سجل الدخول بمستخدم مختلف',
@@ -244,6 +259,7 @@ return [
     'datamodal_enter_to_search' => 'اضفط ادخال للبحث',
     'datamodal_browse_data' => 'استعراض البيانات',
     'datamodal_browse_file' => 'استعراض الملف',
+    'text_helper'=>'ادخل البريد الالكتروني في موقع المواصل الانتجاعي',
 
     //child
     'table_detail' => 'تفاصيل الجدول',
