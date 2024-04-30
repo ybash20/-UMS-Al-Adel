@@ -26,21 +26,18 @@
       margin-top: 10px;
       font-size: 16px;
     }
-
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
       .center {
-        flex-direction: flex;
-        margin-bottom: 30px;
-        margin-top: 30px;
-        /* margin-left: 30px;
-        margin-right: 30px; */
-      }
-      .image-container{
-        width: 25%;
-      }
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: auto;
+}
+.image-container{
+  margin-top: 80px;
+}
     }
   </style>
-
 <div class="center">
   <div class="image-container">
     <figure>
