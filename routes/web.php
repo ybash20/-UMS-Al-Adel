@@ -37,3 +37,7 @@ Route::get('/timetables', function () {
 Route::get('/studyplan', function () {
 
 })->name('studyplan');
+
+Route::get('/college', function () {
+
+})->name('college');
