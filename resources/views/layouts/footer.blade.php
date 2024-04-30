@@ -169,12 +169,9 @@
     }
 
     [lang=ar] .body {
-      font-family: "GE-Dinar", sans-serif
+      font-family: "GE-Dinar", sans-serif;
+      text-align: right;
     }
-    [lang=en] .body {
-      font-family: "Dosis", sans-serif
-    }
-
     .content {
       --base-size: 1.6rem;
       --type-scale: 1.1;
@@ -433,73 +430,6 @@
       padding: 0 0.5em;
       list-style-type: none;
     }
-
-    html {
-      --muneer-font-family: "Rubik", -apple-system, BlinkMacSystemFont,
-        avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto,
-        segoe ui, arial, sans-serif;
-      --muneer-font-family-rtl: "Sourse Sans Pro", -apple-system,
-        BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica,
-        ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-      --muneer-bg: #ffffff;
-      --muneer-bg-dark: #16191b;
-      --muneer-text: #333;
-      --muneer-text-dark: #deeffd;
-      --muneer-color: rgba(0, 108, 242, 1);
-      --muneer-color-dark: rgba(0, 108, 242, 1);
-      --muneer-color-accent: rgba(87, 206, 251, 1);
-      --muneer-color-transparent: #edf5f8;
-      --muneer-color-transparent-dark: rgba(86, 106, 126, 0.1);
-      --muneer-border-radius: 20px;
-      --muneer-animate: 600ms;
-      --muneer-overlay: rgba(2, 83, 238, 0.5);
-      --muneer-btn-margin: 10px;
-      --muneer-btn-padding: 20px;
-      --muneer-btn-radius: 50px;
-      --muneer-btn-color: #ffffff;
-      --muneer-btn-color-hover: rgba(0, 108, 242, 1);
-      --muneer-btn-bg: rgba(0, 108, 242, 1);
-      --muneer-btn-bg-hover: #ffffff;
-      --muneer-btn-size: 24px;
-      --muneer-btn-delay: 0s;
-      --muneer-keyboard-light-bg: #ececec;
-      --muneer-keyboard-light-key-bg: #ffffff;
-      --muneer-keyboard-light-key: #111111;
-      --muneer-keyboard-dark-bg: #000000cc;
-      --muneer-keyboard-dark-key-bg: rgba(0, 0, 0, 0.5);
-      --muneer-keyboard-dark-key: #ffffff;
-      --muneer-text-magnifier-bg-color: #333333;
-      --muneer-text-magnifier-color: #ffffff;
-      --muneer-text-magnifier-font-size: 36px;
-      --muneer-highlight-titles-style: solid;
-      --muneer-highlight-titles-color: #639af9;
-      --muneer-highlight-titles-width: 2px;
-      --muneer-highlight-titles-offset: 2px;
-      --muneer-highlight-links-style: solid;
-      --muneer-highlight-links-color: #639af9;
-      --muneer-highlight-links-width: 2px;
-      --muneer-highlight-links-offset: 2px;
-      --muneer-reading-guide-width: 500px;
-      --muneer-reading-guide-height: 17px;
-      --muneer-reading-guide-radius: 10px;
-      --muneer-reading-guide-bg: #0274e6;
-      --muneer-reading-guide-border-width: 7px;
-      --muneer-reading-guide-border-color: #000000;
-      --muneer-reading-guide-arrow: 10px;
-      --muneer-reading-guide-arrow-margin: -10px;
-      --muneer-reading-mask: rgba(0, 0, 0, 0.7);
-      --muneer-highlight-hover-style: solid;
-      --muneer-highlight-hover-color: #639af9;
-      --muneer-highlight-hover-width: 2px;
-      --muneer-highlight-hover-offset: 2px;
-      --muneer-highlight-focus-style: solid;
-      --muneer-highlight-focus-color: #639af9;
-      --muneer-highlight-focus-width: 2px;
-      --muneer-highlight-focus-offset: 2px;
-      --muneer-tts-bg: rgba(0, 108, 242, 1);
-      --muneer-tts-color: rgba(255, 255, 255, 1);
-    }
-
     .muneer-trigger-button-box button:focus-visible {
       color: var(--muneer-btn-color-hover);
       background: var(--muneer-btn-bg-hover);
@@ -513,8 +443,6 @@
     .muneer-toggle-box:focus-visible {
       outline: 0;
     }
-
-    @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300&amp;display=swap");
 
     :root {
       --bs-blue: #003cc5;
@@ -792,6 +720,7 @@
     }
 
     footer {
+        text-align: right;
       padding: 2rem 0;
     }
 
