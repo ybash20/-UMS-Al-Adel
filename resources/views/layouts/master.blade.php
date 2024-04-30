@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     
     <meta charset="UTF-8">
@@ -12,7 +12,6 @@
    <header>
     @include('layouts.header')
    </header> 
-
 
     <div>
         @section('divcontent')
