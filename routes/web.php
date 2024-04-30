@@ -14,5 +14,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.master');
 });
+
+Route::get('/lib', function () {
+    return view('library');
+});
+
+
+Route::get('/student', function () {
+    return view('student');
+})->name('student');
+
+Route::get('/grades', function () {
+    // تعليمات للتعامل مع زر الدرجات
+})->name('grades');
+
+Route::get('/timetables', function () {
+    // تعليمات للتعامل مع زر الجداول الدراسية
+})->name('timetables');
+
+Route::get('/studyplan', function () {
+
+})->name('studyplan');
