@@ -750,7 +750,7 @@
 
     <div dir="rtl" class="h-100">
         <div class="body d-flex flex-column h-100">
-            <div class="content" lang="ar">
+            <div class="content">
                 <footer class="footer">
                     <div class="region region-footer">
                         <div id="block-socialmedialinks"
@@ -855,8 +855,7 @@
                                     <div class="section stars">
                                         <a href="https://www.topuniversities.com/universities/king-saud-university"
                                             rel="noreferrer" target="_blank">
-                                            <img alt="" aria-hidden="true" data-entity-type="" data-entity-uuid=""
-                                                src="images\Logo.png" />
+                                            <img src="{{ asset('vendor/crudbooster/assets/LOGO.png') }}" />
                                         </a>
                                     </div>
                                 </div>

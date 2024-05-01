@@ -1,10 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Library')
 
-
-     
-
-
 <!-- slider -->
 @section('divcontent')
         <link rel="stylesheet" href="css/lib/styleslider.css">
