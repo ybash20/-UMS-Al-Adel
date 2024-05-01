@@ -755,7 +755,7 @@
                 box-shadow: none !important;
             }
 
-            header_a:not(.btn) {
+            .header_a:not(.btn) {
                 text-decoration: underline;
             }
 
@@ -763,7 +763,7 @@
                 size: a3;
             }
 
-            body {
+            .body {
                 min-width: 992px !important;
             }
 
