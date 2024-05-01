@@ -16,18 +16,13 @@
             </div>
         </div>
 
-
         <div class='main-menu'>
             <ul class="sidebar-menu">
                 <li class="header">{{ cbLang('menu_lang') }}</li>
-                <form id="langForm" method="get" action="" class="form_select">
-                    <button name="lang" value="ar"<?php if ($_GET['lang'] == 'ar') echo ' selected'; ?>>
-                       عربي
-                    </button>
-                    <button name="lang" value="en"<?php if ($_GET['lang'] == 'en') echo ' selected'; ?>>
-                        English
-                    </button>
-                    <!-- إضافة المزيد من الخيارات حسب الحاجة -->
+                 <form id="langForm" method="get" action="" class="form_select">
+                    <button name="lang" value="ar" <?php if ($language == 'ar') { echo 'selected'; } ?>>عربي</button>
+                    <button name="lang" value="en" <?php if ($language == 'en') { echo 'selected'; } ?>>English</button>
+                    <!-- يمكنك إضافة المزيد من الخيارات حسب الحاجة -->
                 </form>
                 <!-- Sidebar Menu -->
                 <li class="header">{{ cbLang('menu_navigation') }}</li>
