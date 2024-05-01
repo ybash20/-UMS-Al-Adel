@@ -689,6 +689,7 @@
             -webkit-box-align: center !important;
             -ms-flex-align: center !important;
             align-items: center !important;
+            font-size: 14px;
         }
 
         @supports ((position: -webkit-sticky) or (position: sticky)) {}
