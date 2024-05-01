@@ -1,276 +1,284 @@
 @extends('layouts.master')
-@section('title','Library')
+@section('title', 'Library')
 
 
+     
 
 
 <!-- slider -->
 @section('divcontent')
-<link rel="stylesheet" href="css/lib/styleslider.css">
-<div class="bodyslider">
-<div class="slider">
-    <!-- list Items -->
-    <div class="list">
-        <div class="item active">
-            <img src="image/img1.png">
-            <div class="content">
-                <p>design</p>
-                <h2>Slider 01</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
+        <link rel="stylesheet" href="css/lib/styleslider.css">
+        <div class="center">
+        <div class="body_slider">
+            <div class="slider">
+                <!-- list Items -->
+                <div class="list">
+                    <div class="item active">
+                        <img src="image/img1.png">
+                        <div class="content">
+                            <p>design</p>
+                            <h2>Slider 01</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="image/img2.jpg">
+                        <div class="content">
+                            <p>design</p>
+                            <h2>Slider 02</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="image/img3.jpg">
+                        <div class="content">
+                            <p>design</p>
+                            <h2>Slider 03</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="image/img4.jpg">
+                        <div class="content">
+                            <p>design</p>
+                            <h2>Slider 04</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="image/img5.jpg">
+                        <div class="content">
+                            <p>design</p>
+                            <h2>Slider 05</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- button arrows -->
+                <div class="arrows">
+                    <button id="prev">
+                      <  </button>
+                            <button id="next">></button>
+                </div>
+                <!-- thumbnail -->
+                <div class="thumbnail">
+                    <div class="item active">
+                        <img src="image/img1.png">
+                        <div class="content">
+                            Name Slider
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="image/img2.jpg">
+                        <div class="content">
+                            Name Slider
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="image/img3.jpg">
+                        <div class="content">
+                            Name Slider
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="image/img4.jpg">
+                        <div class="content">
+                            Name Slider
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="image/img5.jpg">
+                        <div class="content">
+                            Name Slider
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/lib/js_slider_library.js"></script>
+
+    @endsection
+
+    @section('main')
+
+        <link rel="stylesheet" href="css/lib/stylelib.css">
+
+        <!--About-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <div class="about">
+
+            <div class="about_tag">
+                <h1>About Us</h1>
+                <p style="font-size: 20px">
+                    There is a library equipped with reference books and amenities to achieve its goal. The library contains
+                    more than 1,800 titles in various sciences, such as: Qur’anic sciences, hadith, jurisprudence,
+                    principles, translations, history, languages, translation, economics, management, computer science, and
+                    information technology. This is in addition to a number of educational publications, cultural
+                    periodicals, peer-reviewed journals, and scientific theses. Internet service and e-books are also
+                    available in the electronic resource room.
+                    Here on the website we provide the names of books and authors available in the library
                 </p>
             </div>
+
         </div>
-        <div class="item">
-            <img src="image/img2.jpg">
-            <div class="content">
-                <p>design</p>
-                <h2>Slider 02</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
-                </p>
+        <hr style="background-color:  black;">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!--Arrivals-->
+
+        <div class="arrivals">
+            <h1 style="text-align: center">Book</h1>
+            <h2 style="text-align: center; direction: rtl">
+                <form action="">
+                    <label for="categories">اختر القسم:</label>
+                    <BR></BR>
+                    <select name="categories" id="categories">
+                        <option value="S1">الحاسوب</option>
+                        <option value="S2">الترجمة</option>
+                        <option value="S3"> أدارة الأعمال</option>
+                        <option value="S4">قانون</option>
+                    </select>
+                    <input type="submit" value="تحديد">
+                </form>
+            </h2>
+            <hr style="background-color:  black;">
+            <br>
+            <br>
+            <div class="arrivals_box">
+                <div class="arrivals_card">
+                    <div class="arrivals_image">
+                        <img src="image/arrival_2.jpg">
+                    </div>
+                    <div class="arrivals_tag">
+                        <p>
+                        <h2>book name:شستنىشستنشسىتنشسىتنشسىتنشسىشستن</h2>
+                        <p>author:شسمةشسنمةشسنمشسةنمشسةنمشسةمنشسةشسم</p>
+                        <p>publiser:ششسمنةسنمشسةنمسةشسنمة</p>
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="arrivals_card">
+                    <div class="arrivals_image">
+                        <img src="image/arrival_2.jpg">
+                    </div>
+                    <div class="arrivals_tag">
+                        <p>
+                        <h2>book name:</h2>
+                        <p>author:</p>
+                        <p>publiser:</p>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="arrivals_card">
+                    <div class="arrivals_image">
+                        <img src="image/arrival_2.jpg">
+                    </div>
+                    <div class="arrivals_tag">
+                        <p>
+                        <h2>book name:شنتىسشتنىسشتنشىشستنىشستنسىتنشسىستنىشسنتىشسنتسىتنىشستن</h2>
+                        <p>author:سششسنمةشسنمشسةنمشسةشسنمةشسنمةشسنمشسةمنشسةنمشسة</p>
+                        <p>publiser:شسمنةشسنمشسةمنشسةنمش</p>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="arrivals_card">
+                    <div class="arrivals_image">
+                        <img src="image/arrival_2.jpg">
+                    </div>
+                    <div class="arrivals_tag">
+                        <p>
+                        <h2>book name:</h2>
+                        <p>author:</p>
+                        <p>publiser:</p>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="arrivals_card">
+                    <div class="arrivals_image">
+                        <img src="image/arrival_2.jpg">
+                    </div>
+                    <div class="arrivals_tag">
+                        <p>
+                        <h2>book name:</h2>
+                        <p>author:</p>
+                        <p>publiser:</p>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="arrivals_card">
+                    <div class="arrivals_image">
+                        <img src="image/arrival_2.jpg">
+                    </div>
+                    <div class="arrivals_tag">
+                        <p>
+                        <h2>book name:</h2>
+                        <p>author:</p>
+                        <p>publiser:</p>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="arrivals_card">
+                    <div class="arrivals_image">
+                        <img src="image/arrival_2.jpg">
+                    </div>
+                    <div class="arrivals_tag">
+                        <p>
+                        <h2>book name:</h2>
+                        <p>author:</p>
+                        <p>publiser:</p>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="arrivals_card">
+                    <div class="arrivals_image">
+                        <img src="image/arrival_2.jpg">
+                    </div>
+                    <div class="arrivals_tag">
+                        <p>
+                        <h2>book name:ashbasbasjhasajhbajhsbasjhb</h2>
+                        <p>author:asjknasjknasjkasnjkasnasjkn</p>
+                        <p>publiser:asklmasklmsklsmklsamlaskmlaskm</p>
+                        </p>
+
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="item">
-            <img src="image/img3.jpg">
-            <div class="content">
-                <p>design</p>
-                <h2>Slider 03</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="image/img4.jpg">
-            <div class="content">
-                <p>design</p>
-                <h2>Slider 04</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="image/img5.jpg">
-            <div class="content">
-                <p>design</p>
-                <h2>Slider 05</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.
-                </p>
-            </div>
+
         </div>
     </div>
-    <!-- button arrows -->
-    <div class="arrows">
-        <button id="prev"><</button>
-        <button id="next">></button>
-    </div>
-    <!-- thumbnail -->
-    <div class="thumbnail">
-        <div class="item active">
-            <img src="image/img1.png">
-            <div class="content">
-                Name Slider
-            </div>
-        </div>
-        <div class="item">
-            <img src="image/img2.jpg">
-            <div class="content">
-                Name Slider
-            </div>
-        </div>
-        <div class="item">
-            <img src="image/img3.jpg">
-            <div class="content">
-                Name Slider
-            </div>
-        </div>
-        <div class="item">
-            <img src="image/img4.jpg">
-            <div class="content">
-                Name Slider
-            </div>
-        </div>
-        <div class="item">
-            <img src="image/img5.jpg">
-            <div class="content">
-                Name Slider
-            </div>
-        </div>
-    </div>
-    </div>
-</div>
-<script src="js/lib/js_slider_library.js"></script>
-
-@endsection
-
-@section('main')
-
-<link rel="stylesheet" href="css/lib/stylelib.css">
-
-<!--About-->
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-<div class="about">
-
-<div class="about_tag">
-    <h1>About Us</h1>
-    <p style="font-size: 20px">
-        There is a library equipped with reference books and amenities to achieve its goal. The library contains more than 1,800 titles in various sciences, such as: Qur’anic sciences, hadith, jurisprudence, principles, translations, history, languages, translation, economics, management, computer science, and information technology. This is in addition to a number of educational publications, cultural periodicals, peer-reviewed journals, and scientific theses. Internet service and e-books are also available in the electronic resource room.
-Here on the website we provide the names of books and authors available in the library
-    </p>
-</div>
-
-</div>
-<hr style="background-color:  black;">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<!--Arrivals-->
-
-<div class="arrivals">
-<h1 style="text-align: center">Book</h1>
-<h2 style="text-align: center; direction: rtl">
-<form action="">
-    <label for="categories">اختر القسم:</label>
-    <BR></BR>
-    <select name="categories" id="categories">
-      <option value="S1">الحاسوب</option>
-      <option value="S2">الترجمة</option>
-      <option value="S3"> أدارة الأعمال</option>
-      <option value="S4">قانون</option>
-    </select>
-    <input type="submit" value="تحديد">
-  </form>
-</h2>
-<hr style="background-color:  black;">
-<br>
-<br>
-<div class="arrivals_box">
-    <div class="arrivals_card">
-        <div class="arrivals_image">
-            <img src="image/arrival_2.jpg">
-        </div>
-        <div class="arrivals_tag"> 
-            <p>
-               <h2>book name:شستنىشستنشسىتنشسىتنشسىتنشسىشستن</h2>
-                <p>author:شسمةشسنمةشسنمشسةنمشسةنمشسةمنشسةشسم</p>
-                <p>publiser:ششسمنةسنمشسةنمسةشسنمة</p>
-            </p>
-        
-        </div>
-    </div>
-
-    <div class="arrivals_card">
-        <div class="arrivals_image">
-            <img src="image/arrival_2.jpg">
-        </div>
-        <div class="arrivals_tag"> 
-            <p>
-               <h2>book name:</h2>
-                <p>author:</p>
-                <p>publiser:</p>
-            </p>
-        
-        </div>
-    </div>
-    <div class="arrivals_card">
-        <div class="arrivals_image">
-            <img src="image/arrival_2.jpg">
-        </div>
-        <div class="arrivals_tag"> 
-            <p>
-               <h2>book name:شنتىسشتنىسشتنشىشستنىشستنسىتنشسىستنىشسنتىشسنتسىتنىشستن</h2>
-                <p>author:سششسنمةشسنمشسةنمشسةشسنمةشسنمةشسنمشسةمنشسةنمشسة</p>
-                <p>publiser:شسمنةشسنمشسةمنشسةنمش</p>
-            </p>
-        
-        </div>
-    </div>
-    <div class="arrivals_card">
-        <div class="arrivals_image">
-            <img src="image/arrival_2.jpg">
-        </div>
-        <div class="arrivals_tag"> 
-            <p>
-               <h2>book name:</h2>
-                <p>author:</p>
-                <p>publiser:</p>
-            </p>
-        
-        </div>
-    </div>
-    <div class="arrivals_card">
-        <div class="arrivals_image">
-            <img src="image/arrival_2.jpg">
-        </div>
-        <div class="arrivals_tag"> 
-            <p>
-               <h2>book name:</h2>
-                <p>author:</p>
-                <p>publiser:</p>
-            </p>
-        
-        </div>
-    </div>
-    <div class="arrivals_card">
-        <div class="arrivals_image">
-            <img src="image/arrival_2.jpg">
-        </div>
-        <div class="arrivals_tag"> 
-            <p>
-               <h2>book name:</h2>
-                <p>author:</p>
-                <p>publiser:</p>
-            </p>
-        
-        </div>
-    </div>
-    <div class="arrivals_card">
-        <div class="arrivals_image">
-            <img src="image/arrival_2.jpg">
-        </div>
-        <div class="arrivals_tag"> 
-            <p>
-               <h2>book name:</h2>
-                <p>author:</p>
-                <p>publiser:</p>
-            </p>
-        
-        </div>
-    </div>
-    <div class="arrivals_card">
-        <div class="arrivals_image">
-            <img src="image/arrival_2.jpg">
-        </div>
-        <div class="arrivals_tag"> 
-            <p>
-               <h2>book name:ashbasbasjhasajhbajhsbasjhb</h2>
-                <p>author:asjknasjknasjkasnjkasnasjkn</p>
-                <p>publiser:asklmasklmsklsmklsamlaskmlaskm</p>
-            </p>
-        
-        </div>
-    </div>
-</div>
-
-</div>
-
 
 @endsection
