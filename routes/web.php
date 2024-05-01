@@ -27,17 +27,26 @@ Route::get('/student', function () {
 })->name('student');
 
 Route::get('/grades', function () {
+    return view('grades');
     // تعليمات للتعامل مع زر الدرجات
 })->name('grades');
 
 Route::get('/timetables', function () {
+    return view('timetables');
     // تعليمات للتعامل مع زر الجداول الدراسية
 })->name('timetables');
 
 Route::get('/studyplan', function () {
+    return view('studyplan');
 
 })->name('studyplan');
 
 Route::get('/college', function () {
 
 })->name('college');
+
+Route::get('/registration', function () {
+
+    return view('Electronic registration');
+})->name('college');
+

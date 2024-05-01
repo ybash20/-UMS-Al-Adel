@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lemonada', cursive;
+    direction: ltr;
 
 }
 
@@ -97,10 +98,6 @@ section .main .main_img img{
     left: 20px;
 }
 
-
-
-
-
 /*about*/
 
 .about{
@@ -112,9 +109,6 @@ section .main .main_img img{
     justify-content: space-around;
 }
 
-.about .about_image img{
-    width: 800px;
-}
 
 .about .about_tag h1{
     font-size: 50px;
@@ -122,30 +116,42 @@ section .main .main_img img{
     bottom: 35px;
 }
 
-.about .about_tag p{
-    line-height: 22px;
-    width: 650px;
+.about .about_tag p {
+    line-height: 40px;
+    width: 1080px;
     text-align: justify;
     margin-bottom: 15px;
-}
-
-.about .about_tag .about_btn{
-    padding: 10px 20px;
-    background: #089da1;
-    color: #fff;
-    text-decoration: none;
-    position: relative;
-    top: 50px;
+    font-size: 20px;
 }
 
 
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .about .about_tag h1 {
+        font-size: 22px;
+        bottom: initial;
+        text-align: center;
+    }
+
+    .about .about_tag p {
+        width: 100%;
+        font-size: 14px;
+        line-height: 30px;
+    }
+}
 
 /*arrivals*/
+
+
 
 .arrivals{
     width: 100%;
     height: 100vh;
-    margin-bottom: 35px;
+    margin-bottom: 30%;
 }
 
 .arrivals h1{
@@ -163,14 +169,14 @@ section .main .main_img img{
 }
 
 .arrivals .arrivals_box .arrivals_card{
-    width: 250px;
-    height: 340px;
+    width: auto;
+    height: auto;
     text-align: center;
     padding: 5px;
     border: 1px solid #919191;
     margin: auto 20px;
+    
 }
-
 .arrivals .arrivals_box .arrivals_card:hover{
     box-shadow: 0 0 5px #089da1;
 }
@@ -197,9 +203,18 @@ section .main .main_img img{
 }
 
 .arrivals .arrivals_box .arrivals_card .arrivals_tag p{
-    font-family: queen of camelot;
+    font-family: 'Lemonada', cursive;
+    font-size: 14px;
+    margin: 8px 0;
+    word-wrap: break-word;
+    text-align: start;
+}
+.arrivals .arrivals_box .arrivals_card .arrivals_tag h2{
+    font-family: 'Lemonada', cursive;
     font-size: 20px;
     margin: 8px 0;
+    word-wrap: break-word;
+    text-align: start;
 }
 
 .arrivals .arrivals_box .arrivals_card .arrivals_tag .arrivals_icon{
@@ -214,4 +229,38 @@ section .main .main_img img{
     color: #000;
 }
 
+
+@media (max-width: 480px) {
+    .arrivals {
+        height: auto;
+        margin-bottom: 0;
+    }
+    
+    .arrivals .arrivals_box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .arrivals .arrivals_box .arrivals_card {
+        width: 90%;
+        margin: 20px auto;
+    }
+    
+    .arrivals .arrivals_box .arrivals_card .arrivals_image {
+        display: none;
+    }
+    
+    .arrivals .arrivals_box .arrivals_card .arrivals_tag {
+        text-align: center;
+    }
+}
+
+
+/* 
+
+.imgbackground {
+    background-image: url(image/about.png);
+    background-size: auto;
+} */
 
