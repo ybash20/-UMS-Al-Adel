@@ -82,33 +82,17 @@
             padding: .2em .35em;
         }
 
-        html {
-            line-height: 1.15;
-            /* 1 */
-            -webkit-text-size-adjust: 100%;
-            /* 2 */
-        }
-
-        body {
+        .body {
             margin: 0;
         }
 
-        a {
+        .a {
             background-color: transparent;
         }
 
-        img {
+        .img {
             border-style: none;
         }
-
-        ::-webkit-file-upload-button {
-            -webkit-appearance: button;
-            /* 1 */
-            font: inherit;
-            /* 2 */
-        }
-
-        @supports (-ms-ime-align:auto) {}
 
         html {
             font-size: 62.5%
@@ -213,10 +197,6 @@
         input[type=number]:focus-visible,
         select.form-select:focus-visible {
             outline-color: #0084bd
-        }
-
-        main .card:has(.card_link.fill):hover .card_title {
-            color: #0084bd
         }
 
         footer.footer {
@@ -418,7 +398,7 @@
             background-color: hsl(var(--hue), 10%, 50%, 0.4)
         }
 
-        ul.inline {
+        .ul.inline {
             display: inline;
             padding-left: 0;
         }
@@ -428,7 +408,7 @@
             padding-left: 15px;
         }
 
-        ul.inline li {
+        .ul.inline li {
             display: inline;
             padding: 0 0.5em;
             list-style-type: none;
@@ -533,29 +513,18 @@
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         }
 
-        ul {
+        .ul {
             padding-left: 2rem;
         }
 
-        ul {
+        .ul {
             margin-top: 0;
             margin-bottom: 1rem;
         }
 
 
-        img {
+        .img {
             vertical-align: middle;
-        }
-
-        button:focus:not(:focus-visible) {
-            outline: 0;
-        }
-
-        button:not(:disabled),
-        [type="button"]:not(:disabled),
-        [type="reset"]:not(:disabled),
-        [type="submit"]:not(:disabled) {
-            cursor: pointer;
         }
 
         ::-moz-focus-inner {
@@ -583,10 +552,6 @@
 
         ::-webkit-color-swatch-wrapper {
             padding: 0;
-        }
-
-        ::file-selector-button {
-            font: inherit;
         }
 
         ::-webkit-file-upload-button {
@@ -725,7 +690,7 @@
 
         footer {
             text-align: right;
-            padding: 2rem 0;
+            padding: 2rem 0 0 ;
         }
 
         footer .region-footer {
@@ -747,49 +712,48 @@
             background-repeat: no-repeat;
         }
     </style>
-
-    <div dir="rtl" class="h-100">
+    <div dir="rtl" class="h-100 html">
         <div class="body d-flex flex-column h-100">
             <div class="content">
                 <footer class="footer">
                     <div class="region region-footer">
                         <div id="block-socialmedialinks"
                             class="social-block block-social-media-links block block-social-media-links-block">
-                            <ul class="social-media-links--platforms platforms inline horizontal">
+                            <ul class=" ul social-media-links--platforms platforms inline horizontal">
                                 <li>
-                                    <a class="social-media-link-icon--twitter" href="https://www.twitter.com/_KSU"
+                                    <a class="a social-media-link-icon--twitter" href="https://www.twitter.com/_KSU"
                                         target="_blank" rel="nofollow">
                                         <span class="fab fa-twitter fa-lg"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="social-media-link-icon--facebook"
+                                    <a class=" a social-media-link-icon--facebook"
                                         href="https://www.facebook.com/King.Saud.University" target="_blank" rel="nofollow">
                                         <span class="fab fa-facebook fa-lg"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="social-media-link-icon--tiktok" href="https://www.tiktok.com/@ksu1957"
+                                    <a class=" a social-media-link-icon--tiktok" href="https://www.tiktok.com/@ksu1957"
                                         target="_blank" rel="nofollow">
                                         <span class="fab fa-tiktok fa-lg"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="social-media-link-icon--instagram"
+                                    <a class=" a social-media-link-icon--instagram"
                                         href="https://www.instagram.com/king_saud_university" target="_blank"
                                         rel="nofollow">
                                         <span class="fab fa-instagram fa-lg"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="social-media-link-icon--linkedin"
+                                    <a class="a social-media-link-icon--linkedin"
                                         href="https://www.linkedin.com/school/king-saud-university" target="_blank"
                                         rel="nofollow">
                                         <span class="fab fa-linkedin fa-lg"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="social-media-link-icon--youtube"
+                                    <a class="a social-media-link-icon--youtube"
                                         href="https://www.youtube.com/user/pdksuchannel" target="_blank" rel="nofollow">
                                         <span class="fab fa-youtube fa-lg"></span>
                                     </a>
@@ -805,15 +769,18 @@
                                         <div class="section_content_container">
                                             <h3 class="section_title">تواصل معنا</h3>
 
-                                            <ul class="section_list">
+                                            <ul class="ul section_list">
                                                 <li>
-                                                    <a href="https://ksu.edu.sa/ar/Contact_Us"><span>اتصل بنا</span></a>
+                                                    <a class="a" href="https://ksu.edu.sa/ar/Contact_Us"><span>اتصل
+                                                            بنا</span></a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://ksu.edu.sa/ar/node/3035"><span>موقع الجامعة</span></a>
+                                                    <a class="a" href="https://ksu.edu.sa/ar/node/3035"><span>موقع
+                                                            الجامعة</span></a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://dfpa.ksu.edu.sa/ar/jobs"><span>التوظيف</span></a>
+                                                    <a class="a"
+                                                        href="https://dfpa.ksu.edu.sa/ar/jobs"><span>التوظيف</span></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -821,7 +788,7 @@
                                     <div class="section applications">
                                         <div class="section_content_container">
                                             <h3 class="section_title">تطبيقات الجامعة</h3>
-                                            <ul class="section_list">
+                                            <ul class="ul section_list">
                                                 <li>
                                                     <span>الخدمات الالكترونية للمنسوبين</span>
                                                 </li>
@@ -837,23 +804,25 @@
                                     <div class="section contacts">
                                         <div class="section_content_container">
                                             <h3 class="section_title">روابط مهمة</h3>
-                                            <ul class="section_list">
+                                            <ul class="ul section_list">
                                                 <li>
-                                                    <a href="https://ksu.edu.sa/ar/node/3043"><span>السياسات
+                                                    <a class="a" href="https://ksu.edu.sa/ar/node/3043"><span>السياسات
                                                             والأنظمة</span></a>
                                                 </li>
                                                 <li>
-                                                    <a
+                                                    <a class="a"
                                                         href="https://ksu.edu.sa/ar/sustainability"><span>الاستدامة</span></a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://data.ksu.edu.sa/ar"><span>البيانات المفتوحة</span></a>
+                                                    <a class="a" href="https://data.ksu.edu.sa/ar"><span>البيانات
+                                                            المفتوحة</span></a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="section stars">
-                                        <a href="https://www.topuniversities.com/universities/king-saud-university"
+                                        <a class="a"
+                                            href="https://www.topuniversities.com/universities/king-saud-university"
                                             rel="noreferrer" target="_blank">
                                             <img src="{{ asset('vendor/crudbooster/assets/LOGO.png') }}" />
                                         </a>
@@ -866,27 +835,27 @@
                         <div id="block-copyrightfooter" class="copyright-footer block block-copyright-footer">
                             <?php
                             $currentYear = date('Y'); // الحصول على السنة الحالية
-                            
+
                             echo "حقوق &copy; جميع الحقوق محفوظة. جامعة العادل. 2012 - $currentYear";
                             ?>
-                        </div>
+                            </div>
                         <nav role="navigation" aria-labelledby="block-footer-menu" id="block-footer"
                             class="copyright-links block block-menu navigation menu--footer">
                             <h5 class="visually-hidden" id="block-footer-menu">Footer</h5>
-                            <ul data-block="bottom_footer" class="nav navbar-nav">
+                            <ul data-block="ul bottom_footer" class="nav navbar-nav">
                                 <li class="nav-item">
-                                    <a href="ar/copyright.html" class="nav-link"
+                                    <a class="a" href="ar/copyright.html" class="nav-link"
                                         data-drupal-link-system-path="node/3070">حقوق النشر
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="ar/privacy.html" class="nav-link"
+                                    <a class="a" href="ar/privacy.html" class="nav-link"
                                         data-drupal-link-system-path="node/2921">سياسة الخصوصية
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="ar/terms.html" class="nav-link" data-drupal-link-system-path="node/3071">شروط
-                                        الاستخدام</a>
+                                    <a class="a" href="ar/terms.html" class="nav-link"
+                                        data-drupal-link-system-path="node/3071">شروط الاستخدام</a>
                                 </li>
                             </ul>
                         </nav>
@@ -895,5 +864,4 @@
             </div>
         </div>
     </div>
-
 @show
