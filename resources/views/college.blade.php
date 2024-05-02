@@ -1,4 +1,8 @@
+@extends('layouts.master')
+@section('title', 'Colleges')
 
+
+@section('main')
 
     <!DOCTYPE html>
     <html lang="en">
@@ -8,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Colleges</title>
         <style>
-            body {
+            .body_form_college {
                 font-family: Arial, sans-serif;
                 background-color: #f4f4f4;
                 margin: 0;
@@ -38,24 +42,24 @@
                 transform: translateY(-5px);
             }
 
-            figure {
+            .figure {
                 margin: 0;
             }
 
-            figcaption {
+            .figcaption {
                 font-size: 1.5em;
                 margin: 10px 0;
                 color: #333;
             }
 
-            p {
+            .p {
                 font-size: 1.2em;
                 color: #555;
             }
         </style>
     </head>
 
-    <body>
+    <body class="body_form_college">
 
         <div class="container">
             <div class="college">
@@ -73,9 +77,9 @@
             </div>
 
             <div class="college">
-                <figure>
-                    <figcaption>Languages College</figcaption>
-                    <p>Specialization: Languages</p>
+                <figure class="figure">
+                    <figcaption class="figcaption">Languages College</figcaption>
+                    <p class="p">Specialization: Languages</p>
                 </figure>
             </div>
 
@@ -108,4 +112,4 @@
 
     </html>
 
-
+@endsection
