@@ -20,7 +20,7 @@
     </div>
 
     <main>
-        @include('layouts.news')
+        {{-- @include('layouts.news') --}}
     </main>
 
     <footer>
