@@ -1,4 +1,4 @@
-* {
+.main_continar {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,7 +6,7 @@
     direction: ltr;
 
 }
-
+/* 
 @media (max-width: 768px) {
     body {
         background-color: #f2f2f2;
@@ -52,7 +52,7 @@
     .main-content p {
         font-size: 14px;
     }
-}
+} */
 section .main{
     display: flex;
     align-items: center;
@@ -124,7 +124,7 @@ section .main .main_img img{
     font-size: 20px;
 }
 
-
+/* 
 @media (max-width: 768px) {
     .about {
         flex-direction: column;
@@ -142,18 +142,18 @@ section .main .main_img img{
         font-size: 14px;
         line-height: 30px;
     }
-}
+} */
 
 /*arrivals*/
 
 
 
-.arrivals{
+/* .arrivals{
     width: 100%;
     height: 100vh;
-    margin-bottom: 30%;
-}
-
+    margin-bottom: 2%;
+} */
+/* 
 .arrivals h1{
     font-size: 50px;
     text-align: center;
@@ -227,34 +227,10 @@ section .main .main_img img{
     border: 2px solid #089da1;
     text-decoration: none;
     color: #000;
-}
+} */
 
 
-@media (max-width: 480px) {
-    .arrivals {
-        height: auto;
-        margin-bottom: 0;
-    }
-    
-    .arrivals .arrivals_box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .arrivals .arrivals_box .arrivals_card {
-        width: 90%;
-        margin: 20px auto;
-    }
-    
-    .arrivals .arrivals_box .arrivals_card .arrivals_image {
-        display: none;
-    }
-    
-    .arrivals .arrivals_box .arrivals_card .arrivals_tag {
-        text-align: center;
-    }
-}
+
 
 
 /* 
@@ -264,3 +240,161 @@ section .main .main_img img{
     background-size: auto;
 } */
 
+
+
+
+  .row {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    align-items: center;
+    border: none;
+    flex-wrap: wrap;
+  }
+  
+  .book {
+    text-align: start;
+    margin-right: 10px;
+    word-break: break-all; /* تمت إضافة هذه الخاصية */
+    max-width: 50ch; /* تمت إضافة هذه الخاصية */
+  }
+  
+  .book:last-child {
+    margin-right: 0;
+  }
+  
+  .book img {
+    width: 150px;
+    height: 200px;
+    margin-bottom: 10px;
+  }
+  
+  .book h1,
+  .book h2,
+  .book h3,
+  .book h4,
+  .book p {
+    margin: 8px 0;
+    font-family: 'Lemonada', cursive;
+    word-wrap: break-word;
+    text-align: start;
+  }
+  
+  .book h1 {
+    font-size: 24px;
+  }
+  
+  .book h2 {
+    font-size: 20px;
+  }
+  
+  .book h3 {
+    font-size: 18px;
+  }
+  
+  .book h4 {
+    font-size: 16px;
+  }
+  
+  .book p {
+    font-size: 14px;
+  }
+  
+  .read-more-button {
+    right: 0;
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    line-height: 1;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .read-more-button:hover {
+    background-color: #45a049;
+  }
+  
+  .read-more-button:active {
+    background-color: #408140;
+  }
+  
+
+
+hr {
+  border-top: 1px solid black;
+  margin-top: 5px;
+}
+
+
+@media (max-width: 500px) {
+
+  
+    .main_continar{
+        width: auto;
+        height: auto;
+        font-family: 'Lemonada', cursive;
+    }
+    .about {
+        padding: 5px;
+    }
+
+    .about .about_tag h1 {
+        font-size: 22px;
+        bottom: initial;
+        text-align: center;
+    }
+
+    .about .about_tag p {
+        width: 100%;
+        font-size: 14px;
+        line-height: 30px;
+        text-align: left;
+    }
+    
+  .row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    align-items: center;
+    border: none;
+    flex-wrap: wrap;
+  }
+  
+  .book {
+    text-align: start;
+    margin-right: 10px;
+    word-break: break-all; /* تمت إضافة هذه الخاصية */
+    max-width: 50ch; /* تمت إضافة هذه الخاصية */
+  }
+  
+  .book:last-child {
+    margin-right: 0;
+  }
+  
+  .book img {
+    width: 150px;
+    height: 200px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .read-more-button{
+    justify-content: center;
+    align-items: end;
+    /* overflow: hidden; */
+    margin-top:20px ;
+    display: flex;
+   
+
+  }
+  
+
+}
