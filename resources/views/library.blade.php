@@ -1,6 +1,10 @@
 @extends('layouts.master')
 @section('title', 'Library')
 
+
+     
+
+
 <!-- slider -->
 @section('divcontent')
         <link rel="stylesheet" href="css/lib/styleslider.css">
@@ -115,14 +119,10 @@
         <link rel="stylesheet" href="css/lib/stylelib.css">
 
         <!--About-->
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+   <br>
         <br>
 
-
+<div class="main_continar">
         <div class="about">
 
             <div class="about_tag">
@@ -164,117 +164,77 @@
                 </form>
             </h2>
             <hr style="background-color:  black;">
-            <br>
-            <br>
-            <div class="arrivals_box">
-                <div class="arrivals_card">
-                    <div class="arrivals_image">
-                        <img src="image/arrival_2.jpg">
-                    </div>
-                    <div class="arrivals_tag">
-                        <p>
-                        <h2>book name:شستنىشستنشسىتنشسىتنشسىتنشسىشستن</h2>
-                        <p>author:شسمةشسنمةشسنمشسةنمشسةنمشسةمنشسةشسم</p>
-                        <p>publiser:ششسمنةسنمشسةنمسةشسنمة</p>
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="arrivals_card">
-                    <div class="arrivals_image">
-                        <img src="image/arrival_2.jpg">
-                    </div>
-                    <div class="arrivals_tag">
-                        <p>
-                        <h2>book name:</h2>
-                        <p>author:</p>
-                        <p>publiser:</p>
-                        </p>
-
-                    </div>
-                </div>
-                <div class="arrivals_card">
-                    <div class="arrivals_image">
-                        <img src="image/arrival_2.jpg">
-                    </div>
-                    <div class="arrivals_tag">
-                        <p>
-                        <h2>book name:شنتىسشتنىسشتنشىشستنىشستنسىتنشسىستنىشسنتىشسنتسىتنىشستن</h2>
-                        <p>author:سششسنمةشسنمشسةنمشسةشسنمةشسنمةشسنمشسةمنشسةنمشسة</p>
-                        <p>publiser:شسمنةشسنمشسةمنشسةنمش</p>
-                        </p>
-
-                    </div>
-                </div>
-                <div class="arrivals_card">
-                    <div class="arrivals_image">
-                        <img src="image/arrival_2.jpg">
-                    </div>
-                    <div class="arrivals_tag">
-                        <p>
-                        <h2>book name:</h2>
-                        <p>author:</p>
-                        <p>publiser:</p>
-                        </p>
-
-                    </div>
-                </div>
-                <div class="arrivals_card">
-                    <div class="arrivals_image">
-                        <img src="image/arrival_2.jpg">
-                    </div>
-                    <div class="arrivals_tag">
-                        <p>
-                        <h2>book name:</h2>
-                        <p>author:</p>
-                        <p>publiser:</p>
-                        </p>
-
-                    </div>
-                </div>
-                <div class="arrivals_card">
-                    <div class="arrivals_image">
-                        <img src="image/arrival_2.jpg">
-                    </div>
-                    <div class="arrivals_tag">
-                        <p>
-                        <h2>book name:</h2>
-                        <p>author:</p>
-                        <p>publiser:</p>
-                        </p>
-
-                    </div>
-                </div>
-                <div class="arrivals_card">
-                    <div class="arrivals_image">
-                        <img src="image/arrival_2.jpg">
-                    </div>
-                    <div class="arrivals_tag">
-                        <p>
-                        <h2>book name:</h2>
-                        <p>author:</p>
-                        <p>publiser:</p>
-                        </p>
-
-                    </div>
-                </div>
-                <div class="arrivals_card">
-                    <div class="arrivals_image">
-                        <img src="image/arrival_2.jpg">
-                    </div>
-                    <div class="arrivals_tag">
-                        <p>
-                        <h2>book name:ashbasbasjhasajhbajhsbasjhb</h2>
-                        <p>author:asjknasjknasjkasnjkasnasjkn</p>
-                        <p>publiser:asklmasklmsklsmklsamlaskmlaskm</p>
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-
+       
         </div>
-    </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              var readMoreButton = document.querySelector(".read-more-button");
+              readMoreButton.addEventListener("click", function() {
+                // إجراء الإجراء الذي ترغب فيه عند النقر على الزر "انقر للمزيد" هنا
+                console.log("تم النقر على الزر!");
+              });
+            });
+          </script>
+          
+        <div class="bkrbook">
+            <div class="row">
+                <div class="book">
+                  <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                  <h3>hshasuhasjkaskjsdklmaklsmklamklasmasklmasklmaslkmkaklmsklasmklashasjkashasjksjkhjk</h3>
+                  <p>اسم المؤلف 1</p>
+                </div>
+                <div class="book">
+                  <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                  <h3>اسم hshasuhasjkaskjsdklmaklsmklamklasmasklmasklmaslkmkaklmsklasmklashasjkashasjksjkhjk 2</h3>
+                  <p>اسم المؤلف 2</p>
+                </div>
+                <div class="book">
+                  <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                  <h3>اسمhshasuhasjkaskjsdklmaklsmklamklasmasklmasklmaslkmkaklmsklasmklashasjkashasjksjkhjk الكتاب 3</h3>
+                  <p>اسم المؤلف 3</p>
+                </div>
+                <button class="read-more-button">Click More</button>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="book">
+                  <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                  <h3>اسم الكتاب 4</h3>
+                  <p>اسم المؤلف 4</p>
+                </div>
+                <div class="book">
+                  <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                  <h3>اسمhshasuhasjkaskjsdklmaklsmklamklasmasklmasklmaslkmkaklmsklasmklashasjkashasjksjkhjkاسمhshasuhasjkaskjsdklmaklsmklamklasmasklmasklmaslkmkaklmsklasmklashasjkashasjksjkhjkاسمhshasuhasjkaskjsdklmaklsmklamklasmasklmasklmaslkmkaklmsklasmklashasjkashasjksjkhjk</h3>
+                  <p>اسم المؤلف 5</p>
+                </div>
+                <div class="book">
+                  <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                  <h3>اسم الكتاب 6</h3>
+                  <p>اسم المؤلف 6</p>
+                </div>
+                <button class="read-more-button">Click More</button>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="book">
+                  <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                  <h3>اسم الكتاب 7</h3>
+                  <p>اسم المؤلف 7</p>
+                </div>
+                <div class="book">
+                  <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                  <h3>اسم الكتاب 8</h3>
+                  <p>اسم المؤلف 8</p>
+                </div>
+                <div class="book">
+                  <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                  <h3>اسم الكتاب 9</h3>
+                  <p>اسم المؤلف 9</p>
+                </div>
+                <button class="read-more-button">Click More</button>
+              </div>
+        </div>
+</div>
 
 @endsection
