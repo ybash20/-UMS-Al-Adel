@@ -23,6 +23,7 @@ svg{
     position: relative;
     z-index: 100;
 }
+/* 
 header .logo{
     font-weight: bold;
 }
@@ -34,8 +35,10 @@ header .menu{
     justify-content: center;
     gap: 20px;
     font-weight: 500;
-}
+} */
 /* css slider */
+
+
 .slider{
     background-color: #010101;
     color: #eee;
@@ -107,12 +110,14 @@ header .menu{
 .slider .list .item.active p:nth-child(3){
     animation-duration: 1.3s;
 }
+
 .arrows{
     position: absolute;
     top: 30%;
     right: 50px;
     z-index: 100;
 }
+
 .arrows button{
     background-color: #eee5;
     border: none;
@@ -128,6 +133,8 @@ header .menu{
     background-color: #eee;
     color: black;
 }
+
+
 .thumbnail{
     position: absolute;
     bottom: 50px;
@@ -144,6 +151,7 @@ header .menu{
 .thumbnail::-webkit-scrollbar{
     width: 0;
 }
+
 .thumbnail .item{
     width: 150px;
     height: 220px;
@@ -151,6 +159,7 @@ header .menu{
     transition: .5s;
     flex-shrink: 0;
 }
+
 .thumbnail .item img{
     width: 100%;
     height: 100%;
@@ -165,13 +174,16 @@ header .menu{
     inset: auto 10px 10px 10px;
 }
 @media screen and (max-width: 678px) {
+    
     .thumbnail{
-        justify-content: start;
+        display: none;
     }
-    .slider .list .item .content h2{
+    /* .slider .list .item .content h2{
         font-size: 60px;
-    }
+    } */
     .arrows{
-        top: 25%;
+        top: 80%;
+        right: 40%;
+        
     }
 }
