@@ -1,5 +1,13 @@
 @section('navbar')
     <style>
+        header {
+            width: 1200px;
+            max-width: 90%;
+            margin: auto;
+            position: relative;
+            z-index: 100;
+        }
+
         @font-face {
             font-family: 'icomoon';
             src: url('fonts/icomoon/fonts/icomoon.eot');
@@ -1015,7 +1023,6 @@
             position: fixed;
             right: 0;
             z-index: 2000;
-            padding-top: 20px;
             background: #fff;
             height: calc(100vh);
             -webkit-transform: translateX(110%);
@@ -1225,7 +1232,8 @@
             display: flex;
             justify-content: flex-end;
         }
-        .fs-20{
+
+        .fs-20 {
             font-size: 20px;
         }
     </style>
@@ -1256,10 +1264,14 @@
                         </div>
                         <div class="col-6 text-right">
                             <div class="mr-auto d-end-flex">
-                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span class="icon-twitter"></span></a>
-                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span class="icon-facebook"></span></a>
-                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span class="icon-linkedin"></span></a>
-                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span class="icon-instagram"></span></a>
+                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span
+                                        class="icon-twitter"></span></a>
+                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span
+                                        class="icon-facebook"></span></a>
+                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span
+                                        class="icon-linkedin"></span></a>
+                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span
+                                        class="icon-instagram"></span></a>
                             </div>
                         </div>
                     </div>
