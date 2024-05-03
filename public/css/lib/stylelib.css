@@ -6,7 +6,7 @@
     direction: ltr;
 
 }
-/* 
+/*
 @media (max-width: 768px) {
     body {
         background-color: #f2f2f2;
@@ -118,13 +118,12 @@ section .main .main_img img{
 
 .about .about_tag p {
     line-height: 40px;
-    width: 1080px;
     text-align: justify;
     margin-bottom: 15px;
     font-size: 20px;
 }
 
-/* 
+/*
 @media (max-width: 768px) {
     .about {
         flex-direction: column;
@@ -153,7 +152,7 @@ section .main .main_img img{
     height: 100vh;
     margin-bottom: 2%;
 } */
-/* 
+/*
 .arrivals h1{
     font-size: 50px;
     text-align: center;
@@ -175,7 +174,7 @@ section .main .main_img img{
     padding: 5px;
     border: 1px solid #919191;
     margin: auto 20px;
-    
+
 }
 .arrivals .arrivals_box .arrivals_card:hover{
     box-shadow: 0 0 5px #089da1;
@@ -233,7 +232,7 @@ section .main .main_img img{
 
 
 
-/* 
+/*
 
 .imgbackground {
     background-image: url(image/about.png);
@@ -251,24 +250,24 @@ section .main .main_img img{
     border: none;
     flex-wrap: wrap;
   }
-  
+
   .book {
     text-align: start;
     margin-right: 10px;
     word-break: break-all; /* تمت إضافة هذه الخاصية */
     max-width: 50ch; /* تمت إضافة هذه الخاصية */
   }
-  
+
   .book:last-child {
     margin-right: 0;
   }
-  
+
   .book img {
     width: 150px;
     height: 200px;
     margin-bottom: 10px;
   }
-  
+
   .book h1,
   .book h2,
   .book h3,
@@ -279,27 +278,27 @@ section .main .main_img img{
     word-wrap: break-word;
     text-align: start;
   }
-  
+
   .book h1 {
     font-size: 24px;
   }
-  
+
   .book h2 {
     font-size: 20px;
   }
-  
+
   .book h3 {
     font-size: 18px;
   }
-  
+
   .book h4 {
     font-size: 16px;
   }
-  
+
   .book p {
     font-size: 14px;
   }
-  
+
   .read-more-button {
     right: 0;
     background-color: #4CAF50;
@@ -316,15 +315,15 @@ section .main .main_img img{
     justify-content: center;
     align-items: center;
   }
-  
+
   .read-more-button:hover {
     background-color: #45a049;
   }
-  
+
   .read-more-button:active {
     background-color: #408140;
   }
-  
+
 
 
 hr {
@@ -335,7 +334,7 @@ hr {
 
 @media (max-width: 500px) {
 
-  
+
     .main_continar{
         width: auto;
         height: auto;
@@ -357,7 +356,7 @@ hr {
         line-height: 30px;
         text-align: left;
     }
-    
+
   .row {
     display: flex;
     justify-content: center;
@@ -366,18 +365,18 @@ hr {
     border: none;
     flex-wrap: wrap;
   }
-  
+
   .book {
     text-align: start;
     margin-right: 10px;
     word-break: break-all; /* تمت إضافة هذه الخاصية */
     max-width: 50ch; /* تمت إضافة هذه الخاصية */
   }
-  
+
   .book:last-child {
     margin-right: 0;
   }
-  
+
   .book img {
     width: 150px;
     height: 200px;
@@ -392,9 +391,9 @@ hr {
     /* overflow: hidden; */
     margin-top:20px ;
     display: flex;
-   
+
 
   }
-  
+
 
 }
