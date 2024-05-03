@@ -149,7 +149,8 @@
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
         }
-        body{
+
+        body {
             margin: 0;
         }
 
@@ -248,14 +249,12 @@
             }
         }
 
-        .row {
+        .header_row {
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
             -ms-flex-wrap: wrap;
             flex-wrap: wrap;
-            margin-right: -15px;
-            margin-left: -15px;
         }
 
         .col-2,
@@ -767,7 +766,7 @@
                 size: a3;
             }
 
-            .body {
+            .bodyheader {
                 min-width: 992px !important;
             }
 
@@ -819,7 +818,6 @@
         .site-navbar .site-logo {
             font-weight: 200;
             line-height: 0;
-            top: -7px;
             position: relative;
         }
 
@@ -847,7 +845,7 @@
         }
 
         .site-navbar .site-navigation .site-menu>li>a {
-            padding: 20px 10px;
+            padding: 10px 5px;
             color: rgba(255, 255, 255, 0.6);
             font-size: 15px;
             text-decoration: none !important;
@@ -1045,8 +1043,6 @@
 
         .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-close {
             float: right;
-            /* margin-top: 8px;  */
-            padding-top: 25px;
         }
 
         .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-close span {
@@ -1219,6 +1215,19 @@
         .sticky-wrapper .site-navbar ul li.active a {
             color: #fff;
         }
+
+        .ico_pr {
+            padding-right: 0.75rem;
+            padding-left: 0.75rem
+        }
+
+        .d-end-flex {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .fs-20{
+            font-size: 20px;
+        }
     </style>
     <div class="bodyheader headerhtml">
         <div class="site-mobile-menu site-navbar-target">
@@ -1232,7 +1241,7 @@
         <div class="site-navbar-wrap">
             <div class="site-navbar-top">
                 <div class="container py-3">
-                    <div class="row align-items-center">
+                    <div class="header_row align-items-center">
                         <div class="col-6">
                             <div class="d-flex mr-auto">
                                 <a href="#" class="header_a d-flex align-items-center mr-4">
@@ -1246,11 +1255,11 @@
                             </div>
                         </div>
                         <div class="col-6 text-right">
-                            <div class="mr-auto">
-                                <a href="#" class="header_a p-2 pl-0"><span class="icon-twitter"></span></a>
-                                <a href="#" class="header_a p-2 pl-0"><span class="icon-facebook"></span></a>
-                                <a href="#" class="header_a p-2 pl-0"><span class="icon-linkedin"></span></a>
-                                <a href="#" class="header_a p-2 pl-0"><span class="icon-instagram"></span></a>
+                            <div class="mr-auto d-end-flex">
+                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span class="icon-twitter"></span></a>
+                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span class="icon-facebook"></span></a>
+                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span class="icon-linkedin"></span></a>
+                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span class="icon-instagram"></span></a>
                             </div>
                         </div>
                     </div>
@@ -1258,7 +1267,7 @@
             </div>
             <div class="site-navbar site-navbar-target js-sticky-header">
                 <div class="container">
-                    <div class="row align-items-center">
+                    <div class="header_row align-items-center">
                         <div class="col-2">
                             <h1 class="headerh1 my-0 site-logo"><a class="header_a" href="index.html">Brand</a></h1>
                         </div>
@@ -1266,7 +1275,7 @@
                             <nav class="nav site-navigation text-right" role="navigation">
                                 <div class="container">
                                     <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
-                                            class="header_a site-menu-toggle js-menu-toggle text-white"><span
+                                            class="header_a site-menu-toggle js-menu-toggle text-white fs-20"><span
                                                 class="icon-menu"></span></a></div>
                                     <ul class="header_ul site-menu main-menu js-clone-nav d-none d-lg-block">
                                         <li class="active"><a href="#home-section" class="header_a nav-link">Home</a></li>
