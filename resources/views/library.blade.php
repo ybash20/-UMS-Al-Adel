@@ -66,42 +66,8 @@
                 </div>
                 <!-- button arrows -->
                 <div class="arrows">
-                    <button id="prev">
-                        < </button>
-                            <button id="next">></button>
-                </div>
-                <!-- thumbnail -->
-                <div class="thumbnail">
-                    <div class="item active">
-                        <img src="image/img1.png">
-                        <div class="content">
-                            Name Slider
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="image/img2.jpg">
-                        <div class="content">
-                            Name Slider
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="image/img3.jpg">
-                        <div class="content">
-                            Name Slider
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="image/img4.jpg">
-                        <div class="content">
-                            Name Slider
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="image/img5.jpg">
-                        <div class="content">
-                            Name Slider
-                        </div>
-                    </div>
+                    <button id="prev"><</button>
+                    <button id="next">></button>
                 </div>
             </div>
         </div>

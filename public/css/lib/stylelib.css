@@ -6,30 +6,8 @@
     direction: ltr;
 
 }
-/*
+
 @media (max-width: 768px) {
-    body {
-        background-color: #f2f2f2;
-    }
-
-    .container {
-        max-width: 100%;
-        padding: 10px;
-    }
-
-    .header {
-        padding: 10px;
-    }
-
-    .header h1 {
-        font-size: 20px;
-        margin-bottom: 5px;
-    }
-
-    .header p {
-        font-size: 12px;
-    }
-
     .main {
         flex-direction: column;
         padding: 10px;
@@ -52,8 +30,9 @@
     .main-content p {
         font-size: 14px;
     }
-} */
-section .main{
+}
+
+section .main {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -61,18 +40,18 @@ section .main{
     top: 10%;
 }
 
-section .main h1{
+section .main h1 {
     position: relative;
     font-size: 55px;
     top: 80px;
     left: 25px;
 }
 
-section .main h1 span{
+section .main h1 span {
     color: #089da1;
 }
 
-section .main p{
+section .main p {
     width: 650px;
     text-align: justify;
     line-height: 22px;
@@ -81,7 +60,7 @@ section .main p{
     left: 25px;
 }
 
-section .main .main_tag .main_btn{
+section .main .main_tag .main_btn {
     background: #089da1;
     padding: 10px 20px;
     position: relative;
@@ -91,7 +70,7 @@ section .main .main_tag .main_btn{
     text-decoration: none;
 }
 
-section .main .main_img img{
+section .main .main_img img {
     width: 780px;
     position: relative;
     top: 90px;
@@ -100,7 +79,7 @@ section .main .main_img img{
 
 /*about*/
 
-.about{
+.about {
     width: 100%;
     height: auto;
     padding: 20px;
@@ -110,7 +89,7 @@ section .main .main_img img{
 }
 
 
-.about .about_tag h1{
+.about .about_tag h1 {
     font-size: 50px;
     position: relative;
     bottom: 35px;
@@ -123,7 +102,7 @@ section .main .main_img img{
     font-size: 20px;
 }
 
-/*
+
 @media (max-width: 768px) {
     .about {
         flex-direction: column;
@@ -141,25 +120,24 @@ section .main .main_img img{
         font-size: 14px;
         line-height: 30px;
     }
-} */
+}
 
 /*arrivals*/
 
 
 
-/* .arrivals{
+.arrivals {
     width: 100%;
-    height: 100vh;
     margin-bottom: 2%;
-} */
-/*
-.arrivals h1{
+}
+
+.arrivals h1 {
     font-size: 50px;
     text-align: center;
     margin-bottom: 35px;
 }
 
-.arrivals .arrivals_box{
+.arrivals .arrivals_box {
     width: 95%;
     margin: 0 auto;
     display: grid;
@@ -167,7 +145,7 @@ section .main .main_img img{
     grid-gap: 25px 0;
 }
 
-.arrivals .arrivals_box .arrivals_card{
+.arrivals .arrivals_box .arrivals_card {
     width: auto;
     height: auto;
     text-align: center;
@@ -176,20 +154,21 @@ section .main .main_img img{
     margin: auto 20px;
 
 }
-.arrivals .arrivals_box .arrivals_card:hover{
+
+.arrivals .arrivals_box .arrivals_card:hover {
     box-shadow: 0 0 5px #089da1;
 }
 
-.arrivals .arrivals_box .arrivals_card .arrivals_image{
+.arrivals .arrivals_box .arrivals_card .arrivals_image {
     width: 150px;
     height: 220px;
     margin: 0 auto;
     cursor: pointer;
-    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 }
 
-.arrivals .arrivals_box .arrivals_card .arrivals_image img{
+.arrivals .arrivals_box .arrivals_card .arrivals_image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -197,18 +176,19 @@ section .main .main_img img{
     transition: 0.3s;
 }
 
-.arrivals .arrivals_box .arrivals_card:hover .arrivals_image img{
+.arrivals .arrivals_box .arrivals_card:hover .arrivals_image img {
     transform: scale(1.1);
 }
 
-.arrivals .arrivals_box .arrivals_card .arrivals_tag p{
+.arrivals .arrivals_box .arrivals_card .arrivals_tag p {
     font-family: 'Lemonada', cursive;
     font-size: 14px;
     margin: 8px 0;
     word-wrap: break-word;
     text-align: start;
 }
-.arrivals .arrivals_box .arrivals_card .arrivals_tag h2{
+
+.arrivals .arrivals_box .arrivals_card .arrivals_tag h2 {
     font-family: 'Lemonada', cursive;
     font-size: 20px;
     margin: 8px 0;
@@ -216,90 +196,78 @@ section .main .main_img img{
     text-align: start;
 }
 
-.arrivals .arrivals_box .arrivals_card .arrivals_tag .arrivals_icon{
+.arrivals .arrivals_box .arrivals_card .arrivals_tag .arrivals_icon {
     color: #089da1;
     margin-bottom: 18px;
 }
 
-.arrivals .arrivals_box .arrivals_card .arrivals_tag .arrivals_btn{
+.arrivals .arrivals_box .arrivals_card .arrivals_tag .arrivals_btn {
     padding: 8px 20px;
     border: 2px solid #089da1;
     text-decoration: none;
     color: #000;
-} */
+}
 
-
-
-
-
-/*
-
-.imgbackground {
-    background-image: url(image/about.png);
-    background-size: auto;
-} */
-
-
-
-
-  .row {
+.row {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 20px;
     align-items: center;
     border: none;
     flex-wrap: wrap;
-  }
+}
 
-  .book {
+.book {
     text-align: start;
     margin-right: 10px;
-    word-break: break-all; /* تمت إضافة هذه الخاصية */
-    max-width: 50ch; /* تمت إضافة هذه الخاصية */
-  }
+    word-break: break-all;
+    /* تمت إضافة هذه الخاصية */
+    max-width: 50ch;
+    /* تمت إضافة هذه الخاصية */
+}
 
-  .book:last-child {
+.book:last-child {
     margin-right: 0;
-  }
+}
 
-  .book img {
+.book img {
     width: 150px;
     height: 200px;
     margin-bottom: 10px;
-  }
+}
 
-  .book h1,
-  .book h2,
-  .book h3,
-  .book h4,
-  .book p {
+.book h1,
+.book h2,
+.book h3,
+.book h4,
+.book p {
     margin: 8px 0;
     font-family: 'Lemonada', cursive;
     word-wrap: break-word;
     text-align: start;
-  }
+}
 
-  .book h1 {
+.book h1 {
     font-size: 24px;
-  }
+}
 
-  .book h2 {
+.book h2 {
     font-size: 20px;
-  }
+}
 
-  .book h3 {
+.book h3 {
     font-size: 18px;
-  }
+}
 
-  .book h4 {
+.book h4 {
     font-size: 16px;
-  }
+}
 
-  .book p {
+.book p {
     font-size: 14px;
-  }
+}
 
-  .read-more-button {
+.read-more-button {
     right: 0;
     background-color: #4CAF50;
     color: white;
@@ -314,32 +282,28 @@ section .main .main_img img{
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .read-more-button:hover {
-    background-color: #45a049;
-  }
-
-  .read-more-button:active {
-    background-color: #408140;
-  }
-
-
-
-hr {
-  border-top: 1px solid black;
-  margin-top: 5px;
 }
 
+.read-more-button:hover {
+    background-color: #45a049;
+}
+
+.read-more-button:active {
+    background-color: #408140;
+}
+
+hr {
+    border-top: 1px solid black;
+    margin-top: 5px;
+}
 
 @media (max-width: 500px) {
-
-
-    .main_continar{
+    .main_continar {
         width: auto;
         height: auto;
         font-family: 'Lemonada', cursive;
     }
+
     .about {
         padding: 5px;
     }
@@ -357,43 +321,42 @@ hr {
         text-align: left;
     }
 
-  .row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    align-items: center;
-    border: none;
-    flex-wrap: wrap;
-  }
+    .row {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        align-items: center;
+        border: none;
+        flex-wrap: wrap;
+    }
 
-  .book {
-    text-align: start;
-    margin-right: 10px;
-    word-break: break-all; /* تمت إضافة هذه الخاصية */
-    max-width: 50ch; /* تمت إضافة هذه الخاصية */
-  }
+    .book {
+        text-align: start;
+        margin-right: 10px;
+        word-break: break-all;
+        /* تمت إضافة هذه الخاصية */
+        max-width: 50ch;
+        /* تمت إضافة هذه الخاصية */
+    }
 
-  .book:last-child {
-    margin-right: 0;
-  }
+    .book:last-child {
+        margin-right: 0;
+    }
 
-  .book img {
-    width: 150px;
-    height: 200px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .read-more-button{
-    justify-content: center;
-    align-items: end;
-    /* overflow: hidden; */
-    margin-top:20px ;
-    display: flex;
+    .book img {
+        width: 150px;
+        height: 200px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-
-  }
-
-
+    .read-more-button {
+        justify-content: center;
+        align-items: end;
+        /* overflow: hidden; */
+        margin-top: 20px;
+        display: flex;
+    }
 }
