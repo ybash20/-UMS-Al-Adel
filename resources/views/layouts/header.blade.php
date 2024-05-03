@@ -688,7 +688,7 @@
             -webkit-box-align: center !important;
             -ms-flex-align: center !important;
             align-items: center !important;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         @supports ((position: -webkit-sticky) or (position: sticky)) {}
@@ -1228,6 +1228,9 @@
         .fs-20 {
             font-size: 20px;
         }
+        .fs-12 {
+            font-size: 12px;
+        }
     </style>
     <div class="bodyheader headerhtml">
         <div class="site-mobile-menu site-navbar-target">
@@ -1244,11 +1247,11 @@
                     <div class="header_row align-items-center">
                         <div class="col-6">
                             <div class="d-flex mr-auto">
-                                <a href="#" class="header_a d-flex align-items-center mr-4">
+                                <a href="#" class="header_a d-flex align-items-center mr-4 fs-12">
                                     <span class="icon-envelope mr-2"></span>
                                     <span class="d-none d-md-inline-block">info@domain.com</span>
                                 </a>
-                                <a href="#" class="header_a d-flex align-items-center mr-auto">
+                                <a href="#" class="header_a d-flex align-items-center mr-auto fs-12">
                                     <span class="icon-phone mr-2"></span>
                                     <span class="d-none d-md-inline-block">+1 234 4567 8910</span>
                                 </a>
