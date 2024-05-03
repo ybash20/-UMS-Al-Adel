@@ -799,7 +799,7 @@
         }
 
         .site-navbar-wrap {
-            position: absolute;
+            position: relative;
             z-index: 99;
             width: 100%;
             left: 0;
