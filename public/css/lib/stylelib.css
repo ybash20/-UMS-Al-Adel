@@ -82,7 +82,7 @@ section .main .main_img img {
 .about {
     width: 100%;
     height: auto;
-    padding: 20px;
+    padding: 2rem 4rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -92,32 +92,30 @@ section .main .main_img img {
 .about .about_tag h1 {
     font-size: 50px;
     position: relative;
-    bottom: 35px;
+    text-align: center;
+    margin: 0;
 }
 
 .about .about_tag p {
     line-height: 40px;
     text-align: justify;
-    margin-bottom: 15px;
     font-size: 20px;
+    margin: 10px 0;
 }
 
 
 @media (max-width: 768px) {
-    .about {
+     .about {
         flex-direction: column;
-        padding: 10px;
     }
 
     .about .about_tag h1 {
-        font-size: 22px;
-        bottom: initial;
-        text-align: center;
+        font-size: 36px;
     }
 
     .about .about_tag p {
         width: 100%;
-        font-size: 14px;
+        font-size: 18px;
         line-height: 30px;
     }
 }
@@ -303,7 +301,7 @@ hr {
         height: auto;
         font-family: 'Lemonada', cursive;
     }
-
+/*
     .about {
         padding: 5px;
     }
@@ -319,7 +317,7 @@ hr {
         font-size: 14px;
         line-height: 30px;
         text-align: left;
-    }
+    } */
 
     .row {
         display: flex;

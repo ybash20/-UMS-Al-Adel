@@ -12,7 +12,7 @@
             <div class="about">
                 <div class="about_tag">
                     <h1>About Us</h1>
-                    <p style="font-size: 20px">
+                    <p>
                         There is a library equipped with reference books and amenities to achieve its goal. The library
                         contains
                         more than 1,800 titles in various sciences, such as: Qur’anic sciences, hadith, jurisprudence,
