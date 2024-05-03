@@ -1,14 +1,6 @@
 @section('navbar')
     <style>
-        header {
-            width: 1200px;
-            max-width: 90%;
-            margin: auto;
-            position: relative;
-            z-index: 100;
-        }
-
-        @font-face {
+            @font-face {
             font-family: 'icomoon';
             src: url('fonts/icomoon/fonts/icomoon.eot');
             src: url('fonts/icomoon/fonts/icomoon.eot') format('embedded-opentype'),
