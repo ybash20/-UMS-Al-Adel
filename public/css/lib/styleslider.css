@@ -23,18 +23,6 @@ svg{
     position: relative;
     z-index: 100;
 }
-header .logo{
-    font-weight: bold;
-}
-header .menu{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    font-weight: 500;
-}
 /* css slider */
 .slider{
     background-color: #010101;
@@ -68,16 +56,14 @@ header .menu{
 }
 .slider .list .item .content{
     position: absolute;
-    left: 10%;
-    top: 20%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -15%);
     width: 500px;
     max-width: 80%;
     z-index: 1;
 }
-.slider .list .item .content p:nth-child(1){
-    text-transform: uppercase;
-    letter-spacing: 10px;
-}
+
 .slider .list .item .content h2{
     font-size: 100px;
     margin: 0;
@@ -93,9 +79,9 @@ header .menu{
         opacity: 1;
     }
 }
-.slider .list .item.active p:nth-child(1),
-.slider .list .item.active h2,
-.slider .list .item.active p:nth-child(3){
+
+.slider .list .item.active h2
+{
     transform: translateY(30px);
     filter: blur(20px);
     opacity: 0;
@@ -103,9 +89,6 @@ header .menu{
 }
 .slider .list .item.active h2{
     animation-delay: 1s;
-}
-.slider .list .item.active p:nth-child(3){
-    animation-duration: 1.3s;
 }
 .arrows{
     position: relative;

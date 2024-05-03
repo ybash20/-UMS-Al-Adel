@@ -8,7 +8,6 @@
                 <div class="item active">
                     <img src="image/img1.png">
                     <div class="content">
-                        <p>design</p>
                         <h2>Slider 01</h2>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
@@ -19,7 +18,6 @@
                 <div class="item">
                     <img src="image/img2.jpg">
                     <div class="content">
-                        <p>design</p>
                         <h2>Slider 02</h2>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
@@ -30,7 +28,6 @@
                 <div class="item">
                     <img src="image/img3.jpg">
                     <div class="content">
-                        <p>design</p>
                         <h2>Slider 03</h2>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
@@ -41,7 +38,6 @@
                 <div class="item">
                     <img src="image/img4.jpg">
                     <div class="content">
-                        <p>design</p>
                         <h2>Slider 04</h2>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
@@ -52,7 +48,6 @@
                 <div class="item">
                     <img src="image/img5.jpg">
                     <div class="content">
-                        <p>design</p>
                         <h2>Slider 05</h2>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
