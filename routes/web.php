@@ -46,13 +46,9 @@ Route::get('/college', function () {
 })->name('college');
 
 Route::get('/registration', function () {
+    return view('Electronic_registration');
+});
 
-    return view('Electronic registration');
-})->name('college');
-
-
-Route::get('/news', function () {
-
-    return view('news');
-})->name('news');
-
+Route::get('/home', function () {
+    return view('layouts.home');
+});
