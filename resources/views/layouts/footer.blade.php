@@ -690,7 +690,6 @@
 
         footer {
             text-align: right;
-            padding: 2rem 0 0 ;
         }
 
         footer .region-footer {
