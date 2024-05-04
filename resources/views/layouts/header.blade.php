@@ -1285,7 +1285,7 @@
                                             class="header_a site-menu-toggle js-menu-toggle text-white fs-20"><span
                                                 class="icon-menu"></span></a></div>
                                     <ul class="header_ul site-menu main-menu js-clone-nav d-none d-lg-block">
-                                        <li class="active"><a href="#home-section" class="header_a nav-link">Home</a></li>
+                                        <li class="active"><a href="{{ asset('/home') }}" class="header_a nav-link">Home</a></li>
                                         <li><a href="#classes-section" class=" header_a nav-link">Classes</a></li>
                                         <li class="has-children">
                                             <a href="#" class="header_a nav-link">Pages</a>
@@ -1304,7 +1304,7 @@
                                             </ul>
                                         </li>
                                         <li><a href="#about-section" class="header_a nav-link">About</a></li>
-                                        <li><a href="{{ asset('/reg') }}" class="header_a nav-link">Regstiration</a></li>
+                                        <li><a href="{{ asset('/registration') }}" class="header_a nav-link">Regstiration</a></li>
                                         <li><a href="#events-section" class="header_a nav-link">Events</a></li>
                                         <li><a href="#gallery-section" class="header_a nav-link">Gallery</a></li>
                                         <li><a href="#contact-section" class="header_a nav-link">Contact</a></li>
