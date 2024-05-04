@@ -4,26 +4,22 @@
 
 @section('main')
 
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Colleges</title>
+   
         <style>
             .body_form_college {
                 font-family: Arial, sans-serif;
                 background-color: #f4f4f4;
-                margin: 0;
-                padding: 0;
+               width: auto;
+               height: auto;
+               margin-bottom: 0;
             }
 
-            .container {
+            .college_container {
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
-                margin-top: 20px;
+                /* margin-top: 80px; */
+                padding: 80px;
             }
 
             .college {
@@ -57,11 +53,11 @@
                 color: #555;
             }
         </style>
-    </head>
 
-    <body class="body_form_college">
 
-        <div class="container">
+    <div class="body_form_college">
+
+        <div class="college_container">
             <div class="college">
                 <figure>
                     <figcaption>Engineering College</figcaption>
@@ -107,9 +103,5 @@
                 });
             });
         </script>
-
-    </body>
-
-    </html>
-
+    </div>
 @endsection

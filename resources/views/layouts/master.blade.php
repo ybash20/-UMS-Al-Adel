@@ -20,7 +20,6 @@
     </div>
 
     <main>
-        {{-- @include('layouts.news') --}}
         @section('main')
 
         @show

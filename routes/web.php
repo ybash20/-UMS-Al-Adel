@@ -52,3 +52,7 @@ Route::get('/registration', function () {
 Route::get('/home', function () {
     return view('layouts.home');
 });
+
+Route::get('/news', function () {
+    return view('news');
+});

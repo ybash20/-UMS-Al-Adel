@@ -1,4 +1,8 @@
-@section('news')
+@extends('layouts.master')
+@section('title','News')
+    
+@section('main')
+
     <style>
         /* arabic */
         @font-face {
@@ -534,4 +538,4 @@
             </div>
         </section>
     </div>
-@show
+@endsection
