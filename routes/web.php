@@ -50,3 +50,9 @@ Route::get('/registration', function () {
     return view('Electronic registration');
 })->name('college');
 
+
+Route::get('/news', function () {
+
+    return view('news');
+})->name('news');
+
