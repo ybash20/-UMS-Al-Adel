@@ -1,5 +1,7 @@
 <?php
 
+$lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'ar';
+
 return [
 
     /*
@@ -80,7 +82,7 @@ return [
     |
     */
 
-    'locale' => isset($_GET['lang']) ? $_GET['lang'] :'ar',
+    'locale' => isset($_GET['lang']) ? $_GET['lang'] :$lang,
 
     /*
     |--------------------------------------------------------------------------

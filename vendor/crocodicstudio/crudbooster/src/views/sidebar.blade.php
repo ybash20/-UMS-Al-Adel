@@ -15,13 +15,17 @@
                 <a href="#"><i class="fa fa-circle text-success"></i> {{ cbLang('online') }}</a>
             </div>
         </div>
-
         <div class='main-menu'>
             <ul class="sidebar-menu">
                 <li class="header">{{ cbLang('menu_lang') }}</li>
-                 <form id="langForm" method="get" action="" class="form_select">
-                    <button name="lang" value="ar" <?php if ($language == 'ar') { echo 'selected'; } ?>>عربي</button>
-                    <button name="lang" value="en" <?php if ($language == 'en') { echo 'selected'; } ?>>English</button>
+                <?php
+                if (isset($_GET['lang'])) {
+                    setcookie('lang', $_GET['lang'], time() + 3 * 86, 400);
+                }
+                ?>
+                <form id="langForm" method="GET" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form_select">
+                    <button type="submit" name="lang" value="ar">عربي</button>
+                    <button type="submit" name="lang" value="en">English</button>
                     <!-- يمكنك إضافة المزيد من الخيارات حسب الحاجة -->
                 </form>
                 <!-- Sidebar Menu -->
