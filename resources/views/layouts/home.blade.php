@@ -16,8 +16,17 @@
     </div>
 
     <main>
-        @include('layouts.news_section')
+        
     </main>
+
+    <section>
+        @include('layouts.news_section')
+
+    </section>
+
+    <section>
+        @include('layouts.statistics')
+    </section>
 
     <footer>
         @include('layouts.footer')
