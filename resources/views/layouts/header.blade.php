@@ -1197,7 +1197,7 @@
 
         .sticky-wrapper {
             position: absolute;
-            z-index: 100;
+            z-index: 110;
             width: 100%;
         }
 

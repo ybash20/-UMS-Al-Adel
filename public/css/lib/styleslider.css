@@ -79,7 +79,7 @@ svg{
 .arrows{
     position: relative;
     top: 90%;
-    z-index: 100;
+    z-index: 90;
     display: flex;
     justify-content: center;
     align-items: center;
