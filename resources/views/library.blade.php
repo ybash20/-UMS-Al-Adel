@@ -46,7 +46,9 @@
 
             <div class="continar_book_library">
                 <div class="book_lib_row">
-                  <button class="prev-button">السابق</button>
+                  <div class="arrows_book">
+                  <button class="prev-button"><span><</span></button>
+                </div>
 
                   <div class="book">
                     <img src="image/arrival_2.jpg" alt="صورة الكتاب">
@@ -63,12 +65,16 @@
                     <h3>عنوان الكتاب 3</h3>
                     <p>اسم المؤلف 3</p>
                   </div>
-                  <button class="next-button">التالي</button>
+                  <div class="arrows_book">
+                  <button class="next-button"><span>></span></button>
+                  </div>
                 </div>
                 <hr>
               
                 <div class="book_lib_row">
-                  <button class="prev-button">السابق</button>
+                  <div class="arrows_book">
+                  <button class="prev-button"><span><</span></button>
+                  </div>
 
                   <div class="book">
                     <img src="image/arrival_2.jpg" alt="صورة الكتاب">
@@ -77,7 +83,7 @@
                   </div>
                   <div class="book">
                     <img src="image/arrival_2.jpg" alt="صورة الكتاب">
-                    <h3>عنوان الكتاب 5</h3>
+                    <h3>saugyugggggyugyugggggjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</h3>
                     <p>اسم المؤلف 5</p>
                   </div>
                   <div class="book">
@@ -85,12 +91,16 @@
                     <h3>عنوان الكتاب 6</h3>
                     <p>اسم المؤلف 6</p>
                   </div>
-                  <button class="next-button">التالي</button>
+                  <div class="arrows_book">
+                  <button class="next-button"><span>></span></button>
+                  </div>
                 </div>
                 <hr>
               
                 <div class="book_lib_row">
-                  <button class="prev-button">السابق</button>
+                  <div class="arrows_book">
+                  <button class="prev-button"><span><</span></button>
+                  </div>
 
                   <div class="book">
                     <img src="image/arrival_2.jpg" alt="صورة الكتاب">
@@ -107,41 +117,70 @@
                     <h3>عنوان الكتاب 9</h3>
                     <p>اسم المؤلف 9</p>
                   </div>
-                  <button class="next-button">التالي</button>
+                  
+                  <div class="book">
+                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 10</h3>
+                    <p>اسم المؤلف 9</p>
+                  </div>
+                  <div class="book">
+                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 11</h3>
+                    <p>اسم المؤلف 9</p>
+                  </div>
+                  <div class="book">
+                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 12</h3>
+                    <p>اسم المؤلف 9</p>
+                  </div>
+                  <div class="arrows_book">
+                  <button class="next-button"><span>></span></button>
+                  </div>
                 </div>
                 <hr>
               </div>
               
-              <script>
-                const rows = document.querySelectorAll('.book_lib_row');
-                rows.forEach(row => {
-                  const books = row.querySelectorAll('.book');
-                  const prevButton = row.querySelector('.prev-button');
-                  const nextButton = row.querySelector('.next-button');
-                  let currentIndex = 0;
-              
-                  function showBook(index) {
-                    books.forEach((book, i) => {
-                      book.style.display = i === index ? 'block' : 'none';
-                    });
-                  }
-              
-                  function showNextBook() {
-                    currentIndex = (currentIndex + 1) % books.length;
-                    showBook(currentIndex);
-                  }
-              
-                  function showPreviousBook() {
-                    currentIndex = (currentIndex - 1 + books.length) % books.length;
-                    showBook(currentIndex);
-                  }
-              
-                  prevButton.addEventListener('click', showPreviousBook);
-                  nextButton.addEventListener('click', showNextBook);
-              
-                  showBook(currentIndex);
-                });
-              </script>
+            <script>
+              const rows = document.querySelectorAll('.book_lib_row');
+rows.forEach(row => {
+  const books = row.querySelectorAll('.book');
+  const prevButton = row.querySelector('.prev-button');
+  const nextButton = row.querySelector('.next-button');
+  let currentIndex = 0;
+  const booksPerRow = 3; // عدد الكتب في الصف الواحد
+  
+  function showBooks(startIndex) {
+    books.forEach((book, i) => {
+      if (i >= startIndex && i < startIndex + booksPerRow) {
+        book.style.display = 'block';
+      } else {
+        book.style.display = 'none';
+      }
+    });
+  }
+  
+  function showNextBooks() {
+    const nextIndex = currentIndex + booksPerRow;
+    if (nextIndex < books.length) {
+      currentIndex = nextIndex;
+      showBooks(currentIndex);
+    }
+  }
+  
+  function showPreviousBooks() {
+    const previousIndex = currentIndex - booksPerRow;
+    if (previousIndex >= 0) {
+      currentIndex = previousIndex;
+      showBooks(currentIndex);
+    }
+  }
+  
+  prevButton.addEventListener('click', showPreviousBooks);
+  nextButton.addEventListener('click', showNextBooks);
+  
+  showBooks(currentIndex);
+});
+            </script>
   
 
 
