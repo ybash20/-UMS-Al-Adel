@@ -21,6 +21,7 @@
 
     <main>
         {{-- @include('layouts.news') --}}
+        @include('layouts.news_section')
         @section('main')
 
         @show
