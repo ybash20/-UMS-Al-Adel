@@ -97,9 +97,6 @@
             --font-regular: "Readex Pro";
         }
 
-        .news_section {
-            padding: 140px 0;
-        }
 
         .bg-5gp {
             background-color: #fff !important;
