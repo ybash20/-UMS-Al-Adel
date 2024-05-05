@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title','page_title')</title>
-
+    <title>Home</title>
 </head>
 <body>
    <header>
@@ -14,17 +12,11 @@
    </header>
 
     <div>
-        @section('divcontent')
-
-        @show
+        @include('layouts.slider')
     </div>
 
     <main>
-        {{-- @include('layouts.news') --}}
         @include('layouts.news_section')
-        @section('main')
-
-        @show
     </main>
 
     <footer>
