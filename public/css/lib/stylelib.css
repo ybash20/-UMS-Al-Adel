@@ -128,7 +128,7 @@ section .main .main_img img {
     width: 100%;
     margin-bottom: 2%;
 }
-
+/* 
 .arrivals h1 {
     font-size: 50px;
     text-align: center;
@@ -204,66 +204,53 @@ section .main .main_img img {
     border: 2px solid #089da1;
     text-decoration: none;
     color: #000;
-}
+} */
 
-.row {
+.continar_book_library {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .book_lib_row {
     display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
+    justify-content: space-between;
     align-items: center;
-    border: none;
-    flex-wrap: wrap;
-}
-
-.book {
-    text-align: start;
-    margin-right: 10px;
-    word-break: break-all;
-    /* تمت إضافة هذه الخاصية */
-    max-width: 50ch;
-    /* تمت إضافة هذه الخاصية */
-}
-
-.book:last-child {
-    margin-right: 0;
-}
-
-.book img {
-    width: 150px;
-    height: 200px;
+  }
+  
+  .book {
+    text-align: center;
+  }
+  
+  .book img {
+    width: 200px;
+    height: auto;
     margin-bottom: 10px;
-}
-
-.book h1,
-.book h2,
-.book h3,
-.book h4,
-.book p {
-    margin: 8px 0;
-    font-family: 'Lemonada', cursive;
-    word-wrap: break-word;
-    text-align: start;
-}
-
-.book h1 {
-    font-size: 24px;
-}
-
-.book h2 {
-    font-size: 20px;
-}
-
-.book h3 {
+  }
+  
+  .book h3 {
     font-size: 18px;
-}
-
-.book h4 {
-    font-size: 16px;
-}
-
-.book p {
+    margin-bottom: 5px;
+  }
+  
+  .book p {
     font-size: 14px;
-}
+    margin-bottom: 10px;
+  }
+  
+  .prev-button,
+  .next-button {
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  hr {
+    margin: 20px 0;
+  }
 
 .read-more-button {
     right: 0;
@@ -290,10 +277,20 @@ section .main .main_img img {
     background-color: #408140;
 }
 
+
+
 hr {
     border-top: 1px solid black;
     margin-top: 5px;
 }
+
+
+
+
+
+
+
+
 
 @media (max-width: 500px) {
     .main_continar {
