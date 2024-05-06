@@ -97,9 +97,6 @@
             --font-regular: "Readex Pro";
         }
 
-        .news_section {
-            padding: 140px 0;
-        }
 
         .bg-5gp {
             background-color: #fff !important;
@@ -199,8 +196,7 @@
         .section-ivd {
             font-size: 32px;
             font-weight: 500;
-            color: #0084bd;
-            ;
+            color: #007bff;
             text-align: center;
             margin-bottom: 30px;
         }
@@ -462,12 +458,21 @@
         .card_p {
             padding: 5px 15px 15px;
         }
+
+        .lhr {
+            height: 3px;
+            border: none;
+            background-color: #00496b;
+            width: 13%;
+        }
     </style>
     <div class="newsbody">
         <section class=" news_section bg-5gp pat-7mb">
             <div class="content-lga mx-tka">
                 <div class="text-oqa">
-                    <h3 class="news_h3 section-ivd mt-mby"><span>الأحداث والأخبار</span></h3>
+                    <h3 class="news_h3 section-ivd mt-mby"><span>الأحداث والأخبار</span>
+                        <hr class="lhr">
+                    </h3>
                 </div>
             </div>
             <div class="content-lga mx-tka">

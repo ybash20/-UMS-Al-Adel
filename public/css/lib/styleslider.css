@@ -12,7 +12,7 @@ svg{
 .slider{
     background-color: #010101;
     color: #eee;
-    height: 80vh;
+    height: 90vh;
     position: relative;
 }
 .slider .list .item{
@@ -52,6 +52,7 @@ svg{
 .slider .list .item .content h2{
     font-size: 100px;
     margin: 0;
+    text-align: center;
 }
 .slider .list .item.active{
     opacity: 1;
@@ -78,7 +79,7 @@ svg{
 .arrows{
     position: relative;
     top: 90%;
-    z-index: 100;
+    z-index: 90;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,6 +100,55 @@ svg{
     background-color: #eee;
     color: black;
 }
+@media screen and (max-height: 1153px) {
+    .arrows{
+    top: 94%
+    }
+    .slider .list .item .content{
+        transform: translate(-50%, 75%)
+    }
+}
+@media screen and (max-height: 999px) {
+    .slider .list .item .content {
+        transform: translate(-50%, 65%);
+    }
+}
+@media screen and (max-height: 900px) {
+    .slider .list .item .content {
+        transform: translate(-50%, 45%);
+    }
+}
+@media screen and (max-height: 800px) {
+    .slider .list .item .content {
+        transform: translate(-50%, 35%);
+    }
+}
+@media screen and (max-height: 750px) {
+    .slider .list .item .content {
+        transform: translate(-50%, 15%);
+    }
+    .arrows{
+        top: 90%
+        }
+}
+@media screen and (max-height: 700px) {
+    .slider .list .item .content {
+        transform: translate(-50%, 0%);
+    }
+}
+@media screen and (max-height: 667px) {
+    .slider .list .item .content {
+        transform: translate(-50%, -5%);
+    }
+}
+@media screen and (max-height: 637px) {
+    .slider .list .item .content{
+        transform: translate(-50%, -15%)
+    }
+    .arrows{
+        top: 90%;
+    }
+}
 @media screen and (max-height: 578px) {
     .arrows{
         top: 88%;
@@ -118,3 +168,24 @@ svg{
         transform: translate(-50%, -25%);
     }
 }
+@media screen and (max-width: 578px) {
+    .slider .list .item .content p{
+        display: none;
+    }
+    .slider .list .item .content{
+        transform: translate(-50%, 150%)
+    }
+    .slider .list .item .content h2{
+        font-size: 90px;
+    }
+}
+@media screen and (max-width: 509px) {
+    .slider .list .item .content{
+        transform: translate(-50%, 100%)
+    }
+    .slider .list .item .content h2{
+        font-size: 80px;
+    }
+}
+
+

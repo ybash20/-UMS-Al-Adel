@@ -44,76 +44,105 @@
                 <hr style="background-color:  black;">
             </div>
 
-            <div class="bkrbook">
-                <div class="row">
-                    <div class="book">
-                        <img src="image/arrival_2.jpg" alt="صورة الكتاب">
-                        <h3>hshasuhasjkaskjsdklmaklsmklamklasmasklmasklmaslkmkaklmsklasmklashasjkashasjksjkhjk</h3>
-                        <p>اسم المؤلف 1</p>
-                    </div>
-                    <div class="book">
-                        <img src="image/arrival_2.jpg" alt="صورة الكتاب">
-                        <h3>اسم hshasuhasjkaskjsdklmaklsmklamklasmasklmasklmaslkmkaklmsklasmklashasjkashasjksjkhjk 2</h3>
-                        <p>اسم المؤلف 2</p>
-                    </div>
-                    <div class="book">
-                        <img src="image/arrival_2.jpg" alt="صورة الكتاب">
-                        <h3>اسمhshasuhasjkaskjsdklmaklsmklamklasmasklmasklmaslkmkaklmsklasmklashasjkashasjksjkhjk الكتاب 3
-                        </h3>
-                        <p>اسم المؤلف 3</p>
-                    </div>
-                    <button class="read-more-button">Click More</button>
+            <div class="continar_book_library">
+                <div class="book_lib_row">
+                  <button class="prev-button">السابق</button>
+
+                  <div class="book">
+                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 1</h3>
+                    <p>اسم المؤلف 1</p>
+                  </div>
+                  <div class="book">
+                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 2</h3>
+                    <p>اسم المؤلف 2</p>
+                  </div>
+                  <div class="book">
+                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 3</h3>
+                    <p>اسم المؤلف 3</p>
+                  </div>
+                  <button class="next-button">التالي</button>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="book">
-                        <img src="image/arrival_2.jpg" alt="صورة الكتاب">
-                        <h3>اسم الكتاب 4</h3>
-                        <p>اسم المؤلف 4</p>
-                    </div>
-                    <div class="book">
-                        <img src="image/arrival_2.jpg" alt="صورة الكتاب">
-                        <h3>اسمhshasuhasjkaskjsdklmaklsmklamklasmasklmasklmaslkmkaklmsklasmklashasjkashasjksjkhjkاسمhshasuhasjkaskjsdklmaklsmklamklasmasklmasklmaslkmkaklmsklasmklashasjkashasjksjkhjkاسمhshasuhasjkaskjsdklmaklsmklamklasmasklmasklmaslkmkaklmsklasmklashasjkashasjksjkhjk
-                        </h3>
-                        <p>اسم المؤلف 5</p>
-                    </div>
-                    <div class="book">
-                        <img src="image/arrival_2.jpg" alt="صورة الكتاب">
-                        <h3>اسم الكتاب 6</h3>
-                        <p>اسم المؤلف 6</p>
-                    </div>
-                    <button class="read-more-button">Click More</button>
+              
+                <div class="book_lib_row">
+                  <button class="prev-button">السابق</button>
+
+                  <div class="book">
+                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 4</h3>
+                    <p>اسم المؤلف 4</p>
+                  </div>
+                  <div class="book">
+                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 5</h3>
+                    <p>اسم المؤلف 5</p>
+                  </div>
+                  <div class="book">
+                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 6</h3>
+                    <p>اسم المؤلف 6</p>
+                  </div>
+                  <button class="next-button">التالي</button>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="book">
-                        <img src="image/arrival_2.jpg" alt="صورة الكتاب">
-                        <h3>اسم الكتاب 7</h3>
-                        <p>اسم المؤلف 7</p>
-                    </div>
-                    <div class="book">
-                        <img src="image/arrival_2.jpg" alt="صورة الكتاب">
-                        <h3>اسم الكتاب 8</h3>
-                        <p>اسم المؤلف 8</p>
-                    </div>
-                    <div class="book">
-                        <img src="image/arrival_2.jpg" alt="صورة الكتاب">
-                        <h3>اسم الكتاب 9</h3>
-                        <p>اسم المؤلف 9</p>
-                    </div>
-                    <button class="read-more-button">Click More</button>
+              
+                <div class="book_lib_row">
+                  <button class="prev-button">السابق</button>
+
+                  <div class="book">
+                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 7</h3>
+                    <p>اسم المؤلف 7</p>
+                  </div>
+                  <div class="book">
+                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 8</h3>
+                    <p>اسم المؤلف 8</p>
+                  </div>
+                  <div class="book">
+                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 9</h3>
+                    <p>اسم المؤلف 9</p>
+                  </div>
+                  <button class="next-button">التالي</button>
                 </div>
-            </div>
-        </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var readMoreButton = document.querySelector(".read-more-button");
-                readMoreButton.addEventListener("click", function() {
-                    // إجراء الإجراء الذي ترغب فيه عند النقر على الزر "انقر للمزيد" هنا
-                    console.log("تم النقر على الزر!");
+                <hr>
+              </div>
+              
+              <script>
+                const rows = document.querySelectorAll('.book_lib_row');
+                rows.forEach(row => {
+                  const books = row.querySelectorAll('.book');
+                  const prevButton = row.querySelector('.prev-button');
+                  const nextButton = row.querySelector('.next-button');
+                  let currentIndex = 0;
+              
+                  function showBook(index) {
+                    books.forEach((book, i) => {
+                      book.style.display = i === index ? 'block' : 'none';
+                    });
+                  }
+              
+                  function showNextBook() {
+                    currentIndex = (currentIndex + 1) % books.length;
+                    showBook(currentIndex);
+                  }
+              
+                  function showPreviousBook() {
+                    currentIndex = (currentIndex - 1 + books.length) % books.length;
+                    showBook(currentIndex);
+                  }
+              
+                  prevButton.addEventListener('click', showPreviousBook);
+                  nextButton.addEventListener('click', showNextBook);
+              
+                  showBook(currentIndex);
                 });
-            });
-        </script>
+              </script>
+  
 
 
     @endsection
