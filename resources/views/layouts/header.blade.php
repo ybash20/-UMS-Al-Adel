@@ -1345,8 +1345,7 @@
                                         <li><a href="{{ asset('/registration') }}"
                                                 class="header_a nav-link">Regstiration</a></li>
                                         <li><a href="#events-section" class="header_a nav-link">Events</a></li>
-                                        <li><a href="#gallery-section" class="header_a nav-link">Gallery</a></li>
-                                        <li><a href="#contact-section" class="header_a nav-link">Contact</a></li>
+                                        <li><a href="{{ asset('/admin/login') }}" class="header_a nav-link">Login<i class="fas fa-sign-in-alt"></a></li>                                
                                     </ul>
                                 </div>
                             </nav>
