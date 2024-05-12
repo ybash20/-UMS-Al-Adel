@@ -27,7 +27,7 @@
             </div>
             <hr style="background-color:  black;">
             <!--Arrivals-->
-            <div class="arrivals">
+            {{-- <div class="arrivals">
                 <h1 style="text-align: center">Book</h1>
                 <h2 style="text-align: center; direction: rtl">
                     <form action="">
@@ -42,7 +42,7 @@
                     </form>
                 </h2>
                 <hr style="background-color:  black;">
-            </div>
+            </div> --}}
 
             <div class="continar_book_library">
                 <div class="book_lib_row">
@@ -51,17 +51,17 @@
                 </div>
 
                   <div class="book">
-                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <img src="image/about.png" alt="صورة الكتاب">
                     <h3>عنوان الكتاب 1</h3>
                     <p>اسم المؤلف 1</p>
                   </div>
                   <div class="book">
-                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <img src="image/about.png" alt="صورة الكتاب">
                     <h3>عنوان الكتاب 2</h3>
                     <p>اسم المؤلف 2</p>
                   </div>
                   <div class="book">
-                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <img src="image/about.png" alt="صورة الكتاب">
                     <h3>عنوان الكتاب 3</h3>
                     <p>اسم المؤلف 3</p>
                   </div>
@@ -77,17 +77,17 @@
                   </div>
 
                   <div class="book">
-                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <img src="image/about.png" alt="صورة الكتاب">
                     <h3>عنوان الكتاب 4</h3>
                     <p>اسم المؤلف 4</p>
                   </div>
                   <div class="book">
-                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
-                    <h3>saugyugggggyugyugggggjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</h3>
+                    <img src="image/about.png" alt="صورة الكتاب">
+                    <h3>عنوان الكتاب 5</h3>
                     <p>اسم المؤلف 5</p>
                   </div>
                   <div class="book">
-                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <img src="image/about.png" alt="صورة الكتاب">
                     <h3>عنوان الكتاب 6</h3>
                     <p>اسم المؤلف 6</p>
                   </div>
@@ -103,33 +103,33 @@
                   </div>
 
                   <div class="book">
-                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <img src="image/about.png" alt="صورة الكتاب">
                     <h3>عنوان الكتاب 7</h3>
                     <p>اسم المؤلف 7</p>
                   </div>
                   <div class="book">
-                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <img src="image/about.png" alt="صورة الكتاب">
                     <h3>عنوان الكتاب 8</h3>
                     <p>اسم المؤلف 8</p>
                   </div>
                   <div class="book">
-                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <img src="image/about.png" alt="صورة الكتاب">
                     <h3>عنوان الكتاب 9</h3>
                     <p>اسم المؤلف 9</p>
                   </div>
                   
                   <div class="book">
-                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <img src="image/about.png" alt="صورة الكتاب">
                     <h3>عنوان الكتاب 10</h3>
                     <p>اسم المؤلف 9</p>
                   </div>
                   <div class="book">
-                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <img src="image/about.png" alt="صورة الكتاب">
                     <h3>عنوان الكتاب 11</h3>
                     <p>اسم المؤلف 9</p>
                   </div>
                   <div class="book">
-                    <img src="image/arrival_2.jpg" alt="صورة الكتاب">
+                    <img src="image/about.png" alt="صورة الكتاب">
                     <h3>عنوان الكتاب 12</h3>
                     <p>اسم المؤلف 9</p>
                   </div>
