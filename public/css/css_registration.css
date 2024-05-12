@@ -1,56 +1,3 @@
-@media (max-width: 915px) {
-    .wrapper {
-        padding: 10px;
-
-    }
-
-    .form_inputs {
-        flex-direction: column;
-        justify-content: space-evenly;
-    }
-
-    .wrapper .header ul li:before {
-        left: 15px;
-    }
-
-    .wrapper .form_wrap .input_wrap label {
-        margin-right: 0;
-    }
-
-    .wrapper .form_wrap .input_wrap .input,
-    .wrapper .form_wrap .input_wrap2 .input,
-    .wrapper .form_wrap .input_wrap2 .input2,
-    .wrapper .form_wrap .input_wrap .input2,
-    .wrapper .form_wrap .input_wrap2 .select, 
-    .wrapper .form_wrap .input_wrap .select {
-        width: 60px;
-        font-size: 12px;
-        display: flex;
-    margin-bottom: 5px;
-    margin-right: 15px;
-
-
-    }
-
-    .wrapper .btns_wrap .common_btns button {
-        width: 100%;
-        margin-bottom: 10px;
-        font-size: 14px;
-    }
-
-    
-
-    .wrapper .form_wrap .input_wrap2 label,
-    .wrapper .form_wrap .input_wrap label {
-        display: block;
-        margin-bottom: 5px;
-        margin-right: 15px;
-        text-align: right;
-    }
-
-
-}
-
 :root {
     --primary: #6b59d3;
     --secondary: #bfc0c0;
@@ -268,6 +215,7 @@
     cursor: pointer;
 }
 
+
 .wrapper .btns_wrap .common_btns button.btn_back {
     bottom: 0%;
     background: var(--secondary);
@@ -354,4 +302,86 @@
 
 .modal_wrapper.active .success_wrap {
     transform: translate(-50%, -50%);
+}
+
+@media (max-width: 915px) {
+    .wrapper {
+        padding: 10px;
+        max-width: 300px;
+        align-items: center;
+
+
+    }
+    .body_form {
+        font-family: 'Lemonada', cursive;
+        background: var(--primary);
+        color: var(--text-clr);
+        font-size: 16px;
+        position: relative;
+        padding: 50px;
+    }
+    
+    .wrapper .header ul li p {
+        width: 25px;
+        height: 25px;
+        background: var(--secondary);
+        color: var(--white);
+        text-align: center;
+        line-height: 153%;
+        border-radius: 50%;
+       
+    }
+    .form_inputs {
+        flex-direction: column;
+    }
+    .wrapper .header ul {
+        display: flex;
+    }
+    
+    .wrapper .header ul li {
+        margin-right: 10px;
+        position: relative;
+    }
+
+    .wrapper .header ul li:before {
+        left: 30px;
+    }
+
+    .wrapper .form_wrap .input_wrap label {
+        margin-right: 0;
+    }
+
+    .wrapper .form_wrap .input_wrap .input,
+    .wrapper .form_wrap .input_wrap2 .input,
+    .wrapper .form_wrap .input_wrap2 .input2,
+    .wrapper .form_wrap .input_wrap .input2,
+    .wrapper .form_wrap .input_wrap2 .select, 
+    .wrapper .form_wrap .input_wrap .select {
+        max-width: 259px;
+        font-size: 12px;
+        
+
+
+    }
+
+    .wrapper .btns_wrap .common_btns button {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    
+
+    .wrapper .form_wrap .input_wrap2 label,
+    .wrapper .form_wrap .input_wrap label {
+        display: block;
+        margin-bottom: 5px;
+        margin-right: 15px;
+        text-align: right;
+    }
+    .wrapper .header ul li div {
+        padding: 5px;
+        border-radius: 50%;
+    }
+
 }
