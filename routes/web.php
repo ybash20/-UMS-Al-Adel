@@ -56,6 +56,27 @@ Route::get('/home', function () {
 Route::get('/news', function () {
     return view('news');
 });
+
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/computer', function () {
+    return view('college.Computer');
+})->name('computer');
+
+Route::get('/business', function () {
+    return view('college.Business');
+})->name('business');
+
+Route::get('/islamic', function () {
+    return view('college.Islamic');
+})->name('islamic');
+
+Route::get('/sharia', function () {
+    return view('college.Sharia');
+})->name('sharia');
+
+Route::get('/translation', function () {
+    return view('college.Translation');
+})->name('translation');
