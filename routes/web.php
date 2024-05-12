@@ -56,33 +56,27 @@ Route::get('/home', function () {
 Route::get('/news', function () {
     return view('news');
 });
+
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('/College of Computer', function () {
-    return view('College of Computer');
-});
 
-Route::get('/College of Business
-Administration', function () {
-    return view('College of Business
-    Administration');
-});
+Route::get('/computer', function () {
+    return view('college.Computer');
+})->name('computer');
 
-Route::get('/College of Islamic Studies
-and Quranic Sciences', function () {
-    return view('College of Islamic Studies
-    and Quranic Sciences');
-});
+Route::get('/business', function () {
+    return view('college.Business');
+})->name('business');
 
-Route::get('/College of Sharia and
-Law', function () {
-    return view('College of Sharia and
-    Law');
-});
+Route::get('/islamic', function () {
+    return view('college.Islamic');
+})->name('islamic');
 
-Route::get('/College of Languages and
-Translation', function () {
-    return view('College of Languages and
-    Translation');
-});
+Route::get('/sharia', function () {
+    return view('college.Sharia');
+})->name('sharia');
+
+Route::get('/translation', function () {
+    return view('college.Translation');
+})->name('translation');
