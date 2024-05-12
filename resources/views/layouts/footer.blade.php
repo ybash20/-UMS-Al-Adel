@@ -720,40 +720,21 @@
                             class="social-block block-social-media-links block block-social-media-links-block">
                             <ul class=" ul social-media-links--platforms platforms inline horizontal">
                                 <li>
-                                    <a class="a social-media-link-icon--twitter" href="https://www.twitter.com/_KSU"
-                                        target="_blank" rel="nofollow">
-                                        <span class="fab fa-twitter fa-lg"></span>
-                                    </a>
-                                </li>
-                                <li>
                                     <a class=" a social-media-link-icon--facebook"
-                                        href="https://www.facebook.com/King.Saud.University" target="_blank" rel="nofollow">
+                                        href="https://www.facebook.com/Aladel.University/" target="_blank" rel="nofollow">
                                         <span class="fab fa-facebook fa-lg"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class=" a social-media-link-icon--tiktok" href="https://www.tiktok.com/@ksu1957"
-                                        target="_blank" rel="nofollow">
-                                        <span class="fab fa-tiktok fa-lg"></span>
-                                    </a>
-                                </li>
-                                <li>
                                     <a class=" a social-media-link-icon--instagram"
-                                        href="https://www.instagram.com/king_saud_university" target="_blank"
+                                        href="https://www.instagram.com/aladel.un?igsh=NnkwcDM0eTRkbTVh" target="_blank"
                                         rel="nofollow">
                                         <span class="fab fa-instagram fa-lg"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="a social-media-link-icon--linkedin"
-                                        href="https://www.linkedin.com/school/king-saud-university" target="_blank"
-                                        rel="nofollow">
-                                        <span class="fab fa-linkedin fa-lg"></span>
-                                    </a>
-                                </li>
-                                <li>
                                     <a class="a social-media-link-icon--youtube"
-                                        href="https://www.youtube.com/user/pdksuchannel" target="_blank" rel="nofollow">
+                                        href="https://www.youtube.com/@user-nz4ef8qy7h" target="_blank" rel="nofollow">
                                         <span class="fab fa-youtube fa-lg"></span>
                                     </a>
                                 </li>
@@ -826,6 +807,7 @@
                                             <img src="{{ asset('vendor/crudbooster/assets/LOGO.png') }}" />
                                         </a>
                                     </div>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8937.163427615887!2d44.97096182687302!3d12.835120648389855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x161e1d29e7cb165f%3A0x738af63d3af0cc21!2z2KzYp9mF2LnYqSDYp9mE2LnYp9iv2YQg2YTZhNi52YTZiNmFINin2YTYpdmG2LPYp9mG2YrYqSDZiNin2YTYqti32KjZitmC2YrYqQ!5e0!3m2!1sar!2s!4v1715543660465!5m2!1sar!2s" width="600" height="450" style="border:20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </div>
                         </div>
