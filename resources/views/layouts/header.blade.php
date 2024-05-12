@@ -1328,18 +1328,24 @@
                                         <li class="has-children">
                                             <a href="#" class="header_a nav-link">College</a>
                                             <ul class="header_ul dropdown arrow-top">
-                                                <li><a href="#" class="header_a nav-link"> College of Computer</a></li>
-                                                <li><a href="#" class="header_a nav-link"> College of Business Administration</a></li>
-                                                <li><a href="#" class="header_a nav-link"> College of Islamic Studies and Qur’anic Sciences</a></li>
-                                                <li><a href="#" class="header_a nav-link"> College of Sharia and Law</a></li>
-                                                <li><a href="#" class="header_a nav-link"> College of Languages and Translation</a></li>   
+                                                <li><a href="{{ route('computer') }}" class="header_a nav-link">Computer Science</a>
+                                                </li>
+                                                <li><a href="{{ route('business') }}"
+                                                        class="header_a nav-link">Business Administration</a></li>
+                                                <li><a href="{{ route('islamic') }}"
+                                                        class="header_a nav-link">Islamic Studies and Quranic Sciences</a></li>
+                                                <li><a href="{{ route('sharia') }}"
+                                                        class="header_a nav-link">Sharia and Law</a></li>
+                                                <li><a href="{{ route('translation') }}"
+                                                        class="header_a nav-link">Languages and Translation</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#about-section" class="header_a nav-link">About</a></li>
                                         <li><a href="{{ asset('/registration') }}"
                                                 class="header_a nav-link">Regstiration</a></li>
                                         <li><a href="#events-section" class="header_a nav-link">Events</a></li>
-                                        <li><a href="{{ asset('/admin/login') }}" class="header_a nav-link">Login<i class="fas fa-sign-in-alt"></a></li>                                
+                                        <li><a href="{{ asset('/admin/login') }}" class="header_a nav-link">Login<i
+                                                    class="fas fa-sign-in-alt"></a></li>
                                     </ul>
                                 </div>
                             </nav>
