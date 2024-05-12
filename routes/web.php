@@ -59,3 +59,30 @@ Route::get('/news', function () {
 Route::get('/login', function () {
     return view('login');
 });
+Route::get('/College of Computer', function () {
+    return view('College of Computer');
+});
+
+Route::get('/College of Business
+Administration', function () {
+    return view('College of Business
+    Administration');
+});
+
+Route::get('/College of Islamic Studies
+and Quranic Sciences', function () {
+    return view('College of Islamic Studies
+    and Quranic Sciences');
+});
+
+Route::get('/College of Sharia and
+Law', function () {
+    return view('College of Sharia and
+    Law');
+});
+
+Route::get('/College of Languages and
+Translation', function () {
+    return view('College of Languages and
+    Translation');
+});
