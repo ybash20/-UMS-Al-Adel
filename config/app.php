@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'fallback_locale' => isset($_GET['lang']) ? $_GET['lang'] : 'ar',
+    'fallback_locale' => isset($_GET['lang']) ? $_GET['lang'] : '$lang',
 
     /*
     |--------------------------------------------------------------------------
