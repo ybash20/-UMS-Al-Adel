@@ -1326,27 +1326,20 @@
                                         </li>
                                         <li><a href="#classes-section" class=" header_a nav-link">Classes</a></li>
                                         <li class="has-children">
-                                            <a href="#" class="header_a nav-link">Pages</a>
+                                            <a href="#" class="header_a nav-link">College</a>
                                             <ul class="header_ul dropdown arrow-top">
-                                                <li><a href="#" class="header_a nav-link">Team</a></li>
-                                                <li><a href="#" class="header_a nav-link">Pricing</a></li>
-                                                <li><a href="#" class="header_a nav-link">FAQ</a></li>
-                                                <li class="has-children">
-                                                    <a class="header_a" href="#">More Links</a>
-                                                    <ul class="header_ul dropdown">
-                                                        <li><a class="header_a" href="#">Menu One</a></li>
-                                                        <li><a class="header_a" href="#">Menu Two</a></li>
-                                                        <li><a class="header_a" href="#">Menu Three</a></li>
-                                                    </ul>
-                                                </li>
+                                                <li><a href="#" class="header_a nav-link"> College of Computer</a></li>
+                                                <li><a href="#" class="header_a nav-link"> College of Business Administration</a></li>
+                                                <li><a href="#" class="header_a nav-link"> College of Islamic Studies and Qur’anic Sciences</a></li>
+                                                <li><a href="#" class="header_a nav-link"> College of Sharia and Law</a></li>
+                                                <li><a href="#" class="header_a nav-link"> College of Languages and Translation</a></li>   
                                             </ul>
                                         </li>
                                         <li><a href="#about-section" class="header_a nav-link">About</a></li>
                                         <li><a href="{{ asset('/registration') }}"
                                                 class="header_a nav-link">Regstiration</a></li>
                                         <li><a href="#events-section" class="header_a nav-link">Events</a></li>
-                                        <li><a href="#gallery-section" class="header_a nav-link">Gallery</a></li>
-                                        <li><a href="#contact-section" class="header_a nav-link">Contact</a></li>
+                                        <li><a href="{{ asset('/admin/login') }}" class="header_a nav-link">Login<i class="fas fa-sign-in-alt"></a></li>                                
                                     </ul>
                                 </div>
                             </nav>
