@@ -7,6 +7,7 @@
 
     @section('main')
     <link rel="stylesheet" href="css/lib/stylelib.css">
+
         <!--About-->
         <div class="main_continar">
             <div class="about">
@@ -45,7 +46,10 @@
             </div> --}}
 
             <div class="continar_book_library">
+              
                 <div class="book_lib_row">
+                  
+                  <h2>Section Name</h2>
                   <div class="arrows_book">
                   <button class="prev-button"><span><</span></button>
                 </div>
@@ -56,7 +60,7 @@
                     <p>اسم المؤلف 1</p>
                   </div>
                   <div class="book">
-                    <img src="image/about.png" alt="صورة الكتاب">
+                    <img src="image/about.png" alt="ص ورة الكتاب">
                     <h3>عنوان الكتاب 2</h3>
                     <p>اسم المؤلف 2</p>
                   </div>
@@ -68,10 +72,12 @@
                   <div class="arrows_book">
                   <button class="next-button"><span>></span></button>
                   </div>
+                  <button class="read-more-button">Read more <i class='fas fa-arrow-alt-circle-right'></i></button>
                 </div>
-                <hr>
+
               
                 <div class="book_lib_row">
+                  <h2>Section Name</h2>
                   <div class="arrows_book">
                   <button class="prev-button"><span><</span></button>
                   </div>
@@ -94,10 +100,13 @@
                   <div class="arrows_book">
                   <button class="next-button"><span>></span></button>
                   </div>
+                  <button class="read-more-button">Read more <i class='fas fa-arrow-alt-circle-right'></i></button>
+
                 </div>
-                <hr>
+    
               
                 <div class="book_lib_row">
+                  <h2>Section Name</h2>
                   <div class="arrows_book">
                   <button class="prev-button"><span><</span></button>
                   </div>
@@ -136,52 +145,65 @@
                   <div class="arrows_book">
                   <button class="next-button"><span>></span></button>
                   </div>
+                  <button class="read-more-button">Read more <i class='fas fa-arrow-alt-circle-right'></i></button>
+
                 </div>
-                <hr>
+           
               </div>
               
-            <script>
-              const rows = document.querySelectorAll('.book_lib_row');
-rows.forEach(row => {
-  const books = row.querySelectorAll('.book');
-  const prevButton = row.querySelector('.prev-button');
-  const nextButton = row.querySelector('.next-button');
-  let currentIndex = 0;
-  const booksPerRow = 3; // عدد الكتب في الصف الواحد
-  
-  function showBooks(startIndex) {
-    books.forEach((book, i) => {
-      if (i >= startIndex && i < startIndex + booksPerRow) {
-        book.style.display = 'block';
-      } else {
-        book.style.display = 'none';
-      }
-    });
-  }
-  
-  function showNextBooks() {
-    const nextIndex = currentIndex + booksPerRow;
-    if (nextIndex < books.length) {
-      currentIndex = nextIndex;
-      showBooks(currentIndex);
-    }
-  }
-  
-  function showPreviousBooks() {
-    const previousIndex = currentIndex - booksPerRow;
-    if (previousIndex >= 0) {
-      currentIndex = previousIndex;
-      showBooks(currentIndex);
-    }
-  }
-  
-  prevButton.addEventListener('click', showPreviousBooks);
-  nextButton.addEventListener('click', showNextBooks);
-  
-  showBooks(currentIndex);
-});
-            </script>
-  
+              <script>
+                const rows = document.querySelectorAll('.book_lib_row');
+                rows.forEach(row => {
+                  const books = row.querySelectorAll('.book');
+                  const prevButton = row.querySelector('.prev-button');
+                  const nextButton = row.querySelector('.next-button');
+                  let currentIndex = 0;
+                  let booksPerRow = 3; // عدد الكتب في الصف الواحد
+              
+                  function showBooks(startIndex) {
+                    books.forEach((book, i) => {
+                      if (i >= startIndex && i < startIndex + booksPerRow) {
+                        book.style.display = 'block';
+                      } else {
+                        book.style.display = 'none';
+                      }
+                    });
+                  }
+              
+                  function showNextBooks() {
+                    const nextIndex = currentIndex + booksPerRow;
+                    if (nextIndex < books.length) {
+                      currentIndex = nextIndex;
+                      showBooks(currentIndex);
+                    }
+                  }
+              
+                  function showPreviousBooks() {
+                    const previousIndex = currentIndex - booksPerRow;
+                    if (previousIndex >= 0) {
+                      currentIndex = previousIndex;
+                      showBooks(currentIndex);
+                    }
+                  }
+              
+                  function adjustBooksPerRow() {
+                    if (window.innerWidth < 700) { // تعديل الحد العلوي للقيمة إلى 700
+                      booksPerRow = 2; // تعديل القيمة إلى 2 في وضع الجوال
+                    } else {
+                      booksPerRow = 3; // القيمة الافتراضية في حالة عدم وضع الجوال
+                    }
+              
+                    showBooks(currentIndex);
+                  }
+              
+                  window.addEventListener('resize', adjustBooksPerRow);
+              
+                  prevButton.addEventListener('click', showPreviousBooks);
+                  nextButton.addEventListener('click', showNextBooks);
+              
+                  showBooks(currentIndex);
+                });
+              </script>
 
 
     @endsection
