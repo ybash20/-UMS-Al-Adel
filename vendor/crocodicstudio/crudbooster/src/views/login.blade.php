@@ -78,7 +78,7 @@
 
         .login-box-body {
             width: 320px;
-            height: 552px;
+            height: 619px;
             background: var(--white);
             margin: 100px auto 0;
             padding: 22px;
