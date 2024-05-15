@@ -1313,7 +1313,7 @@
                 <div class="container">
                     <div class="header_row align-items-center">
                         <div class="col-2">
-                            <h1 class="headerh1 my-0 site-logo"><a class="header_a" href="index.html">Brand</a></h1>
+                            <h1 class="headerh1 my-0 site-logo"><a class="header_a" href="index.html">AL-Adel</a></h1>
                         </div>
                         <div class="col-10">
                             <nav class="nav site-navigation text-right" role="navigation">
@@ -1324,7 +1324,7 @@
                                     <ul class="header_ul site-menu main-menu js-clone-nav d-none d-lg-block">
                                         <li class="active"><a href="{{ asset('/home') }}" class="header_a nav-link">Home</a>
                                         </li>
-                                        <li><a href="#classes-section" class=" header_a nav-link">Classes</a></li>
+                                        <li><a href="{{ asset('/lib') }}" class="header_a nav-link">Library</a></li>
                                         <li class="has-children">
                                             <a href="#" class="header_a nav-link">College</a>
                                             <ul class="header_ul dropdown arrow-top">
