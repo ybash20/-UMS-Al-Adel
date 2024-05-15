@@ -1286,23 +1286,23 @@
                             <div class="d-flex mr-auto">
                                 <a href="#" class="header_a d-flex align-items-center mr-4 fs-12">
                                     <span class="icon-envelope mr-2"></span>
-                                    <span class="d-none d-md-inline-block">info@domain.com</span>
+                                    <span class="d-none d-md-inline-block">au.adu1@gmali.com</span>
                                 </a>
                                 <a href="#" class="header_a d-flex align-items-center mr-auto fs-12">
                                     <span class="icon-phone mr-2"></span>
-                                    <span class="d-none d-md-inline-block">+1 234 4567 8910</span>
+                                    <span class="d-none d-md-inline-block">+9672367133</span>
                                 </a>
                             </div>
                         </div>
                         <div class="col-6 text-right">
                             <div class="mr-auto d-end-flex">
-                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span
-                                        class="icon-twitter"></span></a>
-                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span
+                                    <a class="a social-media-link-icon--youtube"
+                                        href="https://www.youtube.com/@user-nz4ef8qy7h" target="_blank" rel="nofollow">
+                                        <span class="fab fa-youtube fa-lg"></span>
+                                    </a>
+                                <a href="https://www.facebook.com/Aladel.University/" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow"><span
                                         class="icon-facebook"></span></a>
-                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span
-                                        class="icon-linkedin"></span></a>
-                                <a href="#" class="header_a d-flex align-items-center ico_pr"><span
+                                <a href="https://www.instagram.com/aladel.un?igsh=NnkwcDM0eTRkbTVh" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow"><span
                                         class="icon-instagram"></span></a>
                             </div>
                         </div>

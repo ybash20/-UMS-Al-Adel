@@ -170,8 +170,8 @@
 
                             <label for="school">المدرسة</label>
                             <input type="text" name="school" id="school" class="input">
-                            </div>
                         </div>
+                    </div>
                 </div>
                 <div class="form_3 data_info" style="display: none;">
                     <h2>التخصص الذي يرغب الطالب الاتحاق به</h2>
@@ -195,30 +195,30 @@
                             </div>
                         </div>
                         <div class="input_wrap2">
-                                <label>كلية الحاسوب</label>
-                                <select class="select">
-                                    <option value="">حدد تخصص</option>
-                                    <option value="Computer Science">علوم الحاسوب</option>
-                                    <option value="information technology">تقنية المعلومات</option>
-                                    <option value="networks">شبكات</option>
+                            <label>كلية الحاسوب</label>
+                            <select class="select">
+                                <option value="">حدد تخصص</option>
+                                <option value="Computer Science">علوم الحاسوب</option>
+                                <option value="information technology">تقنية المعلومات</option>
+                                <option value="networks">شبكات</option>
 
-                                </select>
+                            </select>
 
 
-                                <label>كلية الشريعة والقانون</label>
-                                <select class="select">
-                                    <option value="">حدد تخصص</option>
-                                    <option value="Sharia and law">الشريعة و القانون</option>
-                                </select>
+                            <label>كلية الشريعة والقانون</label>
+                            <select class="select">
+                                <option value="">حدد تخصص</option>
+                                <option value="Sharia and law">الشريعة و القانون</option>
+                            </select>
 
-                                <label>كلية العلوم الإدارية</label>
-                                <select class="select">
-                                    <option value="">حدد تخصص</option>
-                                    <option value="business_administration">إدارة أعمال</option>
-                                    <option value="accounting">محاسبة</option>
-                                </select>
-                            </div>
+                            <label>كلية العلوم الإدارية</label>
+                            <select class="select">
+                                <option value="">حدد تخصص</option>
+                                <option value="business_administration">إدارة أعمال</option>
+                                <option value="accounting">محاسبة</option>
+                            </select>
                         </div>
+                    </div>
                 </div>
                 <div class="form_4 data_info" style="display: none;">
                     <h2>بيانات ولي امر الطالب</h2>
@@ -236,44 +236,37 @@
                             </div>
                         </div>
                         <div class="input_wrap2">
-                                <label for="guardian_name">اسم ولي الأمر</label>
-                                <input type="text" id="guardian_name" name="guardian_name" class="input">
+                            <label for="guardian_name">اسم ولي الأمر</label>
+                            <input type="text" id="guardian_name" name="guardian_name" class="input">
 
-                                <label for="workplace">جهة العمل</label>
-                                <input type="text" id="workplace" name="workplace" class="input">
+                            <label for="workplace">جهة العمل</label>
+                            <input type="text" id="workplace" name="workplace" class="input">
 
-                                <label for="location">المحافظة/البلد</label>
-                                <input type="text" id="location" name="location" class="input">
-                            </div>
+                            <label for="location">المحافظة/البلد</label>
+                            <input type="text" id="location" name="location" class="input">
                         </div>
+                    </div>
                     <h2>اشخاص يمكن الرجوع اليهم</h2>
-                    <table>
-                        <tr class="input_wrap">
-                            <th>رقم الجوال</th>
-                            <th>رقم الهاتف الثابت</th>
-                            <th>صلة القرابة</th>
-                            <th> الاسم </th>
-                        </tr>
-                        <tr class="input_wrap">
-                            <td>
-                                <input type="tel" id="phone_number2" name="phone_number2" class="input2">
-                                <input type="tel" id="phone_number3" name="phone_number3" class="input2">
-                            </td>
-                            <td>
-                                <input type="tel" id="telephone fix" name="telephone fix" class="input2">
-                                <input type="tel" id="telephone fix2" name="telephone fix2" class="input2">
-                            </td>
-                            <td>
-                                <input type="text" id="relationship2" name="relationship2" class="input2">
-                                <input type="text" id="relationship3" name="relationship3" class="input2">
+                    <div class="input_wrap">
+                        <div class="input_guardian_name">
+                        <label for="guardian_name2">الاسم</label>
+                        <input type="text" id="guardian_name2" name="guardian_name2" class="input">
+                        <input type="text" id="guardian_name3" name="guardian_name3" class="input">
 
-                            </td>
-                            <td>
-                                <input type="text" id="guardian_name2" name="guardian_name2" class="input2">
-                                <input type="text" id="guardian_name3" name="guardian_name3" class="input2">
-                            </td>
-                        </tr>
-                    </table>
+                        <label for="phone_number2">رقم الجوال</label>
+                        <input type="tel" id="phone_number2" name="phone_number2" class="input">
+                        <input type="tel" id="phone_number3" name="phone_number3" class="input">
+                        </div>
+                        <div class="input_wrap2">
+                        <label for="telephone_fix">رقم الهاتف </label>
+                        <input type="tel" id="telephone_fix" name="telephone_fix" class="input">
+                        <input type="tel" id="telephone_fix2" name="telephone_fix2" class="input">
+
+                        <label for="relationship2">صلة القرابة</label>
+                        <input type="text" id="relationship2" name="relationship2" class="input">
+                        <input type="text" id="relationship3" name="relationship3" class="input">
+                    </div>
+                    </div>
                 </div>
                 <div class="form_5 data_info" style="display: none;">
                     <h2>طرق التواصل </h2>
