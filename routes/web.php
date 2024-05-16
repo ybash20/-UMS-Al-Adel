@@ -46,7 +46,7 @@ Route::get('/college', function () {
 })->name('college');
 
 Route::get('/registration', function () {
-    return view('Electronic_registration');
+    return view('registration');
 });
 
 Route::get('/home', function () {
