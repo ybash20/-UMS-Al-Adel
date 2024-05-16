@@ -1345,7 +1345,7 @@
                                                 class="header_a nav-link">Regstiration</a></li>
                                         <li><a href="#events-section" class="header_a nav-link">Events</a></li>
                                         <li><a href="{{ asset('/admin/login') }}" class="header_a nav-link">Login<i
-                                                    class="fas fa-sign-in-alt"></a></li>
+                                                    class="fas fa-sign-in-alt"></i></a></li>
                                     </ul>
                                 </div>
                             </nav>
