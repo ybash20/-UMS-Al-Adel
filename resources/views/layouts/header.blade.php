@@ -46,6 +46,23 @@
             font-weight: normal;
             font-style: normal;
         }
+        @font-face {
+            font-family: "Font Awesome 5 Brands";
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: url(fonts/font-awesome/fa-brands-400.eot);
+            src: url(fonts/font-awesome/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(fonts/font-awesome/fa-brands-400.woff2) format("woff2"), url(fonts/font-awesome/fa-brands-400.woff) format("woff"), url(fonts/font-awesome/fa-brands-400.ttf) format("truetype"), url(fonts/font-awesome/fa-brands-400.svg#fontawesome) format("svg")
+        }
+
+        .fab {
+            font-family: "Font Awesome 5 Brands"
+        }
+
+        .fab {
+            font-weight: 400
+        }
+
 
         [class^="icon-"] {
             font-family: 'icomoon' !important;
@@ -68,9 +85,12 @@
         .icon-twitter:before {
             content: "\f099";
         }
+        .fa-facebook:before {
+            content: "\f09a"
+        }
 
-        .icon-facebook:before {
-            content: "\f09a";
+        .fa-youtube:before {
+            content: "\f167"
         }
 
         .icon-envelope:before {
@@ -210,7 +230,7 @@
         }
 
         .header_a:hover {
-            color: #0056b3;
+            color: #00496b;
             text-decoration: underline;
         }
 
@@ -1131,21 +1151,17 @@
             position: relative;
             color: #212529;
         }
-
         .site-mobile-menu .site-nav-wrap a.active,
         .site-mobile-menu .site-nav-wrap a:hover {
             color: #007bff;
         }
-
         .site-mobile-menu .site-nav-wrap li {
             position: relative;
             display: block;
         }
-
         .site-mobile-menu .site-nav-wrap li.active>a {
             color: #007bff;
         }
-
         .site-mobile-menu .site-nav-wrap .arrow-collapse {
             position: absolute;
             right: 0px;
@@ -1157,11 +1173,9 @@
             cursor: pointer;
             border-radius: 50%;
         }
-
         .site-mobile-menu .site-nav-wrap .arrow-collapse:hover {
             background: #f8f9fa;
         }
-
         .site-mobile-menu .site-nav-wrap .arrow-collapse:before {
             font-size: 12px;
             z-index: 20;
@@ -1177,90 +1191,79 @@
             -o-transition: .3s all ease;
             transition: .3s all ease;
         }
-
         .site-mobile-menu .site-nav-wrap .arrow-collapse.collapsed:before {
             -webkit-transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
         }
-
         .site-mobile-menu .site-nav-wrap>li {
             display: block;
             position: relative;
             float: left;
             width: 100%;
         }
-
         .site-mobile-menu .site-nav-wrap>li>a {
             padding-left: 20px;
             font-size: 20px;
         }
-
         .site-mobile-menu .site-nav-wrap>li>ul {
             padding: 0;
             margin: 0;
             list-style: none;
         }
-
         .site-mobile-menu .site-nav-wrap>li>ul>li {
             display: block;
         }
-
         .site-mobile-menu .site-nav-wrap>li>ul>li>a {
             padding-left: 40px;
             font-size: 16px;
         }
-
         .site-mobile-menu .site-nav-wrap>li>ul>li>ul {
             padding: 0;
             margin: 0;
         }
-
         .site-mobile-menu .site-nav-wrap>li>ul>li>ul>li {
             display: block;
         }
-
         .site-mobile-menu .site-nav-wrap>li>ul>li>ul>li>a {
             font-size: 16px;
             padding-left: 60px;
         }
-
         .sticky-wrapper {
             position: absolute;
             z-index: 110;
             width: 100%;
         }
-
         .sticky-wrapper+.site-blocks-cover {
             margin-top: 96px;
         }
-
         .sticky-wrapper .site-navbar {
             -webkit-transition: .3s all ease;
             -o-transition: .3s all ease;
             transition: .3s all ease;
         }
-
         .sticky-wrapper .site-navbar ul li.active a {
             color: #fff;
         }
-
         .ico_pr {
             padding-right: 0.75rem;
-            padding-left: 0.75rem
+            padding-left: 0.75rem;
+            align-items: center;
         }
-
         .d-end-flex {
             display: flex;
             justify-content: flex-end;
         }
-
-        .fs-20 {
-            font-size: 20px;
+        .fs-16 {
+            font-size: 16px;
         }
-
         .fs-12 {
             font-size: 12px;
+        }
+        .fa-lg {
+            font-size: 1.33333em;
+            line-height: .75em;
+            vertical-align: -.0667em
         }
     </style>
     <div class="bodyheader">
@@ -1290,14 +1293,14 @@
                         </div>
                         <div class="col-6 text-right">
                             <div class="mr-auto d-end-flex">
-                                <a class="a social-media-link-icon--youtube" href="https://www.youtube.com/@user-nz4ef8qy7h" target="_blank" rel="nofollow">
-                                    <span class="fab fa-youtube fa-lg"></span>
+                                <a href="https://www.instagram.com/aladel.un?igsh=NnkwcDM0eTRkbTVh" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow">
+                                    <span class="icon-instagram fs-16"></span>
                                 </a>
                                 <a href="https://www.facebook.com/Aladel.University/" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow">
-                                    <span class="icon-facebook"></span>
+                                    <span class="fa-facebook fab fs-16"></span>
                                 </a>
-                                <a href="https://www.instagram.com/aladel.un?igsh=NnkwcDM0eTRkbTVh" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow">
-                                    <span class="icon-instagram"></span>
+                                <a href="https://www.youtube.com/@user-nz4ef8qy7h" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow">
+                                    <span class="fa-youtube fab fs-16"></span>
                                 </a>
                             </div>
                         </div>
@@ -1329,7 +1332,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('lib') }}" class="header_a nav-link">
+                                            <a href="{{ route('library') }}" class="header_a nav-link">
                                                 Library
                                             </a>
                                         </li>
