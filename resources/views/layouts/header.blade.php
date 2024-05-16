@@ -190,20 +190,8 @@
             margin: 0;
         }
 
-        .headerhtml {
-            font-family: sans-serif;
-            line-height: 1.15;
-            -webkit-text-size-adjust: 100%;
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        }
-
         .nav {
             display: block;
-        }
-
-        .headerh1 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
         }
 
         .header_ul {
@@ -238,15 +226,21 @@
             -webkit-appearance: button;
         }
 
-        .headerh1,
         .header_h3 {
             margin-bottom: 0.5rem;
             font-weight: 500;
             line-height: 1.2;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
         }
 
-        .headerh1 {
+        .header_h1 {
             font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
         }
 
         .header_h3 {
@@ -862,7 +856,7 @@
             color: #fff;
             font-size: 20px;
             font-weight: bold;
-            text-transform: uppercase;
+            text-decoration: none;
         }
 
         .site-navbar .site-navigation .site-menu {
@@ -1269,7 +1263,7 @@
             font-size: 12px;
         }
     </style>
-    <div class="bodyheader headerhtml">
+    <div class="bodyheader">
         <div class="site-mobile-menu site-navbar-target">
             <div class="site-mobile-menu-header">
                 <div class="site-mobile-menu-close mt-3">
@@ -1290,20 +1284,21 @@
                                 </a>
                                 <a href="#" class="header_a d-flex align-items-center mr-auto fs-12">
                                     <span class="icon-phone mr-2"></span>
-                                    <span class="d-none d-md-inline-block">+9672367133</span>
+                                    <span class="d-none d-md-inline-block">+967 772 367 133</span>
                                 </a>
                             </div>
                         </div>
                         <div class="col-6 text-right">
                             <div class="mr-auto d-end-flex">
-                                    <a class="a social-media-link-icon--youtube"
-                                        href="https://www.youtube.com/@user-nz4ef8qy7h" target="_blank" rel="nofollow">
-                                        <span class="fab fa-youtube fa-lg"></span>
-                                    </a>
-                                <a href="https://www.facebook.com/Aladel.University/" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow"><span
-                                        class="icon-facebook"></span></a>
-                                <a href="https://www.instagram.com/aladel.un?igsh=NnkwcDM0eTRkbTVh" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow"><span
-                                        class="icon-instagram"></span></a>
+                                <a class="a social-media-link-icon--youtube" href="https://www.youtube.com/@user-nz4ef8qy7h" target="_blank" rel="nofollow">
+                                    <span class="fab fa-youtube fa-lg"></span>
+                                </a>
+                                <a href="https://www.facebook.com/Aladel.University/" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow">
+                                    <span class="icon-facebook"></span>
+                                </a>
+                                <a href="https://www.instagram.com/aladel.un?igsh=NnkwcDM0eTRkbTVh" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow">
+                                    <span class="icon-instagram"></span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1313,39 +1308,84 @@
                 <div class="container">
                     <div class="header_row align-items-center">
                         <div class="col-2">
-                            <h1 class="headerh1 my-0 site-logo"><a class="header_a" href="index.html">AL-Adel</a></h1>
+                            <h1 class="headerh1 my-0 site-logo">
+                                <a class="header_a" href="index.html">
+                                    AlAdel
+                                </a>
+                            </h1>
                         </div>
                         <div class="col-10">
                             <nav class="nav site-navigation text-right" role="navigation">
                                 <div class="container">
-                                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
-                                            class="header_a site-menu-toggle js-menu-toggle text-white fs-20"><span
-                                                class="icon-menu"></span></a></div>
+                                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
+                                        <a href="#" class="header_a site-menu-toggle js-menu-toggle text-white fs-20">
+                                            <span class="icon-menu"></span>
+                                        </a>
+                                    </div>
                                     <ul class="header_ul site-menu main-menu js-clone-nav d-none d-lg-block">
-                                        <li class="active"><a href="{{ asset('/home') }}" class="header_a nav-link">Home</a>
+                                        <li class="active">
+                                            <a href="{{ route('home') }}" class="header_a nav-link">
+                                            Home
+                                            </a>
                                         </li>
-                                        <li><a href="{{ asset('/lib') }}" class="header_a nav-link">Library</a></li>
+                                        <li>
+                                            <a href="{{ route('lib') }}" class="header_a nav-link">
+                                                Library
+                                            </a>
+                                        </li>
                                         <li class="has-children">
-                                            <a href="#" class="header_a nav-link">College</a>
+                                            <a href="#" class="header_a nav-link">
+                                                College
+                                            </a>
                                             <ul class="header_ul dropdown arrow-top">
-                                                <li><a href="{{ route('computer') }}" class="header_a nav-link">Computer Science</a>
+                                                <li>
+                                                    <a href="{{ route('computer') }}" class="header_a nav-link">
+                                                        Computer Science
+                                                    </a>
                                                 </li>
-                                                <li><a href="{{ route('business') }}"
-                                                        class="header_a nav-link">Business Administration</a></li>
-                                                <li><a href="{{ route('islamic') }}"
-                                                        class="header_a nav-link">Islamic Studies and Quranic Sciences</a></li>
-                                                <li><a href="{{ route('sharia') }}"
-                                                        class="header_a nav-link">Sharia and Law</a></li>
-                                                <li><a href="{{ route('translation') }}"
-                                                        class="header_a nav-link">Languages and Translation</a></li>
+                                                <li>
+                                                    <a href="{{ route('business') }}" class="header_a nav-link">
+                                                        Business Administration
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('islamic') }}" class="header_a nav-link">
+                                                        Islamic Studies and Quranic Sciences
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('sharia') }}" class="header_a nav-link">
+                                                        Sharia and Law
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('translation') }}" class="header_a nav-link">
+                                                        Languages and Translation
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </li>
-                                        <li><a href="#about-section" class="header_a nav-link">About</a></li>
-                                        <li><a href="{{ asset('/registration') }}"
-                                                class="header_a nav-link">Regstiration</a></li>
-                                        <li><a href="#events-section" class="header_a nav-link">Events</a></li>
-                                        <li><a href="{{ asset('/admin/login') }}" class="header_a nav-link">Login<i
-                                                    class="fas fa-sign-in-alt"></i></a></li>
+                                        <li>
+                                            <a href="#about-section" class="header_a nav-link">
+                                                About
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('registration') }}" class="header_a nav-link">
+                                                Regstiration
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#events-section" class="header_a nav-link">
+                                                Events
+                                            </a>
+                                        </li>
+                                        <li>
+                                        <a href="{{ route('login') }}" class="header_a nav-link">
+                                            Login
+                                            <i class="fas fa-sign-in-alt"></i>
+                                        </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </nav>
