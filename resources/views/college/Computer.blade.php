@@ -351,28 +351,42 @@
             </div>
         </div>
         <div class="col-qxc">
-       
-   
-        <div class="box-content p-4 XXsnipcss_extracted_selector_selectionXX snipcss0-0-0-1 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center">
-            <div class="row align-items-xl-center snipcss0-1-1-2">
-                <div class="col-3 snipcss0-2-2-3">
-                    <div class="text-end leader-img snipcss0-3-3-4">
-                        <img src="https://cscis.nu.edu.sa/documents/46874/0/WhatsApp+Image+2022-04-19+at+6.24.19+AM+%281%29.jpeg/6d378670-d6e8-1cc7-d03d-1204199a851b?t=1682237823865&amp;download=true" alt="" title="" data-lfr-editable-id="card1" data-lfr-editable-type="image" class="snipcss0-4-4-5">
+
+
+            <div
+                class="box-content p-4 XXsnipcss_extracted_selector_selectionXX snipcss0-0-0-1 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center">
+                <div class="row align-items-xl-center snipcss0-1-1-2">
+                    <div class="col-3 snipcss0-2-2-3">
+                        <div class="text-end leader-img snipcss0-3-3-4">
+                            <img src="https://cscis.nu.edu.sa/documents/46874/0/WhatsApp+Image+2022-04-19+at+6.24.19+AM+%281%29.jpeg/6d378670-d6e8-1cc7-d03d-1204199a851b?t=1682237823865&amp;download=true"
+                                alt="" title="" data-lfr-editable-id="card1"
+                                data-lfr-editable-type="image" class="snipcss0-4-4-5">
+                        </div>
+                    </div>
+                    <div class="col-9 snipcss0-2-2-6">
+                        <h2 class="font-weight-normal text-6 snipcss0-3-6-7" data-lfr-editable-id="card2"
+                            data-lfr-editable-type="rich-text">كلمة العميد&nbsp;<br class="snipcss0-4-7-8">
+                            <strong class="font-weight-extra-bold snipcss0-4-7-9">د. محمد علي حمدي</strong>
+                        </h2>
                     </div>
                 </div>
-                <div class="col-9 snipcss0-2-2-6">
-                    <h2 class="font-weight-normal text-6 snipcss0-3-6-7" data-lfr-editable-id="card2" data-lfr-editable-type="rich-text">كلمة العميد&nbsp;<br class="snipcss0-4-7-8">
-    <strong class="font-weight-extra-bold snipcss0-4-7-9">د. محمد علي حمدي</strong></h2>
-                </div>
-            </div>
-            <div class="row py-4 text-end snipcss0-1-1-10">
-                <div class="col snipcss0-2-10-11">
-                    <p class="text-3-4 snipcss0-3-11-12" data-lfr-editable-id="card3" data-lfr-editable-type="rich-text">الحمد لله وحده والصلاة والسلام على من لا نبي بعده وعلى آله وصحبه<br class="snipcss0-4-12-13">
-    أصبح الناس على مختلف مستوياتهم يدركون أهمية الحاسوب وتقنية المعلومات ويشعرون بالقفزة الحضارية الكبيرة التي أدخلها الحاسوب على العالم. ففي غضون سنوات قليلة دخلت الإنترنت إلى وعي كثير من الناس وصارت هذه الشبكة المتصلة بمئات الملايين من الحواسيب عبر العالم وسيلة للتواصل ونقل المعلومات بين أطراف العالم المترامية بحرية وبسرعة فائقة. وبلا ريب أن هذه المعلومات المتداولة تحتوي مضامين مختلفة تشكل ثقافة الإنسان وتدير دفة حضارة المجتمعات. ففي ضوء هذا الادراك لأهمية الحاسوب وتقنية المعلومات فقد حرصت جامعة نجران منذ نشأتها على إطلاق برامج نوعية في مجالات التقنية باستحداث كلية علوم الحاسب ونظم المعلومات.</p>
-                     <div class="snipcss0-3-11-14"><a href="https://cscis.nu.edu.sa/ar/dean-message" class="btn btn-box flo snipcss0-4-14-15" type="button">المزيد</a></div>
+                <div class="row py-4 text-end snipcss0-1-1-10">
+                    <div class="col snipcss0-2-10-11">
+                        <p class="text-3-4 snipcss0-3-11-12" data-lfr-editable-id="card3"
+                            data-lfr-editable-type="rich-text">الحمد لله وحده والصلاة والسلام على من لا نبي بعده وعلى
+                            آله وصحبه<br class="snipcss0-4-12-13">
+                            أصبح الناس على مختلف مستوياتهم يدركون أهمية الحاسوب وتقنية المعلومات ويشعرون بالقفزة
+                            الحضارية الكبيرة التي أدخلها الحاسوب على العالم. ففي غضون سنوات قليلة دخلت الإنترنت إلى وعي
+                            كثير من الناس وصارت هذه الشبكة المتصلة بمئات الملايين من الحواسيب عبر العالم وسيلة للتواصل
+                            ونقل المعلومات بين أطراف العالم المترامية بحرية وبسرعة فائقة. وبلا ريب أن هذه المعلومات
+                            المتداولة تحتوي مضامين مختلفة تشكل ثقافة الإنسان وتدير دفة حضارة المجتمعات. ففي ضوء هذا
+                            الادراك لأهمية الحاسوب وتقنية المعلومات فقد حرصت جامعة نجران منذ نشأتها على إطلاق برامج
+                            نوعية في مجالات التقنية باستحداث كلية علوم الحاسب ونظم المعلومات.</p>
+                        <div class="snipcss0-3-11-14"><a href="https://cscis.nu.edu.sa/ar/dean-message"
+                                class="btn btn-box flo snipcss0-4-14-15" type="button">المزيد</a></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-{{-- @endsection --}}
+    {{-- @endsection --}}
