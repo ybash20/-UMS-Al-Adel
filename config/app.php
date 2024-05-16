@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'fallback_locale' => isset($_GET['lang']) ? $_GET['lang'] : '$lang',
+    'fallback_locale' => isset($_GET['lang']) ? $_GET['lang'] : $lang,
 
     /*
     |--------------------------------------------------------------------------
@@ -163,6 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        crocodicstudio\crudbooster\CRUDBoosterServiceProvider::class,
 
         /*
          * Package Service Providers...
