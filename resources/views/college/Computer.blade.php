@@ -6,7 +6,7 @@
 <style>
     @import url('https://fonts.googleapis.com/css?family=Cairo:200,300,400,500,600,700,800,900&display=swap');
 
-    body {
+    .body_computer {
         background: #FFF;
         text-align: center;
         color: #212529;
@@ -36,7 +36,7 @@
         }
     }
 
-    body {
+    .body_computer1 {
         background-color: #fff;
         color: #212529;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -48,7 +48,7 @@
         text-align: inherit;
     }
 
-    body {
+    .body_computer2 {
         background-color: #FFF;
         color: #777;
         font-family: 'Cairo', sans-serif;
@@ -58,12 +58,12 @@
         text-align: right;
     }
 
-    html {
+    .html_computer {
         -webkit-text-size-adjust: 100%;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 
-    html {
+    .html_computer1 {
         direction: rtl;
         overflow-x: hidden;
         box-shadow: none !important;
@@ -159,22 +159,22 @@
         max-width: 100%;
     }
 
-    h2 {
+    .h2_1 {
         margin-bottom: .5rem;
         margin-top: 0;
     }
 
-    h2 {
+    .h2_2 {
         font-weight: 500;
         line-height: 1.2;
         margin-bottom: .5rem;
     }
 
-    h2 {
+    .h2_3 {
         font-size: 2rem;
     }
 
-    h2 {
+    .h2_4 {
         color: #212529;
         font-weight: 200;
         letter-spacing: -.05em;
@@ -182,7 +182,7 @@
         -webkit-font-smoothing: antialiased;
     }
 
-    h2 {
+    .h2_5 {
         font-size: 2.2em;
         font-weight: 300;
         line-height: 42px;
@@ -214,16 +214,16 @@
         width: 60px;
     }
 
-    p {
+    .p_1 {
         margin-bottom: 1rem;
         margin-top: 0;
     }
 
-    p {
+    .p_2 {
         text-align: justify !important;
     }
 
-    p {
+    .p_3 {
         color: #212529;
         line-height: 26px;
         margin: 0 0 20px;
@@ -234,7 +234,7 @@
         font-size: 1.1em !important;
     }
 
-    img {
+    .img_1 {
         vertical-align: middle;
     }
 
@@ -244,7 +244,7 @@
         border-radius: 50%;
     }
 
-    strong {
+    .strong_1 {
         font-weight: bolder;
     }
 
@@ -252,25 +252,25 @@
         font-weight: 800 !important;
     }
 
-    a {
+    .a_1 {
         color: #007bff;
         cursor: pointer;
         text-decoration: none;
     }
 
-    a {
+    .a_2 {
         color: #c99e2d;
     }
 
-    a {
+    .a_3 {
         text-decoration: none;
     }
 
-    a {
+    .a_4 {
         color: #1b3c6a;
     }
 
-    a {
+    .a_5 {
         outline: none !important;
     }
 
@@ -314,17 +314,17 @@
         float: left;
     }
 
-    a:hover {
+    .a:hover {
         color: #0056b3;
         text-decoration: underline;
     }
 
-    a:hover {
+    .a:hover {
         color: #0099e6;
     }
 
     a,
-    a:hover {
+    .a:hover {
         color: #1b3c6a;
     }
 
