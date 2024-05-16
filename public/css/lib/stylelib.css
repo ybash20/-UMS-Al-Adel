@@ -142,12 +142,12 @@ section .main .main_img img {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 2px solid #39c13e;
+    /* border: 2px solid #39c13e; */
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
-    margin-bottom: 1%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 4%;
+    box-shadow: 0 2px 4px #343a4075;
 }
 
 .book_lib_row h2 {
@@ -236,21 +236,24 @@ section .main .main_img img {
 }
 
 .read-more-button {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 5px 10px;
-    border: azure;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    line-height: 1;
-    height: 8%;
-    display: flex;
-    width: 8%;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border: azure;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  line-height: 1;
+  height: 8%;
+  display: flex;
+  width: 11%;
+  align-content: space-between;
+  justify-content: space-evenly;
+  align-items: flex-end;
   }
 
 .read-more-button:hover {

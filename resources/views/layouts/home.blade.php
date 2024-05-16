@@ -23,7 +23,6 @@
 
     <section>
         @include('layouts.news_section')
-
     </section>
 
     <section>
