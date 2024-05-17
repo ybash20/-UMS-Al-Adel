@@ -32,6 +32,7 @@
             src: url(fonts/font-awesome/fa-brands-400.eot);
             src: url(fonts/font-awesome/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(fonts/font-awesome/fa-brands-400.woff2) format("woff2"), url(fonts/font-awesome/fa-brands-400.woff) format("woff"), url(fonts/font-awesome/fa-brands-400.ttf) format("truetype"), url(fonts/font-awesome/fa-brands-400.svg#fontawesome) format("svg")
         }
+
         html {
             font-size: 62.5%
         }
@@ -91,10 +92,12 @@
             font-weight: bold;
             font-style: normal
         }
-        body{
+
+        body {
             font-family: 'Dosis';
         }
-        .footer{
+
+        .footer {
             direction: rtl;
             font-size: 16px;
             font-family: 'GE-Dinar';
@@ -499,9 +502,20 @@
             height: clamp(3rem, 2rem + 3vw, 4.5rem);
             background-repeat: no-repeat;
         }
-        .fab:hover{
+
+        .fab:hover {
             color: #00496b;
             transition: 0.2s;
+        }
+
+        .map {
+            width: 250px;
+            height: 200px;
+            border-radius: 15px;
+            border: none;
+        }
+        .section.stars a img {
+            border-radius: 15px;
         }
     </style>
     <footer class="footer">
@@ -509,18 +523,21 @@
             <div class="block-social-media-links">
                 <ul class="footer-ul social-media-links--platforms inline">
                     <li>
-                        <a  class="social-media-icon" href="https://www.instagram.com/aladel.un?igsh=NnkwcDM0eTRkbTVh" target="_blank" rel="nofollow">
-                            <span class="fab fa-instagram "></span>
+                        <a class="social-media-icon" href="https://www.youtube.com/@user-nz4ef8qy7h" target="_blank"
+                            rel="nofollow">
+                            <span class="fab fa-youtube "></span>
                         </a>
                     </li>
                     <li>
-                        <a class="social-media-icon" href="https://www.facebook.com/Aladel.University/" target="_blank" rel="nofollow">
+                        <a class="social-media-icon" href="https://www.facebook.com/Aladel.University/" target="_blank"
+                            rel="nofollow">
                             <span class="fab fa-facebook "></span>
                         </a>
                     </li>
                     <li>
-                        <a class="social-media-icon" href="https://www.youtube.com/@user-nz4ef8qy7h" target="_blank" rel="nofollow">
-                            <span class="fab fa-youtube "></span>
+                        <a class="social-media-icon" href="https://www.instagram.com/aladel.un?igsh=NnkwcDM0eTRkbTVh"
+                            target="_blank" rel="nofollow">
+                            <span class="fab fa-instagram "></span>
                         </a>
                     </li>
                 </ul>
@@ -558,30 +575,6 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="section applications">
-                            <div class="section_content_container">
-                                <h3 class="section_title">
-                                    تطبيقات الجامعة
-                                </h3>
-                                <ul class="footer-ul section_list">
-                                    <li>
-                                        <span>
-                                            الخدمات الالكترونية للمنسوبين
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                            الخدمات الالكترونية للطلاب
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                            تطبيق آيات
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                         <div class="section contacts">
                             <div class="section_content_container">
                                 <h3 class="section_title">
@@ -614,13 +607,16 @@
                         </div>
                         <div class="section stars">
                             <a href="https://www.topuniversities.com/universities/king-saud-university" rel="noreferrer" target="_blank">
-                                <img src="{{ asset('vendor/crudbooster/assets/LOGO.png') }}" style=" border-radius: 15px;" />
+                                <img src="{{ asset('vendor/crudbooster/assets/LOGO.png') }}" />
                             </a>
                         </div>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8937.163427615887!2d44.97096182687302!3d12.835120648389855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x161e1d29e7cb165f%3A0x738af63d3af0cc21!2z2KzYp9mF2LnYqSDYp9mE2LnYp9iv2YQg2YTZhNi52YTZiNmFINin2YTYpdmG2LPYp9mG2YrYqSDZiNin2YTYqti32KjZitmC2YrYqQ!5e0!3m2!1sar!2s!4v1715543660465!5m2!1sar!2s"
-                            width="250" height="250" style=" border-radius: 15px;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                        <div class="section">
+                            <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8937.163427615887!2d44.97096182687302!3d12.835120648389855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x161e1d29e7cb165f%3A0x738af63d3af0cc21!2z2KzYp9mF2LnYqSDYp9mE2LnYp9iv2YQg2YTZhNi52YTZiNmFINin2YTYpdmG2LPYp9mG2YrYqSDZiNin2YTYqti32KjZitmC2YrYqQ!5e0!3m2!1sar!2s!4v1715543660465!5m2!1sar!2s"
+                            class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                            allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
