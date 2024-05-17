@@ -47,45 +47,6 @@
             --font-sans: , sans-serif;
         }
 
-        .newsbody {
-            font-family: var(--font-regular);
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #212529;
-            direction: rtl;
-        }
-
-        .newsbody {
-            /* CSS Variables that may have been missed get put on body */
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        .newsbody {
-            margin: 0;
-            font-family: var(--font-regular);
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #212529;
-            background-color: #fff;
-            -webkit-text-size-adjust: 100%;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .newsbody {
-            background-color: var(--background-color);
-            font-family: var(--font-regular);
-            color: #4c535f;
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-
         @media (prefers-reduced-motion: no-preference) {
             :root {
                 scroll-behavior: smooth;
@@ -102,35 +63,21 @@
             background-color: #fff !important;
         }
 
-        .news_section.pat-7mb {
+        .news-section {
             position: relative;
             overflow: hidden;
+            background-color: #fff !important;
+            font-family: "Readex Pro";
+            direction: rtl;
+            margin: 0;
+            font-weight: 400;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            color: #4c535f;
+            font-size: 0.9rem;
+            line-height: 1.8;
         }
 
-        *,
-        :after,
-        :before {
-            box-sizing: border-box;
-        }
-
-        :-webkit-scrollbar {
-            width: 6px;
-            height: 0px;
-            background-color: #f5f5f5;
-            border-radius: 10px;
-        }
-
-        :-webkit-scrollbar-thumb {
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-            background-color: #5e5e61;
-            border-radius: 10px;
-        }
-
-        :-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-            background-color: #f5f5f5;
-            border-radius: 10px;
-        }
 
         .mx-tka {
             margin-right: auto !important;
@@ -172,36 +119,7 @@
             padding-top: 0 !important;
         }
 
-        .news_h3 {
-            margin-top: 0;
-            margin-bottom: .5rem;
-            font-weight: 500;
-            line-height: 1.2;
-        }
-
-        .news_h3 {
-            font-size: calc(1.3rem + .6vw);
-        }
-
-        @media (min-width: 1200px) {
-            .news_h3 {
-                font-size: 1.75rem;
-            }
-        }
-
-        .mt-mby {
-            margin-top: 3rem !important;
-        }
-
-        .section-ivd {
-            font-size: 32px;
-            font-weight: 500;
-            color: #007bff;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .news_p {
+        .news-p {
             margin-top: 0;
             margin-bottom: 1rem;
         }
@@ -255,7 +173,7 @@
         }
 
         @media (min-width: 992px) {
-            .col-sp4 {
+            .more-news {
                 flex: 0 0 auto;
                 width: 100%;
             }
@@ -266,12 +184,12 @@
             margin-bottom: 1rem !important;
         }
 
-        .news_a {
+        .news-a {
             color: #0d6efd;
             text-decoration: underline;
         }
 
-        .news_a {
+        .news-a {
             color: #006ea1;
             font-style: normal;
             text-decoration: none;
@@ -285,15 +203,15 @@
             z-index: 1;
         }
 
-        .news_a:hover {
+        .news-a:hover {
             color: #0a58ca;
         }
 
-        .news_a:hover {
+        .news-a:hover {
             color: #A88143;
         }
 
-        .news_img {
+        .news-img {
             vertical-align: middle;
         }
 
@@ -366,38 +284,14 @@
             transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
         }
 
-        .btn-primary-zq4 {
-            color: #fff;
-            background-color: #0d6efd;
-            border-color: #0d6efd;
-        }
-
         .btn-84b {
             padding: .5rem 1rem;
             font-size: 1.25rem;
             border-radius: .3rem;
         }
 
-        .btn-primary-zq4 {
-            color: #fff;
-            background-color: #006ea1;
-            border-color: #006ea1;
-        }
-
         .btn-31z:hover {
             color: #212529;
-        }
-
-        .btn-primary-zq4:hover {
-            color: #fff;
-            background-color: #0b5ed7;
-            border-color: #0a58ca;
-        }
-
-        .btn-primary-zq4:hover {
-            color: #fff;
-            background-color: #00496b;
-            border-color: #00496b;
         }
 
         .d-a64 {
@@ -421,19 +315,19 @@
             display: block;
         }
 
-        .news_h4 {
+        .news-h4 {
             margin-top: 0;
             margin-bottom: .5rem;
             font-weight: 500;
             line-height: 1.2;
         }
 
-        .news_h4 {
+        .news-h4 {
             font-size: calc(1.275rem + .3vw);
         }
 
         @media (min-width: 1200px) {
-            .news_h4 {
+            .news-h4 {
                 font-size: 1.5rem;
             }
         }
@@ -449,100 +343,195 @@
 
         }
 
-        .news_post_p {
+        .news-post-p {
             color: #787878;
             font-size: 11px;
             margin: 0;
         }
 
-        .card_p {
+        .card-p {
             padding: 5px 15px 15px;
         }
 
-        .lhr {
-            height: 3px;
-            border: none;
+        a {
+            text-decoration: none;
+        }
+
+        .more-news {
+            text-align: center !important;
+            margin-top: 1rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .more-news a {
+            font-style: normal;
+            z-index: 1;
+            display: inline-block;
+            font-weight: 400;
+            line-height: 1.5;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle;
+            cursor: pointer;
+            user-select: none;
+            border: 1px solid;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            color: #fff;
+            background-color: #006ea1;
+            border-color: #006ea1;
+            padding: .5rem 1rem;
+            font-size: 1.25rem;
+            border-radius: .3rem;
+            width: 100% !important;
+        }
+
+        .more-news a:hover {
+            color: #fff;
             background-color: #00496b;
-            width: 13%;
+            border-color: #00496b;
+        }
+
+        .news-header {
+            display: flex;
+            justify-content: center;
+            max-width: 1562px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-right: auto !important;
+            margin-left: auto !important;
+        }
+
+        .news-header-inner {
+            text-align: center !important;
+            line-height: 1.5;
+            font-size: 32px;
+            font-weight: 500;
+            margin: 30px 0;
+        }
+        .news-header-inner a{
+            color: #007bff;
+        }
+
+        .news-header-inner a::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background-color: #00496b;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .news-header-inner a:hover::after {
+            width: 90%;
+        }
+
+        @media (max-width: 1562px) {
+            .news-header {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
         }
     </style>
-    <div class="newsbody">
-        <section class=" news_section bg-5gp pat-7mb">
-            <div class="content-lga mx-tka">
-                <div class="text-oqa">
-                    <h3 class="news_h3 section-ivd mt-mby"><span>الأحداث والأخبار</span>
-                        <hr class="lhr">
-                    </h3>
-                </div>
+    <div class="news-section">
+        <div class="news-header">
+            <div class="news-header-inner">
+                <a href="{{ route('news') }}">
+                    الأحداث والأخبار
+                </a>
             </div>
-            <div class="content-lga mx-tka">
-                <div class="row-qk7 pt-iso">
-                    <div class="col-gb5 px-5jw mb-g7w">
-                        <div class="card-4ox">
-                            <a class="news_a" href="/news0034"><span class="d-a64">دشن صاحب السمو الملكي الأمير سلمان بن
-                                    سلطان بن عبد العزيز،
-                                    أمير منطقة المدينة المنورة، مهرجان الثقافات والشعوب في دورته الثانية عشرة.</span></a>
-                            <img class="news_img w-ay8 h-d84" width="715" height="402"
-                                src="https://iu.edu.sa/media/university%20news/4F2A3242.jpg?width=715&amp;height=402&amp;rmode=crop&amp;token=B6NeewpEwbR6jaJeC5TQmhsCKHEgKEgodlIzNlPneOE%3D">
-                            <div class="container-7xn d-q8z column-zop content-kj5">
-                                <div class="card-lf7">
-                                    <h4 class="news_h4 title-b9o">دشن صاحب السمو الملكي الأمير سلمان بن سلطان بن عبد العزيز،
-                                        أمير
-                                        منطقة
-                                        المدينة المنورة، مهرجان الثقافات والشعوب في دورته الثانية عشرة.</h4>
-                                </div>
+        </div>
+        <div class="content-lga mx-tka">
+            <div class="row-qk7 pt-iso">
+                <div class="col-gb5 px-5jw mb-g7w">
+                    <div class="card-4ox">
+                        <a class="news-a" href="#">
+                            <span class="d-a64">
+                                دشن صاحب السمو الملكي الأمير سلمان بن
+                                سلطان بن عبد العزيز،
+                                أمير منطقة المدينة المنورة، مهرجان الثقافات والشعوب في دورته الثانية عشرة.
+                            </span>
+                        </a>
+                        <img class="news-img w-ay8 h-d84" width="715" height="402"
+                            src="https://iu.edu.sa/media/university%20news/4F2A3242.jpg?width=715&amp;height=402&amp;rmode=crop&amp;token=B6NeewpEwbR6jaJeC5TQmhsCKHEgKEgodlIzNlPneOE%3D">
+                        <div class="container-7xn d-q8z column-zop content-kj5">
+                            <div class="card-lf7">
+                                <h4 class="news-h4 title-b9o">
+                                    دشن صاحب السمو الملكي الأمير سلمان بن سلطان بن عبد العزيز،
+                                    أمير
+                                    منطقة
+                                    المدينة المنورة، مهرجان الثقافات والشعوب في دورته الثانية عشرة.
+                                </h4>
                             </div>
-                        </div>
-                        <div class="card_p">
-                            <p class="news_post_p">أبرز الأخبار الصحفية والتغطيات الإعلامية للفعاليات والأحداث الجامعية أبرز
-                                الأخبار الصحفية والتغطيات الإعلامية للفعاليات والأحداث الجامعيةأبرز الأخبار الصحفية
-                                والتغطيات الإعلامية للفعاليات</p>
                         </div>
                     </div>
-                    <div class="col-gb5 px-5jw mb-g7w list-i5d">
-                        <div class="post-217 pt-iso d-q8z item-oe3">
-                            <div class="post-231">
-                                <a class="news_a" href="/news0028"><img class="news_img w-ay8 h-d84" width="145"
-                                        height="109"
-                                        src="https://iu.edu.sa/media/university%20news/4F2A8832.JPG?width=145&amp;height=109&amp;rmode=crop&amp;token=BNuc6A7x21GU%2B2BnXouAfKO9Z%2FkCIHwHSI9Kku4Mo0M%3D"></a>
-                            </div>
-                            <div class="content-lao"> <a class="news_a" href="/news0028">سعادة رئيس الجامعة الإسلامية المكلف
-                                    يدشن فعاليات
-                                    وأنشطة أسبوع البحث العلمي الخامس تحت شعار: (همّةُ وأثر )</a>
-                                <p class="news_post_p">أبرز الأخبار الصحفية والتغطيات الإعلامية للفعاليات والأحداث
-                                    الجامعيةأبرز الأخبار الصحفية والتغطيات الإعلامية للفعاليات والأحداث الجامعيةأبرز الأخبار
-                                    الصحفية والتغطيات الإعلامية للفعاليات</p>
-                            </div>
+                    <div class="card-p">
+                        <p class="news-post-p">
+                            أبرز الأخبار الصحفية والتغطيات الإعلامية للفعاليات والأحداث الجامعية أبرز
+                            الأخبار الصحفية والتغطيات الإعلامية للفعاليات والأحداث الجامعية أبرز الأخبار الصحفية
+                            والتغطيات الإعلامية للفعاليات
+                        </p>
+                    </div>
+                </div>
+                <div class="col-gb5 px-5jw mb-g7w list-i5d">
+                    <div class="post-217 pt-iso d-q8z item-oe3">
+                        <div class="post-231">
+                            <a class="news-a" href="/news0028">
+                                <img class="news-img w-ay8 h-d84" width="145" height="109"
+                                    src="https://iu.edu.sa/media/university%20news/4F2A8832.JPG?width=145&amp;height=109&amp;rmode=crop&amp;token=BNuc6A7x21GU%2B2BnXouAfKO9Z%2FkCIHwHSI9Kku4Mo0M%3D">
+                            </a>
                         </div>
-                        <div class="post-217 pt-iso d-q8z item-oe3">
-                            <div class="post-231">
-                                <a class="news_a" href="/eid2"><img class="news_img w-ay8 h-d84" width="145"
-                                        height="109"
-                                        src="https://iu.edu.sa/media/university%20news/4G4A2838.jpg?width=145&amp;height=109&amp;rmode=crop&amp;token=BNuc6A7x21GU%2B2BnXouAfKO9Z%2FkCIHwHSI9Kku4Mo0M%3D"></a>
-                            </div>
-                            <div class="content-lao"> <a class="news_a" href="/eid2">رئيس الجامعة الاسلامية يرعى حفل
-                                    المعايدة بمناسبة عيد
-                                    الفطر المبارك </a>
-                            </div>
+                        <div class="content-lao">
+                            <a class="news-a" href="/news0028">
+                                سعادة رئيس الجامعة الإسلامية المكلف
+                                يدشن فعاليات
+                                وأنشطة أسبوع البحث العلمي الخامس تحت شعار: (همّةُ وأثر )
+                            </a>
+                            <p class="news-post-p">
+                                أبرز الأخبار الصحفية والتغطيات الإعلامية للفعاليات والأحداث
+                                الجامعيةأبرز الأخبار الصحفية والتغطيات الإعلامية للفعاليات والأحداث الجامعيةأبرز الأخبار
+                                الصحفية والتغطيات الإعلامية للفعاليات
+                            </p>
                         </div>
-                        <div class="post-217 pt-iso d-q8z item-oe3">
-                            <div class="post-231">
-                                <a class="news_a" href="/news/eid"><img class="news_img w-ay8 h-d84" width="145"
-                                        height="109"
-                                        src="https://iu.edu.sa/media/university%20news/1400.png?width=145&amp;height=109&amp;rmode=crop&amp;token=BNuc6A7x21GU%2B2BnXouAfKO9Z%2FkCIHwHSI9Kku4Mo0M%3D"></a>
-                            </div>
-                            <div class="content-lao"> <a class="news_a" href="/news/eid">تهنئكم الجامعة الإسلامية بحلول عيد
-                                    الفطر المبارك
-                                    وكل
-                                    عام وأنتم بخير</a>
-                            </div>
+                    </div>
+                    <div class="post-217 pt-iso d-q8z item-oe3">
+                        <div class="post-231">
+                            <a class="news-a" href="/eid2">
+                                <img class="news-img w-ay8 h-d84" width="145" height="109"
+                                    src="https://iu.edu.sa/media/university%20news/4G4A2838.jpg?width=145&amp;height=109&amp;rmode=crop&amp;token=BNuc6A7x21GU%2B2BnXouAfKO9Z%2FkCIHwHSI9Kku4Mo0M%3D">
+                            </a>
                         </div>
-                        <div class="col-sp4 my-4nd text-oqa">
-                            <a class="news_a btn-31z btn-primary-zq4 btn-84b w-ay8" href="{{ asset('/news') }}">المزيد</a>
+                        <div class="content-lao">
+                            <a class="news-a" href="/eid2">
+                                رئيس الجامعة الاسلامية يرعى حفل
+                                المعايدة بمناسبة عيد
+                                الفطر المبارك
+                            </a>
                         </div>
+                    </div>
+                    <div class="post-217 pt-iso d-q8z item-oe3">
+                        <div class="post-231">
+                            <a class="news-a" href="/news/eid">
+                                <img class="news-img w-ay8 h-d84" width="145" height="109"
+                                    src="https://iu.edu.sa/media/university%20news/1400.png?width=145&amp;height=109&amp;rmode=crop&amp;token=BNuc6A7x21GU%2B2BnXouAfKO9Z%2FkCIHwHSI9Kku4Mo0M%3D">
+                            </a>
+                        </div>
+                        <div class="content-lao">
+                            <a class="news-a" href="/news/eid">
+                                تهنئكم الجامعة الإسلامية بحلول عيد
+                                الفطر المبارك
+                                وكل
+                                عام وأنتم بخير
+                            </a>
+                        </div>
+                    </div>
+                    <div class="more-news">
+                        <a href="{{ route('news') }}">
+                            المزيد
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 @show

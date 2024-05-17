@@ -1,6 +1,6 @@
 @section('statistics')
     <style>
-        .statistics_body {
+        .statistics-body {
             margin: 0;
             font-size: 1rem;
             font-weight: 400;
@@ -68,30 +68,21 @@
             border-radius: 10px;
         }
 
-        .statistics_h3 {
+        .statistics-h3 {
             margin-top: 0;
             margin-bottom: .5rem;
             font-weight: 500;
             line-height: 1.2;
         }
 
-        .statistics_h3 {
+        .statistics-h3 {
             font-size: calc(1.3rem + .6vw);
         }
 
         @media (min-width: 1200px) {
-            .statistics_h3 {
+            .statistics-h3 {
                 font-size: 1.75rem;
             }
-        }
-
-        .title-85s {
-            font-family: var(--font-regular);
-            font-size: 32px;
-            font-weight: 500 !important;
-            color: #007bff;
-            text-align: center;
-            margin-bottom: 30px;
         }
 
         .d-j7d {
@@ -118,7 +109,7 @@
         @media (max-width: 1562px) {
             #sta-v5h {
                 gap: 25px;
-                margin: 40px 0;
+                margin: 0 0 40px;
             }
         }
 
@@ -141,7 +132,7 @@
             }
         }
 
-        .statistics_img {
+        .statistics-img {
             vertical-align: middle;
         }
 
@@ -160,7 +151,7 @@
 
         #sta-v5h .statistic-iix {
             font-size: 48px;
-            font-family: var(--font-regular);
+            font-family: "Readex Pro";
             text-align: center;
             margin-top: 12px;
             direction: ltr;
@@ -177,19 +168,19 @@
             color: var(--sub2-color);
         }
 
-        .statistics_h4 {
+        .statistics-h4 {
             margin-top: 0;
             margin-bottom: .5rem;
             font-weight: 500;
             line-height: 1.2;
         }
 
-        .statistics_h4 {
+        .statistics-h4 {
             font-size: calc(1.275rem + .3vw);
         }
 
         @media (min-width: 1200px) {
-            .statistics_h4 {
+            .statistics-h4 {
                 font-size: 1.5rem;
             }
         }
@@ -202,7 +193,7 @@
 
         #sta-v5h .text-q79 {
             font-size: 26px;
-            font-family: var(--font-regular);
+            font-family: "Readex Pro";
             text-align: center;
             color: #A88143;
             margin-top: 6px;
@@ -219,44 +210,75 @@
             color: #fff;
         }
 
-        .lhr {
+        .statistics-header {
+            display: flex;
+            justify-content: center;
+            max-width: 1562px;
+        }
+
+        .statistics-header-inner {
+            text-align: center !important;
+            line-height: 1.5;
+            font-weight: 500;
+            margin: 30px 0;
+        }
+        .statistics-header-inner h3{
+            color: #007bff;
+            margin: 0;
+            font-family: "Readex Pro";
+            font-size: 32px;
+            font-weight: 500;
+        }
+
+        .statistics-header-inner h3::after {
+            content: '';
+            width: 0;
             height: 3px;
-            border: none;
             background-color: #00496b;
-            width: 13%;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .statistics-header-inner h3:hover::after {
+            width: 90%;
         }
     </style>
-    <div class="statistics_body">
+    <div class="statistics-body">
         <div class="content-yis mx-l62">
-            <h3 class="statistics_h3 title-85s mt-mby"> إحصائيات الجامعة
-            <hr class="lhr">
-            </h3>
+            <div class="statistics-header">
+                <div class="statistics-header-inner">
+                    <h3>
+                        إحصائيات الجامعة
+                    </h3>
+                </div>
+            </div>
             <div id="sta-v5h" class="d-j7d flex-ctw item-2o5 content-o93">
                 <div class="card-m3b">
-                    <img class="statistics_img" src="images/statistics_images/Courses.svg" width="100" height="100">
-                    <h3 class="statistics_h3 statistic-iix">+<span>1004</span></h3>
-                    <h4 class="statistics_h4 text-q79">مقررات دراسية</h4>
+                    <img class="statistics-img" src="images/statistics_images/Courses.svg" width="100" height="100">
+                    <h3 class="statistics-h3 statistic-iix">+<span>1004</span></h3>
+                    <h4 class="statistics-h4 text-q79">مقررات دراسية</h4>
                 </div>
                 <div class="card-m3b">
-                    <img class="statistics_img" src="images/statistics_images/2.svg" width="100" height="100">
-                    <h3 class="statistics_h3 statistic-iix">+<span>17873</span></h3>
-                    <h4 class="statistics_h4 text-q79">الطلاب</h4>
+                    <img class="statistics-img" src="images/statistics_images/2.svg" width="100" height="100">
+                    <h3 class="statistics-h3 statistic-iix">+<span>17873</span></h3>
+                    <h4 class="statistics-h4 text-q79">الطلاب</h4>
                 </div>
                 <div class="card-m3b">
-                    <img class="statistics_img" src="images/statistics_images/employees.svg" width="100"
+                    <img class="statistics-img" src="images/statistics_images/employees.svg" width="100"
                         height="100">
-                    <h3 class="statistics_h3 statistic-iix">+<span>1272</span></h3>
-                    <h4 class="statistics_h4 text-q79">الموظفين</h4>
+                    <h3 class="statistics-h3 statistic-iix">+<span>1272</span></h3>
+                    <h4 class="statistics-h4 text-q79">الموظفين</h4>
                 </div>
                 <div class="card-m3b">
-                    <img class="statistics_img" src="images/statistics_images/4.svg" width="100" height="100">
-                    <h3 class="statistics_h3 statistic-iix">+<span>907</span></h3>
-                    <h4 class="statistics_h4 text-q79">أعضاء هيئة التدريس</h4>
+                    <img class="statistics-img" src="images/statistics_images/4.svg" width="100" height="100">
+                    <h3 class="statistics-h3 statistic-iix">+<span>907</span></h3>
+                    <h4 class="statistics-h4 text-q79">أعضاء هيئة التدريس</h4>
                 </div>
                 <div class="card-m3b">
-                    <img class="statistics_img" src="images/statistics_images/5.svg" width="100" height="100">
-                    <h3 class="statistics_h3 statistic-iix">+<span>9</span></h3>
-                    <h4 class="statistics_h4 text-q79">كلية معتمدة</h4>
+                    <img class="statistics-img" src="images/statistics_images/5.svg" width="100" height="100">
+                    <h3 class="statistics-h3 statistic-iix">+<span>9</span></h3>
+                    <h4 class="statistics-h4 text-q79">كلية معتمدة</h4>
                 </div>
             </div>
         </div>
