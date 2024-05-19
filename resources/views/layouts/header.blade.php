@@ -1384,7 +1384,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                        <a href="{{ route('login') }}" class="header_a nav-link">
+                                        <a href="{{ asset('/admin/login') }}" class="header_a nav-link">
                                             Login
                                             <i class="fas fa-sign-in-alt"></i>
                                         </a>
