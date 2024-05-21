@@ -1287,7 +1287,7 @@
                                 </a>
                                 <a href="#" class="header_a d-flex align-items-center mr-auto fs-12">
                                     <span class="icon-phone mr-2"></span>
-                                    <span class="d-none d-md-inline-block">+967 772 367 133</span>
+                                    <span class="d-none d-md-inline-block">+967 2 367 133</span>
                                 </a>
                             </div>
                         </div>
