@@ -4,14 +4,11 @@
 
 @section('main')
     <style>
-        /* @import url('https://fonts.googleapis.com/css?family=/Lemonad:200,300,400,500,600,700,800,900&display=swap'); */
-
-
         .body_computer {
             background: #FFF;
             text-align: center;
-            color: #212529;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            color: #212529; 
+            font-family: 'Lemonada', cursive;
             font-size: 1rem;
             font-weight: 400;
             line-height: 1.5;
@@ -20,7 +17,6 @@
 
         * {
             box-sizing: border-box;
-            font-family: 'Lemonada', cursive;
 
         }
 
@@ -102,7 +98,8 @@
             border-top-width: 6px;
             /* margin-bottom: 164px; */
             /* margin-right: 40px; */
-            margin: 69px 15px 40px;        }
+            margin: 69px 15px 40px;
+        }
 
         *,
         :before,

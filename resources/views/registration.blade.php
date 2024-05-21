@@ -49,7 +49,40 @@
                     <div class="form_inputs">
                         <div class="input_wrap">
                             <div>
-                                <label for="Nationality" class="label">الجنسية</label>
+                                <label for="name"> اسم الطالب</label>
+                            <input type="text" name="name" class="input" id="name">
+                            <label for="date of birth">تاريخ الميلاد</label>
+                            <input type="date" name="date of birth" class="input" id="date of birth">
+                            <label for="gender">نوع الجنس</label>
+                            <select class="select">
+                                <option value="">حدد نوع الجنس</option>
+                                <option value="male">ذكر</option>
+                                <option value="female">أنثى</option>
+                            </select>
+
+                            <label for="current address">العنوان الحالي:المحافظة</label>
+                            <input type="text" name="current address" class="input" id="current address">
+
+                            <label for="district">العنوان الحالي:المديرية</label>
+                            <input type="text" name="district" id="district" class="input">
+
+                            <label for="id-type">نوع الهوية</label>
+                            <select name="id-type" id="id-type" class="input">
+                                <option value="">حدد نوع الهوية</option>
+                                <option value="National identity card">بطاقة الهوية الوطنية</option>
+                                <option value="passport">جواز السفر</option>
+                                <option value="driving license">رخصة القيادة</option>
+                            </select>
+
+                            <label for="id-number">رقم الهوية</label>
+                            <input type="text" name="id-number" id="id-number" class="input">
+
+                            <label for="landline">رقم الهاتف الأرضي</label>
+                            <input type="tel" name="landline" id="landline" class="input">
+                            </div>
+                        </div>
+                        <div class="input_wrap2">
+                            <label for="Nationality" class="label">الجنسية</label>
                                 <input type="text" name="Nationality" class="input" id="Nationality">
                                 <label for="Place of birth" class="label">محل الميلاد</label>
                                 <input type="text" name="Place of birth" class="input" id="Place of birth">
@@ -85,43 +118,10 @@
 
                                 <label for="mobile" class="label">رقم الجوال</label>
                                 <input type="tel" name="mobile" id="mobile" class="input">
-                            </div>
+                           
                         </div>
-                        <div class="input_wrap2">
-                            <label for="name"> اسم الطالب</label>
-                            <input type="text" name="name" class="input" id="name">
-                            <label for="date of birth">تاريخ الميلاد</label>
-                            <input type="date" name="date of birth" class="input" id="date of birth">
-                            <label for="gender">نوع الجنس</label>
-                            <select class="select">
-                                <option value="">حدد نوع الجنس</option>
-                                <option value="male">ذكر</option>
-                                <option value="female">أنثى</option>
-                            </select>
-
-                            <label for="current address">العنوان الحالي:المحافظة</label>
-                            <input type="text" name="current address" class="input" id="current address">
-
-                            <label for="district">العنوان الحالي:المديرية</label>
-                            <input type="text" name="district" id="district" class="input">
-
-                            <label for="id-type">نوع الهوية</label>
-                            <select name="id-type" id="id-type" class="input">
-                                <option value="">حدد نوع الهوية</option>
-                                <option value="National identity card">بطاقة الهوية الوطنية</option>
-                                <option value="passport">جواز السفر</option>
-                                <option value="driving license">رخصة القيادة</option>
-                            </select>
-
-                            <label for="id-number">رقم الهوية</label>
-                            <input type="text" name="id-number" id="id-number" class="input">
-
-                            <label for="landline">رقم الهاتف الأرضي</label>
-                            <input type="tel" name="landline" id="landline" class="input">
-
                         </div>
                     </div>
-                </div>
                 <div class="form_2 data_info" style="display: none;">
                     <h2>بيانات الشهادة الثانوية العامة</h2>
                     <div class="form_inputs">
@@ -270,6 +270,20 @@
                 </div>
                 <div class="form_5 data_info" style="display: none;">
                     <h2>طرق التواصل </h2>
+                <div>
+                    @if (!empty(config('services.google')))
+                    <div style="margin-bottom:10px" class='row'>
+                        <div class='col-xs-12'>
+
+                            <a href='{{ route('redirect', 'google') }}' class="btn btn-primary btn-block btn-flat"><i
+                                    class='fa fa-google'></i>
+                                Google Login</a>
+
+                            <hr>
+                        </div>
+                    </div>
+                @endif
+                </div>
 
                 </div>
                 <div class="btns_wrap">

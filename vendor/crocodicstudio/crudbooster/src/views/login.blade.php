@@ -37,13 +37,12 @@
     <link rel='stylesheet' href='{{ asset('vendor/crudbooster/assets/css/main.css') }}' />
     <style type="text/css">
         :root {
-            --primary: #6b59d3;
+            --primary: #0661c278;
             --secondary: #bfc0c0;
             --white: #fff;
             --text-clr: #5b6475;
             --header-clr: #25273d;
-            --next-btn-hover: #8577d2;
-            --back-btn-hover: #8b8c8c;
+
         }
 
         * {
@@ -72,13 +71,9 @@
             background-size: cover; */
         }
 
-        /* .login-box, .register-box {
-            margin: 2% auto;
-        } */
-
         .login-box-body {
             width: 320px;
-            height: 619px;
+            height: 639px;
             background: var(--white);
             margin: 100px auto 0;
             padding: 22px;
@@ -142,12 +137,95 @@
             margin: -2px 12px -1px;
 
         }
+
+        .form_select {
+            width: 100px;
+            display: block;
+        }
+
+        .button_lang {
+            width: 100px;
+            margin: -22px 83px -2px;
+            background-color: #3c8dbc;
+            border-radius: 9%;
+            color: white;
+            border: none;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-button {
+            background-color: #5c81cc;
+            border: none;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 5px;
+            width: 100%;
+        }
+        .header-button:hover{
+            background-color: #fff
+        }
+        
     </style>
 </head>
+
 <body class="login-page" style="background: var(--primary);">
+    <header>
+        <div class="header-container">
+            <a href="{{ route('home') }}" class="header-button">
+                <i class="fas fa-home"></i>
+        </a>
+        </div>
+    </header>
+
     <div class="login-box">
         <div class="login-box-body">
+            <?php
+            if (isset($_GET['lang'])) {
+                setcookie('lang', $_GET['lang'], time() + 3 * 86, 400);
+            }
+            ?>
+            <form id="langForm" method="GET" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form_select">
+                <button type="submit" name="lang" value="ar" class="button_lang">Ar</button>
+                <button type="submit" name="lang" value="en" class="button_lang">En</button>
+                <!-- يمكنك إضافة المزيد من الخيارات حسب الحاجة -->
+            </form>
+            <script>
+                // Get the selected language from the cookie
+                var selectedLang = getCookie('lang');
 
+                // Get the language buttons
+                var arButton = document.querySelector('button[name="lang"][value="en"]');
+                var enButton = document.querySelector('button[name="lang"][value="ar"]');
+
+                // Hide the appropriate button based on the selected language
+                if (selectedLang === 'ar') {
+                    enButton.style.display = 'none';
+                } else {
+                    arButton.style.display = 'none';
+                }
+
+                // Helper function to get the value of a cookie
+                function getCookie(name) {
+                    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                    if (match) {
+                        return match[2];
+                    } else {
+                        return '';
+                    }
+                }
+            </script>
             @if (Session::get('message') != '')
                 <div class='alert alert-warning'>
                     {{ Session::get('message') }}
