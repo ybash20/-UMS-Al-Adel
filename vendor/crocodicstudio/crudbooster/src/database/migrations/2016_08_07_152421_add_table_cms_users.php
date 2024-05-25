@@ -14,13 +14,18 @@ class AddTableCmsUsers extends Migration
     {
         Schema::create('cms_users', function (Blueprint $table) {
             $table->increments('id');
-
             $table->string('name')->nullable();
-            $table->string('photo')->nullable();
-            $table->string('email')->nullable();
+            $table->string('Username');
+            $table->boolean('Gender');
             $table->string('password')->nullable();
+            $table->date('DOB');
+            $table->unsignedBigInteger('Department_ID');
+            $table->string('email')->nullable();
+            $table->string('Address_ID');
+            $table->string('Phone_number', 30);
+            $table->string('photo')->nullable();
+            $table->string('Status', 30);
             $table->integer('id_cms_privileges')->nullable();
-
             $table->timestamps();
         });
     }

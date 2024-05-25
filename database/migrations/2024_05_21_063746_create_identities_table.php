@@ -15,6 +15,11 @@ class CreateIdentitiesTable extends Migration
     {
         Schema::create('identities', function (Blueprint $table) {
             $table->id();
+            $table->string('Type', 30);
+            $table->string('Number', 30);
+            $table->date('Issue_Date');
+            $table->date('Issuing_Authority');
+            $table->string('Image');
             $table->timestamps();
         });
     }
