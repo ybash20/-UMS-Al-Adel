@@ -17,6 +17,8 @@ class AddTableCmsUsers extends Migration
             $table->string('name')->nullable();
             $table->string('Username');
             $table->boolean('Gender');
+            $table->string('Username');
+            $table->boolean('Gender');
             $table->string('password')->nullable();
             $table->date('DOB');
             $table->unsignedBigInteger('Department_ID');
