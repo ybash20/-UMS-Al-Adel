@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateCmsStatistics extends Migration
+class AddTableUmsPrivileges extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,13 @@ class CreateCmsStatistics extends Migration
      */
     public function up()
     {
-        Schema::create('cms_statistics', function (Blueprint $table) {
+        Schema::create('ums_privileges', function (Blueprint $table) {
             $table->increments('id');
+
             $table->string('name')->nullable();
-            $table->string('slug')->nullable();
+            $table->boolean('is_superadmin')->nullable();
+            $table->string('theme_color')->nullable();
+
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateCmsStatistics extends Migration
      */
     public function down()
     {
-        Schema::drop('cms_statistics');
+        Schema::drop('ums_privileges');
     }
 }

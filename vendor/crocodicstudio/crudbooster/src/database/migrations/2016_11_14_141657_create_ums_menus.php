@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateCmsMenus extends Migration
+class CreateUmsMenus extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateCmsMenus extends Migration
      */
     public function up()
     {
-        Schema::create('cms_menus', function (Blueprint $table) {
+        Schema::create('ums_menus', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('type')->default('url');
@@ -22,7 +22,7 @@ class CreateCmsMenus extends Migration
             $table->integer('parent_id')->nullable();
             $table->boolean('is_active')->default(1);
             $table->boolean('is_dashboard')->default(0);
-            $table->integer('id_cms_privileges')->nullable();
+            $table->integer('id_ums_privileges')->nullable();
             $table->integer('sorting')->nullable();
 
             $table->timestamps();
@@ -36,6 +36,6 @@ class CreateCmsMenus extends Migration
      */
     public function down()
     {
-        Schema::drop('cms_menus');
+        Schema::drop('ums_menus');
     }
 }

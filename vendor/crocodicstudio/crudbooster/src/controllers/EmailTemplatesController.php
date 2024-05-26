@@ -8,7 +8,7 @@ class EmailTemplatesController extends \crocodicstudio\crudbooster\controllers\C
 {
     public function cbInit()
     {
-        $this->table = "cms_email_templates";
+        $this->table = "ums_email_templates";
         $this->primary_key = "id";
         $this->title_field = "name";
         $this->limit = 20;
@@ -39,7 +39,7 @@ class EmailTemplatesController extends \crocodicstudio\crudbooster\controllers\C
             "validation" => "required|min:3|max:255|alpha_spaces",
             "placeholder" => "You can only enter the letter only",
         ];
-        $this->form[] = ["label" => "Slug", "type" => "text", "name" => "slug", "required" => true, 'validation' => 'required|unique:cms_email_templates,slug'];
+        $this->form[] = ["label" => "Slug", "type" => "text", "name" => "slug", "required" => true, 'validation' => 'required|unique:ums_email_templates,slug'];
         $this->form[] = ["label" => "Subject", "name" => "subject", "type" => "text", "required" => true, "validation" => "required|min:3|max:255"];
         $this->form[] = ["label" => "Content", "name" => "content", "type" => "wysiwyg", "required" => true, "validation" => "required"];
         $this->form[] = ["label" => "Description", "name" => "description", "type" => "text", "required" => true, "validation" => "required|min:3|max:255"];

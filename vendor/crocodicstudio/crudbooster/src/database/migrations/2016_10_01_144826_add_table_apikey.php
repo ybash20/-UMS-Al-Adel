@@ -12,7 +12,7 @@ class AddTableApikey extends Migration
      */
     public function up()
     {
-        Schema::create('cms_apikey', function (Blueprint $table) {
+        Schema::create('ums_apikey', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('screetkey')->nullable();
@@ -30,6 +30,6 @@ class AddTableApikey extends Migration
      */
     public function down()
     {
-        Schema::drop('cms_apikey');
+        Schema::drop('ums_apikey');
     }
 }

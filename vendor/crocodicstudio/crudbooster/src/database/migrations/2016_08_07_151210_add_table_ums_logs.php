@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddTableCmsNotifications extends Migration
+class AddTableUmsLogs extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,15 @@ class AddTableCmsNotifications extends Migration
      */
     public function up()
     {
-        Schema::create('cms_notifications', function (Blueprint $table) {
+        Schema::create('ums_logs', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('id_cms_users')->nullable();
-            $table->string('content')->nullable();
+            $table->integer('id_ums_users')->nullable();
+            $table->string('ipaddress', 50)->nullable();
+            $table->string('useragent')->nullable();
             $table->string('url')->nullable();
-            $table->boolean('is_read')->nullable();
+            $table->string('description')->nullable();
+            $table->text('details')->nullable();
 
             $table->timestamps();
         });
@@ -31,6 +33,6 @@ class AddTableCmsNotifications extends Migration
      */
     public function down()
     {
-        Schema::drop('cms_notifications');
+        Schema::drop('ums_logs');
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateCmsEmailTemplates extends Migration
+class AddTableUmsDashboard extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,13 @@ class CreateCmsEmailTemplates extends Migration
      */
     public function up()
     {
-        Schema::create('cms_email_templates', function (Blueprint $table) {
+        Schema::create('ums_dashboard', function (Blueprint $table) {
             $table->increments('id');
+
             $table->string('name')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('subject')->nullable();
+            $table->integer('id_ums_privileges')->nullable();
             $table->longtext('content')->nullable();
-            $table->string('description')->nullable();
-            $table->string('from_name')->nullable();
-            $table->string('from_email')->nullable();
-            $table->string('cc_email')->nullable();
+
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class CreateCmsEmailTemplates extends Migration
      */
     public function down()
     {
-        Schema::drop('cms_email_templates');
+        Schema::drop('ums_dashboard');
     }
 }

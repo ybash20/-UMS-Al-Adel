@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddTableCmsModuls extends Migration
+class AddTableUmsModuls extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class AddTableCmsModuls extends Migration
      */
     public function up()
     {
-        Schema::create('cms_moduls', function (Blueprint $table) {
+        Schema::create('ums_moduls', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('name')->nullable();
@@ -22,6 +22,7 @@ class AddTableCmsModuls extends Migration
             $table->string('controller')->nullable();
             $table->boolean('is_protected')->default(0);
             $table->boolean('is_active')->default(0);
+            $table->softDeletes();
 
             $table->timestamps();
         });
@@ -34,6 +35,6 @@ class AddTableCmsModuls extends Migration
      */
     public function down()
     {
-        Schema::drop('cms_moduls');
+        Schema::drop('ums_moduls');
     }
 }

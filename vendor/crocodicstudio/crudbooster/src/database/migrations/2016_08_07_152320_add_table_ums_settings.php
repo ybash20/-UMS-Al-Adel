@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddTableCmsSettings extends Migration
+class AddTableUmsSettings extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class AddTableCmsSettings extends Migration
      */
     public function up()
     {
-        Schema::create('cms_settings', function (Blueprint $table) {
+        Schema::create('ums_settings', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('name')->nullable();
@@ -20,6 +20,9 @@ class AddTableCmsSettings extends Migration
             $table->string('content_input_type')->nullable();
             $table->string('dataenum')->nullable();
             $table->string('helper')->nullable();
+            $table->string('group_setting')->nullable();
+            $table->string('label')->nullable();
+
 
             $table->timestamps();
         });
@@ -32,6 +35,6 @@ class AddTableCmsSettings extends Migration
      */
     public function down()
     {
-        Schema::drop('cms_settings');
+        Schema::drop('ums_settings');
     }
 }

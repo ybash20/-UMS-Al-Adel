@@ -15,7 +15,7 @@ class ApiAuthorizationController extends Controller
     public function postGetToken() {
         CB::valid(['secret'=>'required'],'json');
 
-        $exists = db("cms_apikey")
+        $exists = db("ums_apikey")
             ->where("screetkey", g("secret"))
             ->where("status","active")
             ->count();

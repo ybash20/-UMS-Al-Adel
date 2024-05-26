@@ -64,16 +64,16 @@
 @push('bottom')
     <!-- ADDITION FUNCTION FOR BUTTON -->
     <script type="text/javascript">
-        var id_cms_statistics = '{{$id_cms_statistics}}';
+        var id_ums_statistics = '{{$id_ums_statistics}}';
 
-        function addWidget(id_cms_statistics, area, component) {
+        function addWidget(id_ums_statistics, area, component) {
             var id = new Date().getTime();
             $('#' + area).append("<div id='" + id + "' class='area-loading'><i class='fa fa-spin fa-spinner'></i></div>");
 
             var sorting = $('#' + area + ' .border-box').length;
             $.post("{{CRUDBooster::mainpath('add-component')}}", {
                 component_name: component,
-                id_cms_statistics: id_cms_statistics,
+                id_ums_statistics: id_ums_statistics,
                 sorting: sorting,
                 area: area
             }, function (response) {
@@ -151,7 +151,7 @@
         }
 
         @endif
-        
+
         .connectedSortable {
             position: relative;
         }
@@ -205,7 +205,7 @@
                             var component = $('#' + idName + ' > a').data('component');
                             console.log(areaname);
                             $('#' + idName).remove();
-                            addWidget(id_cms_statistics, areaname, component);
+                            addWidget(id_ums_statistics, areaname, component);
                             $('.control-sidebar').html(cloneSidebar);
                             cloneSidebar = $('.control-sidebar').clone();
 
@@ -241,7 +241,7 @@
             $('.connectedSortable').each(function () {
                 var areaname = $(this).attr('id');
 
-                $.get("{{CRUDBooster::adminpath('statistic_builder/list-component')}}/" + id_cms_statistics + "/" + areaname, function (response) {
+                $.get("{{CRUDBooster::adminpath('statistic_builder/list-component')}}/" + id_ums_statistics + "/" + areaname, function (response) {
                     if (response.components) {
 
                         $.each(response.components, function (i, obj) {

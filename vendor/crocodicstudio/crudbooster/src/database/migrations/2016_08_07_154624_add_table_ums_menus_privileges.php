@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddLabelSetting extends Migration
+class AddTableUmsMenusPrivileges extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,10 @@ class AddLabelSetting extends Migration
      */
     public function up()
     {
-        Schema::table('cms_settings', function (Blueprint $table) {
-            //
-            $table->string('label')->nullable();
+        Schema::create('ums_menus_privileges', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('id_ums_menus')->nullable();
+            $table->integer('id_ums_privileges')->nullable();
         });
     }
 
@@ -25,9 +26,6 @@ class AddLabelSetting extends Migration
      */
     public function down()
     {
-        Schema::table('cms_settings', function (Blueprint $table) {
-            //
-            $table->dropColumn('label');
-        });
+        Schema::drop('ums_menus_privileges');
     }
 }

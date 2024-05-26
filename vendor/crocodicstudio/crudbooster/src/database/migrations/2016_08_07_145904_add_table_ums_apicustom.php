@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddTableCmsApicustom extends Migration
+class AddTableUmsApicustom extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class AddTableCmsApicustom extends Migration
      */
     public function up()
     {
-        Schema::create('cms_apicustom', function (Blueprint $table) {
+        Schema::create('ums_apicustom', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('permalink')->nullable();
@@ -37,6 +37,6 @@ class AddTableCmsApicustom extends Migration
      */
     public function down()
     {
-        Schema::drop('cms_apicustom');
+        Schema::drop('ums_apicustom');
     }
 }

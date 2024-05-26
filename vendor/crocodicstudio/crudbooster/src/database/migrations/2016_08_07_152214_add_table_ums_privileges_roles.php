@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddTableCmsPrivilegesRoles extends Migration
+class AddTableUmsPrivilegesRoles extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class AddTableCmsPrivilegesRoles extends Migration
      */
     public function up()
     {
-        Schema::create('cms_privileges_roles', function (Blueprint $table) {
+        Schema::create('ums_privileges_roles', function (Blueprint $table) {
             $table->increments('id');
 
             $table->boolean('is_visible')->nullable();
@@ -20,8 +20,8 @@ class AddTableCmsPrivilegesRoles extends Migration
             $table->boolean('is_read')->nullable();
             $table->boolean('is_edit')->nullable();
             $table->boolean('is_delete')->nullable();
-            $table->integer('id_cms_privileges')->nullable();
-            $table->integer('id_cms_moduls')->nullable();
+            $table->integer('id_ums_privileges')->nullable();
+            $table->integer('id_ums_moduls')->nullable();
 
             $table->timestamps();
         });
@@ -34,6 +34,6 @@ class AddTableCmsPrivilegesRoles extends Migration
      */
     public function down()
     {
-        Schema::drop('cms_privileges_roles');
+        Schema::drop('ums_privileges_roles');
     }
 }

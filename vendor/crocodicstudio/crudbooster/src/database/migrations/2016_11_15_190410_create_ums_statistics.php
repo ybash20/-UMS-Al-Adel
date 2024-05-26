@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddMethodTypeApicustom extends Migration
+class CreateUmsStatistics extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,11 @@ class AddMethodTypeApicustom extends Migration
      */
     public function up()
     {
-        Schema::table('cms_apicustom', function (Blueprint $table) {
-            //
-            $table->string('method_type', 25)->nullable();
+        Schema::create('ums_statistics', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,9 +27,6 @@ class AddMethodTypeApicustom extends Migration
      */
     public function down()
     {
-        Schema::table('cms_apicustom', function (Blueprint $table) {
-            //
-            $table->dropColumn('method_type');
-        });
+        Schema::drop('ums_statistics');
     }
 }

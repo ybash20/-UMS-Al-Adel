@@ -10,7 +10,7 @@ class StatisticBuilderController extends CBController
 {
     public function cbInit()
     {
-        $this->table = "cms_statistics";
+        $this->table = "ums_statistics";
         $this->primary_key = "id";
         $this->title_field = "name";
         $this->limit = 20;
@@ -55,18 +55,18 @@ class StatisticBuilderController extends CBController
         }
         $row = CRUDBooster::first($this->table, ['slug' => $m->path]);
 
-        $id_cms_statistics = $row->id;
+        $id_ums_statistics = $row->id;
         $page_title = $row->name;
 
-        return view('crudbooster::statistic_builder.show', compact('page_title', 'id_cms_statistics'));
+        return view('crudbooster::statistic_builder.show', compact('page_title', 'id_ums_statistics'));
     }
 
     public function getDashboard()
     {
         $this->cbLoader();
 
-        $menus= DB::table('cms_menus')
-            ->whereRaw("cms_menus.id IN (select id_cms_menus from cms_menus_privileges where id_cms_privileges = '".CRUDBooster::myPrivilegeId()."')")
+        $menus= DB::table('ums_menus')
+            ->whereRaw("ums_menus.id IN (select id_ums_menus from ums_menus_privileges where id_ums_privileges = '".CRUDBooster::myPrivilegeId()."')")
             ->where('is_dashboard', 1)
             ->where('is_active', 1)
             ->first();
@@ -74,13 +74,13 @@ class StatisticBuilderController extends CBController
         $slug = str_replace("statistic_builder/show/", "", $menus->path);
 
         $row = CRUDBooster::first($this->table, ['slug' => $slug]);
-        $id_cms_statistics = $row->id;
+        $id_ums_statistics = $row->id;
         $page_title = $row->name;
 
 
         $data = [];
         $data['row'] = $row;
-        $data['id_cms_statistics'] = $id_cms_statistics;
+        $data['id_ums_statistics'] = $id_ums_statistics;
         $data['page_title'] = $page_title;
 
         return view('crudbooster::statistic_builder.show',$data);
@@ -90,13 +90,13 @@ class StatisticBuilderController extends CBController
     {
         $this->cbLoader();
         $row = CRUDBooster::first($this->table, ['slug' => $slug]);
-        $id_cms_statistics = $row->id;
+        $id_ums_statistics = $row->id;
         $page_title = $row->name;
 
-        return view('crudbooster::statistic_builder.show', compact('page_title', 'id_cms_statistics'));
+        return view('crudbooster::statistic_builder.show', compact('page_title', 'id_ums_statistics'));
     }
 
-    public function getBuilder($id_cms_statistics)
+    public function getBuilder($id_ums_statistics)
     {
         $this->cbLoader();
 
@@ -107,12 +107,12 @@ class StatisticBuilderController extends CBController
 
         $page_title = 'Statistic Builder';
 
-        return view('crudbooster::statistic_builder.builder', compact('page_title', 'id_cms_statistics'));
+        return view('crudbooster::statistic_builder.builder', compact('page_title', 'id_ums_statistics'));
     }
 
-    public function getListComponent($id_cms_statistics, $area_name)
+    public function getListComponent($id_ums_statistics, $area_name)
     {
-        $rows = DB::table('cms_statistic_components')->where('id_cms_statistics', $id_cms_statistics)->where('area_name', $area_name)->orderby('sorting', 'asc')->get();
+        $rows = DB::table('ums_statistic_components')->where('id_ums_statistics', $id_ums_statistics)->where('area_name', $area_name)->orderby('sorting', 'asc')->get();
 
         return response()->json(['components' => $rows]);
     }
@@ -120,7 +120,7 @@ class StatisticBuilderController extends CBController
     public function getViewComponent($componentID)
     {
 
-        $component = DB::table('cms_statistic_components')->where('componentID', $componentID)->first();
+        $component = DB::table('ums_statistic_components')->where('componentID', $componentID)->first();
         $command = 'layout';
         $layout = view('crudbooster::statistic_builder.components.'.$component->component_name, compact('command', 'componentID'))->render();
 
@@ -144,7 +144,7 @@ class StatisticBuilderController extends CBController
     {
         $this->cbLoader();
         $component_name = Request::get('component_name');
-        $id_cms_statistics = Request::get('id_cms_statistics');
+        $id_ums_statistics = Request::get('id_ums_statistics');
         $sorting = Request::get('sorting');
         $area = Request::get('area');
 
@@ -154,21 +154,21 @@ class StatisticBuilderController extends CBController
         $layout = view('crudbooster::statistic_builder.components.'.$component_name, compact('command', 'componentID'))->render();
 
         $data = [
-            'id_cms_statistics' => $id_cms_statistics,
+            'id_ums_statistics' => $id_ums_statistics,
             'componentID' => $componentID,
             'component_name' => $component_name,
             'area_name' => $area,
             'sorting' => $sorting,
             'name' => 'Untitled',
         ];
-        CRUDBooster::insert('cms_statistic_components', $data);
+        CRUDBooster::insert('ums_statistic_components', $data);
 
         return response()->json(compact('layout', 'componentID'));
     }
 
     public function postUpdateAreaComponent()
     {
-        DB::table('cms_statistic_components')->where('componentID', Request::get('componentid'))->update([
+        DB::table('ums_statistic_components')->where('componentID', Request::get('componentid'))->update([
             'sorting' => Request::get('sorting'),
             'area_name' => Request::get('areaname'),
         ]);
@@ -185,7 +185,7 @@ class StatisticBuilderController extends CBController
             CRUDBooster::redirect(CRUDBooster::adminPath(), cbLang('denied_access'));
         }
 
-        $component_row = CRUDBooster::first('cms_statistic_components', ['componentID' => $componentID]);
+        $component_row = CRUDBooster::first('ums_statistic_components', ['componentID' => $componentID]);
 
         $config = json_decode($component_row->config);
 
@@ -196,7 +196,7 @@ class StatisticBuilderController extends CBController
 
     public function postSaveComponent()
     {
-        DB::table('cms_statistic_components')->where('componentID', Request::get('componentid'))->update([
+        DB::table('ums_statistic_components')->where('componentID', Request::get('componentid'))->update([
             'name' => Request::get('name'),
             'config' => json_encode(Request::get('config')),
         ]);
@@ -211,7 +211,7 @@ class StatisticBuilderController extends CBController
             CRUDBooster::redirect(CRUDBooster::adminPath(), cbLang('denied_access'));
         }
 
-        DB::table('cms_statistic_components')->where('componentID', $id)->delete();
+        DB::table('ums_statistic_components')->where('componentID', $id)->delete();
 
         return response()->json(['status' => true]);
     }

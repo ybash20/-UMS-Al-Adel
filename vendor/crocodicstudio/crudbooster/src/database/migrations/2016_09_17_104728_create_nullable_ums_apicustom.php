@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateNullableCmsApicustom extends Migration
+class CreateNullableUmsApicustom extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateNullableCmsApicustom extends Migration
      */
     public function up()
     {
-        Schema::table('cms_apicustom', function (Blueprint $table) {
+        Schema::table('ums_apicustom', function (Blueprint $table) {
             $table->string('permalink')->nullable()->change();
             $table->string('tabel')->nullable()->change();
             $table->string('aksi')->nullable()->change();
@@ -23,6 +23,10 @@ class CreateNullableCmsApicustom extends Migration
             $table->string('nama')->nullable()->change();
             $table->string('keterangan')->nullable()->change();
             $table->string('parameter')->nullable()->change();
+            $table->string('method_type', 25)->nullable();
+            $table->longText('parameters')->nullable();
+            $table->longText('responses')->nullable();
+
         });
     }
 
@@ -33,7 +37,7 @@ class CreateNullableCmsApicustom extends Migration
      */
     public function down()
     {
-        Schema::table('cms_settings', function (Blueprint $table) {
+        Schema::table('ums_settings', function (Blueprint $table) {
             //
         });
     }
