@@ -76,7 +76,7 @@ class CBRouter
             $modules = [];
             try {
                 // Todo: change table
-                $modules = db('cms_moduls')
+                $modules = db('ums_moduls')
                     ->where('path', '!=', '')
                     ->where('controller', '!=', '')
                     ->whereNotNull("path")
@@ -85,7 +85,7 @@ class CBRouter
                     ->where('deleted_at', null)
                     ->get();
             } catch (\Exception $e) {
-                Log::error("Load cms moduls is failed. Caused = " . $e->getMessage());
+                Log::error("Load ums moduls is failed. Caused = " . $e->getMessage());
             }
 
             foreach ($modules as $v) {
@@ -109,7 +109,7 @@ class CBRouter
 
             // Todo: change table
             if (request()->is(config('crudbooster.ADMIN_PATH'))) {
-                $menus = db('cms_menus')->where('is_dashboard', 1)->first();
+                $menus = db('ums_menus')->where('is_dashboard', 1)->first();
                 if ($menus) {
                     Route::get('/', 'StatisticBuilderController@getDashboard');
                 } else {
@@ -123,9 +123,9 @@ class CBRouter
             // Todo: change table
             $modules = [];
             try {
-                $modules = db('cms_moduls')->whereIn('controller', CBRouter::getCBControllerFiles())->get();
+                $modules = db('ums_moduls')->whereIn('controller', CBRouter::getCBControllerFiles())->get();
             } catch (\Exception $e) {
-                Log::error("Load cms moduls is failed. Caused = " . $e->getMessage());
+                Log::error("Load ums moduls is failed. Caused = " . $e->getMessage());
             }
 
             foreach ($modules as $v) {

@@ -13,7 +13,7 @@ class MenusController extends CBController
 {
     public function cbInit()
     {
-        $this->table = "cms_menus";
+        $this->table = "ums_menus";
         $this->primary_key = "id";
         $this->title_field = "name";
         $this->limit = 20;
@@ -41,11 +41,11 @@ class MenusController extends CBController
         $id_module = $id_statistic = 0;
 
         if ($row->type == 'Module') {
-            $m = CRUDBooster::first('cms_moduls', ['path' => $row->path]);
+            $m = CRUDBooster::first('ums_moduls', ['path' => $row->path]);
             $id_module = $m->id;
         } elseif ($row->type == 'Statistic') {
             $row->path = str_replace('statistic_builder/show/', '', $row->path);
-            $m = CRUDBooster::first('cms_statistics', ['slug' => $row->path]);
+            $m = CRUDBooster::first('ums_statistics', ['slug' => $row->path]);
             $id_statistic = $m->id;
         }
 
@@ -73,7 +73,7 @@ class MenusController extends CBController
 				}
 
 
-				function format(icon) {          
+				function format(icon) {
 	                  var originalOption = icon.element;
 	                  var label = $(originalOption).text();
 	                  var val = $(originalOption).val();
@@ -128,10 +128,10 @@ class MenusController extends CBController
 						$('#form-group-path label').append('<span class=\"text-danger\" title=\"".cbLang('this_field_is_required')."\">*</span>');
 
 						$('#form-group-path').show();
-						$('#form-group-module_slug,#form-group-statistic_slug').hide();					
+						$('#form-group-module_slug,#form-group-statistic_slug').hide();
 					}else {
 						$('#module_slug,#statistic_slug').prop('required',false);
-						
+
 						$('#path').prop('required',true);
 						$('#form-group-path label .text-danger').remove();
 						$('#form-group-path label').append('<span class=\"text-danger\" title=\"".cbLang('this_field_is_required')."\">*</span>');
@@ -146,16 +146,16 @@ class MenusController extends CBController
         $this->col = [];
         $this->col[] = ["label" => "Name", "name" => "name"];
         $this->col[] = ["label" => "Is Active", "name" => "is_active"];
-        $this->col[] = ["label" => "Privileges", "name" => "id_cms_privileges", "join" => "cms_privileges,name"];
+        $this->col[] = ["label" => "Privileges", "name" => "id_ums_privileges", "join" => "ums_privileges,name"];
 
         $this->form = [];
         $this->form[] = [
             "label" => "Privileges",
-            "name" => "cms_menus_privileges",
+            "name" => "ums_menus_privileges",
             "type" => "select2",
             "select2_multiple" => true,
-            "datatable" => "cms_privileges,name",
-            "relationship_table" => "cms_menus_privileges",
+            "datatable" => "ums_privileges,name",
+            "relationship_table" => "ums_menus_privileges",
             "required" => true,
         ];
         $this->form[] = [
@@ -178,7 +178,7 @@ class MenusController extends CBController
             "label" => "Module",
             "name" => "module_slug",
             "type" => "select",
-            "datatable" => "cms_moduls,name",
+            "datatable" => "ums_moduls,name",
             "datatable_where" => "is_protected = 0",
             "value" => $id_module,
         ];
@@ -186,7 +186,7 @@ class MenusController extends CBController
             "label" => "Statistic",
             "name" => "statistic_slug",
             "type" => "select",
-            "datatable" => "cms_statistics,name",
+            "datatable" => "ums_statistics,name",
             "style" => "display:none",
             "value" => $id_statistic,
         ];
@@ -231,8 +231,8 @@ class MenusController extends CBController
             'value' => '0',
         ];
 
-        $id_cms_privileges = Request::get('id_cms_privileges');
-        $this->form[] = ["label" => "id_cms_privileges", "name" => "id_cms_privileges", "type" => "hidden", "value" => $id_cms_privileges];
+        $id_ums_privileges = Request::get('id_ums_privileges');
+        $this->form[] = ["label" => "id_ums_privileges", "name" => "id_ums_privileges", "type" => "hidden", "value" => $id_ums_privileges];
     }
 
     public function getIndex()
@@ -245,24 +245,24 @@ class MenusController extends CBController
             CRUDBooster::redirect(CRUDBooster::adminPath(), cbLang('denied_access'));
         }
 
-        $privileges = DB::table('cms_privileges')->get();
+        $privileges = DB::table('ums_privileges')->get();
 
-        $id_cms_privileges = Request::get('id_cms_privileges');
-        $id_cms_privileges = ($id_cms_privileges) ?: CRUDBooster::myPrivilegeId();
+        $id_ums_privileges = Request::get('id_ums_privileges');
+        $id_ums_privileges = ($id_ums_privileges) ?: CRUDBooster::myPrivilegeId();
 
-        $menu_active = DB::table('cms_menus')->where('parent_id', 0)->where('is_active', 1)->orderby('sorting', 'asc')->get();
+        $menu_active = DB::table('ums_menus')->where('parent_id', 0)->where('is_active', 1)->orderby('sorting', 'asc')->get();
 
         foreach ($menu_active as &$menu) {
-            $child = DB::table('cms_menus')->where('is_active', 1)->where('parent_id', $menu->id)->orderby('sorting', 'asc')->get();
+            $child = DB::table('ums_menus')->where('is_active', 1)->where('parent_id', $menu->id)->orderby('sorting', 'asc')->get();
             if (count($child)) {
                 $menu->children = $child;
             }
         }
 
-        $menu_inactive = DB::table('cms_menus')->where('parent_id', 0)->where('is_active', 0)->orderby('sorting', 'asc')->get();
+        $menu_inactive = DB::table('ums_menus')->where('parent_id', 0)->where('is_active', 0)->orderby('sorting', 'asc')->get();
 
         foreach ($menu_inactive as &$menu) {
-            $child = DB::table('cms_menus')->where('is_active', 1)->where('parent_id', $menu->id)->orderby('sorting', 'asc')->get();
+            $child = DB::table('ums_menus')->where('is_active', 1)->where('parent_id', $menu->id)->orderby('sorting', 'asc')->get();
             if (count($child)) {
                 $menu->children = $child;
             }
@@ -272,21 +272,21 @@ class MenusController extends CBController
 
         $page_title = 'Menu Management';
 
-        return view('crudbooster::menus_management', compact('menu_active', 'menu_inactive', 'privileges', 'id_cms_privileges', 'return_url', 'page_title'));
+        return view('crudbooster::menus_management', compact('menu_active', 'menu_inactive', 'privileges', 'id_ums_privileges', 'return_url', 'page_title'));
     }
 
     public function hook_before_add(&$postdata)
     {
-        if (! $postdata['id_cms_privileges']) {
-            $postdata['id_cms_privileges'] = CRUDBooster::myPrivilegeId();
+        if (! $postdata['id_ums_privileges']) {
+            $postdata['id_ums_privileges'] = CRUDBooster::myPrivilegeId();
         }
         $postdata['parent_id'] = 0;
 
         if ($postdata['type'] == 'Statistic') {
-            $stat = CRUDBooster::first('cms_statistics', ['id' => $postdata['statistic_slug']]);
+            $stat = CRUDBooster::first('ums_statistics', ['id' => $postdata['statistic_slug']]);
             $postdata['path'] = 'statistic_builder/show/'.$stat->slug;
         } elseif ($postdata['type'] == 'Module') {
-            $stat = CRUDBooster::first('cms_moduls', ['id' => $postdata['module_slug']]);
+            $stat = CRUDBooster::first('ums_moduls', ['id' => $postdata['module_slug']]);
             $postdata['path'] = $stat->path;
         }
 
@@ -295,7 +295,7 @@ class MenusController extends CBController
 
         if ($postdata['is_dashboard'] == 1) {
             //If set dashboard, so unset for first all dashboard
-            //DB::table('cms_menus')->where('id_cms_privileges', $postdata['id_cms_privileges'])->where('is_dashboard', 1)->update(['is_dashboard' => 0]);
+            //DB::table('ums_menus')->where('id_ums_privileges', $postdata['id_ums_privileges'])->where('is_dashboard', 1)->update(['is_dashboard' => 0]);
             Cache::forget('sidebarDashboard'.CRUDBooster::myPrivilegeId());
         }
     }
@@ -305,15 +305,15 @@ class MenusController extends CBController
 
         if ($postdata['is_dashboard'] == 1) {
             //If set dashboard, so unset for first all dashboard
-            //DB::table('cms_menus')->where('id_cms_privileges', $postdata['id_cms_privileges'])->where('is_dashboard', 1)->update(['is_dashboard' => 0]);
+            //DB::table('ums_menus')->where('id_ums_privileges', $postdata['id_ums_privileges'])->where('is_dashboard', 1)->update(['is_dashboard' => 0]);
             Cache::forget('sidebarDashboard'.CRUDBooster::myPrivilegeId());
         }
 
         if ($postdata['type'] == 'Statistic') {
-            $stat = CRUDBooster::first('cms_statistics', ['id' => $postdata['statistic_slug']]);
+            $stat = CRUDBooster::first('ums_statistics', ['id' => $postdata['statistic_slug']]);
             $postdata['path'] = 'statistic_builder/show/'.$stat->slug;
         } elseif ($postdata['type'] == 'Module') {
-            $stat = CRUDBooster::first('cms_moduls', ['id' => $postdata['module_slug']]);
+            $stat = CRUDBooster::first('ums_moduls', ['id' => $postdata['module_slug']]);
             $postdata['path'] = $stat->path;
         }
 
@@ -323,7 +323,7 @@ class MenusController extends CBController
 
     public function hook_after_delete($id)
     {
-        DB::table('cms_menus')->where('parent_id', $id)->delete();
+        DB::table('ums_menus')->where('parent_id', $id)->delete();
     }
 
     public function postSaveMenu()
@@ -339,11 +339,11 @@ class MenusController extends CBController
                 $ci = 1;
                 foreach ($ro['children'][0] as $c) {
                     $id = $c['id'];
-                    DB::table('cms_menus')->where('id', $id)->update(['sorting' => $ci, 'parent_id' => $pid, 'is_active' => $isActive]);
+                    DB::table('ums_menus')->where('id', $id)->update(['sorting' => $ci, 'parent_id' => $pid, 'is_active' => $isActive]);
                     $ci++;
                 }
             }
-            DB::table('cms_menus')->where('id', $pid)->update(['sorting' => $i, 'parent_id' => 0, 'is_active' => $isActive]);
+            DB::table('ums_menus')->where('id', $pid)->update(['sorting' => $i, 'parent_id' => 0, 'is_active' => $isActive]);
             $i++;
         }
 

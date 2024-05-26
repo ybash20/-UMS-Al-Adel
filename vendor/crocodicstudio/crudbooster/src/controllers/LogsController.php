@@ -7,7 +7,7 @@ class LogsController extends CBController
 {
     public function cbInit()
     {
-        $this->table = 'cms_logs';
+        $this->table = 'ums_logs';
         $this->primary_key = 'id';
         $this->title_field = "ipaddress";
         $this->button_bulk_action = true;
@@ -20,7 +20,7 @@ class LogsController extends CBController
         $this->col = [];
         $this->col[] = ["label" => "Time Access", "name" => "created_at"];
         $this->col[] = ["label" => "IP Address", "name" => "ipaddress"];
-        $this->col[] = ["label" => "User", "name" => "id_cms_users", "join" => config('crudbooster.USER_TABLE').",name"];
+        $this->col[] = ["label" => "User", "name" => "id_ums_users", "join" => config('crudbooster.USER_TABLE').",name"];
         $this->col[] = ["label" => "Description", "name" => "description"];
 
         $this->form = [];
@@ -30,7 +30,7 @@ class LogsController extends CBController
         $this->form[] = ["label" => "URL", "name" => "url", "readonly" => true];
         $this->form[] = [
             "label" => "User",
-            "name" => "id_cms_users",
+            "name" => "id_ums_users",
             "type" => "select",
             "datatable" => config('crudbooster.USER_TABLE').",name",
             "readonly" => true,

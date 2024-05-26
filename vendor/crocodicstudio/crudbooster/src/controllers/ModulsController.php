@@ -12,7 +12,7 @@ class ModulsController extends CBController
 {
     public function cbInit()
     {
-        $this->table = 'cms_moduls';
+        $this->table = 'ums_moduls';
         $this->primary_key = 'id';
         $this->title_field = "name";
         $this->limit = 100;
@@ -41,7 +41,7 @@ class ModulsController extends CBController
             foreach ($tab as $key => $value) {
                 $label = $value;
 
-                if (substr($value, 0, 4) == 'cms_') {
+                if (substr($value, 0, 4) == 'ums_') {
                     continue;
                 }
 
@@ -51,7 +51,7 @@ class ModulsController extends CBController
         foreach ($tables as $tab) {
             foreach ($tab as $key => $value) {
                 $label = "[Default] ".$value;
-                if (substr($value, 0, 4) == 'cms_') {
+                if (substr($value, 0, 4) == 'ums_') {
                     $tables_list[] = $value."|".$label;
                 }
             }
@@ -70,7 +70,7 @@ class ModulsController extends CBController
  				$('#table_name').change(function() {
 					var v = $(this).val();
 					$('#path').val(v);
-				})	
+				})
  			})
  			";
 
@@ -184,13 +184,13 @@ class ModulsController extends CBController
     function hook_query_index(&$query)
     {
         $query->where('is_protected', 0);
-        $query->whereNotIn('cms_moduls.controller', ['AdminCmsUsersController']);
+        $query->whereNotIn('ums_moduls.controller', ['AdminumsUsersController']);
     }
 
     function hook_before_delete($id)
     {
-        $modul = DB::table('cms_moduls')->where('id', $id)->first();
-        $menus = DB::table('cms_menus')->where('path', 'like', '%'.$modul->controller.'%')->delete();
+        $modul = DB::table('ums_moduls')->where('id', $id)->first();
+        $menus = DB::table('ums_menus')->where('path', 'like', '%'.$modul->controller.'%')->delete();
         @unlink(app_path('Http/Controllers/'.$modul->controller.'.php'));
     }
 
@@ -203,8 +203,8 @@ class ModulsController extends CBController
 
     public function getCheckSlug($slug)
     {
-        $check = DB::table('cms_moduls')->where('path', $slug)->count();
-        $lastId = DB::table('cms_moduls')->max('id') + 1;
+        $check = DB::table('ums_moduls')->where('path', $slug)->count();
+        $lastId = DB::table('ums_moduls')->max('id') + 1;
 
         return response()->json(['total' => $check, 'lastid' => $lastId]);
     }
@@ -240,7 +240,7 @@ class ModulsController extends CBController
             foreach ($tab as $key => $value) {
                 $label = $value;
 
-                if (substr($label, 0, 4) == 'cms_' && $label != config('crudbooster.USER_TABLE')) {
+                if (substr($label, 0, 4) == 'ums_' && $label != config('crudbooster.USER_TABLE')) {
                     continue;
                 }
                 if ($label == 'migrations') {
@@ -269,7 +269,7 @@ class ModulsController extends CBController
             CRUDBooster::redirect(CRUDBooster::adminPath(), cbLang('denied_access'));
         }
 
-        $row = DB::table('cms_moduls')->where('id', $id)->first();
+        $row = DB::table('ums_moduls')->where('id', $id)->first();
 
         $columns = CRUDBooster::getTableColumns($row->table_name);
 
@@ -316,7 +316,7 @@ class ModulsController extends CBController
 
         if (! Request::get('id')) {
 
-            if (DB::table('cms_moduls')->where('path', $path)->where('deleted_at', null)->count()) {
+            if (DB::table('ums_moduls')->where('path', $path)->where('deleted_at', null)->count()) {
                 return redirect()->back()->with(['message' => 'Sorry the slug has already exists, please choose another !', 'message_type' => 'warning']);
             }
 
@@ -327,9 +327,9 @@ class ModulsController extends CBController
 
             //Insert Menu
             if ($controller && Request::get('create_menu')) {
-                $parent_menu_sort = DB::table('cms_menus')->where('parent_id', 0)->max('sorting') + 1;
+                $parent_menu_sort = DB::table('ums_menus')->where('parent_id', 0)->max('sorting') + 1;
 
-                $id_cms_menus = DB::table('cms_menus')->insertGetId([
+                $id_ums_menus = DB::table('ums_menus')->insertGetId([
 
                     'created_at' => date('Y-m-d H:i:s'),
                     'name' => $name,
@@ -337,17 +337,17 @@ class ModulsController extends CBController
                     'path' => $controller.'GetIndex',
                     'type' => 'Route',
                     'is_active' => 1,
-                    'id_cms_privileges' => CRUDBooster::myPrivilegeId(),
+                    'id_ums_privileges' => CRUDBooster::myPrivilegeId(),
                     'sorting' => $parent_menu_sort,
                     'parent_id' => 0,
                 ]);
-                DB::table('cms_menus_privileges')->insert(['id_cms_menus' => $id_cms_menus, 'id_cms_privileges' => CRUDBooster::myPrivilegeId()]);
+                DB::table('ums_menus_privileges')->insert(['id_ums_menus' => $id_ums_menus, 'id_ums_privileges' => CRUDBooster::myPrivilegeId()]);
             }
 
             $user_id_privileges = CRUDBooster::myPrivilegeId();
-            DB::table('cms_privileges_roles')->insert([
-                'id_cms_moduls' => $id,
-                'id_cms_privileges' => $user_id_privileges,
+            DB::table('ums_privileges_roles')->insert([
+                'id_ums_moduls' => $id,
+                'id_ums_privileges' => $user_id_privileges,
                 'is_visible' => 1,
                 'is_create' => 1,
                 'is_read' => 1,
@@ -356,7 +356,7 @@ class ModulsController extends CBController
             ]);
 
             //Refresh Session Roles
-            $roles = DB::table('cms_privileges_roles')->where('id_cms_privileges', CRUDBooster::myPrivilegeId())->join('cms_moduls', 'cms_moduls.id', '=', 'id_cms_moduls')->select('cms_moduls.name', 'cms_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
+            $roles = DB::table('ums_privileges_roles')->where('id_ums_privileges', CRUDBooster::myPrivilegeId())->join('ums_moduls', 'ums_moduls.id', '=', 'id_ums_moduls')->select('ums_moduls.name', 'ums_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
             Session::put('admin_privileges_roles', $roles);
 
             return redirect(Route("ModulsControllerGetStep2")."/". $id);
@@ -364,7 +364,7 @@ class ModulsController extends CBController
             $id = Request::get('id');
             DB::table($this->table)->where('id', $id)->update(compact("name", "table_name", "icon", "path"));
 
-            $row = DB::table('cms_moduls')->where('id', $id)->first();
+            $row = DB::table('ums_moduls')->where('id', $id)->first();
 
             if (file_exists(app_path('Http/Controllers/'.$row->controller.'.php'))) {
                 $response = file_get_contents(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'));
@@ -397,7 +397,7 @@ class ModulsController extends CBController
         $id = Request::input('id');
         $width = Request::input('width');
 
-        $row = DB::table('cms_moduls')->where('id', $id)->first();
+        $row = DB::table('ums_moduls')->where('id', $id)->first();
 
         $i = 0;
         $script_cols = [];
@@ -463,7 +463,7 @@ class ModulsController extends CBController
             CRUDBooster::redirect(CRUDBooster::adminPath(), cbLang('denied_access'));
         }
 
-        $row = DB::table('cms_moduls')->where('id', $id)->first();
+        $row = DB::table('ums_moduls')->where('id', $id)->first();
 
         $columns = CRUDBooster::getTableColumns($row->table_name);
 
@@ -502,7 +502,7 @@ class ModulsController extends CBController
         $option = $post['option'];
         $validation = $post['validation'];
 
-        $row = DB::table('cms_moduls')->where('id', $id)->first();
+        $row = DB::table('ums_moduls')->where('id', $id)->first();
 
         $i = 0;
         $script_form = [];
@@ -589,7 +589,7 @@ class ModulsController extends CBController
             CRUDBooster::redirect(CRUDBooster::adminPath(), cbLang('denied_access'));
         }
 
-        $row = DB::table('cms_moduls')->where('id', $id)->first();
+        $row = DB::table('ums_moduls')->where('id', $id)->first();
 
         $data = [];
         $data['id'] = $id;
@@ -609,7 +609,7 @@ class ModulsController extends CBController
     {
         $this->cbLoader();
         $id = Request::input('id');
-        $row = DB::table('cms_moduls')->where('id', $id)->first();
+        $row = DB::table('ums_moduls')->where('id', $id)->first();
 
         $post = Request::all();
 
@@ -679,38 +679,38 @@ class ModulsController extends CBController
 
         //Insert Menu
         if ($this->arr['controller']) {
-            $parent_menu_sort = DB::table('cms_menus')->where('parent_id', 0)->max('sorting') + 1;
-//            $parent_menu_id = DB::table('cms_menus')->max('id') + 1;
-            $parent_menu_id = DB::table('cms_menus')->insertGetId([
+            $parent_menu_sort = DB::table('ums_menus')->where('parent_id', 0)->max('sorting') + 1;
+//            $parent_menu_id = DB::table('ums_menus')->max('id') + 1;
+            $parent_menu_id = DB::table('ums_menus')->insertGetId([
                 'created_at' => date('Y-m-d H:i:s'),
                 'name' => $this->arr['name'],
                 'icon' => $this->arr['icon'],
                 'path' => '#',
                 'type' => 'URL External',
                 'is_active' => 1,
-                'id_cms_privileges' => CRUDBooster::myPrivilegeId(),
+                'id_ums_privileges' => CRUDBooster::myPrivilegeId(),
                 'sorting' => $parent_menu_sort,
                 'parent_id' => 0,
             ]);
-            DB::table('cms_menus')->insert([
+            DB::table('ums_menus')->insert([
                 'created_at' => date('Y-m-d H:i:s'),
                 'name' => cbLang("text_default_add_new_module", ['module' => $this->arr['name']]),
                 'icon' => 'fa fa-plus',
                 'path' => $this->arr['controller'].'GetAdd',
                 'type' => 'Route',
                 'is_active' => 1,
-                'id_cms_privileges' => CRUDBooster::myPrivilegeId(),
+                'id_ums_privileges' => CRUDBooster::myPrivilegeId(),
                 'sorting' => 1,
                 'parent_id' => $parent_menu_id,
             ]);
-            DB::table('cms_menus')->insert([
+            DB::table('ums_menus')->insert([
                 'created_at' => date('Y-m-d H:i:s'),
                 'name' => cbLang("text_default_list_module", ['module' => $this->arr['name']]),
                 'icon' => 'fa fa-bars',
                 'path' => $this->arr['controller'].'GetIndex',
                 'type' => 'Route',
                 'is_active' => 1,
-                'id_cms_privileges' => CRUDBooster::myPrivilegeId(),
+                'id_ums_privileges' => CRUDBooster::myPrivilegeId(),
                 'sorting' => 2,
                 'parent_id' => $parent_menu_id,
             ]);
@@ -719,9 +719,9 @@ class ModulsController extends CBController
         $id_modul = $this->arr['id'];
 
         $user_id_privileges = CRUDBooster::myPrivilegeId();
-        DB::table('cms_privileges_roles')->insert([
-            'id_cms_moduls' => $id_modul,
-            'id_cms_privileges' => $user_id_privileges,
+        DB::table('ums_privileges_roles')->insert([
+            'id_ums_moduls' => $id_modul,
+            'id_ums_privileges' => $user_id_privileges,
             'is_visible' => 1,
             'is_create' => 1,
             'is_read' => 1,
@@ -730,7 +730,7 @@ class ModulsController extends CBController
         ]);
 
         //Refresh Session Roles
-        $roles = DB::table('cms_privileges_roles')->where('id_cms_privileges', CRUDBooster::myPrivilegeId())->join('cms_moduls', 'cms_moduls.id', '=', 'id_cms_moduls')->select('cms_moduls.name', 'cms_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
+        $roles = DB::table('ums_privileges_roles')->where('id_ums_privileges', CRUDBooster::myPrivilegeId())->join('ums_moduls', 'ums_moduls.id', '=', 'id_ums_moduls')->select('ums_moduls.name', 'ums_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
         Session::put('admin_privileges_roles', $roles);
 
         $ref_parameter = Request::input('ref_parameter');
@@ -768,7 +768,7 @@ class ModulsController extends CBController
         DB::table($this->table)->where($this->primary_key, $id)->update($this->arr);
 
         //Refresh Session Roles
-        $roles = DB::table('cms_privileges_roles')->where('id_cms_privileges', CRUDBooster::myPrivilegeId())->join('cms_moduls', 'cms_moduls.id', '=', 'id_cms_moduls')->select('cms_moduls.name', 'cms_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
+        $roles = DB::table('ums_privileges_roles')->where('id_ums_privileges', CRUDBooster::myPrivilegeId())->join('ums_moduls', 'ums_moduls.id', '=', 'id_ums_moduls')->select('ums_moduls.name', 'ums_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
         Session::put('admin_privileges_roles', $roles);
 
         CRUDBooster::redirect(Request::server('HTTP_REFERER'), cbLang('alert_update_data_success'), 'success');

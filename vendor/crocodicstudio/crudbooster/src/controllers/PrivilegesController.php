@@ -13,7 +13,7 @@ class PrivilegesController extends CBController
     public function cbInit()
     {
         $this->module_name = "Privilege";
-        $this->table = 'cms_privileges';
+        $this->table = 'ums_privileges';
         $this->primary_key = 'id';
         $this->title_field = "name";
         $this->button_import = false;
@@ -53,7 +53,7 @@ class PrivilegesController extends CBController
 
         $id = 0;
         $data['page_title'] = "Add Data";
-        $data['moduls'] = DB::table("cms_moduls")->where('is_protected', 0)->whereNull('deleted_at')->select("cms_moduls.*", DB::raw("(select is_visible from cms_privileges_roles where id_cms_moduls = cms_moduls.id and id_cms_privileges = '$id') as is_visible"), DB::raw("(select is_create from cms_privileges_roles where id_cms_moduls  = cms_moduls.id and id_cms_privileges = '$id') as is_create"), DB::raw("(select is_read from cms_privileges_roles where id_cms_moduls    = cms_moduls.id and id_cms_privileges = '$id') as is_read"), DB::raw("(select is_edit from cms_privileges_roles where id_cms_moduls    = cms_moduls.id and id_cms_privileges = '$id') as is_edit"), DB::raw("(select is_delete from cms_privileges_roles where id_cms_moduls  = cms_moduls.id and id_cms_privileges = '$id') as is_delete"))->orderby("name", "asc")->get();
+        $data['moduls'] = DB::table("ums_moduls")->where('is_protected', 0)->whereNull('deleted_at')->select("ums_moduls.*", DB::raw("(select is_visible from ums_privileges_roles where id_ums_moduls = ums_moduls.id and id_ums_privileges = '$id') as is_visible"), DB::raw("(select is_create from ums_privileges_roles where id_ums_moduls  = ums_moduls.id and id_ums_privileges = '$id') as is_create"), DB::raw("(select is_read from ums_privileges_roles where id_ums_moduls    = ums_moduls.id and id_ums_privileges = '$id') as is_read"), DB::raw("(select is_edit from ums_privileges_roles where id_ums_moduls    = ums_moduls.id and id_ums_privileges = '$id') as is_edit"), DB::raw("(select is_delete from ums_privileges_roles where id_ums_moduls  = ums_moduls.id and id_ums_privileges = '$id') as is_delete"))->orderby("name", "asc")->get();
         $data['page_menu'] = Route::getCurrentRoute()->getActionName();
 
         return view('crudbooster::privileges', $data);
@@ -87,16 +87,16 @@ class PrivilegesController extends CBController
                 $arrs['is_read'] = @$data['is_read'] ?: 0;
                 $arrs['is_edit'] = @$data['is_edit'] ?: 0;
                 $arrs['is_delete'] = @$data['is_delete'] ?: 0;
-                $arrs['id_cms_privileges'] = $id;
-                $arrs['id_cms_moduls'] = $id_modul;
-                DB::table("cms_privileges_roles")->insert($arrs);
+                $arrs['id_ums_privileges'] = $id;
+                $arrs['id_ums_moduls'] = $id_modul;
+                DB::table("ums_privileges_roles")->insert($arrs);
 
-                $module = DB::table('cms_moduls')->where('id', $id_modul)->first();
+                $module = DB::table('ums_moduls')->where('id', $id_modul)->first();
             }
         }
 
         //Refresh Session Roles
-        $roles = DB::table('cms_privileges_roles')->where('id_cms_privileges', CRUDBooster::myPrivilegeId())->join('cms_moduls', 'cms_moduls.id', '=', 'id_cms_moduls')->select('cms_moduls.name', 'cms_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
+        $roles = DB::table('ums_privileges_roles')->where('id_ums_privileges', CRUDBooster::myPrivilegeId())->join('ums_moduls', 'ums_moduls.id', '=', 'id_ums_moduls')->select('ums_moduls.name', 'ums_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
         Session::put('admin_privileges_roles', $roles);
 
         CRUDBooster::redirect(CRUDBooster::mainpath(), cbLang("alert_add_data_success"), 'success');
@@ -118,7 +118,7 @@ class PrivilegesController extends CBController
 
         $page_title = cbLang('edit_data_page_title', ['module' => 'Privilege', 'name' => $row->name]);
 
-        $moduls = DB::table("cms_moduls")->where('is_protected', 0)->where('deleted_at', null)->select("cms_moduls.*")->orderby("name", "asc")->get();
+        $moduls = DB::table("ums_moduls")->where('is_protected', 0)->where('deleted_at', null)->select("ums_moduls.*")->orderby("name", "asc")->get();
         $page_menu = Route::getCurrentRoute()->getActionName();
 
         return view('crudbooster::privileges', compact('row', 'page_title', 'moduls', 'page_menu'));
@@ -143,14 +143,14 @@ class PrivilegesController extends CBController
         $priv = Request::input("privileges");
 
         // This solves issue #1074
-        DB::table("cms_privileges_roles")->where("id_cms_privileges", $id)->delete();
+        DB::table("ums_privileges_roles")->where("id_ums_privileges", $id)->delete();
 
         if ($priv) {
 
             foreach ($priv as $id_modul => $data) {
                 //Check Menu
-                $module = DB::table('cms_moduls')->where('id', $id_modul)->first();
-                $currentPermission = DB::table('cms_privileges_roles')->where('id_cms_moduls', $id_modul)->where('id_cms_privileges', $id)->first();
+                $module = DB::table('ums_moduls')->where('id', $id_modul)->first();
+                $currentPermission = DB::table('ums_privileges_roles')->where('id_ums_moduls', $id_modul)->where('id_ums_privileges', $id)->first();
 
                 if ($currentPermission) {
                     $arrs = [];
@@ -159,7 +159,7 @@ class PrivilegesController extends CBController
                     $arrs['is_read'] = @$data['is_read'] ?: 0;
                     $arrs['is_edit'] = @$data['is_edit'] ?: 0;
                     $arrs['is_delete'] = @$data['is_delete'] ?: 0;
-                    DB::table('cms_privileges_roles')->where('id', $currentPermission->id)->update($arrs);
+                    DB::table('ums_privileges_roles')->where('id', $currentPermission->id)->update($arrs);
                 } else {
                     $arrs = [];
                     $arrs['is_visible'] = @$data['is_visible'] ?: 0;
@@ -167,16 +167,16 @@ class PrivilegesController extends CBController
                     $arrs['is_read'] = @$data['is_read'] ?: 0;
                     $arrs['is_edit'] = @$data['is_edit'] ?: 0;
                     $arrs['is_delete'] = @$data['is_delete'] ?: 0;
-                    $arrs['id_cms_privileges'] = $id;
-                    $arrs['id_cms_moduls'] = $id_modul;
-                    DB::table("cms_privileges_roles")->insert($arrs);
+                    $arrs['id_ums_privileges'] = $id;
+                    $arrs['id_ums_moduls'] = $id_modul;
+                    DB::table("ums_privileges_roles")->insert($arrs);
                 }
             }
         }
 
         //Refresh Session Roles
         if ($id == CRUDBooster::myPrivilegeId()) {
-            $roles = DB::table('cms_privileges_roles')->where('id_cms_privileges', CRUDBooster::myPrivilegeId())->join('cms_moduls', 'cms_moduls.id', '=', 'id_cms_moduls')->select('cms_moduls.name', 'cms_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
+            $roles = DB::table('ums_privileges_roles')->where('id_ums_privileges', CRUDBooster::myPrivilegeId())->join('ums_moduls', 'ums_moduls.id', '=', 'id_ums_moduls')->select('ums_moduls.name', 'ums_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
             Session::put('admin_privileges_roles', $roles);
 
             Session::put('theme_color', $this->arr['theme_color']);
@@ -203,7 +203,7 @@ class PrivilegesController extends CBController
         }
 
         DB::table($this->table)->where($this->primary_key, $id)->delete();
-        DB::table("cms_privileges_roles")->where("id_cms_privileges", $row->id)->delete();
+        DB::table("ums_privileges_roles")->where("id_ums_privileges", $row->id)->delete();
 
         CRUDBooster::redirect(CRUDBooster::mainpath(), cbLang("alert_delete_data_success"), 'success');
     }

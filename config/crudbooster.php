@@ -10,7 +10,7 @@ return [
     */
     'API_USER_AGENT_ALLOWED' => [],
 
-    'USER_TABLE' => 'cms_users',
+    'USER_TABLE' => 'ums_users',
 
     'IMAGE_FIELDS_CANDIDATE' => 'image,picture,photo,photos,foto,gambar,thumbnail',
 

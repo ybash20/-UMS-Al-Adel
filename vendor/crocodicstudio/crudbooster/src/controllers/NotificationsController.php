@@ -9,7 +9,7 @@ class NotificationsController extends CBController
 {
     public function cbInit()
     {
-        $this->table = "cms_notifications";
+        $this->table = "ums_notifications";
         $this->primary_key = "id";
         $this->title_field = "content";
         $this->limit = 20;
@@ -40,14 +40,14 @@ class NotificationsController extends CBController
 
     public function hook_query_index(&$query)
     {
-        $query->where('id_cms_users', CRUDBooster::myId());
+        $query->where('id_ums_users', CRUDBooster::myId());
     }
 
     public function getLatestJson()
     {
 
-        $rows = DB::table('cms_notifications')->where('id_cms_users', 0)->orWhere('id_cms_users', CRUDBooster::myId())->orderby('id', 'desc')->where('is_read', 0)->take(25);
-        if (\Schema::hasColumn('cms_notifications', 'deleted_at')) {
+        $rows = DB::table('ums_notifications')->where('id_ums_users', 0)->orWhere('id_ums_users', CRUDBooster::myId())->orderby('id', 'desc')->where('is_read', 0)->take(25);
+        if (\Schema::hasColumn('ums_notifications', 'deleted_at')) {
             $rows->whereNull('deleted_at');
         }
 
@@ -58,8 +58,8 @@ class NotificationsController extends CBController
 
     public function getRead($id)
     {
-        DB::table('cms_notifications')->where('id', $id)->update(['is_read' => 1]);
-        $row = DB::table('cms_notifications')->where('id', $id)->first();
+        DB::table('ums_notifications')->where('id', $id)->update(['is_read' => 1]);
+        $row = DB::table('ums_notifications')->where('id', $id)->first();
 
         return redirect($row->url);
     }

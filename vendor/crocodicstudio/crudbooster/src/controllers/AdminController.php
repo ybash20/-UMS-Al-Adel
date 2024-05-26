@@ -74,9 +74,9 @@ class AdminController extends CBController
         $users = DB::table(config('crudbooster.USER_TABLE'))->where("email", $email)->first();
 
         if (\Hash::check($password, $users->password)) {
-            $priv = DB::table("cms_privileges")->where("id", $users->id_cms_privileges)->first();
+            $priv = DB::table("ums_privileges")->where("id", $users->id_ums_privileges)->first();
 
-            $roles = DB::table('cms_privileges_roles')->where('id_cms_privileges', $users->id_cms_privileges)->join('cms_moduls', 'cms_moduls.id', '=', 'id_cms_moduls')->select('cms_moduls.name', 'cms_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
+            $roles = DB::table('ums_privileges_roles')->where('id_ums_privileges', $users->id_ums_privileges)->join('ums_moduls', 'ums_moduls.id', '=', 'id_ums_moduls')->select('ums_moduls.name', 'ums_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
 
             $photo = ($users->photo) ? asset($users->photo) : asset('vendor/crudbooster/avatar.jpg');
             Session::put('admin_id', $users->id);
@@ -84,7 +84,7 @@ class AdminController extends CBController
             Session::put('admin_name', $users->name);
             Session::put('admin_photo', $photo);
             Session::put('admin_privileges_roles', $roles);
-            Session::put("admin_privileges", $users->id_cms_privileges);
+            Session::put("admin_privileges", $users->id_ums_privileges);
             Session::put('admin_privileges_name', $priv->name);
             Session::put('admin_lock', 0);
             Session::put('theme_color', $priv->theme_color);

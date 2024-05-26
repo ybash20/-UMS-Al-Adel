@@ -35,7 +35,7 @@ class Mailqueues extends Command
 
         $this->comment('Mail Queues Started '.$now);
 
-        $queues = db('cms_email_queues')->where('send_at', '<=', $now)->take(25)->get();
+        $queues = db('ums_email_queues')->where('send_at', '<=', $now)->take(25)->get();
 
         $this->comment('Total Queues : '.count($queues));
 

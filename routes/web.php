@@ -19,7 +19,7 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::get('/lib', function () {
-    return view('library');
+    return view('library/library');
 })->name('library');
 
 Route::get('/student', function () {

@@ -28,15 +28,15 @@
                     var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
                     var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
 
-                    var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+                    var umsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
                     if (type == 'image') {
-                        cmsURL = cmsURL + "&type=Images";
+                        umsURL = umsURL + "&type=Images";
                     } else {
-                        cmsURL = cmsURL + "&type=Files";
+                        umsURL = umsURL + "&type=Files";
                     }
 
                     tinyMCE.activeEditor.windowManager.open({
-                        file: cmsURL,
+                        file: umsURL,
                         title: 'Filemanager',
                         width: x * 0.8,
                         height: y * 0.8,
@@ -65,14 +65,14 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="box-body">
                         <?php
-                        $set = DB::table('cms_settings')->where('group_setting', $page_title)->get();
+                        $set = DB::table('ums_settings')->where('group_setting', $page_title)->get();
                         foreach($set as $s):
 
                         $value = $s->content;
 
                         if (! $s->label) {
                             $label = ucwords(str_replace('_', ' ', $s->name));
-                            DB::table('cms_settings')->where('id', $s->id)->update(['label' => $label]);
+                            DB::table('ums_settings')->where('id', $s->id)->update(['label' => $label]);
                             $s->label = $label;
                         }
 

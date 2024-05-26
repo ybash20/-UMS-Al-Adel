@@ -97,11 +97,11 @@
                         <ul class='treeview-menu'>
                             <li
                                 class="{{ Request::is(config('crudbooster.ADMIN_PATH') . '/users/add*') ? 'active' : '' }}">
-                                <a href='{{ Route('AdminCmsUsersControllerGetAdd') }}'><i class='fa fa-plus'></i>
+                                <a href='{{ Route('AdminUmsUsersControllerGetAdd') }}'><i class='fa fa-plus'></i>
                                     <span>{{ cbLang('add_user') }}</span></a>
                             </li>
                             <li class="{{ Request::is(config('crudbooster.ADMIN_PATH') . '/users') ? 'active' : '' }}">
-                                <a href='{{ Route('AdminCmsUsersControllerGetIndex') }}'><i class='fa fa-bars'></i>
+                                <a href='{{ Route('AdminUmsUsersControllerGetIndex') }}'><i class='fa fa-bars'></i>
                                     <span>{{ cbLang('List_users') }}</span></a>
                             </li>
                         </ul>
@@ -122,7 +122,7 @@
                                     <span>{{ cbLang('Add_New_Setting') }}</span></a>
                             </li>
                             <?php
-                            $groupSetting = DB::table('cms_settings')->groupby('group_setting')->pluck('group_setting');
+                            $groupSetting = DB::table('ums_settings')->groupby('group_setting')->pluck('group_setting');
                             foreach($groupSetting as $gs):
                             ?>
                             <li class="<?= $gs == Request::get('group') ? 'active' : '' ?>"><a

@@ -63,7 +63,7 @@ class ApiController extends Controller
         $posts_keys = array_keys($posts);
         $posts_values = array_values($posts);
 
-        $row_api = DB::table('cms_apicustom')->where('permalink', $this->permalink)->first();
+        $row_api = DB::table('ums_apicustom')->where('permalink', $this->permalink)->first();
 
         $action_type = $row_api->aksi;
         $table = $row_api->tabel;

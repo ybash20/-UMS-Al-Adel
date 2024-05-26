@@ -81,7 +81,7 @@
         <script src='{{asset("vendor/crudbooster/assets/jquery-sortable-min.js")}}'></script>
         <script type="text/javascript">
             $(function () {
-                var id_cms_privileges = '{{$id_cms_privileges}}';
+                var id_ums_privileges = '{{$id_ums_privileges}}';
                 var sortactive = $(".draggable-menu").sortable({
                     group: '.draggable-menu',
                     delay: 200,
@@ -139,9 +139,9 @@
                     <ul class='draggable-menu draggable-menu-active'>
                         @foreach($menu_active as $menu)
                             @php
-                                $privileges = DB::table('cms_menus_privileges')
-                                ->join('cms_privileges','cms_privileges.id','=','cms_menus_privileges.id_cms_privileges')
-                                ->where('id_cms_menus',$menu->id)->pluck('cms_privileges.name')->toArray();
+                                $privileges = DB::table('ums_menus_privileges')
+                                ->join('ums_privileges','ums_privileges.id','=','ums_menus_privileges.id_ums_privileges')
+                                ->where('id_ums_menus',$menu->id)->pluck('ums_privileges.name')->toArray();
                             @endphp
                             <li data-id='{{$menu->id}}' data-name='{{$menu->name}}'>
                                 <div class='{{$menu->is_dashboard?"is-dashboard":""}}' title="{{$menu->is_dashboard?'This is setted as Dashboard':''}}">
@@ -159,9 +159,9 @@
                                     @if($menu->children)
                                         @foreach($menu->children as $child)
                                             @php
-                                                $privileges = DB::table('cms_menus_privileges')
-                                                ->join('cms_privileges','cms_privileges.id','=','cms_menus_privileges.id_cms_privileges')
-                                                ->where('id_cms_menus',$child->id)->pluck('cms_privileges.name')->toArray();
+                                                $privileges = DB::table('ums_menus_privileges')
+                                                ->join('ums_privileges','ums_privileges.id','=','ums_menus_privileges.id_ums_privileges')
+                                                ->where('id_ums_menus',$child->id)->pluck('ums_privileges.name')->toArray();
                                             @endphp
                                             <li data-id='{{$child->id}}' data-name='{{$child->name}}'>
                                                 <div class='{{$child->is_dashboard?"is-dashboard":""}}'

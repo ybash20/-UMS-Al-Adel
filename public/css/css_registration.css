@@ -30,9 +30,8 @@
     max-width: 100%;
     background: var(--white);
     margin: auto;
-    padding: 50px;
+    padding: 30px;
     border-radius: 5px;
-
 }
 
 .wrapper .header {
@@ -89,7 +88,7 @@
 }
 
 .wrapper .header ul li.active p {
-    background: var(--primary);
+    background: #5ea3eb;
 }
 
 .wrapper .form_wrap {
@@ -125,7 +124,7 @@
 
 .wrapper .form_wrap .input_wrap .input,
     .wrapper .form_wrap .input_wrap2 .input,
-    .wrapper .form_wrap .input_wrap2 .select, 
+    .wrapper .form_wrap .input_wrap2 .select,
     .wrapper .form_wrap .input_wrap .select  {
     border: 2px solid var(--secondary);
     border-radius: 3px;
@@ -303,7 +302,33 @@
 .modal_wrapper.active .success_wrap {
     transform: translate(-50%, -50%);
 }
-
+.input_email{
+    border: 2px solid var(--secondary);
+    border-radius: 3px;
+    padding: 10px;
+    width: 200px;
+    font-size: 10px;
+    transition: 0.5s ease;
+    text-align: right;
+    margin-right: 61px;
+    margin-left: 535px;
+    margin-bottom: 8px;
+}
+.butten_email{
+    bottom: 0%;
+    border: 0;
+    padding: 12px 15px;
+    background: var(--primary);
+    color: var(--white);
+    width: 135px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 3px;
+    transition: 0.5s ease;
+    margin: 0 0px 0px 503px;
+}
 @media (max-width: 915px) {
     .wrapper {
         padding: 10px;
@@ -320,7 +345,7 @@
         position: relative;
         padding: 50px;
     }
-    
+
     .wrapper .header ul li p {
         width: 25px;
         height: 25px;
@@ -329,15 +354,15 @@
         text-align: center;
         line-height: 153%;
         border-radius: 50%;
-       
+
     }
     .form_inputs {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     .wrapper .header ul {
         display: flex;
     }
-    
+
     .wrapper .header ul li {
         margin-right: 10px;
         position: relative;
@@ -355,11 +380,11 @@
     .wrapper .form_wrap .input_wrap2 .input,
     .wrapper .form_wrap .input_wrap2 .input2,
     .wrapper .form_wrap .input_wrap .input2,
-    .wrapper .form_wrap .input_wrap2 .select, 
+    .wrapper .form_wrap .input_wrap2 .select,
     .wrapper .form_wrap .input_wrap .select {
         max-width: 259px;
         font-size: 12px;
-        
+        margin-top: 4px;
 
 
     }
@@ -370,7 +395,7 @@
         font-size: 14px;
     }
 
-    
+
 
     .wrapper .form_wrap .input_wrap2 label,
     .wrapper .form_wrap .input_wrap label {
@@ -383,5 +408,32 @@
         padding: 5px;
         border-radius: 50%;
     }
+    .input_email {
+        border: 2px solid var(--secondary);
+        border-radius: 3px;
+        padding: 10px;
+        width: 200px;
+        font-size: 10px;
+        transition: 0.5s ease;
+        text-align: right;
+        margin-right: 61px;
+        margin-left: 81px;
+        margin-bottom: 8px;
+    }
+    .butten_email{
+        bottom: 0%;
+        border: 0;
+        padding: 12px 15px;
+        background: var(--primary);
+        color: var(--white);
+        width: 135px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        border-radius: 3px;
+        transition: 0.5s ease;
+        margin: 0px 0px 0px 0px;
 
+    }
 }

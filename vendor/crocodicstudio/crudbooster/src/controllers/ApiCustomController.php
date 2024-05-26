@@ -11,7 +11,7 @@ class ApiCustomController extends CBController
 {
     public function cbInit()
     {
-        $this->table = 'cms_apicustom';
+        $this->table = 'ums_apicustom';
         $this->primary_key = 'id';
         $this->title_field = "nama";
         $this->button_show = false;
@@ -35,7 +35,7 @@ class ApiCustomController extends CBController
 
         $data['page_title'] = 'API Generator';
         $data['page_menu'] = Route::getCurrentRoute()->getActionName();
-        $data['apis'] = DB::table('cms_apicustom')->orderby('nama', 'asc')->get();
+        $data['apis'] = DB::table('ums_apicustom')->orderby('nama', 'asc')->get();
 
         return view('crudbooster::api_documentation', $data);
     }
@@ -45,7 +45,7 @@ class ApiCustomController extends CBController
         $this->cbLoader();
         $data = [];
 
-        $data['apis'] = DB::table('cms_apicustom')->orderby('nama', 'asc')->get();
+        $data['apis'] = DB::table('ums_apicustom')->orderby('nama', 'asc')->get();
 
         return view('crudbooster::api_documentation_public', $data);
     }
@@ -62,7 +62,7 @@ class ApiCustomController extends CBController
             'schema' => 'https://schema.getpostman.com/json/collection/v2.0.0/collection.json',
         ];
         $items = [];
-        $apis = DB::table('cms_apicustom')->orderby('nama', 'asc')->get();
+        $apis = DB::table('ums_apicustom')->orderby('nama', 'asc')->get();
 
         foreach ($apis as $a) {
             $parameters = unserialize($a->parameters);
@@ -118,7 +118,7 @@ class ApiCustomController extends CBController
         $this->cbLoader();
         $data['page_title'] = 'API Generator';
         $data['page_menu'] = Route::getCurrentRoute()->getActionName();
-        $data['apikeys'] = DB::table('cms_apikey')->get();
+        $data['apikeys'] = DB::table('ums_apikey')->get();
 
         return view('crudbooster::api_key', $data);
     }
@@ -157,7 +157,7 @@ class ApiCustomController extends CBController
             CRUDBooster::redirect(CRUDBooster::adminPath(), cbLang('denied_access'));
         }
 
-        $row = DB::table('cms_apicustom')->where('id', $id)->first();
+        $row = DB::table('ums_apicustom')->where('id', $id)->first();
 
         $data['row'] = $row;
         $data['parameters'] = json_encode(unserialize($row->parameters));
@@ -187,7 +187,7 @@ class ApiCustomController extends CBController
         //Convert the binary data into hexadecimal representation.
         $token = bin2hex($token);
 
-        $id = DB::table('cms_apikey')->insertGetId([
+        $id = DB::table('ums_apikey')->insertGetId([
             'screetkey' => $token,
             'created_at' => date('Y-m-d H:i:s'),
             'status' => 'active',
@@ -208,7 +208,7 @@ class ApiCustomController extends CBController
         $id = Request::get('id');
         $status = (Request::get('status') == 1) ? "active" : "non active";
 
-        DB::table('cms_apikey')->where('id', $id)->update(['status' => $status]);
+        DB::table('ums_apikey')->where('id', $id)->update(['status' => $status]);
 
         return redirect()->back()->with(['message' => 'You have been update api key status !', 'message_type' => 'success']);
     }
@@ -217,7 +217,7 @@ class ApiCustomController extends CBController
     {
 
         $id = Request::get('id');
-        if (DB::table('cms_apikey')->where('id', $id)->delete()) {
+        if (DB::table('ums_apikey')->where('id', $id)->delete()) {
             return response()->json(['status' => 1]);
         } else {
             return response()->json(['status' => 0]);
@@ -333,14 +333,14 @@ class ApiCustomController extends CBController
         $a['keterangan'] = g('keterangan');
 
         if (Request::get('id')) {
-            DB::table('cms_apicustom')->where('id', g('id'))->update($a);
+            DB::table('ums_apicustom')->where('id', g('id'))->update($a);
         } else {
 
             $controllerName = ucwords(str_replace('_', ' ', $a['permalink']));
             $controllerName = str_replace(' ', '', $controllerName);
             CRUDBooster::generateAPI($controllerName, $a['tabel'], $a['permalink'], $a['method_type']);
 
-            DB::table('cms_apicustom')->insert($a);
+            DB::table('ums_apicustom')->insert($a);
         }
 
         return redirect(CRUDBooster::mainpath())->with(['message' => 'Yeay, your api has been saved successfully !', 'message_type' => 'success']);
@@ -349,8 +349,8 @@ class ApiCustomController extends CBController
     function getDeleteApi($id)
     {
         $this->cbLoader();
-        $row = DB::table('cms_apicustom')->where('id', $id)->first();
-        DB::table('cms_apicustom')->where('id', $id)->delete();
+        $row = DB::table('ums_apicustom')->where('id', $id)->first();
+        DB::table('ums_apicustom')->where('id', $id)->delete();
 
         $controllername = ucwords(str_replace('_', ' ', $row->permalink));
         $controllername = str_replace(' ', '', $controllername);

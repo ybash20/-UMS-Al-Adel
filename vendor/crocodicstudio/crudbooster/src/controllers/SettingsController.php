@@ -13,7 +13,7 @@ class SettingsController extends CBController
     public function cbInit()
     {
         $this->module_name = "Settings";
-        $this->table = 'cms_settings';
+        $this->table = 'ums_settings';
         $this->primary_key = 'id';
         $this->title_field = "name";
         $this->index_orderby = ['name' => 'asc'];
@@ -52,10 +52,10 @@ class SettingsController extends CBController
 			function show_radio_data() {
 				var cit = $('#content_input_type').val();
 				if(cit == 'radio' || cit == 'select') {
-					$('#form-group-dataenum').show();	
+					$('#form-group-dataenum').show();
 				}else{
 					$('#form-group-dataenum').hide();
-				}					
+				}
 			}
 			$('#content_input_type').change(show_radio_data);
 			show_radio_data();
@@ -86,12 +86,12 @@ class SettingsController extends CBController
     function getDeleteFileSetting()
     {
         $id = g('id');
-        $row = CRUDBooster::first('cms_settings', $id);
+        $row = CRUDBooster::first('ums_settings', $id);
         Cache::forget('setting_'.$row->name);
         if (Storage::exists($row->content)) {
             Storage::delete($row->content);
         }
-        DB::table('cms_settings')->where('id', $id)->update(['content' => null]);
+        DB::table('ums_settings')->where('id', $id)->update(['content' => null]);
         CRUDBooster::redirect(Request::server('HTTP_REFERER'), cbLang('alert_delete_data_success'), 'success');
     }
 
@@ -104,7 +104,7 @@ class SettingsController extends CBController
         }
 
         $group = Request::get('group_setting');
-        $setting = DB::table('cms_settings')->where('group_setting', $group)->get();
+        $setting = DB::table('ums_settings')->where('group_setting', $group)->get();
         foreach ($setting as $set) {
 
             $name = $set->name;
@@ -134,7 +134,7 @@ class SettingsController extends CBController
                 }
             }
 
-            DB::table('cms_settings')->where('name', $set->name)->update(['content' => $content]);
+            DB::table('ums_settings')->where('name', $set->name)->update(['content' => $content]);
 
             Cache::forget('setting_'.$set->name);
         }

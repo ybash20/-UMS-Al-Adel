@@ -65,7 +65,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-{{ cbLang('left') }}">
-                                <a href="{{ route('AdminCmsUsersControllerGetProfile') }}" class="btn btn-default btn-flat"><i
+                                <a href="{{ route('AdminUmsUsersControllerGetProfile') }}" class="btn btn-default btn-flat"><i
                                             class='fa fa-user'></i> {{cbLang("label_button_profile")}}</a>
                             </div>
                             <div class="pull-{{ cbLang('right') }}">

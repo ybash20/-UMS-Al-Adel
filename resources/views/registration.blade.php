@@ -50,78 +50,78 @@
                         <div class="input_wrap">
                             <div>
                                 <label for="name"> اسم الطالب</label>
-                            <input type="text" name="name" class="input" id="name">
-                            <label for="date of birth">تاريخ الميلاد</label>
-                            <input type="date" name="date of birth" class="input" id="date of birth">
-                            <label for="gender">نوع الجنس</label>
-                            <select class="select">
-                                <option value="">حدد نوع الجنس</option>
-                                <option value="male">ذكر</option>
-                                <option value="female">أنثى</option>
-                            </select>
+                                <input type="text" name="name" class="input" id="name">
+                                <label for="date of birth">تاريخ الميلاد</label>
+                                <input type="date" name="date of birth" class="input" id="date of birth">
+                                <label for="gender">نوع الجنس</label>
+                                <select class="select">
+                                    <option value="">حدد نوع الجنس</option>
+                                    <option value="male">ذكر</option>
+                                    <option value="female">أنثى</option>
+                                </select>
 
-                            <label for="current address">العنوان الحالي:المحافظة</label>
-                            <input type="text" name="current address" class="input" id="current address">
+                                <label for="current address">العنوان الحالي:المحافظة</label>
+                                <input type="text" name="current address" class="input" id="current address">
 
-                            <label for="district">العنوان الحالي:المديرية</label>
-                            <input type="text" name="district" id="district" class="input">
+                                <label for="district">العنوان الحالي:المديرية</label>
+                                <input type="text" name="district" id="district" class="input">
 
-                            <label for="id-type">نوع الهوية</label>
-                            <select name="id-type" id="id-type" class="input">
-                                <option value="">حدد نوع الهوية</option>
-                                <option value="National identity card">بطاقة الهوية الوطنية</option>
-                                <option value="passport">جواز السفر</option>
-                                <option value="driving license">رخصة القيادة</option>
-                            </select>
+                                <label for="id-type">نوع الهوية</label>
+                                <select name="id-type" id="id-type" class="input">
+                                    <option value="">حدد نوع الهوية</option>
+                                    <option value="National identity card">بطاقة الهوية الوطنية</option>
+                                    <option value="passport">جواز السفر</option>
+                                    <option value="driving license">رخصة القيادة</option>
+                                </select>
 
-                            <label for="id-number">رقم الهوية</label>
-                            <input type="text" name="id-number" id="id-number" class="input">
+                                <label for="id-number">رقم الهوية</label>
+                                <input type="text" name="id-number" id="id-number" class="input">
 
-                            <label for="landline">رقم الهاتف الأرضي</label>
-                            <input type="tel" name="landline" id="landline" class="input">
+                                <label for="landline">رقم الهاتف الأرضي</label>
+                                <input type="tel" name="landline" id="landline" class="input">
                             </div>
                         </div>
                         <div class="input_wrap2">
                             <label for="Nationality" class="label">الجنسية</label>
-                                <input type="text" name="Nationality" class="input" id="Nationality">
-                                <label for="Place of birth" class="label">محل الميلاد</label>
-                                <input type="text" name="Place of birth" class="input" id="Place of birth">
-                                <label for="marital-status" class="label">الحالة الاجتماعية</label>
-                                <select name="marital-status" id="marital-status" class="input">
-                                    <option value="">حدد حالة اجتماعية</option>
-                                    <option value="single">أعزب/عزباء</option>
-                                    <option value="married">متزوج/متزوجة</option>
-                                    <option value="divorced">مطلق/مطلقة</option>
-                                    <option value="widowed">أرمل/أرملة</option>
-                                </select>
-                                <label for="blood-type" class="label">فصيلة الدم</label>
-                                <select name="blood-type" id="blood-type" class="input">
-                                    <option value="">حدد فصيلة الدم</option>
-                                    <option value="A+">A+</option>
-                                    <option value="A-">A-</option>
-                                    <option value="B+">B+</option>
-                                    <option value="B-">B-</option>
-                                    <option value="AB+">AB+</option>
-                                    <option value="AB-">AB-</option>
-                                    <option value="O+">O+</option>
-                                    <option value="O-">O-</option>
-                                </select>
+                            <input type="text" name="Nationality" class="input" id="Nationality">
+                            <label for="Place of birth" class="label">محل الميلاد</label>
+                            <input type="text" name="Place of birth" class="input" id="Place of birth">
+                            <label for="marital-status" class="label">الحالة الاجتماعية</label>
+                            <select name="marital-status" id="marital-status" class="input">
+                                <option value="">حدد حالة اجتماعية</option>
+                                <option value="single">أعزب/عزباء</option>
+                                <option value="married">متزوج/متزوجة</option>
+                                <option value="divorced">مطلق/مطلقة</option>
+                                <option value="widowed">أرمل/أرملة</option>
+                            </select>
+                            <label for="blood-type" class="label">فصيلة الدم</label>
+                            <select name="blood-type" id="blood-type" class="input">
+                                <option value="">حدد فصيلة الدم</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
 
-                                <label for="city" class="label">العنوان الحالي:الحي/القرية</label>
-                                <input type="text" name="city" id="city" class="input">
+                            <label for="city" class="label">العنوان الحالي:الحي/القرية</label>
+                            <input type="text" name="city" id="city" class="input">
 
-                                <label for="issue-date" class="label">تاريخ الإصدار</label>
-                                <input type="date" name="issue-date" id="issue-date" class="input">
+                            <label for="issue-date" class="label">تاريخ الإصدار</label>
+                            <input type="date" name="issue-date" id="issue-date" class="input">
 
-                                <label for="issue-location" class="label">جهة الإصدار</label>
-                                <input type="text" name="issue-location" id="issue-location" class="input">
+                            <label for="issue-location" class="label">جهة الإصدار</label>
+                            <input type="text" name="issue-location" id="issue-location" class="input">
 
-                                <label for="mobile" class="label">رقم الجوال</label>
-                                <input type="tel" name="mobile" id="mobile" class="input">
-                           
-                        </div>
+                            <label for="mobile" class="label">رقم الجوال</label>
+                            <input type="tel" name="mobile" id="mobile" class="input">
+
                         </div>
                     </div>
+                </div>
                 <div class="form_2 data_info" style="display: none;">
                     <h2>بيانات الشهادة الثانوية العامة</h2>
                     <div class="form_inputs">
@@ -249,43 +249,81 @@
                     <h2>اشخاص يمكن الرجوع اليهم</h2>
                     <div class="input_wrap">
                         <div class="input_guardian_name">
-                        <label for="guardian_name2">الاسم</label>
-                        <input type="text" id="guardian_name2" name="guardian_name2" class="input">
-                        <input type="text" id="guardian_name3" name="guardian_name3" class="input">
+                            <label for="guardian_name2">الاسم</label>
+                            <input type="text" id="guardian_name2" name="guardian_name2" class="input">
+                            <input type="text" id="guardian_name3" name="guardian_name3" class="input">
 
-                        <label for="phone_number2">رقم الجوال</label>
-                        <input type="tel" id="phone_number2" name="phone_number2" class="input">
-                        <input type="tel" id="phone_number3" name="phone_number3" class="input">
+                            <label for="phone_number2">رقم الجوال</label>
+                            <input type="tel" id="phone_number2" name="phone_number2" class="input">
+                            <input type="tel" id="phone_number3" name="phone_number3" class="input">
                         </div>
                         <div class="input_wrap2">
-                        <label for="telephone_fix">رقم الهاتف </label>
-                        <input type="tel" id="telephone_fix" name="telephone_fix" class="input">
-                        <input type="tel" id="telephone_fix2" name="telephone_fix2" class="input">
+                            <label for="telephone_fix">رقم الهاتف </label>
+                            <input type="tel" id="telephone_fix" name="telephone_fix" class="input">
+                            <input type="tel" id="telephone_fix2" name="telephone_fix2" class="input">
 
-                        <label for="relationship2">صلة القرابة</label>
-                        <input type="text" id="relationship2" name="relationship2" class="input">
-                        <input type="text" id="relationship3" name="relationship3" class="input">
-                    </div>
+                            <label for="relationship2">صلة القرابة</label>
+                            <input type="text" id="relationship2" name="relationship2" class="input">
+                            <input type="text" id="relationship3" name="relationship3" class="input">
+                        </div>
                     </div>
                 </div>
                 <div class="form_5 data_info" style="display: none;">
-                    <h2>طرق التواصل </h2>
-                <div>
-                    @if (!empty(config('services.google')))
-                    <div style="margin-bottom:10px" class='row'>
-                        <div class='col-xs-12'>
+                    <h2>طرق التواصل</h2>
+                    <div class="input_wrap">
+                        <label for="email" id="label_email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" class="input_email" required>
 
-                            <a href='{{ route('redirect', 'google') }}' class="btn btn-primary btn-block btn-flat"><i
-                                    class='fa fa-google'></i>
-                                Google Login</a>
+                        <label for="verification_code" id="verification_code_label" style="display: none;">رمز التحقق</label>
+                        <input type="text" id="verification_code" name="verification_code" class="input_email" required
+                            style="display: none;">
 
-                            <hr>
-                        </div>
+                        <button type="button" class="butten_email" onclick="verifyEmail()"> تأكيد البريد </button>
                     </div>
-                @endif
                 </div>
 
-                </div>
+                <script>
+                    function verifyEmail() {
+                        const emailInput = document.getElementById('email');
+                        const emaillabel = document.getElementById('label_email');
+
+                        const email = emailInput.value;
+
+                        // إنشاء رمز تحقق عشوائي
+                        const verificationCode = Math.floor(100000 + Math.random() * 900000);
+
+                        // إرسال رمز التحقق إلى البريد الإلكتروني
+                        sendVerificationCode(email, verificationCode);
+
+                        // عرض رسالة للمستخدم
+                        alert(`لقد تم إرسال رمز التحقق إلى ${email}. الرجاء إدخال الرمز.`);
+
+                        // إخفاء حقل البريد الإلكتروني وإظهار حقل رمز التحقق
+                        emailInput.style.display = 'none';
+                        emaillabel.style.display = 'none';
+                        document.getElementById('verification_code').style.display = 'block';
+                        document.getElementById('verification_code_label').style.display = 'block';
+
+                    }
+
+                    async function sendVerificationCode(email, verificationCode) {
+                            try {
+                                // Use a email sending service or library to send the verification code
+                                // For example, you could use a service like SendGrid, Mailgun, or Amazon SES
+
+                                const response = await sendEmail({
+                                    to: email,
+                                    from: 'au.adu1@gmali.com',
+                                    subject: 'Verification Code',
+                                    text: `Your verification code is: ${verificationCode}`
+                                });
+
+                                console.log('Verification code sent:', response);
+                            } catch (error) {
+                                console.error('Error sending verification code:', error);
+                            }
+                        }
+                </script>
                 <div class="btns_wrap">
                     <div class="common_btns form_1_btns">
                         <button type="button" class="btn_next">التالي <span class="icon"><ion-icon
