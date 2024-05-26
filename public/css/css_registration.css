@@ -30,9 +30,8 @@
     max-width: 100%;
     background: var(--white);
     margin: auto;
-    padding: 50px;
+    padding: 30px;
     border-radius: 5px;
-
 }
 
 .wrapper .header {
@@ -125,7 +124,7 @@
 
 .wrapper .form_wrap .input_wrap .input,
     .wrapper .form_wrap .input_wrap2 .input,
-    .wrapper .form_wrap .input_wrap2 .select, 
+    .wrapper .form_wrap .input_wrap2 .select,
     .wrapper .form_wrap .input_wrap .select  {
     border: 2px solid var(--secondary);
     border-radius: 3px;
@@ -346,7 +345,7 @@
         position: relative;
         padding: 50px;
     }
-    
+
     .wrapper .header ul li p {
         width: 25px;
         height: 25px;
@@ -355,15 +354,15 @@
         text-align: center;
         line-height: 153%;
         border-radius: 50%;
-       
+
     }
     .form_inputs {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     .wrapper .header ul {
         display: flex;
     }
-    
+
     .wrapper .header ul li {
         margin-right: 10px;
         position: relative;
@@ -381,7 +380,7 @@
     .wrapper .form_wrap .input_wrap2 .input,
     .wrapper .form_wrap .input_wrap2 .input2,
     .wrapper .form_wrap .input_wrap .input2,
-    .wrapper .form_wrap .input_wrap2 .select, 
+    .wrapper .form_wrap .input_wrap2 .select,
     .wrapper .form_wrap .input_wrap .select {
         max-width: 259px;
         font-size: 12px;
@@ -396,7 +395,7 @@
         font-size: 14px;
     }
 
-    
+
 
     .wrapper .form_wrap .input_wrap2 label,
     .wrapper .form_wrap .input_wrap label {

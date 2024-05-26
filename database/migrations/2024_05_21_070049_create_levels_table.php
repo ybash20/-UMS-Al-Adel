@@ -2,8 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class AddStatusCmsUsers extends Migration
+class CreateLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +13,11 @@ class AddStatusCmsUsers extends Migration
      */
     public function up()
     {
-        Schema::table('cms_users', function (Blueprint $table) {
-            //
-            $table->string('status', 50)->nullable();
+        Schema::create('levels', function (Blueprint $table) {
+            $table->id();
+            $table->string('Name', 30);
+            $table->text('Description');
+            $table->timestamps();
         });
     }
 
@@ -25,9 +28,6 @@ class AddStatusCmsUsers extends Migration
      */
     public function down()
     {
-        Schema::table('cms_users', function (Blueprint $table) {
-            //
-            $table->dropColumn('status');
-        });
+        Schema::dropIfExists('levels');
     }
 }
