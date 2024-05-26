@@ -89,7 +89,7 @@
 }
 
 .wrapper .header ul li.active p {
-    background: var(--primary);
+    background: #5ea3eb;
 }
 
 .wrapper .form_wrap {
@@ -303,7 +303,33 @@
 .modal_wrapper.active .success_wrap {
     transform: translate(-50%, -50%);
 }
-
+.input_email{
+    border: 2px solid var(--secondary);
+    border-radius: 3px;
+    padding: 10px;
+    width: 200px;
+    font-size: 10px;
+    transition: 0.5s ease;
+    text-align: right;
+    margin-right: 61px;
+    margin-left: 535px;
+    margin-bottom: 8px;
+}
+.butten_email{
+    bottom: 0%;
+    border: 0;
+    padding: 12px 15px;
+    background: var(--primary);
+    color: var(--white);
+    width: 135px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 3px;
+    transition: 0.5s ease;
+    margin: 0 0px 0px 503px;
+}
 @media (max-width: 915px) {
     .wrapper {
         padding: 10px;
@@ -359,7 +385,7 @@
     .wrapper .form_wrap .input_wrap .select {
         max-width: 259px;
         font-size: 12px;
-        
+        margin-top: 4px;
 
 
     }
@@ -383,5 +409,32 @@
         padding: 5px;
         border-radius: 50%;
     }
+    .input_email {
+        border: 2px solid var(--secondary);
+        border-radius: 3px;
+        padding: 10px;
+        width: 200px;
+        font-size: 10px;
+        transition: 0.5s ease;
+        text-align: right;
+        margin-right: 61px;
+        margin-left: 81px;
+        margin-bottom: 8px;
+    }
+    .butten_email{
+        bottom: 0%;
+        border: 0;
+        padding: 12px 15px;
+        background: var(--primary);
+        color: var(--white);
+        width: 135px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        border-radius: 3px;
+        transition: 0.5s ease;
+        margin: 0px 0px 0px 0px;
 
+    }
 }

@@ -7,7 +7,7 @@
         .body_computer {
             background: #FFF;
             text-align: center;
-            color: #212529; 
+            color: #212529;
             font-family: 'Lemonada', cursive;
             font-size: 1rem;
             font-weight: 400;
@@ -22,8 +22,8 @@
 
         .row-nvg {
             text-align: right;
-            margin-right: -24px;
-            margin-left: -30px;
+            /* margin-right: -24px;
+            margin-left: -30px; */
             font-size: 15px;
 
         }
@@ -85,9 +85,13 @@
             border-top-width: 4px;
             padding: 1.8rem;
             position: relative;
-            border-bottom: 1px solid;
-            box-shadow: #040404
+            /* border-bottom: 1px solid; */
+            padding: 15px;
+            /* border-left: groove; */
+            /* border-right: groove; */
+            box-shadow: 6px 7px 19px -7px;
         }
+        
 
         .content-q4i {
             border-top-color: #0088CC;
