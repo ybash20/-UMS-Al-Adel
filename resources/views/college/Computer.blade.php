@@ -7,7 +7,7 @@
         .body_computer {
             background: #FFF;
             text-align: center;
-            color: #212529; 
+            color: #212529;
             font-family: 'Lemonada', cursive;
             font-size: 1rem;
             font-weight: 400;
