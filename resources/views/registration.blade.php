@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Electronic registration.blade')
+@section('title', 'Electronic registration')
 
 @section('main')
 
@@ -270,100 +270,13 @@
                 </div>
                 <div class="form_5 data_info" style="display: none;">
                     <h2>طرق التواصل</h2>
-                    <div class="input_wrap">
+                    <form class="input_wrap" action="{{ route('send-email') }}" method="POST">
+                        @csrf
                         <label for="email" id="label_email">البريد الإلكتروني</label>
                         <input type="email" id="email" name="email" class="input_email" required>
-
-                        <label for="verification_code" id="verification_code_label" style="display: none;">رمز
-                            التحقق</label>
-                        <input type="text" id="verification_code" name="verification_code" class="input_email"
-                            required style="display: none;">
-
-                        <button type="button" class="butten_email" onclick="verifyEmail()">تأكيد</button>
-
-                    </div>
+                        <button type="submit" name="submit" value="send" class="butten_email">تأكيد</button>
+                    </form>
                 </div>
-
-                <script>
-                    function verifyEmail() {
-                        const emailInput = document.getElementById('email');
-                        const emailLabel = document.getElementById('label_email');
-                        const verificationCodeInput = document.getElementById('verification_code');
-                        const verificationCodeLabel = document.getElementById('verification_code_label');
-                        const email = emailInput.value.trim();
-
-                        if (!email) {
-                            alert('يرجى إدخال البريد الإلكتروني.');
-                            return;
-                        }
-
-                        // إنشاء رمز تحقق عشوائي
-                        const verificationCode = Math.floor(100000 + Math.random() * 900000);
-
-                        // إرسال رمز التحقق إلى البريد الإلكتروني
-                        sendVerificationCode(email, verificationCode);
-
-                        // عرض رسالة للمستخدم
-                        alert(`لقد تم إرسال رمز التحقق إلى ${email}. الرجاء إدخال الرمز.`);
-
-                        // إخفاء حقل البريد الإلكتروني وإظهار حقل رمز التحقق
-                        emailInput.style.display = 'none';
-                        emailLabel.style.display = 'none';
-                        verificationCodeInput.style.display = 'block';
-                        verificationCodeLabel.style.display = 'block';
-                    }
-
-                    async function sendVerificationCode(email, verificationCode) {
-                        try {
-                            // استخدام خدمة أو مكتبة إرسال البريد الإلكتروني لإرسال رمز التحقق
-                            // على سبيل المثال ، يمكنك استخدام خدمة مثل SendGrid ، Mailgun ، أو Amazon SES
-                            const response = await sendEmail({
-                                to: email,
-                                from: 'belal66ali70@gmail.com',
-                                subject: 'رمز التحقق',
-                                text: `رمز التحقق الخاص بك هو: ${verificationCode}`
-                            });
-
-                            console.log('تم إرسال رمز التحقق:', response);
-                        } catch (error) {
-                            console.error('خطأ في إرسال رمز التحقق:', error);
-                        }
-                    }
-
-                    async function sendEmail(emailData) {
-                        try {
-                            // استخدام مكتبة إرسال البريد الإلكتروني مثل nodemailer
-                            const nodemailer = require('nodemailer');
-
-                            const transporter = nodemailer.createTransport({
-                                service: 'gmail',
-                                auth: {
-                                    user: 'belal66ali70@gmail.com',
-                                    pass: 'ihwn duha erhi aggp'
-                                }
-                            });
-
-                            const mailOptions = {
-                                from: emailData.from,
-                                to: emailData.to,
-                                subject: emailData.subject,
-                                text: emailData.text
-                            };
-
-                            const response = await transporter.sendMail(mailOptions);
-                            console.log('Email sent:', response);
-                            return {
-                                success: true
-                            };
-                        } catch (error) {
-                            console.error('Error sending email:', error);
-                            return {
-                                success: false,
-                                error: error.message
-                            };
-                        }
-                    }
-                </script>
                 <div class="btns_wrap">
                     <div class="common_btns form_1_btns">
                         <button type="button" class="btn_next">التالي <span class="icon"><ion-icon

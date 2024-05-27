@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::redirect('/', '/home');
 
 Route::get('/home', function () {
@@ -73,3 +75,5 @@ Route::get('/sharia', function () {
 Route::get('/translation', function () {
     return view('college.Translation');
 })->name('translation');
+
+Route::post('/send-email', [EmailController::class, 'send'])->name('send-email');
