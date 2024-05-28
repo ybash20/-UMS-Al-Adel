@@ -15,8 +15,8 @@ class CreateLibrarySectionsTable extends Migration
     {
         Schema::create('library_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('Name', 30);
-            $table->text('Description');
+            $table->string('Name', 255)->nullable();
+            $table->text('Description')->nullable();
             $table->timestamps();
         });
     }

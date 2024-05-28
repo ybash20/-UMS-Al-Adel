@@ -27,28 +27,11 @@
                 </div>
             </div>
             <hr style="background-color:  black;">
-            <!--Arrivals-->
-            {{-- <div class="arrivals">
-                <h1 style="text-align: center">Book</h1>
-                <h2 style="text-align: center; direction: rtl">
-                    <form action="">
-                        <label for="categories">اختر القسم:</label>
-                        <select name="categories" id="categories">
-                            <option value="S1">الحاسوب</option>
-                            <option value="S2">الترجمة</option>
-                            <option value="S3"> أدارة الأعمال</option>
-                            <option value="S4">قانون</option>
-                        </select>
-                        <input type="submit" value="تحديد">
-                    </form>
-                </h2>
-                <hr style="background-color:  black;">
-            </div> --}}
-
+           
             <div class="continar_book_library"> 
+  
               
-              
-                <div class="book_lib_row">            
+              <div class="book_lib_row">            
                   <h2>Computer Section</h2>
                   <div class="arrows_book">
                   <button class="prev-button"><span><</span></button>
@@ -90,7 +73,7 @@
                   <button class="read-more-button">Read more <i class='fas fa-arrow-alt-circle-right'></i></button>
                 </div>
 
-
+                
                 <div class="book_lib_row">            
                   <h2>Business Management Section</h2>
                   <div class="arrows_book">
@@ -136,7 +119,7 @@
               </div>
               
               <script>
-                document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function() {
     const rows = document.querySelectorAll('.book_lib_row');
     rows.forEach(row => {
         const books = row.querySelectorAll('.book');
@@ -144,6 +127,9 @@
         const nextButton = row.querySelector('.next-button');
         let currentIndex = 0;
         let booksPerRow = 3; // Number of books per row
+        let autoSlideInterval; // Interval for automatic slide
+        const intervalTime = 3000; // 3 seconds
+        let touchMoveFlag = false; // Flag to check if touch move happened
 
         function showBooks(startIndex) {
             books.forEach((book, i) => {
@@ -167,6 +153,9 @@
                 currentIndex = 0;
                 showBooks(currentIndex);
             }
+            if (!touchMoveFlag) {
+                resetAutoSlide();
+            }
         }
 
         function showPreviousBooks() {
@@ -178,6 +167,9 @@
                 // If we reach the beginning, go to the end
                 currentIndex = Math.max(0, books.length - booksPerRow);
                 showBooks(currentIndex);
+            }
+            if (!touchMoveFlag) {
+                resetAutoSlide();
             }
         }
 
@@ -196,6 +188,7 @@
 
         function handleTouchStart(event) {
             xDown = event.touches[0].clientX;
+            touchMoveFlag = false; // Reset touch move flag
         }
 
         function handleTouchMove(event) {
@@ -209,18 +202,34 @@
             } else {
                 showPreviousBooks(); // Swipe right to show previous books
             }
+            touchMoveFlag = true; // Set touch move flag
             xDown = null; // Reset value
         }
 
-        prevButton.addEventListener('click', showPreviousBooks);
-        nextButton.addEventListener('click', showNextBooks);
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(showNextBooks, intervalTime);
+        }
+
+        prevButton.addEventListener('click', () => {
+            showPreviousBooks();
+            resetAutoSlide(); // Reset auto slide when button clicked
+        });
+
+        nextButton.addEventListener('click', () => {
+            showNextBooks();
+            resetAutoSlide(); // Reset auto slide when button clicked
+        });
+
         window.addEventListener('resize', adjustBooksPerRow);
         row.addEventListener('touchstart', handleTouchStart);
         row.addEventListener('touchmove', handleTouchMove);
 
         adjustBooksPerRow(); // Initial call to set up the view
+        autoSlideInterval = setInterval(showNextBooks, intervalTime); // Start auto slide when page loads
     });
 });
+
               </script>
 
 
