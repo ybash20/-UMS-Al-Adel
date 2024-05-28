@@ -24,6 +24,12 @@ Route::get('/lib', function () {
     return view('library/library');
 })->name('library');
 
+Route::get('/books_computer', function () {
+    return view('library/books_computer');
+})->name('books_computer');
+
+
+
 Route::get('/student', function () {
     return view('student');
 })->name('student');
