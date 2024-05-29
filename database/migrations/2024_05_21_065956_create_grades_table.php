@@ -14,15 +14,15 @@ class CreateGradesTable extends Migration
     public function up()
     {
         Schema::create('grades', function (Blueprint $table) {
-            $table->unsignedBigInteger('Student_ID');
-            $table->unsignedBigInteger('Course_ID');
-            $table->unsignedInteger('Grade_30');
-            $table->unsignedInteger('Grade_70');
-            $table->unsignedInteger('Grade_100');
-            $table->string('Spoint');
-            $table->string('Note');
-            $table->unsignedInteger('Turn');
-            $table->unsignedInteger('Semester');
+            $table->unsignedBigInteger('Student_ID')->nullable();
+            $table->unsignedBigInteger('Course_ID')->nullable();
+            $table->unsignedInteger('Grade_30')->nullable();
+            $table->unsignedInteger('Grade_70')->nullable();
+            $table->unsignedInteger('Grade_100')->nullable();
+            $table->string('Spoint')->nullable();
+            $table->string('Note')->nullable();
+            $table->unsignedInteger('Turn')->nullable();
+            $table->unsignedInteger('Semester')->nullable();
             $table->timestamps();
         });
     }

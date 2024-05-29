@@ -15,19 +15,19 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
-            $table->unsignedBigInteger('Major_ID');
-            $table->unsignedBigInteger('Level_ID');
-            $table->string('Code');
-            $table->boolean('Gender');
-            $table->date('DOB');
-            $table->string('Email');
-            $table->string('Phone_number');
-            $table->unsignedBigInteger('Address_ID');
-            $table->string('Status');
-            $table->boolean('Not_Allowed_Show');
-            $table->string('Notes');
-            $table->string('Photo');
+            $table->string('Name')->nullable();
+            $table->unsignedBigInteger('Major_ID')->nullable();
+            $table->unsignedBigInteger('Level_ID')->nullable();
+            $table->string('Code')->nullable();
+            $table->boolean('Gender')->nullable();
+            $table->date('DOB')->nullable();
+            $table->string('Email')->nullable();
+            $table->string('Phone_number')->nullable();
+            $table->unsignedBigInteger('Address_ID')->nullable();
+            $table->string('Status')->nullable();
+            $table->boolean('Not_Allowed_Show')->nullable();
+            $table->string('Notes')->nullable();
+            $table->string('Photo')->nullable();
             $table->timestamps();
         });
     }

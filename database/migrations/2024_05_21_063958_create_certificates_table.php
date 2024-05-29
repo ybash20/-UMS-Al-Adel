@@ -15,15 +15,15 @@ class CreateCertificatesTable extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('Qualification_ID');
-            $table->string('Name', 30);
-            $table->unsignedInteger('Graduation_Year');
-            $table->string('Disciplines', 30);
-            $table->unsignedInteger('Maximum_Pass_Grade');
-            $table->unsignedInteger('Total_Grades');
-            $table->unsignedInteger('Percentage');
-            $table->date('Issue_Date');
-            $table->string('Certificate');
+            $table->unsignedBigInteger('Qualification_ID')->nullable();
+            $table->string('Name', 30)->nullable();
+            $table->unsignedInteger('Graduation_Year')->nullable();
+            $table->string('Disciplines', 30)->nullable();
+            $table->unsignedInteger('Maximum_Pass_Grade')->nullable();
+            $table->unsignedInteger('Total_Grades')->nullable();
+            $table->unsignedInteger('Percentage')->nullable();
+            $table->date('Issue_Date')->nullable();
+            $table->string('Certificate')->nullable();
             $table->timestamps();
         });
     }
