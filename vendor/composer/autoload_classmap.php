@@ -14,6 +14,7 @@ return array(
     'App\\Http\\Controllers\\AdminUmsUsersController' => $baseDir . '/app/Http/Controllers/AdminUmsUsersController.php',
     'App\\Http\\Controllers\\CBHook' => $baseDir . '/app/Http/Controllers/CBHook.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\EmailController' => $baseDir . '/app/Http/Controllers/EmailController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',

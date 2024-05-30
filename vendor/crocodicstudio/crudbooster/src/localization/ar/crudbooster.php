@@ -13,11 +13,11 @@ return [
     'Label-employer'=>'واجهة الموظف',
     'email_footer' => 'هذه رسالة تلقائية ، الرجاء عدم الرد مباشرة على هذا البريد الإلكتروني .',
     'login_message' => 'الرجاء تسجيل الدخول',
-    'text_forgot_password' => 'نسيت كلمة المرور ?',
+    'text_forgot_password' => 'نسيت كلمة المرور؟',
     'page_title_login' => 'تسجيل الدخول',
     'page_title_forgot' => 'نسيت كلمة المرور',
     'forgot_message' => 'ادخل بريدك الإلكتروني لاستعادة كلمة المرور',
-    "forgot_text_try_again" => " حاول تسجيل الدخول مرة اخرى ?",
+    "forgot_text_try_again" => "حاول تسجيل الدخول مرة اخرى؟",
     'text_no_notification' => "لا توجد لديك تنبيهات",
     'text_view_all_notification' => 'عرض الكل',
     'label_button_profile' => "الملف الشخصي",
@@ -43,6 +43,8 @@ return [
 
     'message_after_logout' => 'شكرا لك ، نراك لاحقا !',
     'message_forgot_password' => 'تم ارسال كلمة المرور إلى بريدك الإلكتروني !',
+    'email_sending_failed' => 'فشل إرسال الرسالة إلى البريد الإلكتروني',
+
 
     'page_not_found' => 'عفوا الصفحة غير موجودة',
     'page_not_found_text' => 'لم يتم العثور على الصفحة التي تبحث عنها.',
@@ -115,7 +117,7 @@ return [
     'button_export' => 'تصدير البيانات',
     'button_filter' => 'الفرز والتصفية',
     'button_close' => 'اغلاق',
-    'button_submit' => 'حفظ',
+    'button_submit' => 'أرسل',
     'button_logout' => 'تسجيل الخروج',
     'button_sign_in' => 'تسجيل الدخول',
     'button_selected_action' => 'الاجراء الجماعي',

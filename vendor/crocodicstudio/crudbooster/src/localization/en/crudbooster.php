@@ -42,6 +42,7 @@ return [
 
     'message_after_logout' => 'Thank You, See You Later !',
     'message_forgot_password' => 'We have sent new password to your email, check inbox or spambox !',
+    'email_sending_failed' => 'Email sending failed, try again',
 
     'page_not_found' => 'Oops! Page Not Found',
     'page_not_found_text' => 'We are unable search the page that you are looking for.',
