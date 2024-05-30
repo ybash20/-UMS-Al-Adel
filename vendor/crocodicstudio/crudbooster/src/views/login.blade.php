@@ -73,7 +73,7 @@
 
         .login-box-body {
             width: 320px;
-            height: 639px;
+            height: 686px;
             background: var(--white);
             margin: 100px auto 0;
             padding: 22px;
@@ -116,6 +116,7 @@
 
         .button {
 
+
             width: 100px;
             background: #fff;
             border-radius: 20px;
@@ -123,12 +124,10 @@
             padding: 15px;
             display: block;
             justify-content: center;
-            margin: 42px 85px -57px;
+            margin: 0 85px -57px;
             border-width: 1px;
-            /* الجهة العلوية والسفلية بدون حدود، الجهة اليمنى واليسرى بحد بسمك 1 بكسل */
             border-style: solid;
             border-color: #000000;
-            z-index: 1400;
         }
 
         .img_login {
@@ -194,7 +193,7 @@
                 width: 100%;
                 margin-top: -256px;
             }
-        } 
+        }
     </style>
 </head>
 
@@ -284,10 +283,12 @@
                         </div>
                     </div>
 
-                     <div class='row'>
-                <div class='col-xs-12' align="center"><p style="padding:10px 0px 10px 0px">{{cbLang("text_forgot_password")}} <a
-                                href='{{route("getForgot")}}'>{{cbLang("click_here")}}</a></p></div>
-            </div> 
+                    <div class='row'>
+                        <div class='col-xs-12' align="center">
+                            <p style="padding:10px 0px 10px 0px">{{ cbLang('text_forgot_password') }} <a
+                                    href='{{ route('getForgot') }}'>{{ cbLang('click_here') }}</a></p>
+                        </div>
+                    </div>
                     <div>
                         <button type="button" class="button">
                             <i class="fas fa-user-graduate"></i>
@@ -316,7 +317,12 @@
                             </a>
                         </div>
                     </div>
-
+                    <div class='row'>
+                        <div class='col-xs-12' align="center">
+                            <p style="padding:10px 0px 10px 0px">{{ cbLang('text_forgot_password') }} <a
+                                    href='{{ route('getForgot') }}'>{{ cbLang('click_here') }}</a></p>
+                        </div>
+                    </div>
                     <div>
                         <button type="button" class="button">
                             <i class="fas fa-user-tie"></i>

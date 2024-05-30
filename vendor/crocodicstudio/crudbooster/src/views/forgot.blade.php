@@ -29,27 +29,10 @@
     <style>
         .login-page {
             border: #0661c278;
-        }
-
-        .login-box-body {
-
-            max-width: 508px;
-            margin: 0px auto;
-            margin-top: 50%;
-            box-shadow: 9px 12px 34px -6px black;
-            border-radius: 4%;
-            height: 258px;
-            padding: 37px;
-            background-color: white;
-        }
-
-        .login-page {
+            background: #0661c278;
             margin-top: 0;
             margin-bottom: 0;
-        }
 
-        .login-page {
-            border: #0661c278;
         }
 
         .login-box-body {
@@ -57,7 +40,7 @@
             max-width: 508px;
             margin: 0px auto;
             margin-top: 50%;
-            box-shadow: 9px 12px 34px -6px black;
+            box-shadow: 9px 12px 54px -8px #555;
             border-radius: 4%;
             height: 258px;
             padding: 37px;
@@ -69,7 +52,7 @@
                 width: auto;
                 margin: 0px auto;
                 margin-top: 100%;
-                box-shadow: 9px 12px 34px -6px black;
+                box-shadow: 9px 12px 54px -8px #555;
                 border-radius: 4%;
                 height: 215px;
                 padding: 37px;
