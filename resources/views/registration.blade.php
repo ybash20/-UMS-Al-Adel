@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Electronic registration.blade')
+@section('title', 'Electronic registration')
 
 @section('main')
 
@@ -270,60 +270,13 @@
                 </div>
                 <div class="form_5 data_info" style="display: none;">
                     <h2>طرق التواصل</h2>
-                    <div class="input_wrap">
+                    <form class="input_wrap" action="{{ route('send-email') }}" method="POST">
+                        @csrf
                         <label for="email" id="label_email">البريد الإلكتروني</label>
                         <input type="email" id="email" name="email" class="input_email" required>
-
-                        <label for="verification_code" id="verification_code_label" style="display: none;">رمز التحقق</label>
-                        <input type="text" id="verification_code" name="verification_code" class="input_email" required
-                            style="display: none;">
-
-                        <button type="button" class="butten_email" onclick="verifyEmail()"> تأكيد البريد </button>
-                    </div>
+                        <button type="submit" name="submit" value="send" class="butten_email">تأكيد</button>
+                    </form>
                 </div>
-
-                <script>
-                    function verifyEmail() {
-                        const emailInput = document.getElementById('email');
-                        const emaillabel = document.getElementById('label_email');
-
-                        const email = emailInput.value;
-
-                        // إنشاء رمز تحقق عشوائي
-                        const verificationCode = Math.floor(100000 + Math.random() * 900000);
-
-                        // إرسال رمز التحقق إلى البريد الإلكتروني
-                        sendVerificationCode(email, verificationCode);
-
-                        // عرض رسالة للمستخدم
-                        alert(`لقد تم إرسال رمز التحقق إلى ${email}. الرجاء إدخال الرمز.`);
-
-                        // إخفاء حقل البريد الإلكتروني وإظهار حقل رمز التحقق
-                        emailInput.style.display = 'none';
-                        emaillabel.style.display = 'none';
-                        document.getElementById('verification_code').style.display = 'block';
-                        document.getElementById('verification_code_label').style.display = 'block';
-
-                    }
-
-                    async function sendVerificationCode(email, verificationCode) {
-                            try {
-                                // Use a email sending service or library to send the verification code
-                                // For example, you could use a service like SendGrid, Mailgun, or Amazon SES
-
-                                const response = await sendEmail({
-                                    to: email,
-                                    from: 'au.adu1@gmali.com',
-                                    subject: 'Verification Code',
-                                    text: `Your verification code is: ${verificationCode}`
-                                });
-
-                                console.log('Verification code sent:', response);
-                            } catch (error) {
-                                console.error('Error sending verification code:', error);
-                            }
-                        }
-                </script>
                 <div class="btns_wrap">
                     <div class="common_btns form_1_btns">
                         <button type="button" class="btn_next">التالي <span class="icon"><ion-icon

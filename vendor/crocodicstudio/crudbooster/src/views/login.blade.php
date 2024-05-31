@@ -173,10 +173,28 @@
             padding: 5px;
             width: 100%;
         }
-        .header-button:hover{
+
+        .header-button:hover {
             background-color: #fff
         }
-        
+
+        @media (max-width: 508px) {
+
+            .header-button {
+                background-color: #5c81cc;
+                border: none;
+                color: #fff;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 30px;
+                border-radius: 4px;
+                cursor: pointer;
+                padding: 5px;
+                width: 100%;
+                margin-top: -256px;
+            }
+        } 
     </style>
 </head>
 
@@ -185,7 +203,7 @@
         <div class="header-container">
             <a href="{{ route('home') }}" class="header-button">
                 <i class="fas fa-home"></i>
-        </a>
+            </a>
         </div>
     </header>
 
@@ -266,10 +284,10 @@
                         </div>
                     </div>
 
-                    {{-- <div class='row'>
+                     <div class='row'>
                 <div class='col-xs-12' align="center"><p style="padding:10px 0px 10px 0px">{{cbLang("text_forgot_password")}} <a
                                 href='{{route("getForgot")}}'>{{cbLang("click_here")}}</a></p></div>
-            </div> --}}
+            </div> 
                     <div>
                         <button type="button" class="button">
                             <i class="fas fa-user-graduate"></i>
