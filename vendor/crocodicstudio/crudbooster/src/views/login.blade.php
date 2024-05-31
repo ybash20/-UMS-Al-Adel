@@ -202,6 +202,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+            /* margin-top: 283px; */
         }
 
         @media (max-width: 700px) {
@@ -250,7 +251,7 @@
         .login-box {
             width: 360px;
             position: absolute;
-            top: 50%;
+            top: 71%;
             left: 50%;
             transform: translate(-50%, -50%);
         }

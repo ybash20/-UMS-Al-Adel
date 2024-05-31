@@ -172,7 +172,7 @@
 
 
         <!-- Main content -->
-        <section id='content_section' class="content">
+        <!-- <section id='content_section' class="content">
 
             @if(@$alerts)
                 @foreach(@$alerts as $alert)
@@ -180,8 +180,8 @@
                         {!! $alert['message'] !!}
                     </div>
                 @endforeach
-            @endif
-
+            @endif 
+        -->
 
             @if (Session::get('message')!='')
                 <div class='alert alert-{{ Session::get("message_type") }}'>
