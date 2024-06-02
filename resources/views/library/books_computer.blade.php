@@ -116,132 +116,16 @@
     </div>
     <div class="books-container-1">
         <!-- تكرار هذا الجزء لكل كتاب -->
+        @foreach ( $book_computer as $bookcomputer) 
+        <div class="book-1">
+            <img src="image/about.png" alt="صورة الكتاب">
+            <h3 class="book-title-1">Book: {!!$bookcomputer->Title!!}</h3>
+            <p class="book-author-1">Author: {!!$bookcomputer->Author!!}</p>
+            
+        </div>
+        @endforeach
 
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 1</h3>
-            <p class="book-author-1">اسم المؤلف 1</p>
-        </div>
-
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 2</h3>
-            <p class="book-author-1">اسم المؤلف 2</p>
-        </div>
-
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 3</h3>
-            <p class="book-author-1">اسم المؤلف 3</p>
-        </div>
-
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 4</h3>
-            <p class="book-author-1">اسم المؤلف 4</p>
-        </div>
-
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 5</h3>
-            <p class="book-author-1">اسم المؤلف 5</p>
-        </div>
-
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنواasljisjaioajiojasijaoiasjiajsiojasiojsioajsijaoaisjaiojosijiojasoisjioajsoi الكتاب 6</h3>
-            <p class="book-author-1">اسم المؤلف 6</p>
-        </div>
-
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 7</h3>
-            <p class="book-author-1">اسم المؤلف 7</p>
-        </div>
-
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 8</h3>
-            <p class="book-author-1">اسم المؤلف 8</p>
-        </div>
-
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 9</h3>
-            <p class="book-author-1">اسم المؤلف 9</p>
-        </div>
-
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">عنوان الكتاب 10</h3>
-            <p class="book-author-1">اسم المؤلف 10</p>
-        </div>
+        
 
     </div>
 </div>

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ForgotConroller;
-
+use App\Http\Controllers\BookLibraryController;
 
 
 /*
@@ -27,10 +27,7 @@ Route::get('/lib', function () {
     return view('library/library');
 })->name('library');
 
-Route::get('/books_computer', function () {
-    return view('library/books_computer');
-})->name('books_computer');
-
+Route::get('/libBooks','BookLibraryController@index')->name('indexbook');
 
 
 Route::get('/student', function () {
