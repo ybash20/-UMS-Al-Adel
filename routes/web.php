@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\ForgotConroller;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +65,10 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+Route::get('/forgot-password', function () {
+    return view('forgot-password');
+})->name('forgot-password');
+
 Route::get('/computer', function () {
     return view('college.Computer');
 })->name('computer');
@@ -83,3 +90,14 @@ Route::get('/translation', function () {
 })->name('translation');
 
 Route::post('/send-email', [EmailController::class, 'send'])->name('send-email');
+
+
+Route::get('/verify-email', function () {
+    return view('auth.verify-email');
+})->name('verify-email');
+
+Route::post('/send-verification-email', [ForgotConroller::class, 'sendVerificationEmail'])
+     ->name('send-verification-email');
+
+Route::post('/verify-code', [ForgotConroller::class, 'verifyCode'])
+     ->name('verify-code');

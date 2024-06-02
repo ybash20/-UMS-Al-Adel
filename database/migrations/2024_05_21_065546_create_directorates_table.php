@@ -15,8 +15,8 @@ class CreateDirectoratesTable extends Migration
     {
         Schema::create('directorates', function (Blueprint $table) {
             $table->id();
-            $table->string('Name', 30);
-            $table->unsignedBigInteger('Governorate_ID');
+            $table->string('Name', 30)->nullable();
+            $table->unsignedBigInteger('Governorate_ID')->nullable();
             $table->timestamps();
         });
     }

@@ -15,12 +15,12 @@ class CreateQualificationsTable extends Migration
     {
         Schema::create('qualifications', function (Blueprint $table) {
             $table->id();
-            $table->string('Name', 30);
-            $table->string('Level', 30);
-            $table->string('Institution', 30);
-            $table->unsignedBigInteger('Address_ID');
-            $table->string('Country', 30);
-            $table->string('Description', 30);
+            $table->string('Name', 30)->nullable();
+            $table->string('Level', 30)->nullable();
+            $table->string('Institution', 30)->nullable();
+            $table->unsignedBigInteger('Address_ID')->nullable();
+            $table->string('Country', 30)->nullable();
+            $table->string('Description', 30)->nullable();
             $table->timestamps();
         });
     }

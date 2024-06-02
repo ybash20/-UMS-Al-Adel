@@ -23,7 +23,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="box-body">
                     <div class="alert alert-info">
-                        <strong>Note:</strong> To show the menu you have to create a menu at Menu Management
+                        <strong>{{cbLang('privilege_helper')}}</strong> 
                     </div>
                     <div class='form-group'>
                         <label>{{cbLang('privileges_name')}}</label>

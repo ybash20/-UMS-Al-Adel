@@ -758,12 +758,23 @@ class CRUDBooster
 
     public static function sendEmail($config = [])
     {
-
         \Config::set('mail.driver', self::getSetting('smtp_driver'));
         \Config::set('mail.host', self::getSetting('smtp_host'));
         \Config::set('mail.port', self::getSetting('smtp_port'));
         \Config::set('mail.username', self::getSetting('smtp_username'));
         \Config::set('mail.password', self::getSetting('smtp_password'));
+        \Config::set('mail.encryption', self::getSetting('smtp_encryption'));
+
+        $driver = self::getSetting('smtp_driver');
+        $host = self::getSetting('smtp_host');
+        $port = self::getSetting('smtp_port');
+        $user = self::getSetting('smtp_username');
+        $pass = self::getSetting('smtp_password');
+        $enc = self::getSetting('smtp_encryption');
+
+        $s = 'smtp driver: '.$driver.'<br>smtp host: '.$host.'<br>smtp port: '.$port.'<br>smtp username: '.$user.'<br>smtp password: '.$pass.'<br>smtp encryption: '.$enc;
+
+        CRUDBooster::insertLog('getSetting test', $s);
 
         $to = $config['to'];
         $data = $config['data'];
@@ -793,26 +804,21 @@ class CRUDBooster
 
             return true;
         }
-
         \Mail::send("crudbooster::emails.blank", ['content' => $html], function ($message) use ($to, $subject, $template, $attachments) {
             $message->priority(1);
             $message->to($to);
-
             if ($template->from_email) {
                 $from_name = ($template->from_name) ?: CRUDBooster::getSetting('appname');
                 $message->from($template->from_email, $from_name);
             }
-
             if ($template->cc_email) {
                 $message->cc($template->cc_email);
             }
-
             if (count($attachments)) {
                 foreach ($attachments as $attachment) {
                     $message->attach($attachment);
                 }
             }
-
             $message->subject($subject);
         });
     }

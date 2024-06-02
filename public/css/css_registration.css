@@ -7,6 +7,22 @@
     --next-btn-hover: #007bff;
     --back-btn-hover: #8b8c8c;
 }
+.notification_reg {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #4CAF50; /* لون الخلفية للرسالة الناجحة */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
+    display: none;
+}
+.notification_reg.error {
+    background-color: #f44336; /* لون الخلفية للرسالة الفاشلة */
+}
+
+
 
 * {
     margin: 0;
@@ -242,7 +258,7 @@
     background: var(--back-btn-hover);
     bottom: 0%;
 }
-
+.email_wrapper,
 .modal_wrapper {
     position: fixed;
     top: 0;
@@ -252,7 +268,7 @@
     visibility: hidden;
     z-index: 150;
 }
-
+.email_wrapper .shadow,
 .modal_wrapper .shadow {
     position: absolute;
     top: 0;
@@ -263,7 +279,7 @@
     opacity: 0;
     transition: 0.2s ease;
 }
-
+.email_wrapper .success_wrap,
 .modal_wrapper .success_wrap {
     position: absolute;
     top: 50%;
@@ -276,7 +292,7 @@
     border-radius: 5px;
     transition: 0.5s ease;
 }
-
+.email_wrapper .success_wrap .modal_icon,
 .modal_wrapper .success_wrap .modal_icon {
     margin-right: 20px;
     width: 50px;
@@ -290,15 +306,18 @@
     font-size: 32px;
     font-weight: 700;
 }
-
+.email_wrapper .success_wrap .modal_icon.error{
+    background: #f44336;
+}
+.email_wrapper.active,
 .modal_wrapper.active {
     visibility: visible;
 }
-
+.email_wrapper.active .shadow,
 .modal_wrapper.active .shadow {
     opacity: 1;
 }
-
+.email_wrapper.active .success_wrap,
 .modal_wrapper.active .success_wrap {
     transform: translate(-50%, -50%);
 }

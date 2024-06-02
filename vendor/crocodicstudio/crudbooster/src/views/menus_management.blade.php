@@ -132,7 +132,7 @@
 
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    <strong>Menu Order (Active)</strong> <span id='menu-saved-info' style="display:none" class='pull-right text-success'><i
+                    <strong>{{ cbLang('Menu-Order') }}</strong> <span id='menu-saved-info' style="display:none" class='pull-right text-success'><i
                                 class='fa fa-check'></i> Menu Saved !</span>
                 </div>
                 <div class="panel-body clearfix">
@@ -184,14 +184,14 @@
                         @endforeach
                     </ul>
                     @if(count($menu_active)==0)
-                        <div align="center">Active menu is empty, please add new menu</div>
+                        <div>{{ cbLang('Active_menu') }}</div>
                     @endif
                 </div>
             </div>
 
             <div class="panel panel-danger">
                 <div class="panel-heading">
-                    <strong>Menu Order (Inactive)</strong>
+                    <strong>{{ cbLang('Menu_Inactive') }}</strong>
                 </div>
                 <div class="panel-body clearfix">
                     <ul class='draggable-menu draggable-menu-inactive'>
@@ -220,7 +220,7 @@
                         @endforeach
                     </ul>
                     @if(count($menu_inactive)==0)
-                        <div align="center" id='inactive_text' class='text-muted'>Inactive menu is empty</div>
+                        <div align="center" id='inactive_text' class='text-muted'>{{ cbLang('Inactive_menu') }}</div>
                     @endif
                 </div>
             </div>
@@ -230,14 +230,16 @@
         <div class="col-sm-7">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    Add Menu
-                </div>
+                    {{ cbLang('Add_menu') }}       
+                         </div>
                 <div class="panel-body">
                     <form class='form-horizontal' method='post' id="form" enctype="multipart/form-data" action='{{CRUDBooster::mainpath("add-save")}}'>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type='hidden' name='return_url' value='{{Request::fullUrl()}}'/>
                         @include("crudbooster::default.form_body")
-                        <p align="right"><input type='submit' class='btn btn-primary' value='Add Menu'/></p>
+                        <p align="right">
+                            <button type='submit' class='btn btn-primary' value='Add Menu'>{{ cbLang('Add_menu') }} </button>
+                        </p>
                     </form>
                 </div>
             </div>

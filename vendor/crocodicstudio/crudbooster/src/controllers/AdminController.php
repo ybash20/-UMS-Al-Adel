@@ -118,23 +118,22 @@ class AdminController extends CBController
 
         if ($validator->fails()) {
             $message = $validator->errors()->all();
-
             return redirect()->back()->with(['message' => implode(', ', $message), 'message_type' => 'danger']);
         }
-
-        $rand_string = str_random(5);
-        $password = \Hash::make($rand_string);
-
-        DB::table(config('crudbooster.USER_TABLE'))->where('email', Request::input('email'))->update(['password' => $password]);
-
-        $appname = CRUDBooster::getSetting('appname');
-        $user = CRUDBooster::first(config('crudbooster.USER_TABLE'), ['email' => g('email')]);
-        $user->password = $rand_string;
-        CRUDBooster::sendEmail(['to' => $user->email, 'data' => $user, 'template' => 'forgot_password_backend']);
-
-        CRUDBooster::insertLog(cbLang("log_forgot", ['email' => g('email'), 'ip' => Request::server('REMOTE_ADDR')]));
-
-        return redirect()->route('getLogin')->with('message', cbLang("message_forgot_password"));
+        try{
+            $user = CRUDBooster::first(config('crudbooster.USER_TABLE'), ['email' => g('email')]);
+            $rand_string = str_random(5);
+            $user->password = $rand_string;
+            CRUDBooster::sendEmail(['to' => $user->email, 'data' => $user, 'template' => 'forgot_password_backend']);
+            $password = \Hash::make($rand_string);
+            DB::table(config('crudbooster.USER_TABLE'))->where('email', Request::input('email'))->update(['password' => $password]);
+            CRUDBooster::insertLog(cbLang("log_forgot", ['email' => g('email'), 'ip' => Request::server('REMOTE_ADDR')]));
+            return redirect()->route('getLogin')->with('message', cbLang("message_forgot_password"));
+        } catch (\Exception $e) {
+            $message = $e->getMessage();
+            CRUDBooster::insertLog(cbLang('email_sending_failed'), $message);
+            return redirect()->back()->with(['message' => cbLang('email_sending_failed'), 'message_type' => 'danger']);
+        }
     }
 
     public function getLogout()

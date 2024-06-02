@@ -1,3 +1,6 @@
+<?php if (isset($_GET['lang'])) {
+    setcookie('lang', $_GET['lang'], time() + 3 * 86, 400);
+} ?>
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +11,6 @@
     <meta name='robots' content='noindex,nofollow' />
     <link rel="shortcut icon"
         href="{{ CRUDBooster::getSetting('favicon') ? asset(CRUDBooster::getSetting('favicon')) : asset('vendor/crudbooster/assets/logo_crudbooster.png') }}">
-
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="{{ asset('vendor/crudbooster/assets/adminlte/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"
@@ -17,32 +19,71 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
         type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <!-- Theme style -->
-    <link href="{{ asset('vendor/crudbooster/assets/adminlte/dist/css/AdminLTE.min.css') }}" rel="stylesheet"
-        type="text/css" />
-
     <!-- support rtl-->
     @if (in_array(App::getLocale(), ['ar', 'fa']))
-        <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
+        <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css" />
         <link href="{{ asset('vendor/crudbooster/assets/rtl.css') }}" rel="stylesheet" type="text/css" />
     @endif
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
     <link rel='stylesheet' href='{{ asset('vendor/crudbooster/assets/css/main.css') }}' />
     <style type="text/css">
+        a {
+            color: #3c8dbc
+        }
+
+        a:hover,
+        a:active,
+        a:focus {
+            outline: none;
+            text-decoration: none;
+            color: #72afd2
+        }
+
+        .btn:active {
+            -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
+        }
+
+        .btn:focus {
+            outline: none
+        }
+
+        .btn-primary {
+            background-color: #3c8dbc;
+            border-color: #367fa9
+        }
+
+        .btn-primary:hover,
+        .btn-primary:active {
+            background-color: #367fa9
+        }
+
+        @media (max-width:768px) {
+            .login-box {
+                width: 90%;
+                margin-top: 20px
+            }
+        }
+
+        .login-box-body {
+            background: #fff;
+            padding: 20px;
+            border-top: 0;
+            color: #666
+        }
+
+        .login-box-msg {
+            margin: 0;
+            text-align: center;
+            padding: 0 20px 20px 20px
+        }
+
         :root {
             --primary: #0661c278;
             --secondary: #bfc0c0;
             --white: #fff;
             --text-clr: #5b6475;
             --header-clr: #25273d;
-
         }
 
         * {
@@ -53,47 +94,8 @@
             outline: none;
             /* font-family: 'Lemonada', cursive; */
         }
-
-        body {
-            background: var(--primary);
-            color: var(--text-clr);
-            font-size: 16px;
-            position: relative;
-            align-content: center;
-        }
-
-        .login-page,
-        .register-page {
-            /* background: {{ CRUDBooster::getSetting('login_background_color') ?: '#dddddd' }} url('{{ CRUDBooster::getSetting('login_background_image') ? asset(CRUDBooster::getSetting('login_background_image')) : asset('vendor/crudbooster/assets/bg_blur3.jpg') }}'); */
-            color: {{ CRUDBooster::getSetting('login_font_color') ?: '#ffffff' }} !important;
-            /* background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover; */
-        }
-
-        .login-box-body {
-            width: 320px;
-            height: 639px;
-            background: var(--white);
-            margin: 100px auto 0;
-            padding: 22px;
-            border-radius: 5px;
-            color: {{ CRUDBooster::getSetting('login_font_color') ?: '#666666' }} !important;
-        }
-
         .input {
-            border: 2px solid var(--secondary);
-            border-radius: 3px;
-            padding: 10px;
-            width: 250px;
-            font-size: 14px;
-            transition: 0.5s ease;
-            text-align: left;
-            margin-right: 5px;
-            margin-left: 10px;
-            margin-bottom: 10px;
-            margin-top: 10px;
-
+            margin: 7px 0;
         }
 
         .input:focus {
@@ -110,46 +112,28 @@
             font-size: 80px;
             color: rgb(6, 6, 6);
             justify-content: center;
-
-
         }
 
         .button {
-
-            width: 100px;
             background: #fff;
             border-radius: 20px;
-            -moz-border-radius: 20px;
             padding: 15px;
-            display: block;
-            justify-content: center;
-            margin: 42px 85px -57px;
             border-width: 1px;
-            /* الجهة العلوية والسفلية بدون حدود، الجهة اليمنى واليسرى بحد بسمك 1 بكسل */
             border-style: solid;
-            border-color: #000000;
-            z-index: 1400;
         }
 
         .img_login {
             width: 250px;
             height: 150px;
-            margin: -2px 12px -1px;
-
-        }
-
-        .form_select {
-            width: 100px;
-            display: block;
         }
 
         .button_lang {
-            width: 100px;
-            margin: -22px 83px -2px;
+            width: 75px;
             background-color: #3c8dbc;
-            border-radius: 9%;
+            border-radius: 4px;
             color: white;
             border: none;
+            font-family: sans-serif;
         }
 
         .header-container {
@@ -179,7 +163,6 @@
         }
 
         @media (max-width: 508px) {
-
             .header-button {
                 background-color: #5c81cc;
                 border: none;
@@ -194,11 +177,112 @@
                 width: 100%;
                 margin-top: -256px;
             }
-        } 
+        }
+
+        .login-page {
+            margin-top: 0;
+            margin-bottom: 0;
+            background: #0661c278;
+        }
+
+        .login-box-body {
+            background: #fff;
+            padding: 20px;
+            border-top: 0;
+            color: #666
+        }
+
+        .login-box-body {
+            max-width: 508px;
+            box-shadow: 10px 10px 35px -10px black;
+            border-radius: 15px;
+            height: 100%;
+            padding: 37px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            /* margin-top: 283px; */
+        }
+
+        @media (max-width: 700px) {
+            .login-box-body {
+                width: auto;
+                margin: 0px auto;
+                margin-top: 100%;
+                box-shadow: 9px 12px 54px -8px #555;
+                border-radius: 4%;
+                height: 215px;
+                padding: 37px;
+                background-color: white;
+            }
+        }
+
+        .login-box-msg {
+            font-weight: 600;
+            font-size: 16px;
+            margin: 0;
+            text-align: center;
+            padding: 0 20px 20px 20px
+        }
+
+        .alert-warning {
+            border: 1px solid transparent;
+            padding: 15px;
+            border-color: #e08e0b;
+            margin-bottom: 20px;
+            border-radius: 3px;
+            background-color: #f39c12 !important;
+            color: #fff !important;
+            animation: ani .5s;
+            position: relative;
+        }
+
+        @keyframes ani {
+            from {
+                transform: translateY(-15px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .login-box {
+            width: 360px;
+            position: absolute;
+            top: 71%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @media (max-width:768px) {
+            .login-box {
+                width: 90%;
+                margin-top: 20px
+            }
+        }
+
+        .form-control,
+        .btn {
+            border-radius: 4px;
+        }
+
+        .forgot {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 7px 0;
+        }
+        .form_1,
+        .form_2,
+        .form_select{
+            text-align: center;
+        }
     </style>
 </head>
 
-<body class="login-page" style="background: var(--primary);">
+<body class="login-page">
     <header>
         <div class="header-container">
             <a href="{{ route('home') }}" class="header-button">
@@ -206,130 +290,108 @@
             </a>
         </div>
     </header>
-
     <div class="login-box">
         <div class="login-box-body">
-            <?php
-            if (isset($_GET['lang'])) {
-                setcookie('lang', $_GET['lang'], time() + 3 * 86, 400);
-            }
-            ?>
             <form id="langForm" method="GET" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form_select">
-                <button type="submit" name="lang" value="ar" class="button_lang">Ar</button>
-                <button type="submit" name="lang" value="en" class="button_lang">En</button>
-                <!-- يمكنك إضافة المزيد من الخيارات حسب الحاجة -->
+                <button type="submit" name="lang" value="ar" class="button_lang">
+                    AR
+                </button>
+                <button type="submit" name="lang" value="en" class="button_lang">
+                    EN
+                </button>
             </form>
-            <script>
-                // Get the selected language from the cookie
-                var selectedLang = getCookie('lang');
 
-                // Get the language buttons
-                var arButton = document.querySelector('button[name="lang"][value="en"]');
-                var enButton = document.querySelector('button[name="lang"][value="ar"]');
-
-                // Hide the appropriate button based on the selected language
-                if (selectedLang === 'ar') {
-                    enButton.style.display = 'none';
-                } else {
-                    arButton.style.display = 'none';
-                }
-
-                // Helper function to get the value of a cookie
-                function getCookie(name) {
-                    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-                    if (match) {
-                        return match[2];
-                    } else {
-                        return '';
-                    }
-                }
-            </script>
             @if (Session::get('message') != '')
-                <div class='alert alert-warning'>
+                <div class='alert-warning'>
                     {{ Session::get('message') }}
                 </div>
             @endif
 
-            <p class='login-box-msg'>{{ cbLang('login_message') }}</p>
-            <form autocomplete='off' action="{{ route('postLogin') }}" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            <p class='login-box-msg'>
+                {{ cbLang('login_message') }}
+            </p>
 
-                @if (!empty(config('services.google')))
-                    <div style="margin-bottom:10px" class='row'>
-                        <div class='col-xs-12'>
-
-                            <a href='{{ route('redirect', 'google') }}' class="btn btn-primary btn-block btn-flat"><i
-                                    class='fa fa-google'></i>
-                                Google Login</a>
-
-                            <hr>
-                        </div>
-                    </div>
-                @endif
-                <div class="form_1 data_info">
-                    <div>
-                        <p class='login-box-msg'>{{ cbLang('Label-employer') }}</p>
-                        <img src="{{ asset('vendor/crudbooster/assets/empployee.png') }}" class="img_login">
-                        <input autocomplete='off' type="text" class="input" name='email' required
-                            placeholder="Email" />
-                    </div>
-                    <div>
-                        <input autocomplete='off' type="password" class="input" name='password' required
-                            placeholder="Password" />
-                    </div>
-                    <div style="margin-bottom:10px">
-                        <div class='col-xs-12'>
-                            <button type="submit" class="btn btn-primary btn-block btn-flat"><i class='fa fa-lock'
-                                    style="margin-left:3px"></i> {{ cbLang('button_sign_in') }}</button>
-                        </div>
-                    </div>
-
-                     <div class='row'>
-                <div class='col-xs-12' align="center"><p style="padding:10px 0px 10px 0px">{{cbLang("text_forgot_password")}} <a
-                                href='{{route("getForgot")}}'>{{cbLang("click_here")}}</a></p></div>
-            </div> 
-                    <div>
-                        <button type="button" class="button">
-                            <i class="fas fa-user-graduate"></i>
-                        </button>
-                    </div>
+            <form class="form_1 data_info" autocomplete='off' action="{{ route('postLogin') }}" method="post">
+                @csrf
+                <div>
+                    <p class='login-box-msg'>
+                        {{ cbLang('Label-employer') }}
+                    </p>
+                    <img src="{{ asset('vendor/crudbooster/assets/empployee.png') }}" class="img_login">
+                    <input class="input form-control" autocomplete='off' type="text" name='email'
+                        placeholder="Email" required />
                 </div>
+                <div>
+                    <input class="input form-control" autocomplete='off' type="password" name='password'
+                        placeholder="Password" required />
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class='fa fa-lock'></i>
+                    {{ cbLang('button_sign_in') }}
+                </button>
+                <p class="forgot">
+                    <a href='{{ route('getForgot') }}'>
+                        {{ cbLang('text_forgot_password') }}
+                    </a>
+                </p>
+                <button type="button" class="button">
+                    <i class="fas fa-user-graduate"></i>
+                </button>
             </form>
             {{-- end form1 --}}
-            <div class="form_2 data_info">
-                <form>
-                    <p class='login-box-msg'>{{ cbLang('Label-student') }}</p>
-                    <img src="{{ asset('vendor/crudbooster/assets/student.png') }}" class="img_login">
+            <form class="form_2 data_info">
+                <p class='login-box-msg'>{{ cbLang('Label-student') }}</p>
+                <img src="{{ asset('vendor/crudbooster/assets/student.png') }}" class="img_login">
+                <div>
                     <div>
-                        <div>
-                            <input type="text" name="username" class="input" id="ID" placeholder="ID">
-                        </div>
-                        <div>
-                            <input type="password" name="password2" class="input" id="password2"
-                                placeholder="Password">
-                        </div>
+                        <input class="input form-control" type="text" name="username" id="ID"
+                            placeholder="ID">
                     </div>
-                    <div style="margin-bottom:10px">
-                        <div class='col-xs-12'>
-                            <a href="{{ asset('/student') }}" class="btn btn-primary btn-block btn-flat">
-                                <i class='fa fa-lock' style="margin-left:3px"></i> {{ cbLang('button_sign_in') }}
-                            </a>
-                        </div>
-                    </div>
-
                     <div>
-                        <button type="button" class="button">
-                            <i class="fas fa-user-tie"></i>
-                        </button>
+                        <input class="input form-control" type="password" name="password2" id="password2"
+                            placeholder="Password">
                     </div>
-            </div>
+                </div>
+                <a href="{{ asset('/student') }}" class="btn btn-primary btn-block">
+                    <i class='fa fa-lock'></i>
+                    {{ cbLang('button_sign_in') }}
+                </a>
+                <p class="forgot">
+                    <a href='{{ route('getForgot') }}'>
+                        {{ cbLang('text_forgot_password') }}
+                    </a>
+                </p>
+                <button type="button" class="button">
+                    <i class="fas fa-user-tie"></i>
+                </button>
             </form>
-            <br />
             <!--a href="#">I forgot my password</a-->
         </div><!-- /.login-box-body -->
-
     </div><!-- /.login-box -->
+    <script>
+        // Get the selected language from the cookie
+        var selectedLang = getCookie('lang');
+        // Get the language buttons
+        var arButton = document.querySelector('button[name="lang"][value="en"]');
+        var enButton = document.querySelector('button[name="lang"][value="ar"]');
 
+        // Hide the appropriate button based on the selected language
+        if (selectedLang === 'ar') {
+            enButton.style.display = 'none';
+        } else {
+            arButton.style.display = 'none';
+        }
+
+        // Helper function to get the value of a cookie
+        function getCookie(name) {
+            var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            if (match) {
+                return match[2];
+            } else {
+                return '';
+            }
+        }
+    </script>
     <script>
         window.onload = function() {
             // تحديد زر "button with a tie icon"

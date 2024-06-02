@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/css_registration.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     {{-- <header>
 		@include('layouts.header')
 	   </header>
@@ -270,12 +272,78 @@
                 </div>
                 <div class="form_5 data_info" style="display: none;">
                     <h2>طرق التواصل</h2>
-                    <form class="input_wrap" action="{{ route('send-email') }}" method="POST">
+                    <form id="emailForm" class="input_wrap">
                         @csrf
                         <label for="email" id="label_email">البريد الإلكتروني</label>
                         <input type="email" id="email" name="email" class="input_email" required>
                         <button type="submit" name="submit" value="send" class="butten_email">تأكيد</button>
+                        <div class="email_wrapper">
+                            <div class="shadow"></div>
+                            <div class="success_wrap">
+                                <span class="modal_icon">
+                                    <ion-icon name="checkmark-sharp"></ion-icon>
+                                </span>
+                            </div>
+                        </div>
                     </form>
+                    <div id="responseMessage"></div>
+
+                    <script>
+                        var shadow = document.querySelector(".shadow");
+                        var wrapper = document.querySelector(".email_wrapper");
+                        $(document).ready(function() {
+                            $('#emailForm').on('submit', function(event) {
+                                event.preventDefault(); // منع إعادة تحميل الصفحة
+
+                                $.ajax({
+                                    url: "{{ route('send-email') }}",
+                                    method: "POST",
+                                    data: $(this).serialize(),
+                                    success: function(response) {
+                                        showNotification(response.message, 'success');
+                                    },
+                                    error: function(xhr) {
+                                        showNotification('حدث خطأ أثناء إرسال البريد الإلكتروني.', 'error');
+                                    }
+                                });
+                            });
+
+                            shadow.addEventListener("click", function() {
+                                wrapper.classList.remove("active");
+                            })
+
+                            function showNotification(message, type) {
+                                wrapper.classList.add("active");
+                                var notification = document.querySelector('.success_wrap');
+
+                                var existingParagraph = notification.querySelector('p');
+                                if (existingParagraph) {
+                                    existingParagraph.remove();
+                                }
+                                var mod_icon = notification.querySelector('.modal_icon');
+
+                                var Paragraph = document.createElement('p');
+                                if (type === 'error') {
+                                    mod_icon.classList.add('error');
+                                    mod_icon.innerHTML = '<ion-icon name="alert-circle-sharp"></ion-icon>';
+                                    Paragraph.textContent = message;
+                                }
+                                else{
+                                    Paragraph.textContent = message;
+                                }
+
+                                notification.appendChild(Paragraph);
+
+                                // إخفاء الإشعار بعد 5 ثوانٍ
+                                // setTimeout(function() {
+                                //     $(notification).slideUp(function() {
+                                //         $(notification).remove();
+                                //     });
+                                // }, 5000);
+                            }
+
+                        });
+                    </script>
                 </div>
                 <div class="btns_wrap">
                     <div class="common_btns form_1_btns">

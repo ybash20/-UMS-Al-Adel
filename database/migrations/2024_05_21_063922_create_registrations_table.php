@@ -15,21 +15,21 @@ class CreateRegistrationsTable extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
-            $table->date('Date');
-            $table->boolean('Gender');
-            $table->string('Nationality', 30);
-            $table->date('DOB');
-            $table->string('Place_Of_Birth', 30);
-            $table->unsignedBigInteger('Marital_ID');
-            $table->unsignedBigInteger('Blood_ID');
-            $table->unsignedBigInteger('Address_ID');
-            $table->unsignedBigInteger('Identity_ID');
-            $table->string('Mobile_Phone_Number', 9);
-            $table->unsignedBigInteger('Major_ID');
-            $table->unsignedBigInteger('Certificate_ID');
-            $table->unsignedBigInteger('Qualification_ID');
-            $table->string('Photo');
+            $table->string('Name')->nullable();
+            $table->date('Date')->nullable();
+            $table->boolean('Gender')->nullable();
+            $table->string('Nationality', 30)->nullable();
+            $table->date('DOB')->nullable();
+            $table->string('Place_Of_Birth', 30)->nullable();
+            $table->unsignedBigInteger('Marital_ID')->nullable();
+            $table->unsignedBigInteger('Blood_ID')->nullable();
+            $table->unsignedBigInteger('Address_ID')->nullable();
+            $table->unsignedBigInteger('Identity_ID')->nullable();
+            $table->string('Mobile_Phone_Number', 9)->nullable();
+            $table->unsignedBigInteger('Major_ID')->nullable();
+            $table->unsignedBigInteger('Certificate_ID')->nullable();
+            $table->unsignedBigInteger('Qualification_ID')->nullable();
+            $table->string('Photo')->nullable();
             $table->timestamps();
         });
     }
