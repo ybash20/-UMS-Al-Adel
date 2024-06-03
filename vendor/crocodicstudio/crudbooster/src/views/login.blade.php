@@ -376,10 +376,10 @@
         var enButton = document.querySelector('button[name="lang"][value="ar"]');
 
         // Hide the appropriate button based on the selected language
-        if (selectedLang === 'ar') {
-            enButton.style.display = 'none';
-        } else {
+        if (selectedLang === 'en') {
             arButton.style.display = 'none';
+        } else {
+            enButton.style.display = 'none';
         }
 
         // Helper function to get the value of a cookie
