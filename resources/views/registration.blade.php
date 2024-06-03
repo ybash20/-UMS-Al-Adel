@@ -18,7 +18,7 @@
         <div class="wrapper">
             <div class="header">
                 <ul>
-                    <li class="active form_1_progessbar">
+                    <li class="form_1_progessbar active">
                         <div>
                             <p>1</p>
                         </div>
@@ -41,6 +41,11 @@
                     <li class="form_5_progessbar">
                         <div>
                             <p>5</p>
+                        </div>
+                    </li>
+                    <li class="form_6_progessbar">
+                        <div>
+                            <p>6</p>
                         </div>
                     </li>
                 </ul>
@@ -192,7 +197,6 @@
                                     <option value="English Language">لغة إنجليزية</option>
                                     <option value="Translation">الترجمة</option>
                                 </select>
-
                             </div>
                         </div>
                         <div class="input_wrap2">
@@ -202,10 +206,7 @@
                                 <option value="Computer Science">علوم الحاسوب</option>
                                 <option value="information technology">تقنية المعلومات</option>
                                 <option value="networks">شبكات</option>
-
                             </select>
-
-
                             <label>كلية الشريعة والقانون</label>
                             <select class="select">
                                 <option value="">حدد تخصص</option>
@@ -231,9 +232,9 @@
 
                                 <label for="occupation">المهنة</label>
                                 <input type="text" id="occupation" name="occupation" class="input">
+
                                 <label for="phone_number">رقم الهاتف</label>
                                 <input type="tel" id="phone_number" name="phone_number" class="input">
-
                             </div>
                         </div>
                         <div class="input_wrap2">
@@ -277,99 +278,104 @@
                         <input type="email" id="email" name="email" class="input_email" required>
                         <button type="submit" name="submit" value="send" class="butten_email">تأكيد</button>
                         <div class="email_wrapper">
-                            <div class="shadow"></div>
+                            <div class="email_shadow"></div>
                             <div class="success_wrap">
                                 <span class="modal_icon">
-                                    <ion-icon name="checkmark-sharp"></ion-icon>
+
                                 </span>
                             </div>
                         </div>
                     </form>
-                    <div id="responseMessage"></div>
+                </div>
+                <div class="form_6 data_info" style="display: none;">
+                    <h2>طرق التواصل</h2>
+                    <form id="codeForm" class="input_wrap">
+                        @csrf
+                        <label for="code" id="label_email">تأكيد البريد الإلكتروني</label>
+                        <input type="text" id="code" name="code" class="input_email" required>
+                        <input type="submit" name="submit" value="تأكيد" class="butten_email">
+                        <div class="code_wrapper">
+                            <div class="code_shadow"></div>
+                            <div class="success_wrap">
+                                <span class="modal_icon">
 
-                    <script>
-                        var shadow = document.querySelector(".shadow");
-                        var wrapper = document.querySelector(".email_wrapper");
-                        $(document).ready(function() {
-                            $('#emailForm').on('submit', function(event) {
-                                event.preventDefault(); // منع إعادة تحميل الصفحة
-
-                                $.ajax({
-                                    url: "{{ route('send-email') }}",
-                                    method: "POST",
-                                    data: $(this).serialize(),
-                                    success: function(response) {
-                                        showNotification(response.message, 'success');
-                                    },
-                                    error: function(xhr) {
-                                        showNotification('حدث خطأ أثناء إرسال البريد الإلكتروني.', 'error');
-                                    }
-                                });
-                            });
-
-                            shadow.addEventListener("click", function() {
-                                wrapper.classList.remove("active");
-                            })
-
-                            function showNotification(message, type) {
-                                wrapper.classList.add("active");
-                                var notification = document.querySelector('.success_wrap');
-
-                                var existingParagraph = notification.querySelector('p');
-                                if (existingParagraph) {
-                                    existingParagraph.remove();
-                                }
-                                var mod_icon = notification.querySelector('.modal_icon');
-
-                                var Paragraph = document.createElement('p');
-                                if (type === 'error') {
-                                    mod_icon.classList.add('error');
-                                    mod_icon.innerHTML = '<ion-icon name="alert-circle-sharp"></ion-icon>';
-                                    Paragraph.textContent = message;
-                                }
-                                else{
-                                    Paragraph.textContent = message;
-                                }
-
-                                notification.appendChild(Paragraph);
-
-                                // إخفاء الإشعار بعد 5 ثوانٍ
-                                // setTimeout(function() {
-                                //     $(notification).slideUp(function() {
-                                //         $(notification).remove();
-                                //     });
-                                // }, 5000);
-                            }
-
-                        });
-                    </script>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="btns_wrap">
-                    <div class="common_btns form_1_btns">
-                        <button type="button" class="btn_next">التالي <span class="icon"><ion-icon
-                                    name="arrow-forward-sharp"></ion-icon></span></button>
+                    <div class="common_btns form_1_btns" style="display: none;">
+                        <button type="button" class="btn_next">
+                            التالي
+                            <span class="icon">
+                                <ion-icon name="arrow-forward-sharp"></ion-icon>
+                            </span>
+                        </button>
                     </div>
                     <div class="common_btns form_2_btns" style="display: none;">
-                        <button type="button" class="btn_back"><span class="icon"><ion-icon
-                                    name="arrow-back-sharp"></ion-icon></span>رجوع</button>
-                        <button type="button" class="btn_next">التالي <span class="icon"><ion-icon
-                                    name="arrow-forward-sharp"></ion-icon></span></button>
+                        <button type="button" class="btn_back">
+                            <span class="icon">
+                                <ion-icon name="arrow-back-sharp"></ion-icon>
+                            </span>
+                            رجوع
+                        </button>
+                        <button type="button" class="btn_next">
+                            التالي
+                            <span class="icon">
+                                <ion-icon name="arrow-forward-sharp"></ion-icon>
+                            </span>
+                        </button>
                     </div>
                     <div class="common_btns form_3_btns" style="display: none;">
-                        <button type="button" class="btn_back"><span class="icon"><ion-icon
-                                    name="arrow-back-sharp"></ion-icon></span>رجوع</button>
-                        <button type="button" class="btn_next">التالي <span class="icon"><ion-icon
-                                    name="arrow-forward-sharp"></ion-icon></span></button>
+                        <button type="button" class="btn_back">
+                            <span class="icon">
+                                <ion-icon name="arrow-back-sharp"></ion-icon>
+                            </span>
+                            رجوع
+                        </button>
+                        <button type="button" class="btn_next">
+                            التالي
+                            <span class="icon">
+                                <ion-icon name="arrow-forward-sharp"></ion-icon>
+                            </span>
+                        </button>
                     </div>
                     <div class="common_btns form_4_btns" style="display: none;">
-                        <button type="button" class="btn_back"><span class="icon"><ion-icon
-                                    name="arrow-back-sharp"></ion-icon></span>رجوع</button>
-                        <button type="button" class="btn_next">التالي <span class="icon"><ion-icon
-                                    name="arrow-forward-sharp"></ion-icon></span></button>
+                        <button type="button" class="btn_back">
+                            <span class="icon">
+                                <ion-icon name="arrow-back-sharp"></ion-icon>
+                            </span>
+                            رجوع
+                        </button>
+                        <button type="button" class="btn_next">
+                            التالي
+                            <span class="icon">
+                                <ion-icon name="arrow-forward-sharp"></ion-icon>
+                            </span>
+                        </button>
                     </div>
-                    <div class="common_btns form_5_btns" style="display: none;">
-                        <button type="button" class="btn_back"><span class="icon"><ion-icon
-                                    name="arrow-back-sharp"></ion-icon></span>رجوع</button>
+                    <div class="common_btns form_5_btns">
+                        <button type="button" class="btn_back">
+                            <span class="icon">
+                                <ion-icon name="arrow-back-sharp"></ion-icon>
+                            </span>
+                            رجوع
+                        </button>
+                        <button type="button" class="btn_next">
+                            التالي
+                            <span class="icon">
+                                <ion-icon name="arrow-forward-sharp"></ion-icon>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="common_btns form_6_btns" style="display: none;">
+                        <button type="button" class="btn_back">
+                            <span class="icon">
+                                <ion-icon name="arrow-back-sharp"></ion-icon>
+                            </span>
+                            رجوع
+                        </button>
                         <button type="button" class="btn_done">انهاء</button>
                     </div>
                 </div>
@@ -377,16 +383,99 @@
         </div>
 
         <div class="modal_wrapper">
-            <div class="shadow"></div>
+            <div class="mod_shadow"></div>
             <div class="success_wrap">
-                <span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
+                <span class="modal_icon">
+                    <ion-icon name="checkmark-sharp"></ion-icon>
+                </span>
                 <p>تم ارسال معلوماتك انتظر الرد</p>
             </div>
         </div>
     </div>
 
+    <script>
+        $(document).ready(function() {
+            $('#emailForm').on('submit', function(event) {
+                var wrapper = document.querySelector(".email_wrapper");
+                event.preventDefault(); // منع إعادة تحميل الصفحة
+
+                $.ajax({
+                    url: "{{ route('check-email') }}",
+                    method: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        showNotification(response.message, response.type, wrapper);
+                    },
+                    error: function(xhr) {
+                        showNotification(xhr.responseJSON.message, xhr.responseJSON.type, wrapper);
+                    }
+                });
+            });
+            $('#codeForm').on('submit', function(event) {
+                var wrapper = document.querySelector(".code_wrapper");
+                event.preventDefault(); // منع إعادة تحميل الصفحة
+
+                $.ajax({
+                    url: "{{ route('check-code') }}",
+                    method: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        showNotification(response.message, response.type, wrapper);
+                    },
+                    error: function(xhr) {
+                        showNotification(xhr.responseJSON.message, xhr.responseJSON.type, wrapper);
+                    }
+                });
+            });
+
+            function showNotification(message, type, wrapper) {
+                wrapper.classList.add("active");
+                var notification = wrapper.querySelector('.success_wrap');
+
+                if (notification.querySelector('p')) {
+                    notification.querySelector('p').remove();
+                }
+                var mod_icon = notification.querySelector('.modal_icon');
+
+                var Paragraph = document.createElement('p');
+                if (type === 'error') {
+                    mod_icon.classList.add('error');
+                    mod_icon.innerHTML = '<ion-icon name="alert-circle-sharp"></ion-icon>';
+                }
+                else{
+                    mod_icon.classList.remove('error');
+                    mod_icon.innerHTML = '<ion-icon name="checkmark-sharp"></ion-icon>';
+                }
+
+                Paragraph.textContent = message;
+                notification.appendChild(Paragraph);
+
+                // إخفاء الإشعار بعد 5 ثوانٍ
+                // setTimeout(function() {
+                //     $(notification).slideUp(function() {
+                //         $(notification).remove();
+                //     });
+                // }, 5000);
+            }
+            var modal_wrapper = document.querySelector(".modal_wrapper");
+            var email_wrapper = document.querySelector(".email_wrapper");
+            var code_wrapper = document.querySelector(".code_wrapper");
+
+            var mod_shadow = document.querySelector(".mod_shadow");
+            var code_shadow = document.querySelector(".code_shadow");
+            var email_shadow = document.querySelector(".email_shadow");
+
+            mod_shadow.addEventListener("click", function() {
+                modal_wrapper.classList.remove("active");
+            });
+            email_shadow.addEventListener("click", function() {
+                email_wrapper.classList.remove("active");
+            });
+            code_shadow.addEventListener("click", function() {
+                code_wrapper.classList.remove("active");
+            });
+        });
+    </script>
     {{-- <script type="text/javascript" src="scripts.js"></script> --}}
     <script src="js/js_registration.js"></script>
-
-
 @endsection

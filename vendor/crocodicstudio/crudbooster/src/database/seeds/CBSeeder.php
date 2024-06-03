@@ -43,10 +43,22 @@ class CBSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'name' => 'Email Template Forgot Password Backend',
             'slug' => 'forgot_password_backend',
+            'subject' => 'Reset Password',
             'content' => '<p>Hi,</p><p>Someone requested forgot password, here is your new password : </p><p>[password]</p><p><br></p><p>--</p><p>Regards,</p><p>Admin</p>',
             'description' => '[password]',
-            'from_name' => 'System',
-            'from_email' => 'system@crudbooster.com',
+            'from_name' => 'UMS',
+            'from_email' => '',
+            'cc_email' => null,
+        ]);
+        DB::table('ums_email_templates')->insert([
+            'created_at' => date('Y-m-d H:i:s'),
+            'name' => 'Checking Email',
+            'slug' => 'check_email',
+            'subject' => 'Check email address',
+            'content' => '<h1 style="font-family: Arial, Helvetica, sans-serif; font-size: 32px; line-height: 36px; padding-bottom: 10px; color: rgb(51, 51, 51); text-align: center;">تحقق من عنوان البريد الإلكتروني الخاص بك</h1><div style="font-family: Arial, Helvetica, sans-serif; font-size: 17px; line-height: 25px; color: rgb(51, 51, 51);"><p>لقد قمت مؤخرًا بتحديد&nbsp;<b style="font-size: 18px;">[email]</b>&nbsp;كبريدك الكتروني. للتحقق من أن عنوان البريدالإلكتروني هذا ينتمي لك، قم بإدخال الرمز أدناه على صفحة التحقق من البريد الإلكتروني:</p><div style="font-size: 23px; line-height: 25px;"><b>[code]</b></div><p><b>لماذا تلقيت هذا البريد الإلكتروني؟</b><br>يطلب UMS التحقق من البريد عند تحديد عنوان بريد إلكتروني. لا يمكن استخدام البريد إلكتروني الخاص بك حتى تقوم بالتحقق منه.</p><p>إذا لم تقم بإجراء هذه التغييرات أو إذا كنت تعتقد أن شخصًا غير مصرح له قد قام بالوصول إلى حسابك، فيتعين عليك تغيير كلمة السر الخاصة بك في أقرب وقت ممكن من صفحة الحساب</p><p>مع تحيات،</p><p>UMS Developers</p></div>',
+            'description' => 'Check the authenticity of your email address',
+            'from_name' => 'UMS',
+            'from_email' => '',
             'cc_email' => null,
         ]);
         $this->command->info("Create email templates completed");
@@ -56,7 +68,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang('Notifications'),
+                'name' => 'Notifications',
                 'icon' => 'fa fa-cog',
                 'path' => 'notifications',
                 'table_name' => 'ums_notifications',
@@ -67,7 +79,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang('Privileges'),
+                'name' => 'Privileges',
                 'icon' => 'fa fa-cog',
                 'path' => 'privileges',
                 'table_name' => 'ums_privileges',
@@ -78,7 +90,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang('Privileges_Roles'),
+                'name' => 'Privileges_Roles',
                 'icon' => 'fa fa-cog',
                 'path' => 'privileges_roles',
                 'table_name' => 'ums_privileges_roles',
@@ -89,7 +101,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang('Users_Management'),
+                'name' => 'Users_Management',
                 'icon' => 'fa fa-users',
                 'path' => 'users',
                 'table_name' => 'ums_users',
@@ -100,7 +112,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang('settings'),
+                'name' => 'settings',
                 'icon' => 'fa fa-cog',
                 'path' => 'settings',
                 'table_name' => 'ums_settings',
@@ -111,7 +123,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang('Module_Generator'),
+                'name' => 'Module_Generator',
                 'icon' => 'fa fa-database',
                 'path' => 'module_generator',
                 'table_name' => 'ums_moduls',
@@ -122,7 +134,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang('Menu_Management'),
+                'name' => 'Menu_Management',
                 'icon' => 'fa fa-bars',
                 'path' => 'menu_management',
                 'table_name' => 'ums_menus',
@@ -133,7 +145,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang('Email_Templates'),
+                'name' => 'Email_Templates',
                 'icon' => 'fa fa-envelope-o',
                 'path' => 'email_templates',
                 'table_name' => 'ums_email_templates',
@@ -144,7 +156,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang('Statistic_Builder'),
+                'name' => 'Statistic_Builder',
                 'icon' => 'fa fa-dashboard',
                 'path' => 'statistic_builder',
                 'table_name' => 'ums_statistics',
@@ -155,7 +167,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang('API_Generator'),
+                'name' => 'API_Generator',
                 'icon' => 'fa fa-cloud-download',
                 'path' => 'api_generator',
                 'table_name' => '',
@@ -166,7 +178,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang('Log_User_Access'),
+                'name' => 'Log_User_Access',
                 'icon' => 'fa fa-flag-o',
                 'path' => 'logs',
                 'table_name' => 'ums_logs',
@@ -197,7 +209,7 @@ class CBSeeder extends Seeder
                 'label' => 'Login Background Color',
                 'content' => null,
                 'content_input_type' => 'text',
-                'group_setting' => cbLang('login_register_style'),
+                'group_setting' => 'login_register_style',
                 'dataenum' => null,
                 'helper' => 'Input hexacode',
             ],
@@ -207,7 +219,7 @@ class CBSeeder extends Seeder
                 'label' => 'Login Font Color',
                 'content' => null,
                 'content_input_type' => 'text',
-                'group_setting' => cbLang('login_register_style'),
+                'group_setting' => 'login_register_style',
                 'dataenum' => null,
                 'helper' => 'Input hexacode',
             ],
@@ -217,7 +229,7 @@ class CBSeeder extends Seeder
                 'label' => 'Login Background Image',
                 'content' => null,
                 'content_input_type' => 'upload_image',
-                'group_setting' => cbLang('login_register_style'),
+                'group_setting' => 'login_register_style',
                 'dataenum' => null,
                 'helper' => null,
             ],
@@ -229,7 +241,7 @@ class CBSeeder extends Seeder
                 'label' => 'Email Sender',
                 'content' => 'bilal14Hasil14@gmail.com',
                 'content_input_type' => 'text',
-                'group_setting' => cbLang('email_setting'),
+                'group_setting' => 'email_setting',
                 'dataenum' => null,
                 'helper' => null,
             ],
@@ -239,7 +251,7 @@ class CBSeeder extends Seeder
                 'label' => 'Mail Driver',
                 'content' => 'smtp',
                 'content_input_type' => 'select',
-                'group_setting' => cbLang('email_setting'),
+                'group_setting' => 'email_setting',
                 'dataenum' => 'smtp',
                 'helper' => null,
             ],
@@ -249,7 +261,7 @@ class CBSeeder extends Seeder
                 'label' => 'SMTP Host',
                 'content' => 'smtp.gmail.com',
                 'content_input_type' => 'text',
-                'group_setting' => cbLang('email_setting'),
+                'group_setting' => 'email_setting',
                 'dataenum' => null,
                 'helper' => null,
             ],
@@ -259,7 +271,7 @@ class CBSeeder extends Seeder
                 'label' => 'SMTP Port',
                 'content' => '587',
                 'content_input_type' => 'text',
-                'group_setting' => cbLang('email_setting'),
+                'group_setting' => 'email_setting',
                 'dataenum' => null,
                 'helper' => 'default 25',
             ],
@@ -269,7 +281,7 @@ class CBSeeder extends Seeder
                 'label' => 'SMTP Username',
                 'content' => 'bilal14Hasil14@gmail.com',
                 'content_input_type' => 'text',
-                'group_setting' => cbLang('email_setting'),
+                'group_setting' => 'email_setting',
                 'dataenum' => null,
                 'helper' => null,
             ],
@@ -279,7 +291,7 @@ class CBSeeder extends Seeder
                 'label' => 'SMTP Password',
                 'content' => 'dkagorcvfjnkkkuv',
                 'content_input_type' => 'text',
-                'group_setting' => cbLang('email_setting'),
+                'group_setting' => 'email_setting',
                 'dataenum' => null,
                 'helper' => null,
             ],
@@ -289,7 +301,7 @@ class CBSeeder extends Seeder
                 'label' => 'SMTP Encryption',
                 'content' => 'tls',
                 'content_input_type' => 'text',
-                'group_setting' => cbLang('email_setting'),
+                'group_setting' => 'email_setting',
                 'dataenum' => null,
                 'helper' => null,
             ],
@@ -299,7 +311,7 @@ class CBSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'name' => 'appname',
                 'label' => 'Application Name',
-                'group_setting' => cbLang('application_setting'),
+                'group_setting' => 'application_setting',
                 'content' => 'CRUDBooster',
                 'content_input_type' => 'text',
                 'dataenum' => null,
@@ -309,7 +321,7 @@ class CBSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'name' => 'default_paper_size',
                 'label' => 'Default Paper Print Size',
-                'group_setting' => cbLang('application_setting'),
+                'group_setting' => 'application_setting',
                 'content' => 'Legal',
                 'content_input_type' => 'text',
                 'dataenum' => null,
@@ -321,7 +333,7 @@ class CBSeeder extends Seeder
                 'label' => 'Logo',
                 'content' => '',
                 'content_input_type' => 'upload_image',
-                'group_setting' => cbLang('application_setting'),
+                'group_setting' => 'application_setting',
                 'dataenum' => null,
                 'helper' => null,
             ],
@@ -331,7 +343,7 @@ class CBSeeder extends Seeder
                 'label' => 'Favicon',
                 'content' => '',
                 'content_input_type' => 'upload_image',
-                'group_setting' => cbLang('application_setting'),
+                'group_setting' => 'application_setting',
                 'dataenum' => null,
                 'helper' => null,
             ],
@@ -341,7 +353,7 @@ class CBSeeder extends Seeder
                 'label' => 'API Debug Mode',
                 'content' => 'true',
                 'content_input_type' => 'select',
-                'group_setting' => cbLang('application_setting'),
+                'group_setting' => 'application_setting',
                 'dataenum' => 'true,false',
                 'helper' => null,
             ],
@@ -351,7 +363,7 @@ class CBSeeder extends Seeder
                 'label' => 'Google API Key',
                 'content' => '',
                 'content_input_type' => 'text',
-                'group_setting' => cbLang('application_setting'),
+                'group_setting' => 'application_setting',
                 'dataenum' => null,
                 'helper' => null,
             ],
@@ -361,7 +373,7 @@ class CBSeeder extends Seeder
                 'label' => 'Google FCM Key',
                 'content' => '',
                 'content_input_type' => 'text',
-                'group_setting' => cbLang('application_setting'),
+                'group_setting' => 'application_setting',
                 'dataenum' => null,
                 'helper' => null,
             ],

@@ -44,8 +44,15 @@ return [
     'text_loading' => 'Please wait loading...',
 
     'message_after_logout' => 'Thank You, See You Later !',
-    'message_forgot_password' => 'We have sent new password to your email, check inbox or spambox !',
+    'email_sending_done' => 'We have sent the message to your email, check inbox!',
     'email_sending_failed' => 'Email sending failed, try again',
+    'email_check_code_done' => 'Email is verified',
+    'email_check_code_failed' => 'Code is incorrect',
+    'code_required' => 'code field is required',
+    'code_integer' => 'The code must be an integer.',
+    'email_incorrect' => 'Email is incorrect',
+    'email_required' => 'Email field is required',
+    'password_reset' => 'you have logged in using a token sent to your email, you can\'t use it again reset your password as quick as possible ',
 
     'page_not_found' => 'Oops! Page Not Found',
     'page_not_found_text' => 'We are unable search the page that you are looking for.',
@@ -91,6 +98,8 @@ return [
     'alert_error_ajax' => 'Okay, It is embarasing, something went wrong, we will fix it soon !',
     'alert_validation_error' => 'Please fill out the form correctly : :error',
     'alert_select_a_data' => 'Please select at least one data!',
+    'alert_reset_password' => 'Reset Your Password',
+
 
     'add_data_page_title' => 'Add :module',
     'edit_data_page_title' => 'Edit :module',

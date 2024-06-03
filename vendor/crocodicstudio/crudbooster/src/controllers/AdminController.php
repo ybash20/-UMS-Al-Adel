@@ -1,6 +1,6 @@
 <?php namespace crocodicstudio\crudbooster\controllers;
 
-use CRUDBooster;
+use crocodicstudio\crudbooster\helpers\CRUDBooster;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
@@ -66,7 +66,7 @@ class AdminController extends CBController
         if ($validator->fails()) {
             $message = $validator->errors()->all();
 
-            return redirect()->back()->with(['message' => implode(', ', $message), 'message_type' => 'danger']);
+            return redirect()->back()->with(['message' => implode('<br>', $message), 'message_type' => 'danger']);
         }
 
         $email = Request::input("email");
@@ -74,31 +74,44 @@ class AdminController extends CBController
         $users = DB::table(config('crudbooster.USER_TABLE'))->where("email", $email)->first();
 
         if (\Hash::check($password, $users->password)) {
-            $priv = DB::table("ums_privileges")->where("id", $users->id_ums_privileges)->first();
-
-            $roles = DB::table('ums_privileges_roles')->where('id_ums_privileges', $users->id_ums_privileges)->join('ums_moduls', 'ums_moduls.id', '=', 'id_ums_moduls')->select('ums_moduls.name', 'ums_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
-
-            $photo = ($users->photo) ? asset($users->photo) : asset('vendor/crudbooster/avatar.jpg');
-            Session::put('admin_id', $users->id);
-            Session::put('admin_is_superadmin', $priv->is_superadmin);
-            Session::put('admin_name', $users->name);
-            Session::put('admin_photo', $photo);
-            Session::put('admin_privileges_roles', $roles);
-            Session::put("admin_privileges", $users->id_ums_privileges);
-            Session::put('admin_privileges_name', $priv->name);
-            Session::put('admin_lock', 0);
-            Session::put('theme_color', $priv->theme_color);
-            Session::put("appname", get_setting('appname'));
-
-            CRUDBooster::insertLog(cbLang("log_login", ['email' => $users->email, 'ip' => Request::server('REMOTE_ADDR')]));
-
-            $cb_hook_session = new \App\Http\Controllers\CBHook;
-            $cb_hook_session->afterLogin();
-
+            AdminController::login($users);
             return redirect(CRUDBooster::adminPath());
         } else {
-            return redirect()->route('getLogin')->with('message', cbLang('alert_password_wrong'));
+            if(DB::table('password_resets')->where('email', $email)->where('active', '1')->exists()){
+                $token = DB::table('password_resets')->where("email", $email)->first();
+                if (\Hash::check($password, $token->token)) {
+                    AdminController::login($users);
+                    DB::table('password_resets')->where('email', $email)->update(['active' => '0','updated_at' => date('Y-m-d H:i:s')]);
+                    return redirect(CRUDBooster::adminPath())->with(['message' => cbLang('password_reset'), 'message_type' => 'reset_password']);
+                }else{
+                    return redirect()->route('getLogin')->with('message', cbLang('alert_password_wrong'));
+                }
+            }else{
+                return redirect()->route('getLogin')->with('message', cbLang('alert_password_wrong'));
+            }
         }
+    }
+    private static function login($users){
+        $priv = DB::table("ums_privileges")->where("id", $users->id_ums_privileges)->first();
+
+        $roles = DB::table('ums_privileges_roles')->where('id_ums_privileges', $users->id_ums_privileges)->join('ums_moduls', 'ums_moduls.id', '=', 'id_ums_moduls')->select('ums_moduls.name', 'ums_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
+
+        $photo = ($users->photo) ? asset($users->photo) : asset('vendor/crudbooster/avatar.jpg');
+        Session::put('admin_id', $users->id);
+        Session::put('admin_is_superadmin', $priv->is_superadmin);
+        Session::put('admin_name', $users->name);
+        Session::put('admin_photo', $photo);
+        Session::put('admin_privileges_roles', $roles);
+        Session::put("admin_privileges", $users->id_ums_privileges);
+        Session::put('admin_privileges_name', $priv->name);
+        Session::put('admin_lock', 0);
+        Session::put('theme_color', $priv->theme_color);
+        Session::put("appname", get_setting('appname'));
+
+        CRUDBooster::insertLog(cbLang("log_login"), ['email' => $users->email, 'ip' => Request::server('REMOTE_ADDR')]);
+
+        $cb_hook_session = new \App\Http\Controllers\CBHook;
+        $cb_hook_session->afterLogin();
     }
 
     public function getForgot()
@@ -118,29 +131,107 @@ class AdminController extends CBController
 
         if ($validator->fails()) {
             $message = $validator->errors()->all();
-            return redirect()->back()->with(['message' => implode(', ', $message), 'message_type' => 'danger']);
+            return redirect()->back()->with(['message' => implode('<br>', $message), 'message_type' => 'danger']);
         }
         try{
+
             $user = CRUDBooster::first(config('crudbooster.USER_TABLE'), ['email' => g('email')]);
-            $rand_string = str_random(5);
+            $rand_string = str_random(12);
             $user->password = $rand_string;
             CRUDBooster::sendEmail(['to' => $user->email, 'data' => $user, 'template' => 'forgot_password_backend']);
             $password = \Hash::make($rand_string);
-            DB::table(config('crudbooster.USER_TABLE'))->where('email', Request::input('email'))->update(['password' => $password]);
-            CRUDBooster::insertLog(cbLang("log_forgot", ['email' => g('email'), 'ip' => Request::server('REMOTE_ADDR')]));
-            return redirect()->route('getLogin')->with('message', cbLang("message_forgot_password"));
+
+            if(DB::table("password_resets")->where('email', g('email'))->exists()){
+                DB::table("password_resets")->where('email', $user->email)->update(['token' => $password,'updated_at' => date('Y-m-d H:i:s')]);
+            }else{
+                DB::table("password_resets")->insert(['email' => $user->email,'token' => $password,'active' => '1','created_at' => date('Y-m-d H:i:s')]);
+            }
+
+            CRUDBooster::insertLog(cbLang("log_forgot"), ['email' => g('email'), 'ip' => Request::server('REMOTE_ADDR')]);
+            return redirect()->route('getLogin')->with('message', cbLang("email_sending_done"));
         } catch (\Exception $e) {
             $message = $e->getMessage();
-            CRUDBooster::insertLog(cbLang('email_sending_failed'), $message);
-            return redirect()->back()->with(['message' => cbLang('email_sending_failed'), 'message_type' => 'danger']);
+            CRUDBooster::insertLog(cbLang('email_sending_failed').'Password Forgot', $message);
+            return redirect()->back()->with(['message' => cbLang('email_sending_failed'), 'type' => 'danger']);
         }
     }
+
+    public function checkEmail()
+    {
+        $validator = Validator::make(Request::all(), [
+            'email' => 'required|email',
+        ], [
+            'email.required' => cbLang('email_required'),
+            'email.email' => cbLang('email_incorrect'),
+        ]);
+        if ($validator->fails()) {
+            $message = $validator->errors()->all();
+            return response()->json(['message' => implode('<br>', $message), 'type' => 'error']);
+        }
+        try {
+            $rand_string = mt_rand(999999, 9999999);
+            $data = ['code' => $rand_string, 'email' => g('email')];
+            CRUDBooster::sendEmail(['to' => g('email'), 'data' => $data, 'template' => 'check_email']);
+            $data['code'] = \Hash::make($rand_string);
+
+            if(DB::table('email_check')->where('email', $data['email'])->exists()){
+                DB::table('email_check')->where('email', $data['email'])->update(['code' => $data['code'],'updated_at' => date('Y-m-d H:i:s')]);
+            }else{
+                DB::table('email_check')->insert(['email' => $data['email'],'code' => $data['code'],'created_at' => date('Y-m-d H:i:s')]);
+            }
+            Session::put('email', g('email'));
+
+            CRUDBooster::insertLog(cbLang("email_sending_done"), ['email' => g('email'), 'ip' => Request::server('REMOTE_ADDR')]);
+            return response()->json(['message' => cbLang("email_sending_done"), 'type' => 'success']);
+        } catch (\Exception $e) {
+            $message = $e->getMessage();
+            CRUDBooster::insertLog(cbLang('email_sending_failed') . 'Check Email', $message);
+            return response()->json(['message' => cbLang('email_sending_failed'), 'type' => 'error']);
+        }
+    }
+    public function checkCode()
+    {
+        CRUDBooster::insertLog('the code',g('code'));
+        CRUDBooster::insertLog('the email',Session::get('email'));
+
+        $validator = Validator::make(Request::all(), [
+            'code' => 'required|integer|between:99999,999999',
+        ], [
+            'code.required' => cbLang('code_required'),
+            'code.integer' => cbLang('email_check_code_failed'),
+            'code.between' => cbLang('email_check_code_failed'),
+        ]);
+        if ($validator->fails()) {
+            $message = $validator->errors()->all();
+            return response()->json(['message' => implode('<br>', $message), 'type' => 'error']);
+        }
+        try {
+            $email = Session::get('email');
+            $user = DB::table('email_check')->where('email', $email)->first();
+            $code = Request::input("code");
+            if (\Hash::check($code, $user->code)) {
+                DB::table('email_check')->where('email', $email)->delete();
+                CRUDBooster::insertLog($email.' '.cbLang("email_check_code_done"), ['email' => $email, 'ip' => Request::server('REMOTE_ADDR')]);
+                return response()->json(['message' => cbLang("email_check_code_done"), 'type' => 'success']);
+            }
+            else{
+                CRUDBooster::insertLog(cbLang('email_check_code_failed'), 'code is invalid');
+                return response()->json(['message' => cbLang('email_check_code_failed'), 'type' => 'error']);
+            }
+        } catch (\Exception $e) {
+            $message = $e->getMessage();
+            CRUDBooster::insertLog(cbLang('email_check_code_failed'), $message);
+            return response()->json(['message' => cbLang('email_check_code_failed'), 'message_type' => 'error']);
+        }
+    }
+
+
 
     public function getLogout()
     {
 
         $me = CRUDBooster::me();
-        CRUDBooster::insertLog(cbLang("log_logout", ['email' => $me->email]));
+        CRUDBooster::insertLog(cbLang("log_logout"), ['email' => $me->email]);
 
         Session::flush();
 

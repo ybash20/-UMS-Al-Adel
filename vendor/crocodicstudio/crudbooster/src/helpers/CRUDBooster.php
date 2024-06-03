@@ -765,17 +765,6 @@ class CRUDBooster
         \Config::set('mail.password', self::getSetting('smtp_password'));
         \Config::set('mail.encryption', self::getSetting('smtp_encryption'));
 
-        $driver = self::getSetting('smtp_driver');
-        $host = self::getSetting('smtp_host');
-        $port = self::getSetting('smtp_port');
-        $user = self::getSetting('smtp_username');
-        $pass = self::getSetting('smtp_password');
-        $enc = self::getSetting('smtp_encryption');
-
-        $s = 'smtp driver: '.$driver.'<br>smtp host: '.$host.'<br>smtp port: '.$port.'<br>smtp username: '.$user.'<br>smtp password: '.$pass.'<br>smtp encryption: '.$enc;
-
-        CRUDBooster::insertLog('getSetting test', $s);
-
         $to = $config['to'];
         $data = $config['data'];
         $template = $config['template'];
@@ -1078,7 +1067,15 @@ class CRUDBooster
             $a['useragent'] = $_SERVER['HTTP_USER_AGENT'];
             $a['url'] = Request::url();
             $a['description'] = $description;
-            $a['details'] = $details;
+            $detail = '';
+            if (is_array($details) || is_object($details)) {
+                foreach ($details as $key => $val) {
+                    $detail .= $key . ': ' . $val . '<br>';
+                }
+            } else {
+                $detail = $details;
+            }
+            $a['details'] = $detail;
             $a['id_ums_users'] = self::myId();
             DB::table('ums_logs')->insert($a);
         }

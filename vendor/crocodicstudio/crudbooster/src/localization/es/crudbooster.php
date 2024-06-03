@@ -25,7 +25,7 @@ return [
     'text_prefix_option' => '** Selecciona un',
     'text_loading' => 'Espera un segundo, por favor. Cargando...',
     'message_after_logout' => '¡Gracias por la visita, nos vemos pronto!',
-    'message_forgot_password' => 'Te hemos enviado una nueva contraseña. Revisa tu correo electrónico. ¡Puede estar en la carpeta de spam!',
+    'email_sending_done' => 'Te hemos enviado una nueva contraseña. Revisa tu correo electrónico. ¡Puede estar en la carpeta de spam!',
     'page_not_found' => 'Vaya, esta página no existe o no tienes acceso.',
     'page_not_found_text' => 'No encontramos la página que nos pides.',
 

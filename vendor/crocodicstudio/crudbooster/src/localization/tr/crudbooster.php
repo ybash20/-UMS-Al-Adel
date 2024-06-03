@@ -30,7 +30,7 @@ return [
     'text_loading' => 'Yükleniyor lütfen bekleyiniz...',
 
     'message_after_logout' => 'Teşekkür Ederim, Sonra Görüşürüz !',
-    'message_forgot_password' => 'E-postanıza yeni şifre gönderdik, gelen kutusu veya spam kutunuzu kontrol edin !',
+    'email_sending_done' => 'E-postanıza yeni şifre gönderdik, gelen kutusu veya spam kutunuzu kontrol edin !',
 
     'page_not_found' => 'Haydaa! Sayfa bulunamadı.',
     'page_not_found_text' => 'Aradığınız sayfayı bulamıyoruz. Teknik çalışmalarımız sürüyor. üzgünüm :( ',

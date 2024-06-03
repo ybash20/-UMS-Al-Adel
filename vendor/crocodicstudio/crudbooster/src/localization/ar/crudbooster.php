@@ -43,9 +43,15 @@ return [
     'text_loading' => 'فضلا الانتظار جاري التحميل ...',
 
     'message_after_logout' => 'شكرا لك ، نراك لاحقا !',
-    'message_forgot_password' => 'تم ارسال كلمة المرور إلى بريدك الإلكتروني !',
+    'email_sending_done' => 'تم إرسال الرسالة إلى البريد الإلكتروني',
     'email_sending_failed' => 'فشل إرسال الرسالة إلى البريد الإلكتروني',
-
+    'email_check_code_done' => 'تم التحقق من البريد الالكتروني  ',
+    'email_check_code_failed' => 'الرمز خاطئ',
+    'code_required' => 'حقل الكود مطلوب',
+    'code_integer' => 'يجب أن يكون الرمز عددًا صحيحًا.',
+    'email_incorrect' => 'البريد الالكتروني غير صحيح',
+    'email_required' => 'حقل البريد الإلكتروني مطلوب',
+    'password_reset' => 'لقد قمت بتسجيل الدخول باستخدام رمز مميز تم إرساله إلى بريدك الإلكتروني، ولا يمكنك استخدامه مرة أخرى، قم بإعادة تعيين كلمة المرور الخاصة بك في أسرع وقت ممكن',
 
     'page_not_found' => 'عفوا الصفحة غير موجودة',
     'page_not_found_text' => 'لم يتم العثور على الصفحة التي تبحث عنها.',
@@ -89,6 +95,7 @@ return [
     'alert_required' => 'فضلا اكمل كافة الحقول المطلوبة',
     'alert_error_ajax' => 'عفوا لقد حصل خطا ما ، سيتم حل المشكلة في اقرب وقت ممكن !',
     'alert_validation_error' => 'فضلا اكمل الحقول بشكل صحيح : :error',
+    'alert_reset_password' => 'أعد تعيين كلمة مرورك',
 
     'add_data_page_title' => 'اضافة :module',
     'edit_data_page_title' => 'تعديل :module',

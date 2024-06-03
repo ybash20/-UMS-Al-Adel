@@ -30,7 +30,7 @@ return [
     'text_loading' => '加载...',
 
     'message_after_logout' => '下次再见!',
-    'message_forgot_password' => '已将新密码发送到你的电子邮件,请到收件箱查看!',
+    'email_sending_done' => '已将新密码发送到你的电子邮件,请到收件箱查看!',
 
     'page_not_found' => '页面没有找到!',
     'page_not_found_text' => '没有搜索到你要找的页面。',

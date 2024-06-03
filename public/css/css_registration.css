@@ -258,6 +258,7 @@
     background: var(--back-btn-hover);
     bottom: 0%;
 }
+.code_wrapper,
 .email_wrapper,
 .modal_wrapper {
     position: fixed;
@@ -267,9 +268,11 @@
     height: 100%;
     visibility: hidden;
     z-index: 150;
+
 }
-.email_wrapper .shadow,
-.modal_wrapper .shadow {
+.code_wrapper .code_shadow,
+.email_wrapper .email_shadow,
+.modal_wrapper  .mod_shadow{
     position: absolute;
     top: 0;
     left: 0;
@@ -280,6 +283,7 @@
     transition: 0.2s ease;
 }
 .email_wrapper .success_wrap,
+.code_wrapper .success_wrap,
 .modal_wrapper .success_wrap {
     position: absolute;
     top: 50%;
@@ -293,6 +297,7 @@
     transition: 0.5s ease;
 }
 .email_wrapper .success_wrap .modal_icon,
+.code_wrapper .success_wrap .modal_icon,
 .modal_wrapper .success_wrap .modal_icon {
     margin-right: 20px;
     width: 50px;
@@ -306,18 +311,21 @@
     font-size: 32px;
     font-weight: 700;
 }
-.email_wrapper .success_wrap .modal_icon.error{
-    background: #f44336;
+.modal_icon.error{
+    background: #f44336 !important;
 }
 .email_wrapper.active,
+.code_wrapper.active,
 .modal_wrapper.active {
     visibility: visible;
 }
-.email_wrapper.active .shadow,
-.modal_wrapper.active .shadow {
+.email_wrapper.active .email_shadow,
+.code_wrapper.active .code_shadow,
+.modal_wrapper.active  .mod_shadow{
     opacity: 1;
 }
 .email_wrapper.active .success_wrap,
+.code_wrapper.active .success_wrap,
 .modal_wrapper.active .success_wrap {
     transform: translate(-50%, -50%);
 }
@@ -326,7 +334,7 @@
     border-radius: 3px;
     padding: 10px;
     width: 200px;
-    font-size: 10px;
+    font-size: 12px;
     transition: 0.5s ease;
     text-align: right;
     margin-right: 61px;
@@ -432,7 +440,7 @@
         border-radius: 3px;
         padding: 10px;
         width: 200px;
-        font-size: 10px;
+        font-size: 12px;
         transition: 0.5s ease;
         text-align: right;
         margin-right: 61px;

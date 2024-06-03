@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EmailController;
-use App\Http\Controllers\ForgotConroller;
+use crocodicstudio\crudbooster\controllers\AdminController;
 use App\Http\Controllers\BookLibraryController;
 
 
@@ -27,8 +26,10 @@ Route::get('/lib', function () {
     return view('library/library');
 })->name('library');
 
+Route::get('/books_computer', function () {
+    return view('library/books_computer');
+})->name('books_computer');
 Route::get('/libBooks','BookLibraryController@index')->name('indexbook');
-
 
 Route::get('/student', function () {
     return view('student');
@@ -86,15 +87,22 @@ Route::get('/translation', function () {
     return view('college.Translation');
 })->name('translation');
 
-Route::post('/send-email', [EmailController::class, 'send'])->name('send-email');
+Route::post('check-email', [AdminController::class, 'checkEmail'])->name('check-email');
+Route::post('check-code', [AdminController::class, 'checkCode'])->name('check-code');
 
+//Route::post('/send-email', [EmailController::class, 'send'])->name('send-email');
 
-Route::get('/verify-email', function () {
-    return view('auth.verify-email');
-})->name('verify-email');
+// Route::get('/verify-email', function () {
+//     return view('auth.verify-email');
+// })->name('verify-email');
 
-Route::post('/send-verification-email', [ForgotConroller::class, 'sendVerificationEmail'])
-     ->name('send-verification-email');
+// Route::post('/send-verification-email', [ForgotConroller::class, 'sendVerificationEmail'])
+//      ->name('send-verification-email');
 
-Route::post('/verify-code', [ForgotConroller::class, 'verifyCode'])
-     ->name('verify-code');
+// Route::post('/verify-code', [ForgotConroller::class, 'verifyCode'])
+//      ->name('verify-code');
+
+//Route::post('check-email', ['uses' => 'AdminController@checkEmail', 'as' => 'checkEmail']);
+
+//Route::post('check-email', ['uses' => 'AdminController@checkEmail', 'as' => 'checkEmail']);
+

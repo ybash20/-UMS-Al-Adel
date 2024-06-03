@@ -28,7 +28,7 @@ return [
     'text_loading' => 'Silahkan menunggu sebentar...',
 
     'message_after_logout' => 'Terima kasih, sampai jumpa lagi !',
-    'message_forgot_password' => 'Kami telah mengirimkan password baru ke email anda, silahkan cek di inbox atau spambox!',
+    'email_sending_done' => 'Kami telah mengirimkan password baru ke email anda, silahkan cek di inbox atau spambox!',
 
     'page_not_found' => 'Oops! Halaman tidak ditemukan',
     'page_not_found_text' => 'Kami tidak dapat menemukan halaman yang anda cari.',

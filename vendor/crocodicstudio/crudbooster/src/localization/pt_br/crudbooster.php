@@ -25,7 +25,7 @@ return [
     'text_prefix_option' => '** Por favor selecione',
     'text_loading' => 'Carregando... Por favor aguarde',
     'message_after_logout' => 'Obrigado, vejo você mais tarde!',
-    'message_forgot_password' => 'Enviamos nova senha para seu e-mail, verifique a caixa de entrada ou de spam!',
+    'email_sending_done' => 'Enviamos nova senha para seu e-mail, verifique a caixa de entrada ou de spam!',
     'page_not_found' => 'Oops! Página não encontrada',
     'page_not_found_text' => 'Não foi possível pesquisar na página que você está procurando.',
     'page_not_found_tips' => '* Verifique se o URL está correto<br/>
