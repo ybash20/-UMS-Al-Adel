@@ -12,7 +12,7 @@
         .row-nvg {
             text-align: right;
             /* margin-right: -24px;
-                            margin-left: -30px; */
+                                        margin-left: -30px; */
             font-size: 20px;
 
         }
@@ -170,7 +170,7 @@
             margin: 0 !important;
         }
 
-        section.section-j6v {
+        .section.section-j6v {
             background: #f7f7f7;
             border-top: 5px solid #f1f1f1;
             margin: 30px 0;
@@ -180,8 +180,8 @@
         #res-i5c {
 
             background-color: #f3f3f3;
-            
-            background-position: 100% 100%; 
+
+            background-position: 100% 100%;
             /* background-repeat: no-repeat; */
             position: relative;
             box-shadow: 11px 2px 26px 3px darkgrey;
@@ -368,6 +368,70 @@
                 padding-right: 18px;
             }
         }
+
+        .body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin: 0;
+            padding: 0;
+        }
+
+        .section-btn-coll {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .section-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .section-button:hover {
+            background-color: #0056b3;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .more-content {
+            display: none;
+        }
+
+        .read-more {
+            color: #007BFF;
+            cursor: pointer;
+        }
+
+        .networks,
+        .information-technology,
+        .computer-science {
+            /* border: 1px solid #0056b3; */
+            box-shadow: 13px 2px 21px 3px darkgrey;
+            margin: 13px;
+            height: auto;
+            text-align: right;
+            padding: 21px;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            box-shadow: 13px 2px 21px 3px darkgrey;
+            border-radius: 4px;
+            margin-top: 5px;
+
+        }
     </style>
     <div class="contener">
         <div class="content-q4i p-cby">
@@ -431,7 +495,6 @@
                                     المتداولة تحتوي مضامين مختلفة تشكل ثقافة الإنسان وتدير دفة حضارة المجتمعات. ففي ضوء هذا
                                     الادراك لأهمية الحاسوب وتقنية المعلومات فقد حرصت جامعة نجران منذ نشأتها على إطلاق برامج
                                     نوعية في مجالات التقنية باستحداث كلية علوم الحاسب ونظم المعلومات.</p>
-
                             </div>
                         </div>
                     </div>
@@ -446,9 +509,81 @@
             </div>
         </div>
         <div class="section-btn-coll">
-            <a href="#" class="section-button">علوم الحاسوب</a>
-            <a href="#" class="section-button">تقنية المعلومات</a>
-            <a href="#" class="section-button">شبكات</a>
+            <a href="#" class="section-button" onclick="showContent('computer-science')">علوم الحاسوب</a>
+            <a href="#" class="section-button" onclick="showContent('information-technology')">تقنية المعلومات</a>
+            <a href="#" class="section-button" onclick="showContent('networks')">شبكات</a>
         </div>
+        <div class="content">
+            <div id="computer-science" class="computer-science">
+                <h2>علوم الحاسوب</h2>
+                <p>
+                    علوم الحاسوب هو مجال يركز على دراسة العمليات التي تتعلق بالحوسبة.
+                    <span class="more-content">
+                        ويشمل نظريات الخوارزميات، وهياكل البيانات، وبرمجة الحاسوب، والذكاء الاصطناعي،وأنظمة التشغيل، وقواعد
+                        البيانات، وغيرها من
+                        المواضيع المتقدمة.
+                        <span>
+                            <br>
+                            <h3> : الرسالة</h3>
+                            <br>
+                            اعـداد كـوادر ذات كـفاءات عاليـة في مجال علـوم الحاسوب من خلال دمـج المعرفـة النظريـة والتطبيـق
+                            العملي بما يـؤهلهم للمنافسـة فـي سـوق العمـل.
+                        </span>
+                        <span>
+                            <br>
+                            <h3> : الخطة الدراسية</h3>
+                        </span>
+                        {{-- <iframe
+                            src="https://cfm.ehu.es/ricardo/docs/python/Learning_Python.pdf"
+                            frameBorder="0" scrolling="auto"></iframe>  --}}
+                    </span>
+                </p>
+                <span class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</span>
+            </div>
+            <div id="information-technology" class="information-technology">
+                <h2>تقنية المعلومات</h2>
+                <p>
+                    تقنية المعلومات تشمل استخدام الحواسيب والشبكات لتخزين ومعالجة البيانات.
+                    <span class="more-content">
+                    وهي تتضمن إدارة أنظمة المعلومات، وتطوير البرمجيات، وأمن المعلومات، والدعم
+                    الفني، وغيرها من الخدمات المتعلقة بالحوسبة.</span>
+                   
+                        <span>
+                            <h3> : الرسالة </h3>
+                            <br>
+                            توفير تعليم متميز وعالي الجودة في مجال تقنية المعلومات وتزويد الخريجين بالمعرفة والمهارات اللازمة لجعلهم قادرين على المنافسة في سوق العمل.
+                        </span>
+                        <span>
+                            <br>
+                            <h3> : الخطة الدراسية </h3>
+                        </span>
+                </p>
+                <span class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</span>
+            </div>
+            <div id="networks" class="networks">
+                <h2>شبكات</h2>
+                <p>
+                    الشبكات هي مجال من مجالات علم الحاسوب يختص بدراسة الربط بين الحواسيب والأجهزة الأخرى لتبادل البيانات.
+                    <span class="more-content"> الشبكات تلعب دورًا حيويًا في الاتصالات، بما في ذلك الإنترنت، والشبكات
+                        المحلية، والشبكات الواسعة، والشبكات اللاسلكية. من خلال الشبكات، يمكن للأجهزة التواصل مع بعضها البعض
+                        وتبادل الموارد والمعلومات بسرعة وفعالية.</span>
+                       
+                </p>
+                <span class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</span>
+            </div>
+        </div>
+
+        <script>
+            function toggleReadMore(element) {
+                const moreContent = element.previousElementSibling.querySelector('.more-content');
+                if (moreContent.style.display === 'none' || moreContent.style.display === '') {
+                    moreContent.style.display = 'inline';
+                    element.textContent = 'اقرأ أقل';
+                } else {
+                    moreContent.style.display = 'none';
+                    element.textContent = 'اقرأ المزيد';
+                }
+            }
+        </script>
     </section>
 @endsection
