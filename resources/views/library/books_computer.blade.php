@@ -1,47 +1,81 @@
 @extends('layouts.master')
 @section('title','Books of Computer')
+
 @section('main')
 <style>
-    
     .main_body_book {
-        margin-top: 5%;
+        margin-top: 7%;
         font-family: 'Lemonada', cursive;
         text-align: center;
         
     }
 
-    .section-header-1 {
-        font-size: 24px;
+    .section_departmaent_book {
+        font-size: 30px;
         margin-top: 50px;
-    }
 
-    .search-box-1 {
-        margin-top: 20px;
     }
+.search_books_form_new_books{
+    margin-top: 2%;
+}
+/* تنسيق الزر */
+.search_books_form_new_books .search-form-new-books button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* لون خلفية الزر */
+    color: white; /* لون النص */
+    border: none;
+    border-radius: 5px; /* شكل الحواف */
+    cursor: pointer;
+    transition: background-color 0.3s; /* تأثير التحويل */
+}
+
+.search_books_form_new_books .search-form-new-books button:hover {
+    background-color: #45a049; /* لون الخلفية عند التحويل */
+}
+
+.search_books_form_new_books .search-form-new-books button:active {
+    background-color: #4CAF50; /* لون الخلفية عند النقر */
+}
+
+/* تنسيق حقل النص */
+.search_books_form_new_books .search-form-new-books input[type="text"] {
+    font-size: 18px;
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #4CAF50; /* لون الحدود */
+    border-radius: 5px; /* شكل الحواف */
+    transition: border-color 0.3s; /* تأثير التحويل */
+}
+
+.search_books_form_new_books .search-form-new-books input[type="text"]:focus {
+    border-color: #45a049; /* لون الحدود عند التركيز */
+}
+
+
 
     .books-container-1 {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start; /* تغيير من space-around إلى flex-start لتجنب التراص */
+        justify-content: flex-start;
         margin-top: 50px;
     }
 
     .book-1 {
-        width: 30%; /* تم تعديل عرض العنصر بنسبة مئوية */
+        width: 30%;
         margin: 20px;
     }
 
     .book-1 img {
-        max-width: 80%; /* تم استبدال width ب max-width لتجنب تجاوز حجم الصور */
+        max-width: 80%;
         max-height: 70%;
         object-fit: fill;
         border-radius: 8px;
-        transition: transform 0.3s ease-in-out; /* تأثير الانتقال */
+        transition: transform 0.3s ease-in-out;
     }
 
-    /* تعديل حجم الصورة عند التحويل (hover) */
     .book-1 img:hover {
-        transform: scale(1.1); /* زيادة حجم الصورة بنسبة 10% عند التحويل */
+        transform: scale(1.1);
     }
 
     .book-title-1,
@@ -53,13 +87,12 @@
         word-break: break-all;
         max-height: 3.6em;
         overflow: hidden;
-        transition: transform 0.3s ease-in-out; /* تأثير الانتقال */
+        transition: transform 0.3s ease-in-out;
     }
 
-    /* تعديل حجم اسم الكتاب واسم المؤلف عند التحويل (hover) */
     .book-title-1:hover,
     .book-author-1:hover {
-        transform: scale(1.1); /* زيادة حجم النص بنسبة 10% عند التحويل */
+        transform: scale(1.1);
     }
 
     .book-title-1 {
@@ -71,24 +104,24 @@
 
     .book-author-1 {
         text-align: center;
-        font-size: 14px; /* تم تعديل حجم اسم المؤلف */
+        font-size: 14px;
         margin-top: 5px;
         font-family: 'Lemonada', cursive;
     }
+ 
+    .error-message_books {
+        font-size: 30px;
+    }
 
     @media (max-width: 500px) {
-        .main_container {
-            width: 90%;
-            margin: 0 auto; 
-        }
-
+        
         .book-1 {
-            width: 45%; /* تم تعديل عرض العنصر بنسبة مئوية */
-            margin: 10px; /* تم تعديل الهوامش */
+            width: 45%;
+            margin: 10px;
         }
 
         .book-1 img {
-            max-width: 75%; /* تم استبدال width ب max-width لتجنب تجاوز حجم الصور */
+            max-width: 75%;
             max-height: 65%;
             object-fit: fill;
             border-radius: 8px;
@@ -96,40 +129,66 @@
         }
 
         .book-title-1 {
-            font-size: 14px; /* تم تعديل حجم العنوان */
+            font-size: 14px;
         }
 
         .book-author-1 {
-            font-size: 12px; /* تم تعديل حجم اسم المؤلف */
+            font-size: 12px;
+        }
+        
+        .section_departmaent_book {
+            font-size: 24px;
+            margin-top: 12%;
+        }
+
+        .search_books_form_new_books .search-form-new-books button {
+            font-size: 16px;
+            padding: 8px 16px;
+        }
+
+        .search_books_form_new_books .search-form-new-books input[type="text"] {
+            font-size: 16px;
+            padding: 8px;
+            width: 40%;
         }
     }
 </style>
 
-
 <div class="main_body_book">
-    <div class="section-header-1">
+    <div class="section_departmaent_book">
         Computer Section
-        <div class="search-box-1">
-            <input type="text" placeholder="ابحث عن الكتاب">
-            <button>بحث</button>
+        <div class="search_books_form_new_books">
+            <form action="{{ route('indexbookcomputer') }}" method="GET" id="search-form" class="search-form-new-books">
+                <input type="text" name="query" id="search-query" placeholder="Find the book" value="{{ $query ?? '' }}" class="search_books_input_new_books">
+                <button type="submit">Search</button>
+            </form>
         </div>
     </div>
-    <div class="books-container-1">
-        <!-- تكرار هذا الجزء لكل كتاب -->
-        @foreach ( $book_computer as $bookcomputer) 
-        <div class="book-1">
-            <img src="image/about.png" alt="صورة الكتاب">
-            <h3 class="book-title-1">Book: {!!$bookcomputer->Title!!}</h3>
-            <p class="book-author-1">Author: {!!$bookcomputer->Author!!}</p>
-            
-        </div>
-        @endforeach
 
-        
-
+    <div id="books-container" class="books-container-1">
+        @if(isset($book_computer) && !$book_computer->isEmpty())
+            @foreach ($book_computer as $book)
+                <div class="book-1">
+                    <img src="{{ asset('image/about.png') }}" alt="Image Book">
+                    <h3 class="book-title-1">Book: {{ $book->Title }}</h3>
+                    <p class="book-author-1">Author: {{ $book->Author }}</p>
+                </div>
+            @endforeach
+        @else
+            <p class="error-message_books">No books found.</p>
+        @endif
     </div>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('query')) {
+            const url = new URL(window.location);
+            url.searchParams.delete('query');
+            window.history.replaceState({}, document.title, url.pathname);
+        }
+    });
+</script>
 
 @endsection
-    
