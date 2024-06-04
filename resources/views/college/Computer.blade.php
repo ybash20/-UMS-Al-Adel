@@ -12,7 +12,7 @@
         .row-nvg {
             text-align: right;
             /* margin-right: -24px;
-                                                margin-left: -30px; */
+                          margin-left: -30px; */
             font-size: 20px;
 
         }
@@ -38,6 +38,7 @@
             /* border-left: groove; */
             /* border-right: groove; */
             box-shadow: 9px 8px 13px -9px #777;
+            background-color: #f3f3f3;
         }
 
         .content-q4i {
@@ -401,21 +402,27 @@
             padding: 20px;
         }
 
+        
         .more-content {
             display: none;
         }
 
 
         .read-more {
-            color: #007BFF;
-            cursor: pointer;
+            color: #fbfbfb;
+            /* cursor: pointer; */
+            border: none;
+            box-shadow: 1px 0 15px #6c757d9c;
+            width: 79px;
+            background-color: #0769ffb8;
+            border-radius: 2px;
         }
 
         .networks,
         .information-technology,
         .computer-science {
             /* border: 1px solid #0056b3; */
-            box-shadow: 13px 2px 21px 3px darkgrey;
+            box-shadow: -4px 5px 111px -19px darkgrey;
             margin: 13px;
             height: auto;
             text-align: right;
@@ -433,6 +440,8 @@
             margin-top: 5px;
 
         }
+
+        
     </style>
     <div class="contener">
         <div class="content-q4i p-cby">
@@ -536,8 +545,9 @@
                         <iframe src="https://cfm.ehu.es/ricardo/docs/python/Learning_Python.pdf" frameBorder="0"
                             scrolling="auto"></iframe>
                     </span>
+
                 </p>
-                <span class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</span>
+                <button class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</button>
             </div>
             <div id="information-technology" class="information-technology">
                 <h2>تقنية المعلومات</h2>
@@ -558,10 +568,10 @@
                         : الخطة الدراسية
                         <br>
                         <iframe src="https://cfm.ehu.es/ricardo/docs/python/Learning_Python.pdf" frameBorder="0"
-                        scrolling="auto"></iframe>
+                            scrolling="auto"></iframe>
                     </span>
                 </p>
-                <span class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</span>
+                <button class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</button>
             </div>
             <div id="networks" class="networks">
                 <h2>شبكات</h2>
@@ -584,7 +594,7 @@
                     </span>
 
                 </p>
-                <span class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</span>
+                <button class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</button>
             </div>
         </div>
 
