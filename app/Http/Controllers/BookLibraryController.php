@@ -14,22 +14,23 @@ class BookLibraryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-     {
-         $query = $request->input('query');
-         $book_computer = Book::where('Section_ID', 1)
-                             ->when($query, function ($queryBuilder) use ($query) {
-                                 return $queryBuilder->where('Title', 'like', '%' . $query . '%');
-                             })
-                             ->orderBy('id', 'ASC')
-                             ->get();
- 
-         // Check if the result is empty
-         if ($book_computer->isEmpty()) {
-             return view('library.books_computer', compact('query'));
-         }
- 
-         return view('library.books_computer', compact('book_computer', 'query'));
-     }
+{
+    $query = $request->input('query');
+    $book_computer = Book::where('Section_ID', 1)
+                         ->when($query, function ($queryBuilder) use ($query) {
+                             return $queryBuilder->where('Title', 'like', '%' . $query . '%');
+                         })
+                         ->inRandomOrder() // استخدام inRandomOrder لعرض النتائج بشكل عشوائي
+                         ->get();
+
+    // التحقق مما إذا كانت النتيجة فارغة
+    if ($book_computer->isEmpty()) {
+        return view('library.books_computer', compact('query'));
+    }
+
+    return view('library.books_computer', compact('book_computer', 'query'));
+}
+
 
     /**
      * Show the form for creating a new resource.
