@@ -43,26 +43,26 @@
     <div class="center">
         <div class="image-container">
             <figure>
-                <a href="{{ route('grades') }}">
+                <a href="{{ route('StudentGrades') }}">
                     <img src="{{ asset('vendor/crudbooster/assets/grades.png') }}" alt="الدرجات">
                 </a>
                 <figcaption>الدرجات</figcaption>
             </figure>
         </div>
-
+    
         <div class="image-container">
             <figure>
-                <a href="{{ route('timetables') }}">
+                <a href="{{ route('StudentTimetables') }}">
                     <img src="{{ asset('vendor/crudbooster/assets/timetables.png') }}" alt="الجداول الدراسية">
                 </a>
                 <figcaption>الجداول الدراسية</figcaption>
             </figure>
         </div>
-
+    
         <div class="center">
             <div class="image-container">
                 <figure>
-                    <a href="{{ route('studyplan') }}">
+                    <a href="{{ route('StudentStudyplan') }}">
                         <img src="{{ asset('vendor/crudbooster/assets/study_plan.png') }}" alt="الخطة الدراسية">
                     </a>
                     <figcaption>الخطة الدراسية</figcaption>
@@ -70,4 +70,5 @@
             </div>
         </div>
     </div>
+    
 @endsection

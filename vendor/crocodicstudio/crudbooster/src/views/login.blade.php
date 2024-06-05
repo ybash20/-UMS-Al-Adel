@@ -339,23 +339,22 @@
                 </button>
             </form>
             {{-- end form1 --}}
-            <form class="form_2 data_info">
+            <form class="form_2 data_info" action="{{ route('StudentpostLogin') }}" method="post">
+                @csrf
                 <p class='login-box-msg'>{{ cbLang('Label-student') }}</p>
                 <img src="{{ asset('vendor/crudbooster/assets/student.png') }}" class="img_login">
                 <div>
                     <div>
-                        <input class="input form-control" type="text" name="username" id="ID"
-                            placeholder="ID">
+                        <input class="input form-control" type="text" name="id" id="ID" placeholder="ID" required>
                     </div>
                     <div>
-                        <input class="input form-control" type="password" name="password2" id="password2"
-                            placeholder="Password">
+                        <input class="input form-control" type="password" name="Code" id="password2" placeholder="Code" required>
                     </div>
                 </div>
-                <a href="{{ asset('/student') }}" class="btn btn-primary btn-block">
+                <button type="submit" class="btn btn-primary btn-block">
                     <i class='fa fa-lock'></i>
                     {{ cbLang('button_sign_in') }}
-                </a>
+                </button>
                 <p class="forgot">
                     <a href='{{ route('getForgot') }}'>
                         {{ cbLang('text_forgot_password') }}
@@ -365,6 +364,7 @@
                     <i class="fas fa-user-tie"></i>
                 </button>
             </form>
+            
             <!--a href="#">I forgot my password</a-->
         </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->

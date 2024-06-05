@@ -6,13 +6,15 @@ namespace crocodicstudio\crudbooster\helpers;
 use crocodicstudio\crudbooster\middlewares\CBAuthAPI;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
+use app\Http\Middleware\StudentAuth;
 
 class CBRouter
 {
     private static $cb_namespace = '\crocodicstudio\crudbooster\controllers';
 
-    public static function getCBControllerFiles() {
-        $controllers = glob(__DIR__.'/../controllers/*.php');
+    public static function getCBControllerFiles()
+    {
+        $controllers = glob(__DIR__ . '/../controllers/*.php');
         $result = [];
         foreach ($controllers as $file) {
             $result[] = str_replace('.php', '', basename($file));
@@ -20,10 +22,11 @@ class CBRouter
         return $result;
     }
 
-    private static function apiRoute() {
+    private static function apiRoute()
+    {
         // API Authentication
-        Route::group(['middleware'=>['api'],'namespace'=>static::$cb_namespace], function() {
-            Route::post("api/get-token","ApiAuthorizationController@postGetToken");
+        Route::group(['middleware' => ['api'], 'namespace' => static::$cb_namespace], function () {
+            Route::post("api/get-token", "ApiAuthorizationController@postGetToken");
         });
 
         Route::group(['middleware' => ['api', CBAuthAPI::class], 'namespace' => 'App\Http\Controllers'], function () {
@@ -36,14 +39,14 @@ class CBRouter
 
                 if (substr($names, 0, 4) == 'api_') {
                     $names = str_replace('api_', '', $names);
-                    Route::any('api/'.$names, $v.'@execute_api');
+                    Route::any('api/' . $names, $v . '@execute_api');
                 }
             }
-
         });
     }
 
-    private static function uploadRoute() {
+    private static function uploadRoute()
+    {
         Route::group(['middleware' => ['web'], 'namespace' => static::$cb_namespace], function () {
             Route::get('api-documentation', ['uses' => 'ApiCustomController@apiDocumentation', 'as' => 'apiDocumentation']);
             Route::get('download-documentation-postman', ['uses' => 'ApiCustomController@getDownloadPostman', 'as' => 'downloadDocumentationPostman']);
@@ -51,7 +54,8 @@ class CBRouter
         });
     }
 
-    private static function authRoute() {
+    private static function authRoute()
+    {
         Route::group(['middleware' => ['web'], 'prefix' => config('crudbooster.ADMIN_PATH'), 'namespace' => static::$cb_namespace], function () {
 
             Route::post('unlock-screen', ['uses' => 'AdminController@postUnlockScreen', 'as' => 'postUnlockScreen']);
@@ -66,7 +70,33 @@ class CBRouter
         });
     }
 
-    private static function userControllerRoute() {
+    private static function studentAuthRoute()
+{
+    Route::group(['middleware' => ['web'], 'prefix' => 'student', 'namespace' => static::$cb_namespace], function () {
+        // مسارات تسجيل الدخول والخروج للطلاب
+        Route::get('StudentgetLogin', 'AdminController@StudentgetLogin')->name('StudentgetLogin'); // رابط الراوت للطلاب /student
+        Route::post('StudentpostLogin', 'AdminController@StudentpostLogin')->name('StudentpostLogin'); // تسجيل الدخول
+        Route::get('StudentgetLogout', 'AdminController@StudentgetLogout')->name('StudentgetLogout'); // تسجيل الخروج
+
+        // مسارات محمية بواسطة ميدلوير الطلاب
+        Route::group(['middleware' => 'student.auth'], function () {
+            // الصفحة الرئيسية للطالب
+            Route::get('/', function () {
+                return view('student');
+            });
+
+            // باقي المسارات الخاصة بالطلاب
+            Route::get('/grades', 'AdminController@StudentGrades')->name('StudentGrades');
+            Route::get('/studyplan', 'AdminController@StudentStudyplan')->name('StudentStudyplan');
+            Route::get('/timetables', 'AdminController@StudentTimetables')->name('StudentTimetables');
+        });
+    });
+}
+
+
+
+    private static function userControllerRoute()
+    {
         Route::group([
             'middleware' => ['web', '\crocodicstudio\crudbooster\middlewares\CBBackend'],
             'prefix' => config('crudbooster.ADMIN_PATH'),
@@ -93,14 +123,15 @@ class CBRouter
                     try {
                         CRUDBooster::routeController($v->path, $v->controller);
                     } catch (\Exception $e) {
-                        Log::error("Path = ".$v->path."\nController = ".$v->controller."\nError = ".$e->getMessage());
+                        Log::error("Path = " . $v->path . "\nController = " . $v->controller . "\nError = " . $e->getMessage());
                     }
                 }
             }
         });
     }
 
-    private static function cbRoute() {
+    private static function cbRoute()
+    {
         Route::group([
             'middleware' => ['web', '\crocodicstudio\crudbooster\middlewares\CBBackend'],
             'prefix' => config('crudbooster.ADMIN_PATH'),
@@ -133,20 +164,21 @@ class CBRouter
                     try {
                         CRUDBooster::routeController($v->path, $v->controller, static::$cb_namespace);
                     } catch (\Exception $e) {
-                        Log::error("Path = ".$v->path."\nController = ".$v->controller."\nError = ".$e->getMessage());
+                        Log::error("Path = " . $v->path . "\nController = " . $v->controller . "\nError = " . $e->getMessage());
                     }
                 }
             }
         });
     }
 
-    public static function route() {
+    public static function route()
+    {
 
         static::apiRoute();
         static::uploadRoute();
         static::authRoute();
-        static::userControllerRoute();
+        static::studentAuthRoute();
+        self::userControllerRoute();
         static::cbRoute();
     }
-
 }

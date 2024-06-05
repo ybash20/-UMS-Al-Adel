@@ -32,21 +32,21 @@ Route::get('/lib', function () {
 
 Route::get('/book_computer','BookLibraryController@index')->name('indexbookcomputer');
 
-Route::get('/student', function () {
-    return view('student');
-})->name('student');
+// Route::get('/student', function () {
+//     return view('student');
+// })->name('student');
 
-Route::get('/grades', function () {
-    return view('grades');
-})->name('grades');
+// Route::get('/grades', function () {
+//     return view('grades');
+// })->name('grades');
 
-Route::get('/timetables', function () {
-    return view('timetables');
-})->name('timetables');
+// Route::get('/timetables', function () {
+//     return view('timetables');
+// })->name('timetables');
 
-Route::get('/studyplan', function () {
-    return view('studyplan');
-})->name('studyplan');
+// Route::get('/studyplan', function () {
+//     return view('studyplan');
+// })->name('studyplan');
 
 Route::get('/college', function () {
     return view('college');

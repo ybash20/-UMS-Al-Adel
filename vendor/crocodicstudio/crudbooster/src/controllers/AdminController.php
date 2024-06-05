@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use App\Models\student;
 
 class AdminController extends CBController
 {
@@ -237,4 +238,66 @@ class AdminController extends CBController
 
         return redirect()->route('getLogin')->with('message', cbLang("message_after_logout"));
     }
+
+
+
+
+     public function StudentgetLogin()
+    {
+        if (Session::has('student_id')) {
+            return redirect('/student');
+        }
+        return view('crudbooster::login'); // تأكد من أن اسم البليد الصحيح هو student_login
+    }
+
+    public function StudentpostLogin()
+    {
+        $validator = Validator::make(Request::all(), [
+            'id' => 'required|numeric|exists:students,id',
+            'Code' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            $message = $validator->errors()->all();
+            return redirect()->back()->with(['message' => implode('<br>', $message), 'message_type' => 'danger']);
+        }
+
+        $id = Request::input("id");
+        $code = Request::input("Code");
+        $student = Student::where('id', $id)->first();
+
+        if ($student && $student->Code === $code) {
+            // تسجيل الدخول بنجاح
+            Session::put('student_id', $student->id);
+            Session::put('student_Email', $student->Email);
+            Session::put('student_code', $student->Code);
+
+            return redirect('/student')->with('message', 'تم تسجيل الدخول بنجاح');
+        } else {
+            return redirect('/admin/login')->with('message', 'البيانات غير صحيحة');
+        }
+    }
+
+    public function StudentgetLogout()
+    {
+        Session::flush();
+        return redirect('/admin/login')->with('message', 'تم تسجيل الخروج بنجاح');
+    }
+
+
+    public function StudentGrades()
+    {
+        return view('grades');
+    }
+
+    public function StudentStudyplan()
+    {
+        return view('studyplan');
+    }
+
+    public function StudentTimetables()
+    {
+        return view('timetables');
+    }
+
 }
