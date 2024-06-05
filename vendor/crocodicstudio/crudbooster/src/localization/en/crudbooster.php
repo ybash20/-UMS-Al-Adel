@@ -100,6 +100,12 @@ return [
     'alert_select_a_data' => 'Please select at least one data!',
     'alert_reset_password' => 'Reset Your Password',
 
+    'backup_database_done' => 'Database backup completed successfully : ',
+    'backup_database_failed' => 'Database backup failed : ',
+    'restore_database_done' => 'Database restore completed successfully : ',
+    'restore_database_failed' => 'Database restore failed : ',
+    'no_backup_file' => 'No backup files found.',
+
 
     'add_data_page_title' => 'Add :module',
     'edit_data_page_title' => 'Edit :module',

@@ -97,6 +97,12 @@ return [
     'alert_validation_error' => 'فضلا اكمل الحقول بشكل صحيح : :error',
     'alert_reset_password' => 'أعد تعيين كلمة مرورك',
 
+    'backup_database_done' => 'النسخ الاحتياطي لقاعدة البيانات تم بنجاح : ',
+    'backup_database_failed' => 'النسخ الاحتياطي لقاعدة البيانات فشِل : ',
+    'restore_database_done' => 'استعادة قاعدة البيانات تم بنجاح : ',
+    'restore_database_failed' => 'استعادة قاعدة البيانات فشِل : ',
+    'no_backup_file' => 'لا يوجد نسخ احتياطية.',
+
     'add_data_page_title' => 'اضافة :module',
     'edit_data_page_title' => 'تعديل :module',
     'detail_data_page_title' => 'تفاصيل :module',
