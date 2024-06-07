@@ -68,9 +68,9 @@ class RestoreDatabase extends Command
 
         $latestBackupFile = $files[0]->getPathname();
 
-        $mysqlPath = 'C:\\xampp\\mysql\\bin\\mysql.exe';
+        //$mysqlPath = 'C:\\xampp\\mysql\\bin\\mysql.exe';
         // Restore the database
-        $command = "\"{$mysqlPath}\" --user={$User} --password={$Pass} {$db} < {$latestBackupFile}";
+        $command = "mysql --user={$User} --password={$Pass} {$db} < {$latestBackupFile}";
 
         $returnVar = null;
         $output = null;
