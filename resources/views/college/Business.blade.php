@@ -12,7 +12,7 @@
         .row-nvg {
             text-align: right;
             /* margin-right: -24px;
-                                                margin-left: -30px; */
+                                                    margin-left: -30px; */
             font-size: 20px;
 
         }
@@ -407,8 +407,13 @@
 
 
         .read-more {
-            color: #007BFF;
-            cursor: pointer;
+            color: #fbfbfb;
+            /* cursor: pointer; */
+            border: none;
+            box-shadow: 1px 0 15px #6c757d9c;
+            width: 79px;
+            background-color: #0769ffb8;
+            border-radius: 2px;
         }
 
         .Business-Administration {
@@ -530,7 +535,7 @@
                             scrolling="auto"></iframe>
                     </span>
                 </p>
-                <span class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</span>
+                <button class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</button>
             </div>
             <div id="Business-Administration" class="Business-Administration">
                 <h2>ادارة اعمال</h2>
@@ -551,12 +556,12 @@
                         : الخطة الدراسية
                         <br>
                         <iframe src="https://cfm.ehu.es/ricardo/docs/python/Learning_Python.pdf" frameBorder="0"
-                        scrolling="auto"></iframe>
+                            scrolling="auto"></iframe>
                     </span>
                 </p>
-                <span class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</span>
+                <button class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</button>
             </div>
-            
+
         </div>
 
         <script>

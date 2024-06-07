@@ -407,8 +407,13 @@
 
 
         .read-more {
-            color: #007BFF;
-            cursor: pointer;
+            color: #fbfbfb;
+            /* cursor: pointer; */
+            border: none;
+            box-shadow: 1px 0 15px #6c757d9c;
+            width: 79px;
+            background-color: #0769ffb8;
+            border-radius: 2px;
         }
 
         .Islamic-Studies ,
@@ -554,7 +559,7 @@
                         scrolling="auto"></iframe>
                     </span>
                 </p>
-                <span class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</span>
+                <button class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</button>
             </div>
             
         </div>
