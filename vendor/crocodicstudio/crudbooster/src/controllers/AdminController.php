@@ -174,7 +174,7 @@ class AdminController extends CBController
             $data = ['code' => $rand_string, 'email' => g('email')];
             CRUDBooster::sendEmail(['to' => g('email'), 'data' => $data, 'template' => 'check_email']);
             $data['code'] = \Hash::make($rand_string);
-
+            
             if(DB::table('email_check')->where('email', $data['email'])->exists()){
                 DB::table('email_check')->where('email', $data['email'])->update(['code' => $data['code'],'updated_at' => date('Y-m-d H:i:s')]);
             }else{
@@ -186,7 +186,7 @@ class AdminController extends CBController
             return response()->json(['message' => cbLang("email_sending_done"), 'type' => 'success']);
         } catch (\Exception $e) {
             $message = $e->getMessage();
-            CRUDBooster::insertLog(cbLang('email_sending_failed') . 'Check Email', $message);
+            CRUDBooster::insertLog('Check Email: '.cbLang('email_sending_failed'), ['message' => $message, 'email' => g('email'), 'ip' => Request::server('REMOTE_ADDR')]);
             return response()->json(['message' => cbLang('email_sending_failed'), 'type' => 'error']);
         }
     }
@@ -194,7 +194,6 @@ class AdminController extends CBController
     {
         CRUDBooster::insertLog('the code',g('code'));
         CRUDBooster::insertLog('the email',Session::get('email'));
-
         $validator = Validator::make(Request::all(), [
             'code' => 'required|integer|between:99999,999999',
         ], [
@@ -209,7 +208,7 @@ class AdminController extends CBController
         try {
             $email = Session::get('email');
             $user = DB::table('email_check')->where('email', $email)->first();
-            $code = Request::input("code");
+            $code = g('code');
             if (\Hash::check($code, $user->code)) {
                 DB::table('email_check')->where('email', $email)->delete();
                 CRUDBooster::insertLog($email.' '.cbLang("email_check_code_done"), ['email' => $email, 'ip' => Request::server('REMOTE_ADDR')]);

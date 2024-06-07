@@ -518,11 +518,6 @@
                 <a href="#">الاقسام</a>
             </div>
         </div>
-        <div class="section-btn-coll">
-            <a href="#" class="section-button" onclick="showContent('computer-science')">علوم الحاسوب</a>
-            <a href="#" class="section-button" onclick="showContent('information-technology')">تقنية المعلومات</a>
-            <a href="#" class="section-button" onclick="showContent('networks')">شبكات</a>
-        </div>
         <div class="content">
             <div id="computer-science" class="computer-science">
                 <h2>علوم الحاسوب</h2>

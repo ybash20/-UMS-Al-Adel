@@ -305,7 +305,7 @@
                     </form>
                 </div>
                 <div class="btns_wrap">
-                    <div class="common_btns form_1_btns" style="display: none;">
+                    <div class="common_btns form_1_btns">
                         <button type="button" class="btn_next">
                             التالي
                             <span class="icon">
@@ -355,7 +355,7 @@
                             </span>
                         </button>
                     </div>
-                    <div class="common_btns form_5_btns">
+                    <div class="common_btns form_5_btns" style="display: none;">
                         <button type="button" class="btn_back">
                             <span class="icon">
                                 <ion-icon name="arrow-back-sharp"></ion-icon>

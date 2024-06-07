@@ -411,9 +411,7 @@
             cursor: pointer;
         }
 
-        .networks,
-        .information-technology,
-        .computer-science {
+        .Business-Administration {
             /* border: 1px solid #0056b3; */
             box-shadow: 13px 2px 21px 3px darkgrey;
             margin: 13px;
@@ -509,14 +507,9 @@
                 <a href="#">الاقسام</a>
             </div>
         </div>
-        <div class="section-btn-coll">
-            <a href="#" class="section-button" onclick="showContent('computer-science')">علوم الحاسوب</a>
-            <a href="#" class="section-button" onclick="showContent('information-technology')">تقنية المعلومات</a>
-            <a href="#" class="section-button" onclick="showContent('networks')">شبكات</a>
-        </div>
         <div class="content">
-            <div id="computer-science" class="computer-science">
-                <h2>علوم الحاسوب</h2>
+            <div id="Business-Administration" class="Business-Administration">
+                <h2>محاسبة</h2>
                 <p>
                     علوم الحاسوب هو مجال يركز على دراسة العمليات التي تتعلق بالحوسبة.
                     <span class="more-content">
@@ -539,8 +532,8 @@
                 </p>
                 <span class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</span>
             </div>
-            <div id="information-technology" class="information-technology">
-                <h2>تقنية المعلومات</h2>
+            <div id="Business-Administration" class="Business-Administration">
+                <h2>ادارة اعمال</h2>
                 <p>
                     تقنية المعلومات تشمل استخدام الحواسيب والشبكات لتخزين ومعالجة البيانات.
                     <span class="more-content">
@@ -563,29 +556,7 @@
                 </p>
                 <span class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</span>
             </div>
-            <div id="networks" class="networks">
-                <h2>شبكات</h2>
-                <p>
-                    الشبكات هي مجال من مجالات علم الحاسوب يختص بدراسة الربط بين الحواسيب والأجهزة الأخرى لتبادل البيانات.
-                    <span class="more-content"> الشبكات تلعب دورًا حيويًا في الاتصالات، بما في ذلك الإنترنت، والشبكات
-                        المحلية، والشبكات الواسعة، والشبكات اللاسلكية. من خلال الشبكات، يمكن للأجهزة التواصل مع بعضها البعض
-                        وتبادل الموارد والمعلومات بسرعة وفعالية.
-                        <br>
-                        : الرسالة
-                        <br>
-                        اعـداد كـوادر ذات كـفاءات عاليـة في مجال علـوم الحاسوب من خلال دمـج المعرفـة النظريـة والتطبيـق
-                        العملي بما يـؤهلهم للمنافسـة فـي سـوق العمـل.
-
-                        <br>
-                        : الخطة الدراسية
-                        <br>
-                        <iframe src="https://cfm.ehu.es/ricardo/docs/python/Learning_Python.pdf" frameBorder="0"
-                            scrolling="auto"></iframe>
-                    </span>
-
-                </p>
-                <span class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</span>
-            </div>
+            
         </div>
 
         <script>
