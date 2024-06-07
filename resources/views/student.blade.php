@@ -31,12 +31,12 @@
             .center {
                 flex-direction: column;
                 align-items: center;
-                height: auto;
+                /* height: auto; */
                 width: auto;
             }
 
             .image-container {
-                margin-top: 100px;
+                margin-top: 68px;
             }
         }
     </style>

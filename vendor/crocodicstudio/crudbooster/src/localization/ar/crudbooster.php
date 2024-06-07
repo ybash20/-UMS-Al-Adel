@@ -26,6 +26,10 @@ return [
     'filter_rows_total' => 'Total rows',
     'filter_rows_to' => 'to',
     'filter_rows_of' => 'of',
+    'correct-logout-student'=>'تم تسجيل الخروج بنجاح',
+    'error-login-student'=>'خطا في اسم المستخدم او كلمة السر',
+    'correct-login-student'=>'تم تسجيل الدخول بنجاح',
+
 
 
     'text_enter_the_password' => 'فضلا ادخل كلمة المرور لاستعادة جلسة العمل',

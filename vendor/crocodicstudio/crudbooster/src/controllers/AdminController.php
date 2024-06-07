@@ -271,16 +271,16 @@ class AdminController extends CBController
             Session::put('student_Email', $student->Email);
             Session::put('student_code', $student->Code);
 
-            return redirect('/student')->with('message', 'تم تسجيل الدخول بنجاح');
+            return redirect('/student')->with('message', cbLang('correct-login-student'));
         } else {
-            return redirect('/admin/login')->with('message', 'البيانات غير صحيحة');
+            return redirect('/admin/login')->with('message', cbLang('error-login-student'));
         }
     }
 
     public function StudentgetLogout()
     {
         Session::flush();
-        return redirect('/admin/login')->with('message', 'تم تسجيل الخروج بنجاح');
+        return redirect('/admin/login')->with('message',cbLang('correct-logout-student'));
     }
 
 
