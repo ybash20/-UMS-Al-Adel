@@ -56,8 +56,8 @@ class BackupDatabase extends Command
         $dbPassword = escapeshellarg(env('DB_PASSWORD'));
 
         // Use the full path to mysqldump
-        $mysqldumpPath = 'C:\\xampp\\mysql\\bin\\mysqldump.exe';
-        $command = "\"{$mysqldumpPath}\" --user={$dbUser} --password={$dbPassword} {$dbName} > {$backupPath}";
+        //$mysqldumpPath = 'C:\\xampp\\mysql\\bin\\mysqldump.exe';
+        $command = "mysqldump --user={$dbUser} --password={$dbPassword} {$dbName} > {$backupPath}";
         $returnVar = null;
         $output = null;
 
