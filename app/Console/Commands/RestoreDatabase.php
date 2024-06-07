@@ -68,9 +68,9 @@ class RestoreDatabase extends Command
 
         $latestBackupFile = $files[0]->getPathname();
 
-        $mysqlPath = 'C:\\xampp\\mysql\\bin\\mysql.exe';
+        //$mysqlPath = 'C:\\xampp\\mysql\\bin\\mysql.exe';
         // Restore the database
-        $command = "\"{$mysqlPath}\" --user={$User} --password={$Pass} {$db} < {$latestBackupFile}";
+        $command = "mysql --user={$User} --password={$Pass} {$db} < {$latestBackupFile}";
 
         $returnVar = null;
         $output = null;
@@ -78,11 +78,11 @@ class RestoreDatabase extends Command
         exec($command . ' 2>&1', $output, $returnVar);
 
         if ($returnVar !== 0) {
-            //CRUDbooster::insertLog(cbLang('restore_database_failed') , implode("\n", $output));
+            CRUDbooster::insertLog(cbLang('restore_database_failed') , implode("\n", $output));
             $this->info('Restore Database Failed');
 
         } else {
-            //CRUDbooster::insertLog(cbLang('restore_database_done') , $latestBackupFile);
+            CRUDbooster::insertLog(cbLang('restore_database_done') , $latestBackupFile);
             $this->info('Restore Database Done');
         }
         return Command::SUCCESS;
