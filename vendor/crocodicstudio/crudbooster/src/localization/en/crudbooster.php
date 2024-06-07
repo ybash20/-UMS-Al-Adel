@@ -79,7 +79,7 @@ return [
     'correct-logout-student' => 'Logout successful',
     'error-login-student' => 'Error in username or password',
     'correct-login-student' => 'Login successful',
-
+    'Add Data'=>'Add Data',
 
     'alert_delete_selected' => 'Are you sure want to delete all selected data ?',
     'alert_delete_selected_success' => 'Delete selected success !',

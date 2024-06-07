@@ -29,8 +29,7 @@ return [
     'correct-logout-student'=>'تم تسجيل الخروج بنجاح',
     'error-login-student'=>'خطا في اسم المستخدم او كلمة السر',
     'correct-login-student'=>'تم تسجيل الدخول بنجاح',
-
-
+    'Privileges'=>'الصلاحيات',
 
     'text_enter_the_password' => 'فضلا ادخل كلمة المرور لاستعادة جلسة العمل',
     'text_or_sign_in' => 'او سجل الدخول بمستخدم مختلف',
@@ -174,7 +173,6 @@ return [
     'controller_route_404' => 'لم يتم العثور على الرابط المطلوب',
     'home' => 'الرئيسية',
     'Notifications' => 'اشعارات',
-    'Privileges' => 'صلاحيات',
     'Privileges_Roles' => 'صلاحيات الوصول',
     'privilege_helper'=>'ملاحظة:لإظهار القائمة عليك إنشاء قائمة في إدارة القوائم',
     'Active_menu'=>'القائمة النشطة فارغة، يرجى إضافة قائمة جديدة',
@@ -187,6 +185,7 @@ return [
     'Menu_Inactive'=>'ترتيب القائمة( الغير نشطة)',
     'Add_menu'=>'أضافة قائمة',
     'Add_New_Setting' => 'اضافة اعدادات',
+    'Add Data'=>'اضافة بيانات',
     'Add_New_Module' => 'اضافة تطبيق',
     'List_Module' => 'عرض التطبيقات',
     'Add_New_Statistic' => 'اضافة احصائيات',
@@ -194,6 +193,7 @@ return [
     'Add_New_API' => 'اضافة API',
     'API_Generator' => 'انشاء API',
     'Statistic_Builder' => 'الاحصائيات والرسوم البيانية',
+    // 'Add Statistic_Builder'=>' اضافة الاحصائيات والرسوم البيانية ',
     'Module_Generator' => 'تطبيقات النظام',
     'settings' => 'اعدادات النظام',
     'Users_Management' => 'ادارة المستخدمين',

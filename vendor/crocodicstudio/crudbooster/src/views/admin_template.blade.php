@@ -105,10 +105,8 @@
             @if($module)
                 <h1>
                     <!--Now you can define $page_icon alongside $page_tite for custom forms to follow CRUDBooster theme style -->
-                    <i class='{!! ($page_icon)?:$module->icon !!}'></i>
-                     {!! ucwords(($page_title)?:$module->name) !!}
-                     &nbsp;&nbsp;
-
+                     <li class='{!! ($page_icon)?:$module->icon !!}'>
+                                    <span>{{ cbLang($module->name) }}</span></li>
                     <!--START BUTTON -->
 
                     @if(CRUDBooster::getCurrentMethod() == 'getIndex')
