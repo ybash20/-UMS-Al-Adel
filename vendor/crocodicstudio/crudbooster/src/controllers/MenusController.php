@@ -13,6 +13,7 @@ class MenusController extends CBController
 {
     public function cbInit()
     {
+        # START CONFIGURATION DO NOT REMOVE THIS LINE
         $this->table = "ums_menus";
         $this->primary_key = "id";
         $this->title_field = "name";
@@ -29,6 +30,7 @@ class MenusController extends CBController
         $this->button_filter = true;
         $this->button_export = false;
         $this->button_import = false;
+        # END CONFIGURATION DO NOT REMOVE THIS LINE
 
         $id = CRUDBooster::getCurrentId();
         if (Request::segment(3) == 'edit') {
@@ -142,12 +144,16 @@ class MenusController extends CBController
 				})
 			})
 			";
+        # END CONFIGURATION DO NOT REMOVE THIS LINE
 
+		# START COLUMNS DO NOT REMOVE THIS LINE
         $this->col = [];
         $this->col[] = ["label" => "Name", "name" => "name"];
         $this->col[] = ["label" => "Is Active", "name" => "is_active"];
         $this->col[] = ["label" => "Privileges", "name" => "id_ums_privileges", "join" => "ums_privileges,name"];
+		# END COLUMNS DO NOT REMOVE THIS LINE
 
+		# START FORM DO NOT REMOVE THIS LINE
         $this->form = [];
         $this->form[] = [
             "label" => "Privileges",
@@ -233,6 +239,7 @@ class MenusController extends CBController
 
         $id_ums_privileges = Request::get('id_ums_privileges');
         $this->form[] = ["label" => "id_ums_privileges", "name" => "id_ums_privileges", "type" => "hidden", "value" => $id_ums_privileges];
+        # END FORM DO NOT REMOVE THIS LINE
     }
 
     public function getIndex()

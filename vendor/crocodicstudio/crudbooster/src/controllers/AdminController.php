@@ -106,7 +106,7 @@ class AdminController extends CBController
         Session::put("admin_privileges", $users->id_ums_privileges);
         Session::put('admin_privileges_name', $priv->name);
         Session::put('admin_lock', 0);
-        Session::put('theme_color', $priv->theme_color);
+        Session::put('theme_color', $users->theme_color);
         Session::put("appname", get_setting('appname'));
 
         CRUDBooster::insertLog(cbLang("log_login"), ['email' => $users->email, 'ip' => Request::server('REMOTE_ADDR')]);
@@ -174,7 +174,7 @@ class AdminController extends CBController
             $data = ['code' => $rand_string, 'email' => g('email')];
             CRUDBooster::sendEmail(['to' => g('email'), 'data' => $data, 'template' => 'check_email']);
             $data['code'] = \Hash::make($rand_string);
-            
+
             if(DB::table('email_check')->where('email', $data['email'])->exists()){
                 DB::table('email_check')->where('email', $data['email'])->update(['code' => $data['code'],'updated_at' => date('Y-m-d H:i:s')]);
             }else{

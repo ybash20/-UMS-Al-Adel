@@ -42,7 +42,8 @@ class BackupDatabase extends Command
      */
     public function handle()
     {
-        $dbname = "backup-" . Carbon::now()->format('Y-m-d_H-i-s') . ".sql";
+        //$dbname = "backup-" . Carbon::now()->format('Y-m-d_H-i-s') . ".sql";
+        $dbname = "backup.sql";
         $backupPath = storage_path('app\backups\\' . $dbname);
 
         // Ensure the backup directory exists
@@ -70,12 +71,12 @@ class BackupDatabase extends Command
             CRUDbooster::insertLog(cbLang('backup_database_done') , $backupPath);
             $this->info('Database Backup Done');
         }
-        $files = File::files(storage_path('app\backups\\'));
-        foreach ($files as $file) {
-            if ($file->getPathname() !== $backupPath) {
-                File::delete($file->getPathname());
-            }
-        }
+        // $files = File::files(storage_path('app\backups\\'));
+        // foreach ($files as $file) {
+        //     if ($file->getPathname() !== $backupPath) {
+        //         File::delete($file->getPathname());
+        //     }
+        // }
 
         return Command::SUCCESS;
     }

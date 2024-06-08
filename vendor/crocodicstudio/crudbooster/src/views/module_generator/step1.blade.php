@@ -96,11 +96,15 @@
         </div>
         <div class="box-footer">
 
-            <input checked type='checkbox' name='create_menu' value='1'/> Also create menu for this module <a href='#'
-                                                                                                              title='If you check this, we will create the menu for this module'>(?)</a>
-
+            <input checked type='checkbox' name='create_menu' value='1'/>
+             Also create menu for this module
+             <a href='#' title='If you check this, we will create the menu for this module'>
+                (?)
+             </a>
             <div class='pull-right'>
-                <a class='btn btn-default' href='{{Route("ModulsControllerGetIndex")}}'> {{cbLang('button_back')}}</a>
+                <a class='btn btn-default' href='{{Route("ModulsControllerGetIndex")}}'>
+                    {{cbLang('button_back')}}
+                </a>
                 <input type="submit" class="btn btn-primary" value="Step 2 &raquo;">
             </div>
         </div>

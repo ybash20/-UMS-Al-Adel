@@ -2,7 +2,7 @@
 return [
     'title_MenuManagement'=>'ادارة القوائم',
     'name-collage' =>'جامعة العادل',
-    'menu_lang'=>'اللغة',
+    'lang'=>'اللغة',
     'LOCKSCREEN'=>'شاشة القفل',
     'title-dashboard'=>'لوحة التحكم',
     'Application Setting'=>' اعدادات النظام',

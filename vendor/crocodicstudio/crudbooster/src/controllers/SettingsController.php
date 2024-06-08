@@ -12,6 +12,7 @@ class SettingsController extends CBController
 {
     public function cbInit()
     {
+        # START CONFIGURATION DO NOT REMOVE THIS LINE
         $this->module_name = "Settings";
         $this->table = 'ums_settings';
         $this->primary_key = 'id';
@@ -22,11 +23,15 @@ class SettingsController extends CBController
         $this->button_cancel = false;
         $this->button_import = false;
         $this->button_export = false;
+        # END CONFIGURATION DO NOT REMOVE THIS LINE
 
+        # START COLUMNS DO NOT REMOVE THIS LINE
         $this->col = [];
         $this->col[] = ["label" => "Nama", "name" => "name", "callback_php" => "ucwords(str_replace('_',' ',%field%))"];
         $this->col[] = ["label" => "Setting", "name" => "content"];
+        # END COLUMNS DO NOT REMOVE THIS LINE
 
+        # START FORM DO NOT REMOVE THIS LINE
         $this->form = [];
 
         if (Request::get('group_setting')) {
@@ -62,6 +67,7 @@ class SettingsController extends CBController
 			",
         ];
         $this->form[] = ["label" => "Helper Text", "name" => "helper", "type" => "text"];
+        # END FORM DO NOT REMOVE THIS LINE
     }
 
     function getShow()

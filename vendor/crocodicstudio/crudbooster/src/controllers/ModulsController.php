@@ -1,17 +1,18 @@
 <?php namespace crocodicstudio\crudbooster\controllers;
 
-use CRUDBooster;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Excel;
 use Illuminate\Support\Facades\PDF;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use crocodicstudio\crudbooster\fonts\Fontawesome;
+use crocodicstudio\crudbooster\helpers\CRUDBooster;
 
 class ModulsController extends CBController
 {
     public function cbInit()
     {
+        # START CONFIGURATION DO NOT REMOVE THIS LINE
         $this->table = 'ums_moduls';
         $this->primary_key = 'id';
         $this->title_field = "name";
@@ -24,14 +25,18 @@ class ModulsController extends CBController
         $this->button_bulk_action = false;
         $this->button_action_style = 'button_icon';
         $this->orderby = ['is_protected' => 'asc', 'name' => 'asc'];
+        # END CONFIGURATION DO NOT REMOVE THIS LINE
 
+        # START COLUMNS DO NOT REMOVE THIS LINE
         $this->col = [];
         $this->col[] = ["label" => "Name", "name" => "name"];
         $this->col[] = ["label" => "Table", "name" => "table_name"];
         $this->col[] = ["label" => "Path", "name" => "path"];
         $this->col[] = ["label" => "Controller", "name" => "controller"];
         $this->col[] = ["label" => "Protected", "name" => "is_protected", "visible" => false];
+        # END COLUMNS DO NOT REMOVE THIS LINE
 
+        # START FORM DO NOT REMOVE THIS LINE
         $this->form = [];
         $this->form[] = ["label" => "Name", "name" => "name", "placeholder" => "Module name here", 'required' => true];
 
@@ -78,7 +83,6 @@ class ModulsController extends CBController
         $this->form[] = ["label" => "Controller", "name" => "controller", "type" => "text", "placeholder" => "(Optional) Auto Generated"];
 
         if (CRUDBooster::getCurrentMethod() == 'getAdd' || CRUDBooster::getCurrentMethod() == 'postAddSave') {
-
             $this->form[] = [
                 "label" => "Global Privilege",
                 "name" => "global_privilege",
@@ -179,12 +183,14 @@ class ModulsController extends CBController
         ];
 
         $this->index_button[] = ['label' => 'Generate New Module', 'icon' => 'fa fa-plus', 'url' => CRUDBooster::mainpath('step1'), 'color' => 'success'];
+        # END FORM DO NOT REMOVE THIS LINE
+
     }
 
     function hook_query_index(&$query)
     {
         $query->where('is_protected', 0);
-        $query->whereNotIn('ums_moduls.controller', ['AdminumsUsersController']);
+        //$query->whereNotIn('ums_moduls.controller', ['AdminUmsUsersController']);
     }
 
     function hook_before_delete($id)
@@ -197,7 +203,6 @@ class ModulsController extends CBController
     public function getTableColumns($table)
     {
         $columns = CRUDBooster::getTableColumns($table);
-
         return response()->json($columns);
     }
 
@@ -239,16 +244,18 @@ class ModulsController extends CBController
         foreach ($tables as $tab) {
             foreach ($tab as $key => $value) {
                 $label = $value;
-
                 if (substr($label, 0, 4) == 'ums_' && $label != config('crudbooster.USER_TABLE')) {
                     continue;
                 }
                 if ($label == 'migrations') {
                     continue;
                 }
-
                 $tables_list[] = $value;
             }
+        }
+        $moduls = DB::table('ums_moduls')->where('is_protected', 0)->get();
+        foreach($moduls as $modul){
+            $tables_list[] = $modul->table_name;
         }
 
         $fontawesome = Fontawesome::getIcons();
@@ -284,10 +291,15 @@ class ModulsController extends CBController
 
         if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
             $response = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
-            $column_datas = extract_unit($response, "# START COLUMNS DO NOT REMOVE THIS LINE", "# END COLUMNS DO NOT REMOVE THIS LINE");
-            $column_datas = str_replace('$this->', '$cb_', $column_datas);
-            eval($column_datas);
+        }else if(file_exists(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.str_replace('.', '', $row->controller).'.php'))) {
+            $response = file_get_contents(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.$row->controller.'.php'));
+        }else{
+            return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
         }
+        $column_datas = extract_unit($response, "# START COLUMNS DO NOT REMOVE THIS LINE", "# END COLUMNS DO NOT REMOVE THIS LINE");
+        $column_datas = str_replace('$this->', '$cb_', $column_datas);
+        eval($column_datas);
+
 
         $data = [];
         $data['id'] = $id;
@@ -319,7 +331,6 @@ class ModulsController extends CBController
             if (DB::table('ums_moduls')->where('path', $path)->where('deleted_at', null)->count()) {
                 return redirect()->back()->with(['message' => 'Sorry the slug has already exists, please choose another !', 'message_type' => 'warning']);
             }
-
             $created_at = now();
 
             $controller = CRUDBooster::generateController($table_name, $path);
@@ -330,7 +341,6 @@ class ModulsController extends CBController
                 $parent_menu_sort = DB::table('ums_menus')->where('parent_id', 0)->max('sorting') + 1;
 
                 $id_ums_menus = DB::table('ums_menus')->insertGetId([
-
                     'created_at' => date('Y-m-d H:i:s'),
                     'name' => $name,
                     'icon' => $icon,
@@ -341,6 +351,7 @@ class ModulsController extends CBController
                     'sorting' => $parent_menu_sort,
                     'parent_id' => 0,
                 ]);
+
                 DB::table('ums_menus_privileges')->insert(['id_ums_menus' => $id_ums_menus, 'id_ums_privileges' => CRUDBooster::myPrivilegeId()]);
             }
 
@@ -436,7 +447,14 @@ class ModulsController extends CBController
         }
 
         $scripts = implode("\n", $script_cols);
-        $raw = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
+
+        if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
+            $raw = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
+        }else if(file_exists(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.str_replace('.', '', $row->controller).'.php'))) {
+            $raw = file_get_contents(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.$row->controller.'.php'));
+        }else{
+            return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
+        }
         $raw = explode("# START COLUMNS DO NOT REMOVE THIS LINE", $raw);
         $rraw = explode("# END COLUMNS DO NOT REMOVE THIS LINE", $raw[1]);
 
@@ -447,7 +465,12 @@ class ModulsController extends CBController
         $file_controller .= "\t\t\t# END COLUMNS DO NOT REMOVE THIS LINE\n\n";
         $file_controller .= "\t\t\t".trim($rraw[1]);
 
-        file_put_contents(app_path('Http/Controllers/'.$row->controller.'.php'), $file_controller);
+        if(file_exists(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.str_replace('.', '', $row->controller).'.php'))) {
+            file_put_contents(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.$row->controller.'.php'), $file_controller);
+        }else{
+            file_put_contents(app_path('Http/Controllers/'.$row->controller.'.php'), $file_controller);
+        }
+
 
         return redirect(Route("ModulsControllerGetStep3")."/".$id);
     }
@@ -467,12 +490,16 @@ class ModulsController extends CBController
 
         $columns = CRUDBooster::getTableColumns($row->table_name);
 
-        if (file_exists(app_path('Http/Controllers/'.$row->controller.'.php'))) {
+        if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
             $response = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
-            $column_datas = extract_unit($response, "# START FORM DO NOT REMOVE THIS LINE", "# END FORM DO NOT REMOVE THIS LINE");
-            $column_datas = str_replace('$this->', '$cb_', $column_datas);
-            eval($column_datas);
+        }else if(file_exists(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.str_replace('.', '', $row->controller).'.php'))) {
+            $response = file_get_contents(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.$row->controller.'.php'));
+        }else{
+            return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
         }
+        $column_datas = extract_unit($response, "# START FORM DO NOT REMOVE THIS LINE", "# END FORM DO NOT REMOVE THIS LINE");
+        $column_datas = str_replace('$this->', '$cb_', $column_datas);
+        eval($column_datas);
 
         $types = [];
         foreach (glob(base_path('vendor/crocodicstudio/crudbooster/src/views/default/type_components').'/*', GLOB_ONLYDIR) as $dir) {
@@ -494,7 +521,6 @@ class ModulsController extends CBController
 
         $post = Request::all();
         $id = $post['id'];
-
         $label = $post['label'];
         $name = $post['name'];
         $width = $post['width'];
@@ -507,9 +533,7 @@ class ModulsController extends CBController
         $i = 0;
         $script_form = [];
         foreach ($label as $l) {
-
             if ($l != '') {
-
                 $form = [];
                 $form['label'] = $l;
                 $form['name'] = $name[$i];
@@ -519,21 +543,25 @@ class ModulsController extends CBController
                 if ($option[$i]) {
                     $form = array_merge($form, $option[$i]);
                 }
-
                 foreach ($form as $k => $f) {
                     if ($f == '') {
                         unset($form[$k]);
                     }
                 }
-
                 $script_form[$i] = "\t\t\t".'$this->form[] = '.min_var_export($form).";";
             }
-
             $i++;
         }
 
         $scripts = implode("\n", $script_form);
-        $raw = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
+
+        if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
+            $raw = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
+        }else if(file_exists(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.str_replace('.', '', $row->controller).'.php'))) {
+            $raw = file_get_contents(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.$row->controller.'.php'));
+        }else{
+            return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
+        }
         $raw = explode("# START FORM DO NOT REMOVE THIS LINE", $raw);
         $rraw = explode("# END FORM DO NOT REMOVE THIS LINE", $raw[1]);
 
@@ -573,7 +601,11 @@ class ModulsController extends CBController
         $file_controller .= "\t\t\t".trim($bottom_script);
 
         //CREATE FILE CONTROLLER
-        file_put_contents(app_path('Http/Controllers/'.$row->controller.'.php'), $file_controller);
+        if(file_exists(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.str_replace('.', '', $row->controller).'.php'))) {
+            file_put_contents(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.$row->controller.'.php'), $file_controller);
+        }else{
+            file_put_contents(app_path('Http/Controllers/'.$row->controller.'.php'), $file_controller);
+        }
 
         return redirect(Route("ModulsControllerGetStep4")."/".$id);
     }
@@ -593,14 +625,18 @@ class ModulsController extends CBController
 
         $data = [];
         $data['id'] = $id;
-        if (file_exists(app_path('Http/Controllers/'.$row->controller.'.php'))) {
+        if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
             $response = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
-            $column_datas = extract_unit($response, "# START CONFIGURATION DO NOT REMOVE THIS LINE", "# END CONFIGURATION DO NOT REMOVE THIS LINE");
-            $column_datas = str_replace('$this->', '$data[\'cb_', $column_datas);
-            $column_datas = str_replace(' = ', '\'] = ', $column_datas);
-            $column_datas = str_replace([' ', "\t"], '', $column_datas);
-            eval($column_datas);
+        }else if(file_exists(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.str_replace('.', '', $row->controller).'.php'))) {
+            $response = file_get_contents(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.$row->controller.'.php'));
+        }else{
+            return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
         }
+        $column_datas = extract_unit($response, "# START CONFIGURATION DO NOT REMOVE THIS LINE", "# END CONFIGURATION DO NOT REMOVE THIS LINE");
+        $column_datas = str_replace('$this->', '$data[\'cb_', $column_datas);
+        $column_datas = str_replace(' = ', '\'] = ', $column_datas);
+        $column_datas = str_replace([' ', "\t"], '', $column_datas);
+        eval($column_datas);
 
         return view('crudbooster::module_generator.step4', $data);
     }
@@ -638,7 +674,13 @@ class ModulsController extends CBController
         }
 
         $scripts = implode("\n", $script_config);
-        $raw = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
+        if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
+            $raw = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
+        }else if(file_exists(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.str_replace('.', '', $row->controller).'.php'))) {
+            $raw = file_get_contents(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.$row->controller.'.php'));
+        }else{
+            return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
+        }
         $raw = explode("# START CONFIGURATION DO NOT REMOVE THIS LINE", $raw);
         $rraw = explode("# END CONFIGURATION DO NOT REMOVE THIS LINE", $raw[1]);
 
@@ -648,7 +690,11 @@ class ModulsController extends CBController
         $file_controller .= "\t\t\t# END CONFIGURATION DO NOT REMOVE THIS LINE\n\n";
         $file_controller .= "\t\t\t".trim($rraw[1]);
 
-        file_put_contents(app_path('Http/Controllers/'.$row->controller.'.php'), $file_controller);
+        if(file_exists(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.str_replace('.', '', $row->controller).'.php'))) {
+            file_put_contents(base_path('vendor/crocodicstudio/crudbooster/src/controllers/'.$row->controller.'.php'), $file_controller);
+        }else{
+            file_put_contents(app_path('Http/Controllers/'.$row->controller.'.php'), $file_controller);
+        }
 
         return redirect()->route('ModulsControllerGetIndex')->with(['message' => cbLang('alert_update_data_success'), 'message_type' => 'success']);
     }

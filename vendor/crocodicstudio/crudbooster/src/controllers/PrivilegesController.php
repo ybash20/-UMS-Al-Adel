@@ -12,6 +12,7 @@ class PrivilegesController extends CBController
 {
     public function cbInit()
     {
+        # START CONFIGURATION DO NOT REMOVE THIS LINE
         $this->module_name = "Privilege";
         $this->table = 'ums_privileges';
         $this->primary_key = 'id';
@@ -21,7 +22,9 @@ class PrivilegesController extends CBController
         $this->button_action_style = 'button_icon';
         $this->button_detail = false;
         $this->button_bulk_action = false;
+        # END CONFIGURATION DO NOT REMOVE THIS LINE
 
+        # START COLUMNS DO NOT REMOVE THIS LINE
         $this->col = [];
         $this->col[] = ["label" => "ID", "name" => "id"];
         $this->col[] = ["label" => "Name", "name" => "name"];
@@ -30,16 +33,18 @@ class PrivilegesController extends CBController
             "name" => "is_superadmin",
             'callback_php' => '($row->is_superadmin)?"<span class=\"label label-success\">Superadmin</span>":"<span class=\"label label-default\">Standard</span>"',
         ];
-
+        # END COLUMNS DO NOT REMOVE THIS LINE
+        
+        # START FORM DO NOT REMOVE THIS LINE
         $this->form = [];
         $this->form[] = ["label" => "Name", "name" => "name", 'required' => true];
         $this->form[] = ["label" => "Is Superadmin", "name" => "is_superadmin", 'required' => true];
-        $this->form[] = ["label" => "Theme Color", "name" => "theme_color", 'required' => true];
 
         $this->alert[] = [
             'message' => "You can use the helper <code>CRUDBooster::getMyPrivilegeId()</code> to get current user login privilege id, or <code>CRUDBooster::getMyPrivilegeName()</code> to get current user login privilege name",
             'type' => 'info',
         ];
+        # END FORM DO NOT REMOVE THIS LINE
     }
 
     public function getAdd()

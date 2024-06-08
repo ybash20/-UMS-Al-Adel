@@ -10,6 +10,7 @@ class StatisticBuilderController extends CBController
 {
     public function cbInit()
     {
+        # START CONFIGURATION DO NOT REMOVE THIS LINE
         $this->table = "ums_statistics";
         $this->primary_key = "id";
         $this->title_field = "name";
@@ -27,10 +28,14 @@ class StatisticBuilderController extends CBController
         $this->button_filter = false;
         $this->button_export = false;
         $this->button_import = false;
+		# END CONFIGURATION DO NOT REMOVE THIS LINE
 
+        # START COLUMNS DO NOT REMOVE THIS LINE
         $this->col = [];
         $this->col[] = ["label" => "Name", "name" => "name"];
+        # END COLUMNS DO NOT REMOVE THIS LINE
 
+        # START FORM DO NOT REMOVE THIS LINE
         $this->form = [];
         $this->form[] = [
             "label" => "Name",
@@ -43,6 +48,8 @@ class StatisticBuilderController extends CBController
 
         $this->addaction = [];
         $this->addaction[] = ['label' => 'Builder', 'url' => CRUDBooster::mainpath('builder').'/[id]', 'icon' => 'fa fa-wrench'];
+        # END FORM DO NOT REMOVE THIS LINE
+
     }
 
     public function getShowDashboard()

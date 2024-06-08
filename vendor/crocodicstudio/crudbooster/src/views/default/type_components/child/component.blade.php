@@ -512,7 +512,7 @@ $name = str_slug($form['label'], '');
                         <div class="panel-heading">
                             <i class='fa fa-table'></i> {{cbLang('table_detail')}}
                         </div>
-                        <div class="panel-body no-padding table-responsive" style="max-height: 400px;overflow: auto;">
+                        <div class="panel-body table-responsive no-padding" style="max-height: 400px;overflow: auto;">
                             <table id='table-{{$name}}' class='table table-striped table-bordered'>
                                 <thead>
                                 <tr>
