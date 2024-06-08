@@ -205,7 +205,7 @@ return [
     'List_Email_Template' => 'List Email Template',
     'Email_Templates' => 'Email Templates',
     'Log_User_Access' => 'Log User Access',
-    'SUPERADMIN' => 'SUPERADMIN',
+    'SUPERADMIN' => 'MANAGER',
 
     'click_here' => 'Click here',
 
@@ -277,7 +277,7 @@ return [
     'privileges_super_admin' => 'Super Admin',
     'privileges_standart_user' => 'Standart user',
     'privileges_ID' => 'ID',
-    'set_as_superadmin' => 'Set as Superadmin',
+    'set_as_superadmin' => 'Set as Manager',
     'chose_theme_color_select' => '** Choose Backend Theme Color',
     'chose_theme_color' => ' Theme Color',
     'privileges_configuration' => 'Privileges Configuration',

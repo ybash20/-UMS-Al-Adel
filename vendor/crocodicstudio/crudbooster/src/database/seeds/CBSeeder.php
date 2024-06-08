@@ -23,6 +23,7 @@ class CBSeeder extends Seeder
                 'name' => 'Super Admin',
                 'email' => 'admin@crudbooster.com',
                 'password' => $password,
+                'theme_color' => 'skin-blue-light',
                 'id_ums_privileges' => 1,
                 'Status' => 'Active',
             ]);
@@ -31,6 +32,7 @@ class CBSeeder extends Seeder
                 'name' => 'Ayman Ali',
                 'email' => 'ayman.405060@gmail.com',
                 'password' => $password,
+                'theme_color' => 'skin-blue-light',
                 'id_ums_privileges' => 1,
                 'Status' => 'Active',
             ]);
@@ -73,7 +75,7 @@ class CBSeeder extends Seeder
                 'path' => 'notifications',
                 'table_name' => 'ums_notifications',
                 'controller' => 'NotificationsController',
-                'is_protected' => 1,
+                'is_protected' => 0,
                 'is_active' => 1,
             ],
             [
@@ -84,7 +86,7 @@ class CBSeeder extends Seeder
                 'path' => 'privileges',
                 'table_name' => 'ums_privileges',
                 'controller' => 'PrivilegesController',
-                'is_protected' => 1,
+                'is_protected' => 0,
                 'is_active' => 1,
             ],
             [
@@ -117,7 +119,7 @@ class CBSeeder extends Seeder
                 'path' => 'settings',
                 'table_name' => 'ums_settings',
                 'controller' => 'SettingsController',
-                'is_protected' => 1,
+                'is_protected' => 0,
                 'is_active' => 1,
             ],
             [
@@ -128,7 +130,7 @@ class CBSeeder extends Seeder
                 'path' => 'module_generator',
                 'table_name' => 'ums_moduls',
                 'controller' => 'ModulsController',
-                'is_protected' => 1,
+                'is_protected' => 0,
                 'is_active' => 1,
             ],
             [
@@ -139,7 +141,7 @@ class CBSeeder extends Seeder
                 'path' => 'menu_management',
                 'table_name' => 'ums_menus',
                 'controller' => 'MenusController',
-                'is_protected' => 1,
+                'is_protected' => 0,
                 'is_active' => 1,
             ],
             [
@@ -150,7 +152,7 @@ class CBSeeder extends Seeder
                 'path' => 'email_templates',
                 'table_name' => 'ums_email_templates',
                 'controller' => 'EmailTemplatesController',
-                'is_protected' => 1,
+                'is_protected' => 0,
                 'is_active' => 1,
             ],
             [
@@ -161,7 +163,7 @@ class CBSeeder extends Seeder
                 'path' => 'statistic_builder',
                 'table_name' => 'ums_statistics',
                 'controller' => 'StatisticBuilderController',
-                'is_protected' => 1,
+                'is_protected' => 0,
                 'is_active' => 1,
             ],
             [
@@ -183,7 +185,7 @@ class CBSeeder extends Seeder
                 'path' => 'logs',
                 'table_name' => 'ums_logs',
                 'controller' => 'LogsController',
-                'is_protected' => 1,
+                'is_protected' => 0,
                 'is_active' => 1,
             ],
         ];
@@ -399,7 +401,6 @@ class CBSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'name' => 'Super Administrator',
                 'is_superadmin' => 1,
-                'theme_color' => 'skin-red',
             ]);
         }
         if (DB::table('ums_privileges_roles')->count() == 0) {

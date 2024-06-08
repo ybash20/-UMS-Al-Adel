@@ -17,17 +17,6 @@
         </div>
         <div class='main-menu'>
             <ul class="sidebar-menu">
-                <li class="header">{{ cbLang('menu_lang') }}</li>
-                <?php
-                if (isset($_GET['lang'])) {
-                    setcookie('lang', $_GET['lang'], time() + 3 * 86, 400);
-                }
-                ?>
-                <form id="langForm" method="GET" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form_select">
-                    <button type="submit" name="lang" value="ar">عربي</button>
-                    <button type="submit" name="lang" value="en">English</button>
-                    <!-- يمكنك إضافة المزيد من الخيارات حسب الحاجة -->
-                </form>
                 <!-- Sidebar Menu -->
                 <li class="header">{{ cbLang('menu_navigation') }}</li>
                 <!-- Optionally, you can add icons to the links -->
@@ -133,18 +122,24 @@
                         </ul>
                     </li>
                     <li class='treeview'>
-                        <a href='#'><i class='fa fa-th'></i> <span>{{ cbLang('Module_Generator') }}</span> <i
-                                class="fa fa-angle-{{ cbLang('right') }} pull-{{ cbLang('right') }}"></i></a>
+                        <a href='#'>
+                            <i class='fa fa-th'></i> <span>
+                                {{ cbLang('Module_Generator') }}
+                            </span>
+                            <i class="fa fa-angle-{{ cbLang('right') }} pull-{{ cbLang('right') }}"></i>
+                        </a>
                         <ul class='treeview-menu'>
                             <li
                                 class="{{ Request::is(config('crudbooster.ADMIN_PATH') . '/module_generator/step1') ? 'active' : '' }}">
                                 <a href='{{ Route('ModulsControllerGetStep1') }}'><i class='fa fa-plus'></i>
                                     <span>{{ cbLang('Add_New_Module') }}</span></a>
                             </li>
-                            <li
-                                class="{{ Request::is(config('crudbooster.ADMIN_PATH') . '/module_generator') ? 'active' : '' }}">
-                                <a href='{{ Route('ModulsControllerGetIndex') }}'><i class='fa fa-bars'></i>
-                                    <span>{{ cbLang('List_Module') }}</span></a>
+                            <li class="{{ Request::is(config('crudbooster.ADMIN_PATH') . '/module_generator') ? 'active' : '' }}">
+                                <a href='{{ Route('ModulsControllerGetIndex') }}'>
+                                    <i class='fa fa-bars'></i>
+                                    <span>
+                                        {{ cbLang('List_Module') }}
+                                    </span></a>
                             </li>
                         </ul>
                     </li>

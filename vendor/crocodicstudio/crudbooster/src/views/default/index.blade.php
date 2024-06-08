@@ -32,7 +32,7 @@
 
     @if($parent_table)
         <div class="box box-default">
-            <div class="box-body table-responsive no-padding">
+            <div class="box-body table-responsive">
                 <table class='table table-bordered'>
                     <tbody>
                     <tr class='active'>
@@ -133,7 +133,7 @@
             <br style="clear:both"/>
 
         </div>
-        <div class="box-body table-responsive no-padding">
+        <div class="box-body table-responsive">
             @include("crudbooster::default.table")
         </div>
     </div>

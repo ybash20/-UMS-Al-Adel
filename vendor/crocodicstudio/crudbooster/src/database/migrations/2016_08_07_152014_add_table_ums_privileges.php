@@ -17,7 +17,6 @@ class AddTableUmsPrivileges extends Migration
 
             $table->string('name')->nullable();
             $table->boolean('is_superadmin')->nullable();
-            $table->string('theme_color')->nullable();
 
             $table->timestamps();
         });

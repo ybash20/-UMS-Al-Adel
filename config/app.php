@@ -1,6 +1,6 @@
 <?php
 
-$lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'ar';
+$lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en';
 
 return [
 

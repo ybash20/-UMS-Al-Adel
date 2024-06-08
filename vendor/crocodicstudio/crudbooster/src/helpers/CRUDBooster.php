@@ -1335,8 +1335,9 @@ class CRUDBooster
         file_put_contents($path.'Api'.$controller_name.'Controller.php', $php);
     }
 
-    public static function generateController($table, $name = null)
+    public static function generateController($table, $name = null, $path = null)
     {
+        $path = $path ?: base_path("app/Http/Controllers/");
 
         $exception = ['id', 'created_at', 'updated_at', 'deleted_at'];
         $image_candidate = explode(',', config('crudbooster.IMAGE_FIELDS_CANDIDATE'));
@@ -1353,7 +1354,6 @@ class CRUDBooster
             $controllername = str_replace(' ', '', $controllername).'Controller';
         }
 
-        $path = base_path("app/Http/Controllers/");
         $countSameFile = count(glob($path.'Admin'.$controllername.'.php'));
 
         if ($countSameFile != 0) {

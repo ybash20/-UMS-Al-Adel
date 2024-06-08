@@ -26,6 +26,7 @@ class AddTableUmsUsers extends Migration
             $table->string('Phone_number', 30)->nullable();
             $table->string('photo')->nullable();
             $table->string('Status', 50)->nullable();
+            $table->string('theme_color')->nullable();
             $table->unsignedBigInteger('id_ums_privileges')->nullable();
             $table->timestamps();
         });

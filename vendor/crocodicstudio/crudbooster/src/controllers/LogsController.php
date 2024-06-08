@@ -7,6 +7,7 @@ class LogsController extends CBController
 {
     public function cbInit()
     {
+        # START CONFIGURATION DO NOT REMOVE THIS LINE
         $this->table = 'ums_logs';
         $this->primary_key = 'id';
         $this->title_field = "ipaddress";
@@ -16,13 +17,17 @@ class LogsController extends CBController
         $this->button_add = false;
         $this->button_edit = false;
         $this->button_delete = true;
+		# END CONFIGURATION DO NOT REMOVE THIS LINE
 
+		# START COLUMNS DO NOT REMOVE THIS LINE
         $this->col = [];
         $this->col[] = ["label" => "Time Access", "name" => "created_at"];
         $this->col[] = ["label" => "IP Address", "name" => "ipaddress"];
         $this->col[] = ["label" => "User", "name" => "id_ums_users", "join" => config('crudbooster.USER_TABLE').",name"];
         $this->col[] = ["label" => "Description", "name" => "description"];
+		# END COLUMNS DO NOT REMOVE THIS LINE
 
+		# START FORM DO NOT REMOVE THIS LINE
         $this->form = [];
         $this->form[] = ["label" => "Time Access", "name" => "created_at", "readonly" => true];
         $this->form[] = ["label" => "IP Address", "name" => "ipaddress", "readonly" => true];
@@ -37,6 +42,7 @@ class LogsController extends CBController
         ];
         $this->form[] = ["label" => "Description", "name" => "description", "readonly" => true];
         $this->form[] = ["label" => "Details", "name" => "details", "type" => "custom"];
+        # END FORM DO NOT REMOVE THIS LINE
     }
 
     public static function displayDiff($old_values, $new_values)

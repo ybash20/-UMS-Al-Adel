@@ -119,7 +119,7 @@
 
             <form method='post' id="form" enctype="multipart/form-data" action='{{$action}}'>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body table-responsive">
                     <div class='callout callout-info'>
                         * Just ignoring the column where you are not sure the data is suit with the column or not.<br/>
                         * Warning !, Unfortunately at this time, the system can't import column that contains image or photo url.
