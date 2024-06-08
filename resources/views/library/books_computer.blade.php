@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Books of Computer')
+{{-- @section('title', 'Books') --}}
 
 @section('main')
     <style>
@@ -166,44 +166,40 @@
         }
     </style>
 
-    <div class="main_body_book">
-        <div class="section_departmaent_book">
-            Computer Section
-            <div class="search_books_form_new_books">
-                <form action="{{ route('indexbookcomputer') }}" method="GET" id="search-form" class="search-form-new-books">
-                    <input type="text" name="query" id="search-query" placeholder="Find the book"
-                        value="{{ $query ?? '' }}" class="search_books_input_new_books">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-
-        <div id="books-container" class="books-container-1">
-
-            @if (isset($book_computer) && !$book_computer->isEmpty())
-
-                @foreach ($book_computer as $book)
-                    <div class="book-1">
-
-                        @if ($book->Cover_Image)
-                            <img src="{{ asset($book->Cover_Image) }}" alt="Book Cover">
-                        @else
-                        <img src="{{ asset('image/about.png') }}" alt="Book Cover">
-                        @endif
-
-                        <h3 class="book-title-1">Book: {{ $book->Title }}</h3>
-
-                        <p class="book-author-1">Author: {{ $book->Author }}</p>
-
-                    </div>
-                @endforeach
-            @else
-                <p class="error-message_books">No books found.</p>
-
-            @endif
-
+<div class="main_body_book">
+    <div class="section_departmaent_book">
+        {{ $section->Name }}
+        <div class="search_books_form_new_books">
+            <form action="{{ route('showBooksBySection', ['section' => $section->Name]) }}" method="GET" id="search-form" class="search-form-new-books">
+                <input type="text" name="query" id="search-query" placeholder="Find the book"
+                    value="{{ $query ?? '' }}" class="search_books_input_new_books">
+                <button type="submit">Search</button>
+            </form>
         </div>
     </div>
+
+    <div id="books-container" class="books-container-1">
+        @if (isset($books) && !$books->isEmpty())
+            @foreach ($books as $book)
+                <div class="book-1">
+                    @if ($book->Cover_Image)
+                        <img src="{{ asset($book->Cover_Image) }}" alt="Book Cover">
+                    @else
+                        <img src="{{ asset('image/about.png') }}" alt="Book Cover">
+                    @endif
+
+                    <h3 class="book-title-1">Book: {{ $book->Title }}</h3>
+                    <p class="book-author-1">Author: {{ $book->Author }}</p>
+                </div>
+            @endforeach
+        @else
+            <p class="error-message_books">No books found.</p>
+        @endif
+    </div>
+</div>
+
+
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

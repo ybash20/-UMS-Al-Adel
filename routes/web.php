@@ -22,15 +22,20 @@ Route::get('/home', function () {
     return view('layouts.home');
 })->name('home');
 
-Route::get('/lib', function () {
-    return view('library/library');
-})->name('library');
+// Route::get('/lib', function () {
+//     return view('library/library');
+// })->name('library');
 
 // Route::get('/books_computer', function () {
 //     return view('library/books_computer');
 // })->name('books_computer');
 
-Route::get('/book_computer','BookLibraryController@index')->name('indexbookcomputer');
+// Route::get('/book_computer','BookLibraryController@index')->name('indexbookcomputer');
+// Route::get('/books/{section}', 'BookLibraryController@showBooksBySection')->name('showBooksBySection');
+
+Route::get('/library', 'BookLibraryController@library')->name('library');
+Route::get('/books_{section}', 'BookLibraryController@showBooksBySection')->name('showBooksBySection');
+
 
 // Route::get('/student', function () {
 //     return view('student');

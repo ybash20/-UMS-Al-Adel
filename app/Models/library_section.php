@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class library_section extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'Name','id'
+    ];
+
+    public function books()
+    {
+        return $this->hasMany(Book::class, 'Section_ID');
+    }
 }

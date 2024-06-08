@@ -18,4 +18,9 @@ class Book extends Model
         return empty($query) ? static::query()
             : static::where('Title', 'like', '%'.$query.'%');
     }
+
+    public function section()
+    {
+        return $this->belongsTo(library_section::class, 'Section_ID');
+    }
 }
