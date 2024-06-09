@@ -56,6 +56,16 @@ class LogsController extends CBController
 
         return $table;
     }
+    public static function displayTable($array)
+    {
+        $table = '<table class="table table-striped"><thead><tr><th>Name</th><th>Value</th></thead><tbody>';
+        foreach ($array as $name => $value) {
+            $table .= "<tr><td>$name</td><td>$value</td></tr>";
+        }
+        $table .= '</tbody></table>';
+
+        return $table;
+    }
 
     private static function getDiff($old_values, $new_values)
     {

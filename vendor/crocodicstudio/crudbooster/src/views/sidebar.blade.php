@@ -60,7 +60,7 @@
 
 
 
-                @if (CRUDBooster::isSuperadmin())
+                @if (CRUDBooster::isManager())
                     <li class="header">{{ cbLang('SUPERADMIN') }}</li>
                     <li class='treeview'>
                         <a href='#'><i class='fa fa-key'></i> <span>{{ cbLang('Privileges_Roles') }}</span> <i
@@ -81,7 +81,7 @@
                     </li>
 
                     <li class='treeview'>
-                        <a href='#'><i class='fa fa-users'></i> <span>{{ cbLang('Users_Management') }}</span> <i
+                        <a href='#'><i class='fa fa-users'></i> <span>{{ cbLang('users') }}</span> <i
                                 class="fa fa-angle-{{ cbLang('right') }} pull-{{ cbLang('right') }}"></i></a>
                         <ul class='treeview-menu'>
                             <li
@@ -99,7 +99,7 @@
                     <li
                         class="{{ Request::is(config('crudbooster.ADMIN_PATH') . '/menu_management*') ? 'active' : '' }}">
                         <a href='{{ Route('MenusControllerGetIndex') }}'><i class='fa fa-bars'></i>
-                            <span>{{ cbLang('Menu_Management') }}</span></a>
+                            <span>{{ cbLang('menu_management') }}</span></a>
                     </li>
                     <li class="treeview">
                         <a href="#"><i class='fa fa-wrench'></i> <span>{{ cbLang('settings') }}</span> <i
@@ -124,7 +124,7 @@
                     <li class='treeview'>
                         <a href='#'>
                             <i class='fa fa-th'></i> <span>
-                                {{ cbLang('Module_Generator') }}
+                                {{ cbLang('module_generator') }}
                             </span>
                             <i class="fa fa-angle-{{ cbLang('right') }} pull-{{ cbLang('right') }}"></i>
                         </a>
@@ -146,7 +146,7 @@
 
                     <li class='treeview'>
                         <a href='#'><i class='fa fa-dashboard'></i>
-                            <span>{{ cbLang('Statistic_Builder') }}</span> <i
+                            <span>{{ cbLang('statistic_builder') }}</span> <i
                                 class="fa fa-angle-{{ cbLang('right') }} pull-{{ cbLang('right') }}"></i></a>
                         <ul class='treeview-menu'>
                             <li
@@ -163,7 +163,7 @@
                     </li>
 
                     <li class='treeview'>
-                        <a href='#'><i class='fa fa-fire'></i> <span>{{ cbLang('API_Generator') }}</span> <i
+                        <a href='#'><i class='fa fa-fire'></i> <span>{{ cbLang('api_generator') }}</span> <i
                                 class="fa fa-angle-{{ cbLang('right') }} pull-{{ cbLang('right') }}"></i></a>
                         <ul class='treeview-menu'>
                             <li
@@ -186,7 +186,7 @@
 
                     <li class='treeview'>
                         <a href='#'><i class='fa fa-envelope-o'></i>
-                            <span>{{ cbLang('Email_Templates') }}</span> <i
+                            <span>{{ cbLang('email_templates') }}</span> <i
                                 class="fa fa-angle-{{ cbLang('right') }} pull-{{ cbLang('right') }}"></i></a>
                         <ul class='treeview-menu'>
                             <li
@@ -204,7 +204,7 @@
 
                     <li class="{{ Request::is(config('crudbooster.ADMIN_PATH') . '/logs*') ? 'active' : '' }}"><a
                             href='{{ Route('LogsControllerGetIndex') }}'><i class='fa fa-flag'></i>
-                            <span>{{ cbLang('Log_User_Access') }}</span></a></li>
+                            <span>{{ cbLang('logs') }}</span></a></li>
                 @endif
 
             </ul><!-- /.sidebar-menu -->

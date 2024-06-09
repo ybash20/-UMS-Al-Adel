@@ -38,22 +38,22 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'College','name'=>'College_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'colleges,Name'];
-			$this->form[] = ['label'=>'Degree Level','name'=>'Degree_Level_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'degree_levels,Name'];
-			$this->form[] = ['label'=>'Prerequisites','name'=>'Prerequisites','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Career Opportunities','name'=>'Career_Opportunities','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'text','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'College','name'=>'College_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'colleges,Name'];
+			$this->form[] = ['label'=>'Degree Level','name'=>'Degree_Level_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'degree_levels,Name'];
+			$this->form[] = ['label'=>'Prerequisites','name'=>'Prerequisites','type'=>'text','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Career Opportunities','name'=>'Career_Opportunities','type'=>'text','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'text','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'College','name'=>'College_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'colleges,Name'];
-			//$this->form[] = ['label'=>'Degree Level','name'=>'Degree_Level_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'degree_levels,Name'];
-			//$this->form[] = ['label'=>'Prerequisites','name'=>'Prerequisites','type'=>'text','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Career Opportunities','name'=>'Career_Opportunities','type'=>'text','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'text','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'College','name'=>'College_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'colleges,Name'];
+			//$this->form[] = ['label'=>'Degree Level','name'=>'Degree_Level_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'degree_levels,Name'];
+			//$this->form[] = ['label'=>'Prerequisites','name'=>'Prerequisites','type'=>'text','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Career Opportunities','name'=>'Career_Opportunities','type'=>'text','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'text','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*

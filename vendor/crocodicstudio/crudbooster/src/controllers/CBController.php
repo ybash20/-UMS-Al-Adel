@@ -1,11 +1,12 @@
 <?php namespace crocodicstudio\crudbooster\controllers;
+      use Exception;
 
 error_reporting(E_ALL ^ E_NOTICE);
 
 
-use CB;
 use crocodicstudio\crudbooster\export\DefaultExportXls;
-use CRUDBooster;
+use crocodicstudio\crudbooster\helpers\CRUDBooster;
+use crocodicstudio\crudbooster\helpers\CB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -14,10 +15,11 @@ use Illuminate\Support\Facades\PDF;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
-use Schema;
+use Illuminate\Support\Str;
 
 class CBController extends Controller
 {
@@ -551,7 +553,7 @@ class CBController extends Controller
 
                 if (isset($col['image'])) {
                     if ($value == '') {
-                        $value = "<a  data-lightbox='roadtrip' rel='group_{{$table}}' title='$label: $title' href='".asset('vendor/crudbooster/avatar.jpg')."'><img width='40px' height='40px' src='".asset('vendor/crudbooster/avatar.jpg')."'/></a>";
+                        $value = "<a  data-lightbox='roadtrip' rel='group_{{$table}}' title='$label: $title' href='".asset('image\user.png')."'><img width='40px' height='40px' src='".asset('image\user.png')."'/></a>";
                     } else {
                         $pic = (strpos($value, 'http://') !== false) ? $value : asset($value);
                         $value = "<a data-lightbox='roadtrip'  rel='group_{{$table}}' title='$label: $title' href='".$pic."'><img width='40px' height='40px' src='".$pic."'/></a>";
@@ -569,7 +571,7 @@ class CBController extends Controller
 
                 if ($col['str_limit']) {
                     $value = trim(strip_tags($value));
-                    $value = str_limit($value, $col['str_limit']);
+                    $value = Str::limit($value, $col['str_limit']);
                 }
 
                 if ($col['nl2br']) {
@@ -659,14 +661,11 @@ class CBController extends Controller
                 $pdf->setPaper($papersize, $paperorientation);
 
                 return $pdf->stream($filename.'.pdf');
-                break;
             case 'xls':
                 return Excel::download(new DefaultExportXls($response),$filename.".xls");
-                break;
             case 'csv':
 
                 return Excel::download(new DefaultExportXls($response),$filename.".csv");
-                break;
         }
     }
 
@@ -849,7 +848,6 @@ class CBController extends Controller
 
     public function validation($id = null)
     {
-
         $request_all = Request::all();
         $array_input = [];
         foreach ($this->data_inputan as $di) {
@@ -913,37 +911,35 @@ class CBController extends Controller
             }
 
             if (@$di['validation']) {
-
-                $exp = explode('|', $di['validation']);
-                if ($exp && count($exp)) {
-                    foreach ($exp as &$validationItem) {
-                        if (substr($validationItem, 0, 6) == 'unique') {
-                            $parseUnique = explode(',', str_replace('unique:', '', $validationItem));
-                            $uniqueTable = ($parseUnique[0]) ?: $this->table;
-                            $uniqueColumn = ($parseUnique[1]) ?: $name;
-                            $uniqueIgnoreId = ($parseUnique[2]) ?: (($id) ?: '');
-
-                            //Make sure table name
-                            $uniqueTable = CB::parseSqlTable($uniqueTable)['table'];
-
-                            //Rebuild unique rule
-                            $uniqueRebuild = [];
-                            $uniqueRebuild[] = $uniqueTable;
-                            $uniqueRebuild[] = $uniqueColumn;
-                            if ($uniqueIgnoreId) {
-                                $uniqueRebuild[] = $uniqueIgnoreId;
-                            } else {
-                                $uniqueRebuild[] = 'NULL';
+                if (!$id) {
+                    $exp = explode('|', $di['validation']);
+                    if ($exp && count($exp)) {
+                        foreach ($exp as &$validationItem) {
+                            if (substr($validationItem, 0, 6) == 'unique') {
+                                $parseUnique = explode(',', str_replace('unique:', '', $validationItem));
+                                $uniqueTable = ($parseUnique[0]) ?: $this->table;
+                                $uniqueColumn = ($parseUnique[1]) ?: $name;
+                                $uniqueIgnoreId = ($parseUnique[2]) ?: (($id) ?: '');
+                                //Make sure table name
+                                $uniqueTable = CB::parseSqlTable($uniqueTable)['table'];
+                                //Rebuild unique rule
+                                $uniqueRebuild = [];
+                                $uniqueRebuild[] = $uniqueTable;
+                                $uniqueRebuild[] = $uniqueColumn;
+                                if ($uniqueIgnoreId) {
+                                    $uniqueRebuild[] = $uniqueIgnoreId;
+                                } else {
+                                    $uniqueRebuild[] = 'NULL';
+                                }
+                                //Check whether deleted_at exists or not
+                                if (CB::isColumnExists($uniqueTable, 'deleted_at')) {
+                                    $uniqueRebuild[] = CB::findPrimaryKey($uniqueTable);
+                                    $uniqueRebuild[] = 'deleted_at';
+                                    $uniqueRebuild[] = 'NULL';
+                                }
+                                $uniqueRebuild = array_filter($uniqueRebuild);
+                                $validationItem = 'unique:'.implode(',', $uniqueRebuild);
                             }
-
-                            //Check whether deleted_at exists or not
-                            if (CB::isColumnExists($uniqueTable, 'deleted_at')) {
-                                $uniqueRebuild[] = CB::findPrimaryKey($uniqueTable);
-                                $uniqueRebuild[] = 'deleted_at';
-                                $uniqueRebuild[] = 'NULL';
-                            }
-                            $uniqueRebuild = array_filter($uniqueRebuild);
-                            $validationItem = 'unique:'.implode(',', $uniqueRebuild);
                         }
                     }
                 } else {
@@ -961,8 +957,8 @@ class CBController extends Controller
         $validator = Validator::make($request_all, $array_input);
 
         if ($validator->fails()) {
-            $message = $validator->messages();
-            $message_all = $message->all();
+            $message = $validator->errors(); // Use 'errors' instead of 'messages'
+            $message_all = $message->all(); // Retrieve all error messages as an array
 
             if (Request::ajax()) {
                 $res = response()->json([
@@ -975,7 +971,7 @@ class CBController extends Controller
                     'message' => cbLang('alert_validation_error', ['error' => implode(', ', $message_all)]),
                     'message_type' => 'warning',
                 ])->withInput();
-                \Session::driver()->save();
+                Session::driver()->save();
                 $res->send();
                 exit;
             }
@@ -1107,7 +1103,7 @@ class CBController extends Controller
             }
         }
     }
-
+    
     public function getAdd()
     {
         $this->cbLoader();

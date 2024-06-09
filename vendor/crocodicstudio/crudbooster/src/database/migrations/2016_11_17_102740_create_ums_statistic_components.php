@@ -14,7 +14,7 @@ class CreateUmsStatisticComponents extends Migration
     {
         Schema::create('ums_statistic_components', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_ums_statistics')->nullable();
+            $table->unsignedBigIntegerinteger('id_ums_statistics')->nullable();
             $table->string('componentID')->nullable();
             $table->string('component_name')->nullable();
             $table->string('area_name', 55)->nullable();

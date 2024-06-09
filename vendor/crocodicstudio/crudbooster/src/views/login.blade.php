@@ -315,7 +315,7 @@
                 @csrf
                 <div>
                     <p class='login-box-msg'>
-                        {{ cbLang('Label-employer') }}
+                        {{ cbLang('label_employer') }}
                     </p>
                     <img src="{{ asset('vendor/crudbooster/assets/empployee.png') }}" class="img_login">
                     <input class="input form-control" autocomplete='off' type="text" name='email'
@@ -341,7 +341,7 @@
             {{-- end form1 --}}
             <form class="form_2 data_info" action="{{ route('StudentpostLogin') }}" method="post">
                 @csrf
-                <p class='login-box-msg'>{{ cbLang('Label-student') }}</p>
+                <p class='login-box-msg'>{{ cbLang('label_student') }}</p>
                 <img src="{{ asset('vendor/crudbooster/assets/student.png') }}" class="img_login">
                 <div>
                     <div>
@@ -364,7 +364,7 @@
                     <i class="fas fa-user-tie"></i>
                 </button>
             </form>
-            
+
             <!--a href="#">I forgot my password</a-->
         </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->

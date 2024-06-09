@@ -58,26 +58,24 @@ class BackupDatabase extends Command
 
         // Use the full path to mysqldump
         //$mysqldumpPath = 'C:\\xampp\\mysql\\bin\\mysqldump.exe';
-        $command = "mysqldump --user={$dbUser} --password={$dbPassword} {$dbName} > {$backupPath}";
+        $command = "mysqldump --no-create-info --user={$dbUser} --password={$dbPassword} {$dbName} > {$backupPath}";
         $returnVar = null;
         $output = null;
 
         exec($command . ' 2>&1', $output, $returnVar);
 
         if ($returnVar !== 0) {
+        } else {
+        }
+        if ($returnVar !== 0) {
             CRUDbooster::insertLog(cbLang('backup_database_failed') , implode("\n", $output));
-            $this->error('Database Backup Failed');
+            $this->error("Database Backup Failed,\n Error: " . implode("\n", $output));
+            return Command::FAILURE;
         } else {
             CRUDbooster::insertLog(cbLang('backup_database_done') , $backupPath);
-            $this->info('Database Backup Done');
+            $this->info('Database Backup Done successfully');
+            return Command::SUCCESS;
         }
-        // $files = File::files(storage_path('app\backups\\'));
-        // foreach ($files as $file) {
-        //     if ($file->getPathname() !== $backupPath) {
-        //         File::delete($file->getPathname());
-        //     }
-        // }
-
         return Command::SUCCESS;
     }
 }

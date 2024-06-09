@@ -36,8 +36,8 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Content','name'=>'Content_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'contents,Content'];
-			$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Content','name'=>'Content_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'contents,Content'];
+			$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM

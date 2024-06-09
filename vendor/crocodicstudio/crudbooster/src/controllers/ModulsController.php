@@ -659,17 +659,16 @@ class ModulsController extends CBController
                 continue;
             }
 
-            if ($val != 'true' && $val != 'false') {
-                $value = '"'.$val.'"';
-            } else {
-                $value = $val;
+
+            if ($val == 'true' || $val == 'false') {
+                $script_config[$i] = "\t\t\t".'$this->'.$key.' = '.$val.';';
             }
-
-            // if($key == 'orderby') {
-            // 	$value = ;
-            // }
-
-            $script_config[$i] = "\t\t\t".'$this->'.$key.' = '.$value.';';
+            elseif ($val != '') {
+                $script_config[$i] = "\t\t\t".'$this->'.$key.' = "'.$val.'";';
+            }
+            else{
+                continue;
+            }
             $i++;
         }
 

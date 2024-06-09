@@ -97,9 +97,9 @@ class AdminController extends CBController
 
         $roles = DB::table('ums_privileges_roles')->where('id_ums_privileges', $users->id_ums_privileges)->join('ums_moduls', 'ums_moduls.id', '=', 'id_ums_moduls')->select('ums_moduls.name', 'ums_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
 
-        $photo = ($users->photo) ? asset($users->photo) : asset('vendor/crudbooster/avatar.jpg');
+        $photo = ($users->photo) ? asset($users->photo) : asset('image\user.png');
         Session::put('admin_id', $users->id);
-        Session::put('admin_is_superadmin', $priv->is_superadmin);
+        Session::put('admin_is_manager', $priv->is_manager);
         Session::put('admin_name', $users->name);
         Session::put('admin_photo', $photo);
         Session::put('admin_privileges_roles', $roles);
@@ -271,16 +271,16 @@ class AdminController extends CBController
             Session::put('student_Email', $student->Email);
             Session::put('student_code', $student->Code);
 
-            return redirect('/student')->with('message', cbLang('correct-login-student'));
+            return redirect('/student')->with('message', cbLang('student_login_success'));
         } else {
-            return redirect('/admin/login')->with('message', cbLang('error-login-student'));
+            return redirect('/admin/login')->with('message', cbLang('student_login_failed'));
         }
     }
 
     public function StudentgetLogout()
     {
         Session::flush();
-        return redirect('/admin/login')->with('message',cbLang('correct-logout-student'));
+        return redirect('/admin/login')->with('message',cbLang('logout_student_success'));
     }
 
 

@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use crocodicstudio\crudbooster\helpers\CRUDBooster;
+use Exception;
 
 class RestoreDatabase extends Command
 {
@@ -78,13 +79,13 @@ class RestoreDatabase extends Command
         exec($command . ' 2>&1', $output, $returnVar);
 
         if ($returnVar !== 0) {
-            CRUDbooster::insertLog(cbLang('restore_database_failed') , implode("\n", $output));
-            $this->info('Restore Database Failed');
-
+            CRUDbooster::insertLog(cbLang('restore_database_failed'), implode("\n", $output));
+            $this->error("Failed Restoring Database, Error: " . implode("\n", $output));
+            return Command::FAILURE;
         } else {
-            CRUDbooster::insertLog(cbLang('restore_database_done') , $latestBackupFile);
-            $this->info('Restore Database Done');
+            CRUDbooster::insertLog(cbLang('restore_database_done'), $latestBackupFile);
+            $this->info('Restore Database Done successfully');
+            return Command::SUCCESS;
         }
-        return Command::SUCCESS;
     }
 }

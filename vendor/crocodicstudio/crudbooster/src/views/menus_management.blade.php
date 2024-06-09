@@ -1,6 +1,5 @@
 @extends('crudbooster::admin_template')
 @section('content')
-
     @push('head')
         <style type="text/css">
             body.dragging, body.dragging * {
@@ -56,7 +55,6 @@
             }
         </style>
     @endpush
-
     @push('bottom')
         <script type="text/javascript">
             $(function () {
@@ -126,10 +124,8 @@
             });
         </script>
     @endpush
-
     <div class='row'>
         <div class="col-sm-5">
-
             <div class="panel panel-success">
                 <div class="panel-heading">
                     <strong>
@@ -199,11 +195,10 @@
                         @endforeach
                     </ul>
                     @if(count($menu_active)==0)
-                        <div>{{ cbLang('Active_menu') }}</div>
+                        <div>{{ cbLang('active_menu') }}</div>
                     @endif
                 </div>
             </div>
-
             <div class="panel panel-danger">
                 <div class="panel-heading">
                     <strong>
@@ -244,12 +239,10 @@
                         @endforeach
                     </ul>
                     @if(count($menu_inactive)==0)
-                        <div id='inactive_text' class='text-muted'>{{ cbLang('Inactive_menu') }}</div>
+                        <div id='inactive_text' class='text-muted'>{{ cbLang('inactive_menu') }}</div>
                     @endif
                 </div>
             </div>
-
-
         </div>
         <div class="col-sm-7">
             <div class="panel panel-primary">
@@ -269,6 +262,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

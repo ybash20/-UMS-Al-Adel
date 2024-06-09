@@ -37,16 +37,16 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Content','name'=>'Content','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'content_categories,Name'];
-			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Content','name'=>'Content','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'content_categories,Name'];
+			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Content','name'=>'Content','type'=>'text','validation'=>'required','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'content_categories,Name'];
-			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Content','name'=>'Content','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'content_categories,Name'];
+			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*

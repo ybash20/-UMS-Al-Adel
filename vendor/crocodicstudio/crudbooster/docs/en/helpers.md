@@ -4,7 +4,7 @@
 | ----------------------------- | --------------------------- |
 | CRUDBooster::getSetting($name) | To get the setting. $name you can fill from slug of settings |
 | CRUDBooster::myId() | To get your current user id |
-| CRUDBooster::isSuperadmin() | To get if you are is superadmin or not |
+| CRUDBooster::isManager() | To get if you are is manager or not |
 | CRUDBooster::myName() | To get currently user name |
 | CRUDBooster::myPrivilegeId() | To get currently user privilege id |
 | CRUDBooster::myPrivilegeName() | To get currently user privilege name |

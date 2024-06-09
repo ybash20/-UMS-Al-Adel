@@ -23,7 +23,7 @@ class CBSeeder extends Seeder
                 'name' => 'Super Admin',
                 'email' => 'admin@crudbooster.com',
                 'password' => $password,
-                'theme_color' => 'skin-blue-light',
+                'theme_color' => 'skin-blue',
                 'id_ums_privileges' => 1,
                 'Status' => 'Active',
             ]);
@@ -32,7 +32,7 @@ class CBSeeder extends Seeder
                 'name' => 'Ayman Ali',
                 'email' => 'ayman.405060@gmail.com',
                 'password' => $password,
-                'theme_color' => 'skin-blue-light',
+                'theme_color' => 'skin-blue',
                 'id_ums_privileges' => 1,
                 'Status' => 'Active',
             ]);
@@ -68,7 +68,6 @@ class CBSeeder extends Seeder
         # CB Modules
         $data = [
             [
-
                 'created_at' => date('Y-m-d H:i:s'),
                 'name' => 'Notifications',
                 'icon' => 'fa fa-cog',
@@ -92,7 +91,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => 'Privileges_Roles',
+                'name' => 'Privileges Roles',
                 'icon' => 'fa fa-cog',
                 'path' => 'privileges_roles',
                 'table_name' => 'ums_privileges_roles',
@@ -103,7 +102,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => 'Users_Management',
+                'name' => 'Users Management',
                 'icon' => 'fa fa-users',
                 'path' => 'users',
                 'table_name' => 'ums_users',
@@ -114,7 +113,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => 'settings',
+                'name' => 'Settings',
                 'icon' => 'fa fa-cog',
                 'path' => 'settings',
                 'table_name' => 'ums_settings',
@@ -125,7 +124,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => 'Module_Generator',
+                'name' => 'Module Generator',
                 'icon' => 'fa fa-database',
                 'path' => 'module_generator',
                 'table_name' => 'ums_moduls',
@@ -136,7 +135,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => 'Menu_Management',
+                'name' => 'Menu Management',
                 'icon' => 'fa fa-bars',
                 'path' => 'menu_management',
                 'table_name' => 'ums_menus',
@@ -147,7 +146,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => 'Email_Templates',
+                'name' => 'Email Templates',
                 'icon' => 'fa fa-envelope-o',
                 'path' => 'email_templates',
                 'table_name' => 'ums_email_templates',
@@ -158,7 +157,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => 'Statistic_Builder',
+                'name' => 'Statistic Builder',
                 'icon' => 'fa fa-dashboard',
                 'path' => 'statistic_builder',
                 'table_name' => 'ums_statistics',
@@ -169,7 +168,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => 'API_Generator',
+                'name' => 'API Generator',
                 'icon' => 'fa fa-cloud-download',
                 'path' => 'api_generator',
                 'table_name' => '',
@@ -180,7 +179,7 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => 'Log_User_Access',
+                'name' => 'Log User Access',
                 'icon' => 'fa fa-flag-o',
                 'path' => 'logs',
                 'table_name' => 'ums_logs',
@@ -396,11 +395,11 @@ class CBSeeder extends Seeder
         # CB Setting End
 
         # CB Privilege
-        if (DB::table('ums_privileges')->where('name', 'Super Administrator')->count() == 0) {
+        if (DB::table('ums_privileges')->where('name', 'Manager')->count() == 0) {
             DB::table('ums_privileges')->insert([
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => 'Super Administrator',
-                'is_superadmin' => 1,
+                'name' => 'Manager',
+                'is_manager' => 1,
             ]);
         }
         if (DB::table('ums_privileges_roles')->count() == 0) {

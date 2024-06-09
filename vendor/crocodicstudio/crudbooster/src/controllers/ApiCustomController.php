@@ -26,7 +26,7 @@ class ApiCustomController extends CBController
     {
         $this->cbLoader();
 
-        if (! CRUDBooster::isSuperadmin()) {
+        if (! CRUDBooster::isManager()) {
             CRUDBooster::insertLog(cbLang("log_try_view", ['name' => 'API Index', 'module' => 'API']));
             CRUDBooster::redirect(CRUDBooster::adminPath(), cbLang('denied_access'));
         }
@@ -127,7 +127,7 @@ class ApiCustomController extends CBController
     {
         $this->cbLoader();
 
-        if (! CRUDBooster::isSuperadmin()) {
+        if (! CRUDBooster::isManager()) {
             CRUDBooster::insertLog(cbLang("log_try_view", ['name' => 'API Index', 'module' => 'API']));
             CRUDBooster::redirect(CRUDBooster::adminPath(), cbLang('denied_access'));
         }
@@ -152,7 +152,7 @@ class ApiCustomController extends CBController
     {
         $this->cbLoader();
 
-        if (! CRUDBooster::isSuperadmin()) {
+        if (! CRUDBooster::isManager()) {
             CRUDBooster::insertLog(cbLang("log_try_view", ['name' => 'API Edit', 'module' => 'API']));
             CRUDBooster::redirect(CRUDBooster::adminPath(), cbLang('denied_access'));
         }

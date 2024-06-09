@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{{ cbLang('LOCKSCREEN') }} : {{ $appname }}</title>
+    <title>{{ cbLang('lock_screen') }} : {{ $appname }}</title>
     <meta name='generator' content='CRUDBooster' />
     <meta name='robots' content='noindex,nofollow' />
     <link rel="shortcut icon"

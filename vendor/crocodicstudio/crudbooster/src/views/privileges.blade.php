@@ -37,21 +37,21 @@
 
                     <div class='form-group'>
                         <label>
-                            {{cbLang('set_as_superadmin')}}
+                            {{cbLang('set_as_manager')}}
                         </label>
-                        <div id='set_as_superadmin' class='radio'>
+                        <div id='set_as_manager' class='radio'>
                             <label>
-                                <input required {{ (@$row->is_superadmin==1)?'checked':'' }} type='radio' name='is_superadmin' value='1'/>
+                                <input required {{ (@$row->is_manager==1)?'checked':'' }} type='radio' name='is_manager' value='1'/>
                                 {{cbLang('confirmation_yes')}}
                             </label>
                             &nbsp;&nbsp;
                             <label>
-                                <input {{ (@$row->is_superadmin==0)?'checked':'' }} type='radio' name='is_superadmin' value='0'/>
+                                <input {{ (@$row->is_manager==0)?'checked':'' }} type='radio' name='is_manager' value='0'/>
                                 {{cbLang('confirmation_no')}}
                             </label>
                         </div>
                         <div class="text-danger">
-                            {{ $errors->first('is_superadmin') }}
+                            {{ $errors->first('is_manager') }}
                         </div>
                     </div>
 
@@ -59,7 +59,7 @@
                             <script type="text/javascript">
                                 $(function () {
 
-                                    $('#set_as_superadmin input').click(function () {
+                                    $('#set_as_manager input').click(function () {
                                         var n = $(this).val();
                                         if (n == '1') {
                                             $('#privileges_configuration').hide();
@@ -68,7 +68,7 @@
                                         }
                                     })
 
-                                    $('#set_as_superadmin input:checked').trigger('click');
+                                    $('#set_as_manager input:checked').trigger('click');
                                 })
                             </script>
                         @endpush

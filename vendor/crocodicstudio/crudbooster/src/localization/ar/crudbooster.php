@@ -1,17 +1,17 @@
 <?php
 return [
     'title_MenuManagement'=>'ادارة القوائم',
-    'name-collage' =>'جامعة العادل',
+    'name_collage' =>'جامعة العادل',
     'lang'=>'اللغة',
-    'LOCKSCREEN'=>'شاشة القفل',
-    'title-dashboard'=>'لوحة التحكم',
-    'Application Setting'=>' اعدادات النظام',
-    'Login Register Style'=>'شكل تسجيل الدخول',
-    'Email Setting'=>'اعدادت البريد',
+    'lock_screen'=>'شاشة القفل',
+    'title_dashboard'=>'لوحة التحكم',
+    'application_setting'=>' اعدادات النظام',
+    'login_register_style'=>'شكل تسجيل الدخول',
+    'email_setting'=>'اعدادت البريد',
     'Al-Adel Unveristiy'=>'جامعة العادل',
-    'Inactive_menu'=>'القائمة غير النشطة فارغة',
-    'Label-student' =>'واجهة الطالب',
-    'Label-employer'=>'واجهة الموظف',
+    'inactive_menu'=>'القائمة غير النشطة فارغة',
+    'label_student' =>'واجهة الطالب',
+    'label_employer'=>'واجهة الموظف',
     'email_footer' => 'هذه رسالة تلقائية ، الرجاء عدم الرد مباشرة على هذا البريد الإلكتروني .',
     'login_message' => 'الرجاء تسجيل الدخول',
     'text_forgot_password' => 'نسيت كلمة المرور؟',
@@ -26,10 +26,10 @@ return [
     'filter_rows_total' => 'Total rows',
     'filter_rows_to' => 'to',
     'filter_rows_of' => 'of',
-    'correct-logout-student'=>'تم تسجيل الخروج بنجاح',
-    'error-login-student'=>'خطا في اسم المستخدم او كلمة السر',
-    'correct-login-student'=>'تم تسجيل الدخول بنجاح',
-    'Privileges'=>'الصلاحيات',
+    'logout_student_success'=>'تم تسجيل الخروج بنجاح',
+    'student_login_failed'=>'خطا في اسم المستخدم او كلمة السر',
+    'student_login_success'=>'تم تسجيل الدخول بنجاح',
+    'privileges'=>'الصلاحيات',
 
     'text_enter_the_password' => 'فضلا ادخل كلمة المرور لاستعادة جلسة العمل',
     'text_or_sign_in' => 'او سجل الدخول بمستخدم مختلف',
@@ -175,41 +175,61 @@ return [
     'Notifications' => 'اشعارات',
     'Privileges_Roles' => 'صلاحيات الوصول',
     'privilege_helper'=>'ملاحظة:لإظهار القائمة عليك إنشاء قائمة في إدارة القوائم',
-    'Active_menu'=>'القائمة النشطة فارغة، يرجى إضافة قائمة جديدة',
+    'active_menu'=>'القائمة النشطة فارغة، يرجى إضافة قائمة جديدة',
     'Add_New_Privilege' => 'اضافة صلاحية',
     'List_Privilege' => 'عرض الصلاحيات',
     'add_user' => 'اضافة مستخدم',
     'List_users' => 'عرض المستخدمين',
-    'Menu_Management' => 'ادارة القوائم',
+    'menu_management' => 'ادارة القوائم',
     'Menu-Order'=>'ترتيب القائمة(النشطة)',
     'Menu_Inactive'=>'ترتيب القائمة( الغير نشطة)',
     'Add_menu'=>'أضافة قائمة',
     'Add_New_Setting' => 'اضافة اعدادات',
-    'Add Data'=>'اضافة بيانات',
+    'add_data'=>'اضافة بيانات',
     'Add_New_Module' => 'اضافة تطبيق',
     'List_Module' => 'عرض التطبيقات',
     'Add_New_Statistic' => 'اضافة احصائيات',
     'List_Statistic' => 'عرض الاحصائيات',
     'Add_New_API' => 'اضافة API',
-    'API_Generator' => 'انشاء API',
-    'Statistic_Builder' => 'الاحصائيات والرسوم البيانية',
-    // 'Add Statistic_Builder'=>' اضافة الاحصائيات والرسوم البيانية ',
-    'Module_Generator' => 'تطبيقات النظام',
+    'api_generator' => 'انشاء API',
+    'statistic_builder' => 'الاحصائيات والرسوم البيانية',
+    // 'Add statistic_builder'=>' اضافة الاحصائيات والرسوم البيانية ',
+    'module_generator' => 'تطبيقات النظام',
     'settings' => 'اعدادات النظام',
-    'Users_Management' => 'ادارة المستخدمين',
+    'users' => 'ادارة المستخدمين',
     'list_API' => 'عرض API',
     'Generate_Screet_Key' => 'انشاء مفتاح',
     'Add_New_Email' => 'اضافة قالب جديد',
     'List_Email_Template' => 'عرض القوالب',
-    'Email_Templates' => 'قوالب البريد الإلكتروني',
-    'Log_User_Access' => 'سجلات النظام',
+    'email_templates' => 'قوالب البريد الإلكتروني',
+    'logs' => 'سجلات النظام',
     'SUPERADMIN' => 'مدير النظام ',
-
     'click_here' => 'اضغط هنا ',
 
+
+    'degree_levels' => 'مستويات الدرجة العلمية',
+    'colleges' => 'الكليات',
+    'majors' => 'التخصصات',
+    'students' => 'طلاب',
+    'content_images' => 'صور المحتوى',
+    'content_categories' => 'فئات المحتوى',
+    'contents' => ' المحتوى',
+    'library_sections' => 'أقسام المكتبة',
+    'books' => 'الكتب',
+    ""،
+""،
+""،
+ ''،
+ ""،
+ ""،
+''،
+ ""،
+""،
+
+
     /*
-     * this is for html direction to use in html and css classes like :
-     * pull-left , pull-right , text-right ...
+    * this is for html direction to use in html and css classes like :
+        * pull-left , pull-right , text-right ...
      * to make it easy to use the the view for rtl langs .
      * unless your language use right-to-left direction , you should keep it as it is :
      */
@@ -266,7 +286,7 @@ return [
     'privileges_super_admin' => 'مدير النظام',
     'privileges_standart_user' => 'مستخدم',
     'privileges_ID' => 'م',
-    'set_as_superadmin' => 'تعيين كمدير للنظام',
+    'set_as_manager' => 'تعيين كمدير للنظام',
     'chose_theme_color_select' => '** اختر لون لوحة التحكم',
     'chose_theme_color' => ' لون لوحة التحكم',
     'privileges_configuration' => 'اعدادات الصلاحيات',
