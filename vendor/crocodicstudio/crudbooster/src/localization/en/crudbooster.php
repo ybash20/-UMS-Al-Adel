@@ -3,7 +3,7 @@ return [
     'menu_management' => ' Menu Management',
     'dashboard' => 'Dashboard',
     'collage' => 'Al-Adel',
-    'student_form' => 'form student',
+    'student_form' => 'Student Form',
     'lock_screen' => 'lockscreen',
     'text_helper' => 'Enter your email on the social networking site',
     'privilege_helper' => 'Note:To show the menu you have to create a menu at Menu Management',

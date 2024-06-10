@@ -340,7 +340,7 @@
             {{-- end form1 --}}
             <form class="form_2 data_info" action="{{ route('StudentpostLogin') }}" method="post">
                 @csrf
-                <p class='login-box-msg'>{{ cbLang('label_student') }}</p>
+                <p class='login-box-msg'>{{ cbLang('student_form') }}</p>
                 <img src="{{ asset('vendor/crudbooster/assets/student.png') }}" class="img_login">
                 <div>
                     <div>
