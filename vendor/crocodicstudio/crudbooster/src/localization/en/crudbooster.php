@@ -1,10 +1,28 @@
 <?php
 return [
+<<<<<<< Updated upstream
     'title_MenuManagement' => 'Menu Management',
     'title_dashboard' => 'Dashboard',
     'name_collage' => 'Al-Adel',
     'label_student' => 'form student',
     'lock_screen' => 'lock_screen',
+=======
+    'title_MenuManagement' => ' Menu Management',
+    'title-dashboard' => 'Dashboard',
+    'name-collage' => 'Al-Adel',
+    'Students'=>'Students',
+    'Majors'=>'Majors',
+    'Degree Levels'=>'Degree Levels',
+    'Colleges'=>'Colleges',
+    'Books'=>'Books',
+    'Sections'=>'Sections',
+    'Library'=>'Library',
+    'Content Images'=>'Content Images',
+    'Content Categories'=>'Content Categories',
+    'Contents'=>'Contents',
+    'Label-student' => 'form student',
+    'LOCKSCREEN' => 'LOCKSCREEN',
+>>>>>>> Stashed changes
     'text_helper' => 'Enter your email on the social networking site',
     'privilege_helper' => 'Note:To show the menu you have to create a menu at Menu Management',
     'active_menu' => 'Active menu is empty, please add new menu',
