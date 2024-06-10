@@ -215,6 +215,8 @@ return [
     'content_images' => 'Content Images',
     'content_categories' => 'Content Categories',
     'contents' => 'Contents',
+    'library' => 'Library',
+    'sections' => 'Library Sections',
     'library_sections' => 'Library Sections',
     'books' => 'Books',
 

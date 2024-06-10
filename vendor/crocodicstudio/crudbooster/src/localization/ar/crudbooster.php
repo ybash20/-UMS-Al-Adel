@@ -232,6 +232,8 @@ return [
     'content_images' => 'صور المحتوى',
     'content_categories' => 'فئات المحتوى',
     'contents' => ' المحتوى',
+    'library' => 'المكتبة',
+    'sections' => 'أقسام المكتبة',
     'library_sections' => 'أقسام المكتبة',
     'books' => 'الكتب',
     ""،
