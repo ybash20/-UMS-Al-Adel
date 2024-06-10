@@ -1,6 +1,6 @@
 <?php
 return [
-    'title_MenuManagement'=>'ادارة القوائم',
+    'menu_management'=>'ادارة القوائم',
     'name_collage' =>'جامعة العادل',
     'lang'=>'اللغة',
 <<<<<<< Updated upstream
@@ -10,8 +10,8 @@ return [
     'login_register_style'=>'شكل تسجيل الدخول',
     'email_setting'=>'اعدادت البريد',
 =======
-    'LOCKSCREEN'=>'شاشة القفل',
-    'title-dashboard'=>'لوحة التحكم',
+    'lockscreen'=>'شاشة القفل',
+    'dashboard'=>'لوحة التحكم',
     'Application Setting'=>' اعدادات النظام',
     'Login Register Style'=>'شكل تسجيل الدخول',
     'Students'=>'الطلاب',
