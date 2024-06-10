@@ -7,7 +7,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ cbLang('page_title_login') }} </title>
-    <meta name='generator' content='CRUDBooster' />
     <meta name='robots' content='noindex,nofollow' />
     <link rel="shortcut icon"
         href="{{ CRUDBooster::getSetting('favicon') ? asset(CRUDBooster::getSetting('favicon')) : asset('vendor/crudbooster/assets/logo_crudbooster.png') }}">

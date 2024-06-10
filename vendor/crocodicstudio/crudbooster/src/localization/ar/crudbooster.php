@@ -3,29 +3,13 @@ return [
     'menu_management'=>'ادارة القوائم',
     'name_collage' =>'جامعة العادل',
     'lang'=>'اللغة',
-<<<<<<< Updated upstream
     'lock_screen'=>'شاشة القفل',
-    'title_dashboard'=>'لوحة التحكم',
     'application_setting'=>' اعدادات النظام',
     'login_register_style'=>'شكل تسجيل الدخول',
     'email_setting'=>'اعدادت البريد',
-=======
-    'lockscreen'=>'شاشة القفل',
     'dashboard'=>'لوحة التحكم',
-    'Application Setting'=>' اعدادات النظام',
-    'Login Register Style'=>'شكل تسجيل الدخول',
-    'Students'=>'الطلاب',
-    'Majors'=>'التخصصات',
-    'Degree Levels'=>'درجات الفصل',
-    'Colleges'=>'الكليات',
-    'Content Images'=>'صور المحتوى',
-    'Content Categories'=>'فئات المحتوى',
-    'Contents'=>'المحتويات',
-    'Books'=>'الكتب',
-    'Sections'=>'اقسام المكتبة',
-    'Library'=>'المكتبة',
+
     'Email Setting'=>'اعدادت البريد',
->>>>>>> Stashed changes
     'Al-Adel Unveristiy'=>'جامعة العادل',
     'inactive_menu'=>'القائمة غير النشطة فارغة',
     'label_student' =>'واجهة الطالب',
@@ -224,11 +208,9 @@ return [
     'SUPERADMIN' => 'مدير النظام ',
     'click_here' => 'اضغط هنا ',
 
-
     'degree_levels' => 'مستويات الدرجة العلمية',
     'colleges' => 'الكليات',
     'majors' => 'التخصصات',
-    'students' => 'طلاب',
     'content_images' => 'صور المحتوى',
     'content_categories' => 'فئات المحتوى',
     'contents' => ' المحتوى',
@@ -236,15 +218,6 @@ return [
     'sections' => 'أقسام المكتبة',
     'library_sections' => 'أقسام المكتبة',
     'books' => 'الكتب',
-    ""،
-""،
-""،
- ''،
- ""،
- ""،
-''،
- ""،
-""،
 
 
     /*

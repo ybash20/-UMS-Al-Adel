@@ -58,7 +58,7 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <i class='fa fa-cog'></i> {{$page_title}}
+                <i class='fa fa-cog'></i> {{ cbLang($page_title)}}
             </div>
             <div class="panel-body">
                 <form method='post' id="form" enctype="multipart/form-data" action='{{CRUDBooster::mainpath("save-setting?group_setting=$page_title")}}'>
