@@ -58,7 +58,7 @@ class BackupDatabase extends Command
 
         // Use the full path to mysqldump
         //$mysqldumpPath = 'C:\\xampp\\mysql\\bin\\mysqldump.exe';
-        $command = "mysqldump --no-create-info --user={$dbUser} --password={$dbPassword} {$dbName} > {$backupPath}";
+        $command = "mysqldump --user={$dbUser} --password={$dbPassword} --no-create-info --ignore-table={$dbName}.migrations {$dbName} > {$backupPath}";
         $returnVar = null;
         $output = null;
 
