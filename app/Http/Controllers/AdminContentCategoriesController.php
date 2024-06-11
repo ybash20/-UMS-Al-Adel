@@ -30,6 +30,7 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
+			$this->col[] = ["label"=>"Id","name"=>"id"];
 			$this->col[] = ["label"=>"Name","name"=>"Name"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
@@ -41,8 +42,8 @@
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ["label"=>"Name","name"=>"Name","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Description","name"=>"Description","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*
