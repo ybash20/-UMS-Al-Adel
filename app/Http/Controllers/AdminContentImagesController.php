@@ -30,20 +30,20 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Content ID","name"=>"Content_ID","join"=>"contents,Content"];
+			$this->col[] = ["label"=>"Content","name"=>"Content_ID","join"=>"contents,Content"];
 			$this->col[] = ["label"=>"Image","name"=>"Image","image"=>true];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
 			$this->form[] = ['label'=>'Content','name'=>'Content_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'contents,Content'];
-			$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','validation'=>'required|image','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ["label"=>"Content ID","name"=>"Content_ID","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Image","name"=>"Image","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ['label'=>'Content','name'=>'Content_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'contents,Content'];
+			//$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*

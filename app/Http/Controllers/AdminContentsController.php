@@ -23,8 +23,8 @@
 			$this->button_detail = true;
 			$this->button_show = true;
 			$this->button_filter = true;
-			$this->button_import = false;
-			$this->button_export = false;
+			$this->button_import = true;
+			$this->button_export = true;
 			$this->table = "contents";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
@@ -46,7 +46,7 @@
 			//$this->form = [];
 			//$this->form[] = ['label'=>'Content','name'=>'Content','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'content_categories,Name'];
-			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*
