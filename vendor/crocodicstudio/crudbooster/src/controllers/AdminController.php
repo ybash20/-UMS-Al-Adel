@@ -12,7 +12,7 @@ class AdminController extends CBController
     function getIndex()
     {
         $data = [];
-        $data['page_title'] = '<strong>Dashboard</strong>';
+        $data['page_title'] = 'Dashboard';
 
         return view('crudbooster::home', $data);
     }

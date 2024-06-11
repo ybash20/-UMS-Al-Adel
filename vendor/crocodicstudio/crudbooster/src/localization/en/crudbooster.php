@@ -1,7 +1,7 @@
 <?php
 return [
-    'menu_management' => ' Menu Management',
-    'dashboard' => 'Dashboard',
+    'Menu Management' => ' Menu Management',
+    'Dashboard' => 'Dashboard',
     'collage' => 'Al-Adel',
     'student_form' => 'Student Form',
     'lock_screen' => 'lockscreen',
@@ -12,7 +12,7 @@ return [
     'lang' => 'language',
     'login_register_style' => 'Login Register Style',
     'email_setting' => 'Email Setting',
-    'label_employer' => 'form employer',
+    'label_employer' => 'Form Employer',
     'email_footer' => 'Do not reply any email to this email address. This email sent automatically by our system. ',
     'login_message' => 'Please login to start your session',
     'text_forgot_password' => 'Forgot the password ?',
@@ -78,7 +78,7 @@ return [
     'logout_student_success' => 'Logout successful',
     'student_login_failed' => 'Error in username or password',
     'student_login_success' => 'Login successful',
-    'add_data'=>'Add Data',
+    'Add Data'=>'Add Data',
 
     'alert_delete_selected' => 'Are you sure want to delete all selected data ?',
     'alert_delete_selected_success' => 'Delete selected success !',
@@ -110,9 +110,9 @@ return [
     'no_backup_file' => 'No backup files found.',
 
 
-    'add_data_page_title' => 'Add :module',
-    'edit_data_page_title' => 'Edit :module',
-    'detail_data_page_title' => 'Detail :module',
+    'add_data_page_title' => ':module',
+    'edit_data_page_title' => ':module',
+    'detail_data_page_title' => ':module',
 
     'default_module_description' => 'Data List',
 
@@ -177,7 +177,7 @@ return [
     'controller_route_404' => 'Controller / Route Not Found',
     'home' => 'Home',
     'Notifications' => 'Notifications',
-    'privileges' => 'Privileges',
+    'Privileges' => 'Privileges',
     'Privileges_Roles' => 'Privileges Roles',
     'Add_New_Privilege' => 'Add New Privilege',
     'List_Privilege' => 'List Privilege',
@@ -195,9 +195,10 @@ return [
     'Add_New_API' => 'Add New API',
     'api_generator' => 'API Generator',
     'statistic_builder' => 'Statistic Builder',
-    'module_generator' => 'Module Generator',
+    'Module Generator' => 'Module Generator',
     'settings' => 'Settings',
     'users' => 'Users Management',
+    'Users Management'=>'Users Management',
     'list_API' => 'List API (Documentation)',
     'Generate_Screet_Key' => 'Generate Secret Key',
     'Add_New_Email' => 'Add New Email',
@@ -205,20 +206,20 @@ return [
     'email_templates' => 'Email Templates',
     'logs' => 'Log User Access',
     'SUPERADMIN' => 'MANAGER',
+    'label_student'=>'Form Student',
 
     'click_here' => 'Click here',
 
-    'degree_levels' => 'Degree Levels',
-    'colleges' => 'Colleges',
-    'majors' => 'Majors',
-    'students' => 'Students',
-    'content_images' => 'Content Images',
-    'content_categories' => 'Content Categories',
-    'contents' => 'Contents',
-    'library' => 'Library',
-    'sections' => 'Library Sections',
-    'library_sections' => 'Library Sections',
-    'books' => 'Books',
+    'Degree Levels' => 'Degree Levels',
+    'Colleges' => 'Colleges',
+    'Majors' => 'Majors',
+    'Students' => 'Students',
+    'Content Images' => 'Content Images',
+    'Content Categories' => 'Content Categories',
+    'Contents' => 'Contents',
+    'Library' => 'Library',
+    'Sections' => 'Library Sections',
+    'Books' => 'Books',
 
 
     /*

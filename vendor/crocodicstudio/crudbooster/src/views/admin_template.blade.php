@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{{ $page_title ? get_setting('appname') . ': ' . strip_tags($page_title) : 'Admin Area' }}</title>
+    <title>{{ $page_title ? get_setting('appname') . ': ' . strip_tags( cbLang($page_title) ): 'Admin Area' }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="noindex,nofollow">
     <link rel="shortcut icon" href="{{ CRUDBooster::getSetting('favicon') ? asset(CRUDBooster::getSetting('favicon')) : asset('vendor/crudbooster/assets/logo_crudbooster.png') }}">
@@ -201,7 +201,7 @@
                             </li>
                             <li class="active">
                                 <i class="{{ $page_icon ?? $module->icon }}"></i>
-                                {{ cbLang($module->path) }}
+                                {{ cbLang($page_title) }}
                             </li>
                             {{-- @if ($button_show || ($button_add && CRUDBooster::isCreate()) || ($button_export && CRUDBooster::getCurrentMethod() == 'getIndex') || ($button_import && CRUDBooster::getCurrentMethod() == 'getIndex')) --}}
                             <li>
@@ -253,7 +253,7 @@
                     <h1>
                         {{ Session::get('appname') }}
                         <small>
-                            {{ cbLang('text_dashboard') }}
+                            {{ cbLang($page_title) }}
                         </small>
                     </h1>
                 @endif

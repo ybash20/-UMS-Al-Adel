@@ -46,6 +46,7 @@
             font-weight: normal;
             font-style: normal;
         }
+
         @font-face {
             font-family: "Font Awesome 5 Brands";
             font-style: normal;
@@ -85,6 +86,7 @@
         .icon-twitter:before {
             content: "\f099";
         }
+
         .fa-facebook:before {
             content: "\f09a"
         }
@@ -1151,17 +1153,21 @@
             position: relative;
             color: #212529;
         }
+
         .site-mobile-menu .site-nav-wrap a.active,
         .site-mobile-menu .site-nav-wrap a:hover {
             color: #007bff;
         }
+
         .site-mobile-menu .site-nav-wrap li {
             position: relative;
             display: block;
         }
+
         .site-mobile-menu .site-nav-wrap li.active>a {
             color: #007bff;
         }
+
         .site-mobile-menu .site-nav-wrap .arrow-collapse {
             position: absolute;
             right: 0px;
@@ -1173,9 +1179,11 @@
             cursor: pointer;
             border-radius: 50%;
         }
+
         .site-mobile-menu .site-nav-wrap .arrow-collapse:hover {
             background: #f8f9fa;
         }
+
         .site-mobile-menu .site-nav-wrap .arrow-collapse:before {
             font-size: 12px;
             z-index: 20;
@@ -1191,81 +1199,119 @@
             -o-transition: .3s all ease;
             transition: .3s all ease;
         }
+
         .site-mobile-menu .site-nav-wrap .arrow-collapse.collapsed:before {
             -webkit-transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
         }
+
         .site-mobile-menu .site-nav-wrap>li {
             display: block;
             position: relative;
             float: left;
             width: 100%;
         }
+
         .site-mobile-menu .site-nav-wrap>li>a {
             padding-left: 20px;
             font-size: 20px;
         }
+
         .site-mobile-menu .site-nav-wrap>li>ul {
             padding: 0;
             margin: 0;
             list-style: none;
         }
+
         .site-mobile-menu .site-nav-wrap>li>ul>li {
             display: block;
         }
+
         .site-mobile-menu .site-nav-wrap>li>ul>li>a {
             padding-left: 40px;
             font-size: 16px;
         }
+
         .site-mobile-menu .site-nav-wrap>li>ul>li>ul {
             padding: 0;
             margin: 0;
         }
+
         .site-mobile-menu .site-nav-wrap>li>ul>li>ul>li {
             display: block;
         }
+
         .site-mobile-menu .site-nav-wrap>li>ul>li>ul>li>a {
             font-size: 16px;
             padding-left: 60px;
         }
+
         .sticky-wrapper {
             position: absolute;
             z-index: 110;
             width: 100%;
         }
+
         .sticky-wrapper+.site-blocks-cover {
             margin-top: 96px;
         }
+
         .sticky-wrapper .site-navbar {
             -webkit-transition: .3s all ease;
             -o-transition: .3s all ease;
             transition: .3s all ease;
         }
+
         .sticky-wrapper .site-navbar ul li.active a {
             color: #fff;
         }
+
         .ico_pr {
             padding-right: 0.75rem;
             padding-left: 0.75rem;
             align-items: center;
         }
+
         .d-end-flex {
             display: flex;
             justify-content: flex-end;
         }
+
         .fs-16 {
             font-size: 16px;
         }
+
         .fs-12 {
             font-size: 12px;
         }
+
         .fa-lg {
             font-size: 1.33333em;
             line-height: .75em;
             vertical-align: -.0667em
         }
+
+        .my-translate-element {
+            /* Add your custom styles here */
+            font-family: 'Your Preferred Font', sans-serif;
+            font-size: 14px;
+            color: #c90d0d;
+        }
+
+        .my-translate-element .goog-te-gadget {
+            /* Target specific elements within the Google Translate element */
+            font-size: 16px;
+        }
+
+        .my-translate-element .goog-te-combo {
+            /* Style the language dropdown */
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+        }
     </style>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
     <div class="bodyheader">
         <div class="site-mobile-menu site-navbar-target">
             <div class="site-mobile-menu-header">
@@ -1289,17 +1335,32 @@
                                     <span class="icon-phone mr-2"></span>
                                     <span class="d-none d-md-inline-block">+967 2 367 133</span>
                                 </a>
+                                <a>
+                                    <div id="google_translate_element" class="my-translate-element"></div>
+                                </a>
                             </div>
+                            <script>
+                                function googleTranslateElementInit() {
+                                    new google.translate.TranslateElement({
+                                        pageLanguage: 'en',
+                                        includedLanguages: 'en,ar',
+                                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                                    }, 'google_translate_element');
+                                }
+                            </script>
                         </div>
                         <div class="col-6 text-right">
                             <div class="mr-auto d-end-flex">
-                                <a href="https://www.instagram.com/aladel.un?igsh=NnkwcDM0eTRkbTVh" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow">
+                                <a href="https://www.instagram.com/aladel.un?igsh=NnkwcDM0eTRkbTVh"
+                                    class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow">
                                     <span class="icon-instagram fs-16"></span>
                                 </a>
-                                <a href="https://www.facebook.com/Aladel.University/" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow">
+                                <a href="https://www.facebook.com/Aladel.University/"
+                                    class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow">
                                     <span class="fa-facebook fab fs-16"></span>
                                 </a>
-                                <a href="https://www.youtube.com/@user-nz4ef8qy7h" class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow">
+                                <a href="https://www.youtube.com/@user-nz4ef8qy7h"
+                                    class="header_a d-flex align-items-center ico_pr" target="_blank" rel="nofollow">
                                     <span class="fa-youtube fab fs-16"></span>
                                 </a>
                             </div>
@@ -1328,7 +1389,7 @@
                                     <ul class="header_ul site-menu main-menu js-clone-nav d-none d-lg-block">
                                         <li class="active">
                                             <a href="{{ route('home') }}" class="header_a nav-link">
-                                            Home
+                                                Home
                                             </a>
                                         </li>
                                         <li>
@@ -1384,10 +1445,10 @@
                                             </a>
                                         </li>
                                         <li>
-                                        <a href="{{ asset('/admin/login') }}" class="header_a nav-link">
-                                            Login
-                                            <i class="fas fa-sign-in-alt"></i>
-                                        </a>
+                                            <a href="{{ asset('/admin/login') }}" class="header_a nav-link">
+                                                Login
+                                                <i class="fas fa-sign-in-alt"></i>
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>

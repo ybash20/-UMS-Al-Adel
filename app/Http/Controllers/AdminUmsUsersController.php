@@ -75,7 +75,7 @@ class AdminUmsUsersController extends CBController {
 		$this->button_delete  = FALSE;
 		$this->hide_form 	  = ['id_ums_privileges'];
 
-		$data['page_title'] = cbLang("label_button_profile");
+		$data['page_title'] = "label_button_profile";
 		$data['row']        = CRUDBooster::first('ums_users',CRUDBooster::myId());
 
         return $this->view('crudbooster::default.form',$data);

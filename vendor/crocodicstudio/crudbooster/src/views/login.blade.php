@@ -133,6 +133,7 @@
             color: white;
             border: none;
             font-family: sans-serif;
+            text-align: center;
         }
 
         .header-container {
@@ -201,7 +202,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            margin-bottom: 214px;
+            margin-bottom: 5px;
         }
 
         /* @media (max-width: 700px) {

@@ -1,14 +1,30 @@
 <?php
 return [
-    'menu_management'=>'ادارة القوائم',
+    'Menu Management'=>'ادارة القوائم',
     'name_collage' =>'جامعة العادل',
+    'Users Management'=>'ادرة المستخدمين',
     'lang'=>'اللغة',
+<<<<<<< Updated upstream
     'lock_screen'=>'شاشة القفل',
+    'title_dashboard'=>'لوحة التحكم',
     'application_setting'=>' اعدادات النظام',
     'login_register_style'=>'شكل تسجيل الدخول',
     'email_setting'=>'اعدادت البريد',
+=======
+    'lockscreen'=>'شاشة القفل',
     'dashboard'=>'لوحة التحكم',
-
+    'Application Setting'=>' اعدادات النظام',
+    'Login Register Style'=>'شكل تسجيل الدخول',
+    'Students'=>'الطلاب',
+    'Majors'=>'التخصصات',
+    'Degree Levels'=>'درجات الفصل',
+    'Colleges'=>'الكليات',
+    'Content Images'=>'صور المحتوى',
+    'Content Categories'=>'فئات المحتوى',
+    'Contents'=>'المحتويات',
+    'Books'=>'الكتب',
+    'Sections'=>'اقسام المكتبة',
+    'Library'=>'المكتبة',
     'Email Setting'=>'اعدادت البريد',
     'Al-Adel Unveristiy'=>'جامعة العادل',
     'inactive_menu'=>'القائمة غير النشطة فارغة',
@@ -32,7 +48,6 @@ return [
     'student_login_failed'=>'خطا في اسم المستخدم او كلمة السر',
     'student_login_success'=>'تم تسجيل الدخول بنجاح',
     'privileges'=>'الصلاحيات',
-    'students' => 'الطلاب',
 
     'text_enter_the_password' => 'فضلا ادخل كلمة المرور لاستعادة جلسة العمل',
     'text_or_sign_in' => 'او سجل الدخول بمستخدم مختلف',
@@ -109,9 +124,9 @@ return [
     'restore_database_failed' => 'استعادة قاعدة البيانات فشِل : ',
     'no_backup_file' => 'لا يوجد نسخ احتياطية.',
 
-    'add_data_page_title' => 'اضافة :module',
-    'edit_data_page_title' => 'تعديل :module',
-    'detail_data_page_title' => 'تفاصيل :module',
+    'add_data_page_title' => ':module',
+    'edit_data_page_title' => ':module',
+    'detail_data_page_title' => ':module',
 
     'default_module_description' => 'جدول البيانات',
 
@@ -196,7 +211,7 @@ return [
     'api_generator' => 'انشاء API',
     'statistic_builder' => 'الاحصائيات والرسوم البيانية',
     // 'Add statistic_builder'=>' اضافة الاحصائيات والرسوم البيانية ',
-    'module_generator' => 'تطبيقات النظام',
+    'Module Generator' => 'تطبيقات النظام',
     'settings' => 'اعدادات النظام',
     'users' => 'ادارة المستخدمين',
     'list_API' => 'عرض API',
@@ -211,6 +226,7 @@ return [
     'degree_levels' => 'مستويات الدرجة العلمية',
     'colleges' => 'الكليات',
     'majors' => 'التخصصات',
+    'students' => 'طلاب',
     'content_images' => 'صور المحتوى',
     'content_categories' => 'فئات المحتوى',
     'contents' => ' المحتوى',
@@ -218,6 +234,15 @@ return [
     'sections' => 'أقسام المكتبة',
     'library_sections' => 'أقسام المكتبة',
     'books' => 'الكتب',
+    ""،
+""،
+""،
+ ''،
+ ""،
+ ""،
+''،
+ ""،
+""،
 
 
     /*

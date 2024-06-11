@@ -99,7 +99,7 @@
                     <li
                         class="{{ Request::is(config('crudbooster.ADMIN_PATH') . '/menu_management*') ? 'active' : '' }}">
                         <a href='{{ Route('MenusControllerGetIndex') }}'><i class='fa fa-bars'></i>
-                            <span>{{ cbLang('menu_management') }}</span></a>
+                            <span>{{ cbLang('Menu Management') }}</span></a>
                     </li>
                     <li class="treeview">
                         <a href="#"><i class='fa fa-wrench'></i> <span>{{ cbLang('settings') }}</span> <i
@@ -124,7 +124,7 @@
                     <li class='treeview'>
                         <a href='#'>
                             <i class='fa fa-th'></i> <span>
-                                {{ cbLang('module_generator') }}
+                                {{ cbLang('Module Generator') }}
                             </span>
                             <i class="fa fa-angle-{{ cbLang('right') }} pull-{{ cbLang('right') }}"></i>
                         </a>

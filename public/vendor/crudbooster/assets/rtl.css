@@ -77,9 +77,9 @@ body,.h1, .h2, .h3, .h4, .h5, .h6 {
     right: initial !important;
     left: 0 !important;
 }
-#langForm>button {
+/* #langForm>button {
     text-align: right !important;
-}
+} */
 @media (min-width: 768px) {
     .sidebar-collapse .main-sidebar, .sidebar-collapse .left-side {
         -webkit-transform: translate(230px, 0) !important;

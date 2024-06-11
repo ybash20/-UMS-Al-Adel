@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use crocodicstudio\crudbooster\fonts\Fontawesome;
 use crocodicstudio\crudbooster\helpers\CRUDBooster;
-
+use crocodicstudio\crudbooster\controllers\MenusController;
 class ModulsController extends CBController
 {
     public function cbInit()
@@ -226,6 +226,8 @@ class ModulsController extends CBController
         }
 
         return redirect()->route("ModulsControllerGetStep1");
+        
+
     }
 
     public function getStep1($id = 0)
@@ -622,7 +624,6 @@ class ModulsController extends CBController
         }
 
         $row = DB::table('ums_moduls')->where('id', $id)->first();
-
         $data = [];
         $data['id'] = $id;
         if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
@@ -739,7 +740,7 @@ class ModulsController extends CBController
             ]);
             DB::table('ums_menus')->insert([
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang("text_default_add_new_module", ['module' => $this->arr['name']]),
+                'name' => cbLang("Add_New_Module", ['module' => $this->arr['name']]),
                 'icon' => 'fa fa-plus',
                 'path' => $this->arr['controller'].'GetAdd',
                 'type' => 'Route',
@@ -750,7 +751,7 @@ class ModulsController extends CBController
             ]);
             DB::table('ums_menus')->insert([
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang("text_default_list_module", ['module' => $this->arr['name']]),
+                'name' => cbLang("list_module", ['module' => $this->arr['name']]),
                 'icon' => 'fa fa-bars',
                 'path' => $this->arr['controller'].'GetIndex',
                 'type' => 'Route',
