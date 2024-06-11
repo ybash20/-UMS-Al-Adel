@@ -147,7 +147,7 @@
                             <li data-id='{{$menu->id}}' data-name='{{$menu->name}}'>
                                 <div class='{{$menu->is_dashboard?"is-dashboard":""}}' title="{{$menu->is_dashboard?'This is setted as Dashboard':''}}">
                                     <i class='{{($menu->is_dashboard)?"icon-is-dashboard fa fa-dashboard":$menu->icon}}'></i>
-                                    {{$menu->name}}
+                                    {{ cbLang($menu->name)}}
                                     <span class='pull-right'>
                                         <a class='fa fa-pencil' title='Edit' href='{{route("MenusControllerGetEdit")."/".$menu->id }}?return_url={{urlencode(Request::fullUrl())}}'></a>
                                         &nbsp;&nbsp;
@@ -172,7 +172,7 @@
                                             <li data-id='{{$child->id}}' data-name='{{$child->name}}'>
                                                 <div class='{{$child->is_dashboard?"is-dashboard":""}}' title="{{$child->is_dashboard?'This is setted as Dashboard':''}}">
                                                     <i class='{{($child->is_dashboard)?"icon-is-dashboard fa fa-dashboard":$child->icon}}'></i>
-                                                    {{$child->name}}
+                                                    {{cbLang($child->name)}}
                                                     <span class='pull-right'>
                                                         <a class='fa fa-pencil' title='Edit' href='{{ route("MenusControllerGetEdit") ."/".$child->id }}?return_url={{urlencode(Request::fullUrl())}}'></a>
                                                         &nbsp;&nbsp;
@@ -211,7 +211,7 @@
                             <li data-id='{{$menu->id}}' data-name='{{$menu->name}}'>
                                 <div>
                                     <i class='{{$menu->icon}}'></i>
-                                     {{$menu->name}}
+                                    {{cbLang($menu->name)}}
                                      <span class='pull-right'>
                                         <a class='fa fa-pencil' title='Edit' href='{{route("MenusControllerGetEdit",["id"=>$menu->id])}}?return_url={{urlencode(Request::fullUrl())}}'></a>
                                         &nbsp;&nbsp;
@@ -224,7 +224,7 @@
                                             <li data-id='{{$child->id}}' data-name='{{$child->name}}'>
                                                 <div>
                                                     <i class='{{$child->icon}}'></i>
-                                                     {{$child->name}}
+                                                    {{cbLang($child->name)}}
                                                      <span class='pull-right'>
                                                         <a class='fa fa-pencil' title='Edit' href='{{route("MenusControllerGetEdit",["id"=>$child->id])}}?return_url={{urlencode(Request::fullUrl())}}'></a>
                                                         &nbsp;&nbsp;

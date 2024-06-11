@@ -4,20 +4,14 @@ return [
     'name_collage' =>'جامعة العادل',
     'Users Management'=>'ادرة المستخدمين',
     'lang'=>'اللغة',
-<<<<<<< Updated upstream
-    'lock_screen'=>'شاشة القفل',
-    'title_dashboard'=>'لوحة التحكم',
-    'application_setting'=>' اعدادات النظام',
-    'login_register_style'=>'شكل تسجيل الدخول',
-    'email_setting'=>'اعدادت البريد',
-=======
-    'lockscreen'=>'شاشة القفل',
-    'dashboard'=>'لوحة التحكم',
+
+    'Lockscreen'=>'شاشة القفل',
+    'Dashboard'=>'لوحة التحكم',
     'Application Setting'=>' اعدادات النظام',
     'Login Register Style'=>'شكل تسجيل الدخول',
     'Students'=>'الطلاب',
     'Majors'=>'التخصصات',
-    'Degree Levels'=>'درجات الفصل',
+    'Degree Levels'=>'الدرجات العلمية',
     'Colleges'=>'الكليات',
     'Content Images'=>'صور المحتوى',
     'Content Categories'=>'فئات المحتوى',
@@ -25,6 +19,7 @@ return [
     'Books'=>'الكتب',
     'Sections'=>'اقسام المكتبة',
     'Library'=>'المكتبة',
+    'Add Data'=>'اضافة البيانات',
     'Email Setting'=>'اعدادت البريد',
     'Al-Adel Unveristiy'=>'جامعة العادل',
     'inactive_menu'=>'القائمة غير النشطة فارغة',
@@ -47,7 +42,7 @@ return [
     'logout_student_success'=>'تم تسجيل الخروج بنجاح',
     'student_login_failed'=>'خطا في اسم المستخدم او كلمة السر',
     'student_login_success'=>'تم تسجيل الدخول بنجاح',
-    'privileges'=>'الصلاحيات',
+    'Privileges'=>'الصلاحيات',
 
     'text_enter_the_password' => 'فضلا ادخل كلمة المرور لاستعادة جلسة العمل',
     'text_or_sign_in' => 'او سجل الدخول بمستخدم مختلف',
@@ -223,26 +218,37 @@ return [
     'SUPERADMIN' => 'مدير النظام ',
     'click_here' => 'اضغط هنا ',
 
-    'degree_levels' => 'مستويات الدرجة العلمية',
-    'colleges' => 'الكليات',
-    'majors' => 'التخصصات',
-    'students' => 'طلاب',
-    'content_images' => 'صور المحتوى',
-    'content_categories' => 'فئات المحتوى',
-    'contents' => ' المحتوى',
-    'library' => 'المكتبة',
-    'sections' => 'أقسام المكتبة',
-    'library_sections' => 'أقسام المكتبة',
-    'books' => 'الكتب',
-    ""،
-""،
-""،
- ''،
- ""،
- ""،
-''،
- ""،
-""،
+    // 'degree_levels' => 'مستويات الدرجة العلمية',
+    // 'colleges' => 'الكليات',
+    // 'majors' => 'التخصصات',
+    // 'content_images' => 'صور المحتوى',
+    // 'content_categories' => 'فئات المحتوى',
+    // 'contents' => ' المحتوى',
+    // 'library' => 'المكتبة',
+    // 'sections' => 'أقسام المكتبة',
+    // 'library_sections' => 'أقسام المكتبة',
+    // 'books' => 'الكتب',
+
+    // 'degree_levels' => 'مستويات الدرجة العلمية',
+    // 'colleges' => 'الكليات',
+    // 'majors' => 'التخصصات',
+    // 'students' => 'طلاب',
+    // 'content_images' => 'صور المحتوى',
+    // 'content_categories' => 'فئات المحتوى',
+    // 'contents' => ' المحتوى',
+    // 'library' => 'المكتبة',
+    // 'sections' => 'أقسام المكتبة',
+    // 'library_sections' => 'أقسام المكتبة',
+    // 'books' => 'الكتب',
+//     ""،
+// ""،
+// ""،
+//  ''،
+//  ""،
+//  ""،
+// ''،
+//  ""،
+// ""،
 
 
     /*
