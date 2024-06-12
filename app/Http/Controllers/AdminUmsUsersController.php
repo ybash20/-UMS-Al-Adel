@@ -32,9 +32,8 @@ class AdminUmsUsersController extends CBController {
 			$this->col = [];
 			$this->col[] = ["label"=>"Name","name"=>"name"];
 			$this->col[] = ["label"=>"Email","name"=>"email"];
+			$this->col[] = ["label"=>"Department","name"=>"Department_ID","join"=>"departments,Name"];
 			$this->col[] = ["label"=>"Privilege","name"=>"id_ums_privileges","join"=>"ums_privileges,name"];
-			$this->col[] = ["label"=>"Photo","name"=>"photo","image"=>true];
-			$this->col[] = ["label"=>"Theme Color","name"=>"theme_color"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
