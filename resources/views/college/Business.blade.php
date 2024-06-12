@@ -47,7 +47,7 @@
                             <div class="col-9 snipcss0-2-2-6">
                                 <h2 class="font-weight-normal text-6 snipcss0-3-6-7" data-lfr-editable-id="card2"
                                     data-lfr-editable-type="rich-text">كلمة العميد&nbsp;<br class="snipcss0-4-7-8">
-                                    <strong class="font-weight-extra-bold snipcss0-4-7-9">د. خالد بانافع </strong>
+                                    <strong class="font-weight-extra-bold snipcss0-4-7-9">د. سالم مبارك </strong>
                                 </h2>
                             </div>
                         </div>
