@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Models\student;
+use App\Models\Grades_Student;
 
 class AdminController extends CBController
 {
@@ -286,7 +287,18 @@ class AdminController extends CBController
 
     public function StudentGrades()
     {
-        return view('grades');
+        $student_id = session('student_id'); // استخدام معرف الطالب من الجلسة
+
+        // جلب الدرجات الخاصة بالطالب
+        $grades = Grades_Student::with('course')
+                    ->where('Student_ID', $student_id)
+                    ->get();
+                    foreach ($grades as $total) {
+                        $total->Grade_100 = $total->Grade_30 + $total->Grade_70;
+                    }
+                             
+
+        return view('grades', compact('grades'));
     }
 
     public function StudentStudyplan()
