@@ -3,6 +3,19 @@ return [
     'Menu Management' => ' Menu Management',
     'Dashboard' => 'Dashboard',
     'collage' => 'Al-Adel',
+    'News Images'=>'News Images',
+    'News Categories'=>'News Categories ',
+    'News'=>'News',
+    'Grades'=>'Grades',
+    'Courses'=>'Courses ',
+    'Import Data'=>'Import Data',
+    'Label-Import-helper1'=>'Welcome to Data Importer Tool',
+    'Label-Import-helper'=>'
+                        Before doing upload a file, its better to read this bellow instructions : 
+                        * File format should be : xls or xlsx or csv....
+                        * If you have a big file data, we cannot guarantee. So, please split those files into some parts of file (at least max 5 MB).....
+                        * This tool is generate data automatically so, be carefull about your table xls structure. Please make sure correctly the table structure.....
+                        * Table structure : Line 1 is heading column , and next is the data. (For example, you can export any module you wish to XLS format)',
     'student_form' => 'Student Form',
     'lock_screen' => 'lockscreen',
     'text_helper' => 'Enter your email on the social networking site',

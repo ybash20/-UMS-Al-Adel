@@ -95,6 +95,7 @@ Route::get('/translation', function () {
 
 Route::post('check-email', [AdminController::class, 'checkEmail'])->name('check-email');
 Route::post('check-code', [AdminController::class, 'checkCode'])->name('check-code');
+Route::resource('grades', 'GradesController');
 
 //Route::post('/send-email', [EmailController::class, 'send'])->name('send-email');
 
