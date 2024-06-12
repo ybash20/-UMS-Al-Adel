@@ -5,14 +5,14 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminCollegesController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminGrades22Controller extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function cbInit() {
 
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
 			$this->title_field = "id";
 			$this->limit = "20";
-			$this->orderby = "id,desc";
+			$this->orderby = ",desc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
 			$this->button_bulk_action = true;
@@ -25,30 +25,44 @@
 			$this->button_filter = true;
 			$this->button_import = true;
 			$this->button_export = true;
-			$this->table = "colleges";
+			$this->table = "grades";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Id","name"=>"id"];
-			$this->col[] = ["label"=>"Name","name"=>"Name"];
-			$this->col[] = ["label"=>"Dean","name"=>"Dean"];
+			$this->col[] = ["label"=>"Student","name"=>"Student_ID","join"=>"students,Name"];
+			$this->col[] = ["label"=>"Course","name"=>"Course_ID","join"=>"courses,Name"];
+			$this->col[] = ["label"=>"Grade 30","name"=>"Grade_30"];
+			$this->col[] = ["label"=>"Grade 70","name"=>"Grade_70"];
+			$this->col[] = ["label"=>"Grade 100","name"=>"Grade_100"];
+			$this->col[] = ["label"=>"Spoint","name"=>"Spoint"];
+			$this->col[] = ["label"=>"Semester","name"=>"Semester"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Dean','name'=>'Dean','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Dean Speech','name'=>'Dean_Speech','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Student','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'students,Name'];
+			$this->form[] = ['label'=>'Course','name'=>'Course_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'courses,Name'];
+			$this->form[] = ['label'=>'Grade 30','name'=>'Grade_30','type'=>'number','validation'=>'integer','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Grade 70','name'=>'Grade_70','type'=>'number','validation'=>'integer','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Grade 100','name'=>'Grade_100','type'=>'number','validation'=>'integer','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Spoint','name'=>'Spoint','type'=>'text','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Dean','name'=>'Dean','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Dean Speech','name'=>'Dean_Speech','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Student','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'students,Name'];
+			//$this->form[] = ['label'=>'Course','name'=>'Course_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'courses,Name'];
+			//$this->form[] = ['label'=>'Grade 30','name'=>'Grade_30','type'=>'number','validation'=>'integer','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Grade 70','name'=>'Grade_70','type'=>'number','validation'=>'integer','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Grade 100','name'=>'Grade_100','type'=>'number','validation'=>'integer','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Spoint','name'=>'Spoint','type'=>'text','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','width'=>'col-sm-10'];
 			# OLD END FORM
 
 			/*

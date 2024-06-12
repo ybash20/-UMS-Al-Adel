@@ -30,39 +30,40 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Title","name"=>"Title"];
-			$this->col[] = ["label"=>"Author","name"=>"Author"];
-			$this->col[] = ["label"=>"Section","name"=>"Section_ID","join"=>"library_sections,Name"];
+			$this->col[] = ["label"=>"id","name"=>"id","width"=>"60"];
+			$this->col[] = ["label"=>"Title","name"=>"Title","width"=>"350"];
+			$this->col[] = ["label"=>"Author","name"=>"Author","width"=>"350"];
+			$this->col[] = ["label"=>"Section","name"=>"Section_ID","join"=>"library_sections,Name","width"=>"300"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
+			$this->form[] = ['label'=>'Section','name'=>'Section_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'library_sections,Name'];
 			$this->form[] = ['label'=>'Title','name'=>'Title','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Author','name'=>'Author','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Number Of Page','name'=>'Number_of_Page','type'=>'number','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Cover Image','name'=>'Cover_Image','type'=>'upload','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Cover Image','name'=>'Cover_Image','type'=>'upload','validation'=>'image','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Edition','name'=>'Edition','type'=>'text','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Section','name'=>'Section_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'library_sections,Name'];
 			$this->form[] = ['label'=>'Publication Year','name'=>'Publication_year','type'=>'date','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Publisher','name'=>'Publisher','type'=>'text','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Language','name'=>'Language','type'=>'text','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Quantity','name'=>'Quantity','type'=>'number','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ["label"=>"Title","name"=>"Title","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Author","name"=>"Author","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Number Of Page","name"=>"Number_of_Page","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0"];
-			//$this->form[] = ["label"=>"Cover Image","name"=>"Cover_Image","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Edition","name"=>"Edition","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Section ID","name"=>"Section_ID","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Publication Year","name"=>"Publication_year","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0"];
-			//$this->form[] = ["label"=>"Publisher","name"=>"Publisher","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Language","name"=>"Language","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-			//$this->form[] = ["label"=>"Quantity","name"=>"Quantity","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0"];
-			//$this->form[] = ["label"=>"Description","name"=>"Description","type"=>"textarea","required"=>TRUE,"validation"=>"required|string|min:5|max:5000"];
+			//$this->form[] = ['label'=>'Title','name'=>'Title','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Author','name'=>'Author','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Number Of Page','name'=>'Number_of_Page','type'=>'number','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Cover Image','name'=>'Cover_Image','type'=>'upload','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Edition','name'=>'Edition','type'=>'text','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Section','name'=>'Section_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'library_sections,Name'];
+			//$this->form[] = ['label'=>'Publication Year','name'=>'Publication_year','type'=>'date','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Publisher','name'=>'Publisher','type'=>'text','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Language','name'=>'Language','type'=>'text','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Quantity','name'=>'Quantity','type'=>'number','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*

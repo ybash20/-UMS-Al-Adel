@@ -7,19 +7,24 @@ class LogsController extends CBController
 {
     public function cbInit()
     {
-        # START CONFIGURATION DO NOT REMOVE THIS LINE
-        $this->table = 'ums_logs';
-        $this->primary_key = 'id';
-        $this->title_field = "ipaddress";
-        $this->button_bulk_action = true;
-        $this->button_export = false;
-        $this->button_import = false;
-        $this->button_add = false;
-        $this->button_edit = false;
-        $this->button_delete = true;
-		# END CONFIGURATION DO NOT REMOVE THIS LINE
 
-		# START COLUMNS DO NOT REMOVE THIS LINE
+			# START CONFIGURATION DO NOT REMOVE THIS LINE
+			$this->title_field = "ipaddress";
+			$this->global_privilege = false;
+			$this->button_table_action = false;
+			$this->button_bulk_action = true;
+			$this->button_add = false;
+			$this->button_edit = false;
+			$this->button_delete = true;
+			$this->button_detail = false;
+			$this->button_show = false;
+			$this->button_filter = false;
+			$this->button_import = false;
+			$this->button_export = true;
+			$this->table = "ums_logs";
+			# END CONFIGURATION DO NOT REMOVE THIS LINE
+
+			# START COLUMNS DO NOT REMOVE THIS LINE
         $this->col = [];
         $this->col[] = ["label" => "Time Access", "name" => "created_at"];
         $this->col[] = ["label" => "IP Address", "name" => "ipaddress"];

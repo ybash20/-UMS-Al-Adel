@@ -5,7 +5,7 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminCollegesController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminCoursesController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function cbInit() {
 
@@ -24,31 +24,34 @@
 			$this->button_show = true;
 			$this->button_filter = true;
 			$this->button_import = true;
-			$this->button_export = true;
-			$this->table = "colleges";
+			$this->button_export = false;
+			$this->table = "courses";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Id","name"=>"id"];
-			$this->col[] = ["label"=>"Name","name"=>"Name"];
-			$this->col[] = ["label"=>"Dean","name"=>"Dean"];
+			$this->col[] = ["label"=>"Id","name"=>"id","width"=>"50"];
+			$this->col[] = ["label"=>"Name","name"=>"Name","width"=>"300"];
+			$this->col[] = ["label"=>"Major","name"=>"Major_ID","join"=>"majors,Name","width"=>"300"];
+			$this->col[] = ["label"=>"Code","name"=>"Code","width"=>"120"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Dean','name'=>'Dean','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Dean Speech','name'=>'Dean_Speech','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'majors,Name'];
+			$this->form[] = ['label'=>'Code','name'=>'Code','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Duration','name'=>'Duration','type'=>'number','validation'=>'required|integer','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Dean','name'=>'Dean','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Dean Speech','name'=>'Dean_Speech','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'majors,Name'];
+			//$this->form[] = ['label'=>'Code','name'=>'Code','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Duration','name'=>'Duration','type'=>'number','validation'=>'required|integer','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-10'];
 			# OLD END FORM
 
 			/*

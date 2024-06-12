@@ -30,23 +30,23 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Id","name"=>"id"];
-			$this->col[] = ["label"=>"Name","name"=>"Name"];
-			$this->col[] = ["label"=>"Major","name"=>"Major_ID","join"=>"majors,Name"];
-			$this->col[] = ["label"=>"Level","name"=>"Level_ID","join"=>"levels,Name"];
+			$this->col[] = ["label"=>"Id","name"=>"id","width"=>"50"];
+			$this->col[] = ["label"=>"Name","name"=>"Name","width"=>"250"];
+			$this->col[] = ["label"=>"Major","name"=>"Major_ID","join"=>"majors,Name","width"=>"250"];
+			$this->col[] = ["label"=>"Level","name"=>"Level_ID","join"=>"levels,Name","width"=>"250"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
 			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'majors,Name'];
-			$this->form[] = ['label'=>'Level','name'=>'Level_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'levels,Name'];
+			$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'majors,Name'];
+			$this->form[] = ['label'=>'Level','name'=>'Level_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'levels,Name'];
 			$this->form[] = ['label'=>'Code','name'=>'Code','type'=>'text','validation'=>'required','width'=>'col-sm-9','value'=>'123'];
 			$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'1;0','help'=>'1 Male   ,   0 Female'];
 			$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required|date','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Email','name'=>'Email','type'=>'email','validation'=>'required','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','validation'=>'required|integer','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'addresses,Neighborhood'];
+			$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'addresses,Neighborhood'];
 			$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'Single;Married'];
 			$this->form[] = ['label'=>'Photo','name'=>'Photo','type'=>'upload','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Not Allowed Show','name'=>'Not_Allowed_Show','type'=>'select','width'=>'col-sm-9','dataenum'=>'1;0'];
@@ -56,17 +56,17 @@
 			# OLD START FORM
 			//$this->form = [];
 			//$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'majors,Name'];
-			//$this->form[] = ['label'=>'Level','name'=>'Level_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'levels,Name'];
+			//$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'majors,Name'];
+			//$this->form[] = ['label'=>'Level','name'=>'Level_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'levels,Name'];
 			//$this->form[] = ['label'=>'Code','name'=>'Code','type'=>'text','validation'=>'required','width'=>'col-sm-9','value'=>'123'];
 			//$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'1;0','help'=>'1 Male   ,   0 Female'];
 			//$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required|date','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Email','name'=>'Email','type'=>'email','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','validation'=>'required|integer','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'addresses,Neighborhood'];
+			//$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','validation'=>'required|numeric','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'addresses,Neighborhood'];
 			//$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'Single;Married'];
 			//$this->form[] = ['label'=>'Photo','name'=>'Photo','type'=>'upload','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Not Allowed Show','name'=>'Not_Allowed_Show','type'=>'text','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Not Allowed Show','name'=>'Not_Allowed_Show','type'=>'select','width'=>'col-sm-9','dataenum'=>'1;0'];
 			//$this->form[] = ['label'=>'Notes','name'=>'Notes','type'=>'text','width'=>'col-sm-9'];
 			# OLD END FORM
 
