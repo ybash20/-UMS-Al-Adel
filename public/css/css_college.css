@@ -255,7 +255,7 @@
             /* Section Styles */
            
 
-            .section-header {
+            /* .section-header {
                 display: flex;
                 justify-content: center;
                 max-width: 1562px;
@@ -277,7 +277,7 @@
                 color: #212529;
                 text-decoration: none;
                 position: relative;
-            }
+            } */
 
             @media (max-width: 1562px) {
                 .section-header {
@@ -340,4 +340,43 @@
                 margin: 5px;
                 text-align: center;
                 scrollbar-width: 0px;
+            }
+            .section-header {
+                display: flex;
+                justify-content: center;
+                max-width: 1562px;
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-right: auto !important;
+                margin-left: auto !important;
+            }
+    
+            .section-header-inner {
+                text-align: center !important;
+                line-height: 1.5;
+                font-size: 32px;
+                font-weight: 500;
+                margin: 30px 0;
+            }
+            .section-header-inner a{
+                color: #007bff;
+            }
+    
+            .section-header-inner a::after {
+                content: '';
+                width: 0;
+                height: 3px;
+                background-color: #00496b;
+                display: block;
+                margin: auto;
+                transition: 0.5s;
+            }
+    
+            .section-header-inner a:hover::after {
+                width: 90%;
+            }
+            .section-header-inner a {
+                color: #212529;
+                text-decoration: none;
+                position: relative;
             }
