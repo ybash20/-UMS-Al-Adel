@@ -1,5 +1,8 @@
 <?php
 return [
+    'Management'=>'الادارة',
+    'Users'=>'المستخدمين',
+    'Departments' => 'الاقسام',
     'Menu Management'=>'ادارة القوائم',
     'name_collage' =>'جامعة العادل',
     'Users Management'=>'ادرة المستخدمين',

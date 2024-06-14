@@ -30,23 +30,23 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Student","name"=>"Student_ID","join"=>"students,Name"];
+			$this->col[] = ["label"=>"Student ID","name"=>"Student_ID","join"=>"students,id"];
+			$this->col[] = ["label"=>"Student Name","name"=>"Student_ID","join"=>"students,Name"];
 			$this->col[] = ["label"=>"Course","name"=>"Course_ID","join"=>"courses,Name"];
-			$this->col[] = ["label"=>"Grade 30","name"=>"Grade_30"];
-			$this->col[] = ["label"=>"Grade 70","name"=>"Grade_70"];
-			$this->col[] = ["label"=>"Grade 100","name"=>"Grade_100"];
+			$this->col[] = ["label"=>"Semester Grade","name"=>"Grade_30"];
+			$this->col[] = ["label"=>"Exam Grade","name"=>"Grade_70"];
+			$this->col[] = ["label"=>"Total Grade","name"=>"Grade_100"];
 			$this->col[] = ["label"=>"Spoint","name"=>"Spoint"];
 			$this->col[] = ["label"=>"Note","name"=>"Note"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Student','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'students,Name'];
+			$this->form[] = ['label'=>'Student Name','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'students,Name'];
 			$this->form[] = ['label'=>'Course','name'=>'Course_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'courses,Name'];
-			$this->form[] = ['label'=>'Grade 30','name'=>'Grade_30','type'=>'number','validation'=>'required','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Grade 70','name'=>'Grade_70','type'=>'number','validation'=>'required','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Grade 100','name'=>'Grade_100','type'=>'number','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Spoint','name'=>'Spoint','type'=>'text','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Total Grade','name'=>'Grade_100','type'=>'number','width'=>'col-sm-9','readonly'=>'true'];
 			$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','width'=>'col-sm-10'];
@@ -54,12 +54,11 @@
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Student','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'students,Name'];
+			//$this->form[] = ['label'=>'Student Name','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'students,Name'];
 			//$this->form[] = ['label'=>'Course','name'=>'Course_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'courses,Name'];
-			//$this->form[] = ['label'=>'Grade 30','name'=>'Grade_30','type'=>'number','validation'=>'required|double','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Grade 70','name'=>'Grade_70','type'=>'number','validation'=>'required|double','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Grade 100','name'=>'Grade_100','type'=>'number','validation'=>'double','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Spoint','name'=>'Spoint','type'=>'text','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Total Grade','name'=>'Grade_100','type'=>'number','width'=>'col-sm-9','readonly'=>'true'];
 			//$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','width'=>'col-sm-10'];
@@ -272,7 +271,10 @@
 	    */
 	    public function hook_before_add(&$postdata) {
 	        //Your code here
-
+				$Grade_30 = $postdata['Grade_30'];
+				$Grade_70 = $postdata['Grade_70'];
+				$Grade_100 = $Grade_30 + $Grade_70 ;
+				$postdata['Grade_100'] = $Grade_100 ;
 	    }
 
 	    /*

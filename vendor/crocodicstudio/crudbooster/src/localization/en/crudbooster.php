@@ -1,5 +1,9 @@
 <?php
 return [
+    'Management' => 'Management',
+    'Users'=>'Users',
+    'Departments' => 'Departments',
+
     'Menu Management' => ' Menu Management',
     'Dashboard' => 'Dashboard',
     'collage' => 'Al-Adel',

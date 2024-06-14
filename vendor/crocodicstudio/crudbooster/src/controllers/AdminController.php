@@ -296,6 +296,7 @@ class AdminController extends CBController
                     ->get();
                     foreach ($grades as $total) {
                         $total->Grade_100 = $total->Grade_30 + $total->Grade_70;
+                     
                     }
                              
 
