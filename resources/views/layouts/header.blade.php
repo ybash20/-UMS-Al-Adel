@@ -1443,13 +1443,27 @@
                                             <a href="#events-section" class="header_a nav-link">
                                                 Events
                                             </a>
+                                            @if (session()->has('student_id'))
+                                        <li class="nav-item">
+                                            <a href="{{ route('StudentgetLogin') }}" class="header_a nav-link">
+                                                Profile
+                                                <i class="fas fa-sign-out-alt"></i>
+                                            </a>
                                         </li>
-                                        <li>
-                                            <a href="{{ asset('/admin/login') }}" class="header_a nav-link">
+                                        <li class="nav-item">
+                                            <a href="{{ route('StudentgetLogout') }}" class="header_a nav-link">
+                                                Logout
+                                                <i class="fas fa-sign-out-alt"></i>
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="nav-item">
+                                            <a href="{{ route('StudentgetLogin') }}" class="header_a nav-link">
                                                 Login
                                                 <i class="fas fa-sign-in-alt"></i>
                                             </a>
                                         </li>
+                                        @endif
                                     </ul>
                                 </div>
                             </nav>

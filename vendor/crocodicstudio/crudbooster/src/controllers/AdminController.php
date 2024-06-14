@@ -280,9 +280,11 @@ class AdminController extends CBController
 
     public function StudentgetLogout()
     {
+        // مسح بيانات الطالب من الـ session
         Session::flush();
-        return redirect('/admin/login')->with('message',cbLang('logout_student_success'));
+        return redirect()->route('StudentgetLogin')->with('message', cbLang('logout_student_success'));
     }
+    
 
 
     public function StudentGrades()
