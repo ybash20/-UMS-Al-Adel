@@ -58,6 +58,10 @@
     color: #333;
 }
 
+.divstudent{
+    font-size: 16px;
+    margin-bottom: 7%;
+}
 /* Responsive styles */
 @media (max-width: 1024px) {
     .container-grades {
@@ -112,38 +116,47 @@
 </style>
 
 <div class="container-grades">
-    <h1>Grades</h1>
+    <div class="divstudent">
+        <h1>Grades Student</h1>
+        <h2>Student ID: {{ $student->id }}</h2>
+        <h2>Student Name: {{ $student->Name }}</h2>
+    </div>
+    
+
     @if ($grades !== null && $grades->isNotEmpty())
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Course Name</th>
-                <th>Grade 30</th>
-                <th>Grade 70</th>
-                <th>Grade 100</th> <!-- قيمة المجموع -->
-                <th>S Point</th>
-                <th>Semester</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($grades as $total)
-            <tr>
-                <td>{{ $total->course->Name }}</td>
-                <td>{{ $total->Grade_30 }}</td>
-                <td>{{ $total->Grade_70 }}</td>
-                <td>{{ $total->Grade_100 }}</td> <!-- هنا يتم عرض القيمة المحسوبة -->
-                <td>{{ $total->Spoint }}</td>
-                <td>{{ $total->Semester }}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+        @foreach ($grades->groupBy('Semester') as $semester => $semesterGrades)
+            <h2>Semester {{ $semester }}</h2>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Semester Grade</th>
+                        <th>Exam Grade</th>
+                        <th>Total Grade</th> <!-- قيمة المجموع -->
+                        <th>S Point</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($semesterGrades as $total)
+                        <tr>
+                            <td>{{ $total->course->Name }}</td>
+                            <td>{{ $total->Grade_30 }}</td>
+                            <td>{{ $total->Grade_70 }}</td>
+                            <td>{{ $total->Grade_100 }}</td> <!-- هنا يتم عرض القيمة المحسوبة -->
+                            <td>{{ $total->Spoint }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <br> <!-- لإضافة مسافة بين الجداول -->
+        @endforeach
     @elseif ($grades !== null && $grades->isEmpty())
-    <div class="alert alert-info">{{ $message }}</div>
+        <div class="alert alert-info">{{ $message }}</div>
     @else
-    <div class="alert alert-danger">An error occurred while retrieving the grades.</div>
+        <div class="alert alert-danger">An error occurred while retrieving the grades.</div>
     @endif
 </div>
+
 
 
 

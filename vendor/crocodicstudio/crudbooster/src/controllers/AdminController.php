@@ -288,17 +288,18 @@ class AdminController extends CBController
     public function StudentGrades()
     {
         $student_id = session('student_id'); // استخدام معرف الطالب من الجلسة
-
+        $student = Student::find($student_id);
         // جلب الدرجات الخاصة بالطالب
         $grades = Grades_Student::with('course')
                     ->where('Student_ID', $student_id)
+                    ->orderBy('Semester', 'desc')
                     ->get();
                     foreach ($grades as $total) {
                         $total->Grade_100 = $total->Grade_30 + $total->Grade_70;
                     }
                              
 
-        return view('grades', compact('grades'));
+        return view('grades', compact('grades','student'));
     }
 
     public function StudentStudyplan()

@@ -72,7 +72,7 @@ class CBRouter
 
     private static function studentAuthRoute()
 {
-    Route::group(['middleware' => ['web'], 'prefix' => 'student', 'namespace' => static::$cb_namespace], function () {
+    Route::group(['middleware' => ['web'], 'namespace' => static::$cb_namespace], function () {
         // مسارات تسجيل الدخول والخروج للطلاب
         Route::get('StudentgetLogin', 'AdminController@StudentgetLogin')->name('StudentgetLogin'); // رابط الراوت للطلاب /student
         Route::post('StudentpostLogin', 'AdminController@StudentpostLogin')->name('StudentpostLogin'); // تسجيل الدخول
@@ -81,14 +81,14 @@ class CBRouter
         // مسارات محمية بواسطة ميدلوير الطلاب
         Route::group(['middleware' => 'student.auth'], function () {
             // الصفحة الرئيسية للطالب
-            Route::get('/', function () {
+            Route::get('/student', function () {
                 return view('student');
             });
 
             // باقي المسارات الخاصة بالطلاب
-            Route::get('/grades', 'AdminController@StudentGrades')->name('StudentGrades');
-            Route::get('/studyplan', 'AdminController@StudentStudyplan')->name('StudentStudyplan');
-            Route::get('/timetables', 'AdminController@StudentTimetables')->name('StudentTimetables');
+            Route::get('student_grades', 'AdminController@StudentGrades')->name('StudentGrades');
+            Route::get('student_studyplan', 'AdminController@StudentStudyplan')->name('StudentStudyplan');
+            Route::get('student_timetables', 'AdminController@StudentTimetables')->name('StudentTimetables');
         });
     });
 }
