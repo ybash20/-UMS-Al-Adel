@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Grades')
+@section('title', 'Grades')
 
 @section('main')
 <style>
@@ -113,6 +113,24 @@
         font-size: 13px;
     }
 }
+#toggleAllSemestersBtn {
+    background-color:#6c757d;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#toggleAllSemestersBtn:hover {
+    background-color: #5ea3eb;
+}
 </style>
 
 <div class="container-grades">
@@ -121,35 +139,68 @@
         <h2>Student ID: {{ $student->id }}</h2>
         <h2>Student Name: {{ $student->Name }}</h2>
     </div>
-    
 
     @if ($grades !== null && $grades->isNotEmpty())
-        @foreach ($grades->groupBy('Semester') as $semester => $semesterGrades)
-            <h2>Semester {{ $semester }}</h2>
-            <table class="table table-striped table-bordered">
-                <thead>
+        @php
+            $latestSemester = $grades->max('Semester');
+            $semesterGrades = $grades->where('Semester', $latestSemester);
+        @endphp
+        <h2>Semester {{ $latestSemester }}</h2>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Semester Grade</th>
+                    <th>Exam Grade</th>
+                    <th>Total Grade</th>
+                    <th>S Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($semesterGrades as $total)
                     <tr>
-                        <th>Course Name</th>
-                        <th>Semester Grade</th>
-                        <th>Exam Grade</th>
-                        <th>Total Grade</th> <!-- قيمة المجموع -->
-                        <th>S Point</th>
+                        <td>{{ $total->course->Name }}</td>
+                        <td>{{ $total->Grade_30 }}</td>
+                        <td>{{ $total->Grade_70 }}</td>
+                        <td>{{ $total->Grade_100 }}</td>
+                        <td>{{ $total->Spoint }}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach ($semesterGrades as $total)
-                        <tr>
-                            <td>{{ $total->course->Name }}</td>
-                            <td>{{ $total->Grade_30 }}</td>
-                            <td>{{ $total->Grade_70 }}</td>
-                            <td>{{ $total->Grade_100 }}</td> <!-- هنا يتم عرض القيمة المحسوبة -->
-                            <td>{{ $total->Spoint }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <br> <!-- لإضافة مسافة بين الجداول -->
-        @endforeach
+                @endforeach
+            </tbody>
+        </table>
+
+        <button class="btn btn-primary" id="toggleAllSemestersBtn" onclick="toggleAllSemesters()">Show All Semesters</button>
+
+        <div class="all-semesters" style="display: none;">
+            @foreach ($grades->groupBy('Semester') as $semester => $semesterGrades)
+                @if ($semester != $latestSemester)
+                    <h2>Semester {{ $semester }}</h2>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Semester Grade</th>
+                                <th>Exam Grade</th>
+                                <th>Total Grade</th>
+                                <th>S Point</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($semesterGrades as $total)
+                                <tr>
+                                    <td>{{ $total->course->Name }}</td>
+                                    <td>{{ $total->Grade_30 }}</td>
+                                    <td>{{ $total->Grade_70 }}</td>
+                                    <td>{{ $total->Grade_100 }}</td>
+                                    <td>{{ $total->Spoint }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <br>
+                @endif
+            @endforeach
+        </div>
     @elseif ($grades !== null && $grades->isEmpty())
         <div class="alert alert-info">{{ $message }}</div>
     @else
@@ -157,9 +208,18 @@
     @endif
 </div>
 
+<script>
+    var toggleAllSemestersBtn = document.getElementById('toggleAllSemestersBtn');
 
-
-
-
-
+    function toggleAllSemesters() {
+        var allSemesters = document.querySelector('.all-semesters');
+        if (allSemesters.style.display === 'none') {
+            allSemesters.style.display = 'block';
+            toggleAllSemestersBtn.textContent = 'Hide All Semesters';
+        } else {
+            allSemesters.style.display = 'none';
+            toggleAllSemestersBtn.textContent = 'Show All Semesters';
+        }
+    }
+</script>
 @endsection
