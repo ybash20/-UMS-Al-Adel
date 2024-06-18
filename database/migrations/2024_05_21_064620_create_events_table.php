@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
             $table->date('Date')->nullable();
             $table->string('Location', 30)->nullable();
             $table->unsignedBigInteger('Category_ID')->nullable();
-            $table->string('Description')->nullable();
+            $table->text('Description')->nullable();
             $table->timestamps();
         });
     }

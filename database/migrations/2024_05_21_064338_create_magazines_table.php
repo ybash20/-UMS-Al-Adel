@@ -20,7 +20,7 @@ class CreateMagazinesTable extends Migration
             $table->string('Cover_Image')->nullable();
             $table->string('Author', 30)->nullable();
             $table->string('Version', 30)->nullable();
-            $table->string('Description')->nullable();
+            $table->text('Description')->nullable();
             $table->timestamps();
         });
     }

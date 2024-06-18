@@ -20,7 +20,7 @@ class CreateQualificationsTable extends Migration
             $table->string('Institution', 30)->nullable();
             $table->unsignedBigInteger('Address_ID')->nullable();
             $table->string('Country', 30)->nullable();
-            $table->string('Description', 30)->nullable();
+            $table->text('Description', 30)->nullable();
             $table->timestamps();
         });
     }

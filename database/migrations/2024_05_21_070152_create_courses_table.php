@@ -19,7 +19,7 @@ class CreateCoursesTable extends Migration
             $table->unsignedBigInteger('Major_ID')->nullable();
             $table->string('Code')->nullable();
             $table->unsignedInteger('Duration')->nullable();
-            $table->string('Description')->nullable();
+            $table->text('Description')->nullable();
             $table->timestamps();
         });
     }

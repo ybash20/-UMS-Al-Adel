@@ -20,7 +20,7 @@ class CreateMajorsTable extends Migration
             $table->unsignedBigInteger('Degree_Level_ID')->nullable();
             $table->string('Prerequisites')->nullable();
             $table->string('Career_Opportunities')->nullable();
-            $table->string('Description')->nullable();
+            $table->text('Description')->nullable();
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ class CreateCollegesTable extends Migration
             $table->string('Name', 30)->nullable();
             $table->string('Dean', 30)->nullable();
             $table->string('Dean_Speech')->nullable();
-            $table->string('Description')->nullable();
+            $table->text('Description')->nullable();
             $table->timestamps();
         });
     }
