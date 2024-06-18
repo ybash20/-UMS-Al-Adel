@@ -35,6 +35,8 @@ Route::get('/home', function () {
 
 Route::get('/library', 'BookLibraryController@library')->name('library');
 Route::get('/books_{section}', 'BookLibraryController@showBooksBySection')->name('showBooksBySection');
+Route::get('/university_president', 'ContentController@university_president')->name('university_president');
+
 
 
 // Route::get('/student', function () {

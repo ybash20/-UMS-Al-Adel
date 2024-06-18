@@ -1429,10 +1429,18 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
-                                            <a href="#about-section" class="header_a nav-link">
+                                        <li class="has-children">
+                                            <a href="#" class="header_a nav-link">
                                                 About
                                             </a>
+                                            <ul class="header_ul dropdown arrow-top">
+                                                <li>
+                                                    <a href="{{ route('university_president') }}" class="header_a nav-link">
+                                                        University President speech
+                                                    </a>
+                                                </li>
+                                                
+                                            </ul>
                                         </li>
                                         <li>
                                             <a href="{{ route('registration') }}" class="header_a nav-link">
