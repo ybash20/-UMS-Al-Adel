@@ -7,26 +7,46 @@ use Illuminate\Http\Request;
 use App\Models\book;
 use App\Models\library_section;
 use Illuminate\Support\Facades\DB;
+use App\Models\content;
+use App\Models\content_category;
 
 class BookLibraryController extends Controller
 {
-
-
-    
     public function library()
-    {
-        $sections = library_section::all();
-        $bookShow = [];
+{
+    // جلب جميع الأقسام
+    $sections = library_section::all();
+    $bookShow = [];
 
-        foreach ($sections as $section) {
-            $bookShow[$section->id] = Book::where('Section_ID', $section->id)
-                ->inRandomOrder()
-                ->limit(9) // جلب 9 كتب عشوائية لكل قسم
-                ->get();
-        }
-
-        return view('library.library', compact('sections','bookShow'));
+    foreach ($sections as $section) {
+        $bookShow[$section->id] = Book::where('Section_ID', $section->id)
+            ->inRandomOrder()
+            ->limit(9) // جلب 9 كتب عشوائية لكل قسم
+            ->get();
     }
+
+    $categories = content_category::all();
+    $contents = [];
+
+    // حلقة لجلب المحتويات المرتبطة بكل فئة
+    foreach ($categories as $category) {
+        // التحقق من اسم الفئة
+        if ($category->Name == 'Library Content Slider') {
+            // جلب المحتويات التي تنتمي للفئة المحددة بشرط Category_ID
+            $contents[$category->id] = Content::where('Category_ID', $category->id)
+            ->with(['images' => function ($query) {
+                $query->inRandomOrder(); // جلب الصور بشكل عشوائي
+            }])
+            ->get();
+        }
+    }
+
+
+// عرض البيانات إلى الصفحة
+return view('library.library', compact('sections', 'bookShow', 'categories', 'contents'));
+
+}
+
 
     public function showBooksBySection(Request $request, $sectionName)
     {

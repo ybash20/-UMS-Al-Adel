@@ -1,5 +1,7 @@
 @extends('layouts.master')
-{{-- @section('title', 'Books') --}}
+@section('title')
+{{ $section->Name }}
+@endsection
 
 @section('main')
     <style>
