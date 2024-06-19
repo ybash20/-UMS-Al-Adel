@@ -12,7 +12,6 @@
     <header>
         @include('layouts.header')
     </header>
-    
     <div>
         @include('layouts.slider')
     </div>
