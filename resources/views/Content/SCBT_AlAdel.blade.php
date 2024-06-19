@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Speech of the university president')
+@section('title','Speech of the Chairman of the Board of Trustees of Al-Adel University')
 
 @section('main')
 <style>
@@ -69,7 +69,6 @@
 .president-details p{
     direction: rtl;
 }
-
 /* للشاشات التي أصغر من 600px */
 
 @media (max-width: 600px) {

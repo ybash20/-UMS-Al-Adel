@@ -36,6 +36,11 @@ Route::get('/home', function () {
 Route::get('/library', 'BookLibraryController@library')->name('library');
 Route::get('/books_{section}', 'BookLibraryController@showBooksBySection')->name('showBooksBySection');
 Route::get('/university_president', 'ContentController@university_president')->name('university_president');
+Route::get('/SCBT_AlAdel', 'ContentController@SCBT_AlAdel')->name('SCBT_AlAdel');
+Route::get('/Students_Affairs', 'ContentController@Students_Affairs')->name('Students_Affairs');
+Route::get('/Foreign_relations', 'ContentController@Foreign_relations')->name('Foreign_relations');
+Route::get('/University_Establishment', 'ContentController@University_Establishment')->name('University_Establishment');
+Route::get('/University_guide', 'ContentController@University_guide')->name('University_guide');
 
 
 

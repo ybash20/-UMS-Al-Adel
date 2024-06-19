@@ -1439,7 +1439,33 @@
                                                         University President speech
                                                     </a>
                                                 </li>
-                                                
+
+                                                <li>
+                                                    <a href="{{ route('SCBT_AlAdel') }}" class="header_a nav-link">
+                                                        Speech of the Chairman of the Board of Trustees of Al-Adel University
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('University_Establishment') }}" class="header_a nav-link">
+                                                        University Establishment
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('Students_Affairs') }}" class="header_a nav-link">
+                                                        Students Affairs
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="{{ route('Foreign_relations') }}" class="header_a nav-link">
+                                                        Foreign relations
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('University_guide') }}" class="header_a nav-link">
+                                                        University guide
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li>

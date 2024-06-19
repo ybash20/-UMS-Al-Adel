@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Speech of the university president')
+@section('title','The establishment of the university, vision and goals')
 
 @section('main')
 <style>
@@ -69,7 +69,6 @@
 .president-details p{
     direction: rtl;
 }
-
 /* للشاشات التي أصغر من 600px */
 
 @media (max-width: 600px) {
