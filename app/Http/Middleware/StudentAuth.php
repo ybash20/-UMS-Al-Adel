@@ -17,7 +17,7 @@ class StudentAuth
     public function handle(Request $request, Closure $next)
     {
         if (!Session::has('student_id')) {
-            return redirect()->route('StudentgetLogin')->with('message', 'يرجى تسجيل الدخول أولاً');
+            return redirect()->route('StudentgetLogin')->with('message', cbLang('login-message'));
         }
 
         return $next($request);

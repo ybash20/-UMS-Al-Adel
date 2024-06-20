@@ -220,6 +220,7 @@ return [
     'Generate_Screet_Key' => 'Generate Secret Key',
     'Add_New_Email' => 'Add New Email',
     'List_Email_Template' => 'List Email Template',
+    'login-message'=>'Please log in first',
     'email_templates' => 'Email Templates',
     'logs' => 'Log User Access',
     'SUPERADMIN' => 'MANAGER',

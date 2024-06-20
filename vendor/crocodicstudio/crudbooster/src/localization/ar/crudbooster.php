@@ -227,6 +227,7 @@ return [
     'list_API' => 'عرض API',
     'Generate_Screet_Key' => 'انشاء مفتاح',
     'Add_New_Email' => 'اضافة قالب جديد',
+    'login-message'=>'يرجى تسجيل الدخول أولاً',
     'List_Email_Template' => 'عرض القوالب',
     'email_templates' => 'قوالب البريد الإلكتروني',
     'logs' => 'سجلات النظام',

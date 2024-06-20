@@ -372,11 +372,11 @@
         // Get the selected language from the cookie
         var selectedLang = getCookie('lang');
         // Get the language buttons
-        var arButton = document.querySelector('button[name="lang"][value="en"]');
-        var enButton = document.querySelector('button[name="lang"][value="ar"]');
+        var arButton = document.querySelector('button[name="lang"][value="ar"]');
+        var enButton = document.querySelector('button[name="lang"][value="en"]');
 
         // Hide the appropriate button based on the selected language
-        if (selectedLang === 'en') {
+        if (selectedLang === 'ar') {
             arButton.style.display = 'none';
         } else {
             enButton.style.display = 'none';
