@@ -750,7 +750,6 @@
         .my-0 {
             margin-bottom: 0 !important;
         }
-
         .mr-2 {
             margin-right: 0.5rem !important;
         }
