@@ -743,8 +743,6 @@
             font-size: 16px;
         }
 
-        @supports ((position: -webkit-sticky) or (position: sticky)) {}
-
         .my-0 {
             margin-top: 0 !important;
         }
