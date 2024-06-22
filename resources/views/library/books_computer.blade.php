@@ -127,7 +127,7 @@
             font-size: 30px;
         }
 
-        @media (max-width: 500px) {
+        /* @media (max-width: 500px) {
 
             .book-1 {
                 width: 45%;
@@ -165,7 +165,150 @@
                 padding: 8px;
                 width: 40%;
             }
-        }
+        } */
+
+        @media screen and (max-width: 660px) {
+    .main_body_book {
+        margin-top: 14%;
+        padding: 0 10px;
+    }
+
+    .section_departmaent_book {
+        font-size: 24px;
+        margin-top: 7%;
+    }
+    
+    .search_books_form_new_books .search-form-new-books{
+        margin-top: 7%;
+    }
+    .search_books_form_new_books .search-form-new-books button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .search_books_form_new_books .search-form-new-books input[type="text"] {
+        font-size: 16px;
+        width: 250px;
+    }
+
+    .books-container-1 {
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .book-1 {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .book-1 img {
+        max-width: 100%;
+        max-height: 60%;
+    }
+
+    .book-title-1,
+    .book-author-1 {
+        font-size: 14px;
+    }
+
+    .error-message_books {
+        font-size: 24px;
+    }
+}
+
+/* Media Queries for screen widths between 600px and 900px */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+    .main_body_book {
+        margin-top: 6%;
+        padding: 0 15px;
+    }
+
+    .section_departmaent_book {
+        font-size: 28px;
+        margin-top: 40px;
+    }
+
+    .search_books_form_new_books .search-form-new-books button {
+        font-size: 17px;
+        padding: 9px 18px;
+    }
+
+    .search_books_form_new_books .search-form-new-books input[type="text"] {
+        font-size: 17px;
+        width: 270px;
+    }
+
+    .books-container-1 {
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .book-1 {
+        width: 45%;
+        margin: 15px;
+    }
+
+    .book-1 img {
+        max-width: 90%;
+        max-height: 65%;
+    }
+
+    .book-title-1,
+    .book-author-1 {
+        font-size: 15px;
+    }
+
+    .error-message_books {
+        font-size: 26px;
+    }
+}
+
+/* Media Queries for screen widths from 900px and above */
+@media screen and (min-width: 900px) {
+    .main_body_book {
+        margin-top: 7%;
+    }
+
+    .section_departmaent_book {
+        font-size: 30px;
+        margin-top: 50px;
+    }
+
+    .search_books_form_new_books .search-form-new-books button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    .search_books_form_new_books .search-form-new-books input[type="text"] {
+        font-size: 18px;
+        width: 300px;
+    }
+
+    .books-container-1 {
+        justify-content: space-evenly;
+        margin-top: 50px;
+    }
+
+    .book-1 {
+        width: 30%;
+        margin: 20px;
+    }
+
+    .book-1 img {
+        max-width: 80%;
+        max-height: 70%;
+    }
+
+    .book-title-1,
+    .book-author-1 {
+        font-size: 16px;
+    }
+
+    .error-message_books {
+        font-size: 30px;
+    }
+}
+        
     </style>
 
 <div class="main_body_book">

@@ -193,7 +193,8 @@ hr {
     margin-top: 5px;
 }
 
-@media (max-width: 500px) {
+
+/* @media (max-width: 500px) {
   .main_container {
       width: 90%;
       margin: 0 auto; 
@@ -258,7 +259,45 @@ hr {
   .arrows_book{
     display: none;
   }
-}
+} */
 
+
+
+@media screen and (max-width: 900px) and (min-width: 400px) {
+  .about {
+      flex-direction: column;
+      padding: 2rem 2rem;
+  }
+  .about .about_tag h1 {
+      font-size: 40px;
+  }
+  .about .about_tag p {
+      font-size: 18px;
+      line-height: 30px;
+  }
+  .book_lib_row {
+      flex-direction: column;
+      padding: 15px;
+  }
+  .book_lib_row h2 {
+      position: relative;
+      left: 0;
+      top: 0;
+      margin-bottom: 10px;
+  }
+  .book_lib_row .read-more-button {
+      position: relative;
+      right: 0;
+      top: 0;
+      margin-top: 25px;
+  }
+  .book img {
+      width: 60%; 
+      height: 50%; 
+  }
+  .arrows_book{
+    display: none;
+  }
+}
 
 

@@ -156,11 +156,17 @@
                     }
 
                     function adjustBooksPerRow() {
-                        if (window.innerWidth < 700) { // Adjust the upper threshold to 700
+                        if (window.innerWidth < 650) { // Adjust the upper threshold to 700
                             booksPerRow = 2; // Change value to 2 for mobile view
                             prevButton.style.display = 'none';
                             nextButton.style.display = 'none';
-                        } else {
+                        } 
+                        else if (window.innerWidth < 900) { // Adjust the upper threshold to 700
+                            booksPerRow = 2; // Change value to 2 for mobile view
+                            prevButton.style.display = 'none';
+                            nextButton.style.display = 'none';
+                        } 
+                        else {
                             booksPerRow = 3; // Default value for non-mobile view
                             prevButton.style.display = 'inline-block';
                             nextButton.style.display = 'inline-block';
