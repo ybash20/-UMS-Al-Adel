@@ -11,20 +11,20 @@ use Illuminate\Http\Request;
 class StudentControllerProfile extends CBController{
 
     public function updatePassword(Request $request)
-    { 
+    {
         // Validate request
         $validator = Validator::make($request->all(), [
             'newPassword' => 'required|string|min:3',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->with('error', $validator->errors()->first());
+            return redirect()->route('updatePassword')->with('error', $validator->errors()->first());
         }
 
         // Update password logic
         $studentId = session('student_id'); // Assuming student is logged in and session contains student_id
         if (!$studentId) {
-            return redirect('StudentgetLogin')->with('message', cbLang('student_login_failed'));
+            return redirect()->route('StudentgetLogin')->with('message', 'Please login to update password.');
         }
 
         $newPassword = $request->input('newPassword');
@@ -33,9 +33,9 @@ class StudentControllerProfile extends CBController{
         $updated = Student::where('id', $studentId)->update(['Code' => $newPassword]);
 
         if (!$updated) {
-            return redirect()->back()->with('error', 'Failed to update password.');
+            return redirect()->route('updatePassword')->with('error', 'Failed to update password.');
         }
 
-        return redirect()->back()->with('success', 'Password updated successfully.');
+        return redirect()->route('updatePassword')->with('success', 'Password updated successfully.');
     }
 }

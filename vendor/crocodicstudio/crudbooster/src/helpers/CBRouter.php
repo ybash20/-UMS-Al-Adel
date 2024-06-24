@@ -93,12 +93,17 @@ class CBRouter
             Route::get('student_grades', 'AdminController@StudentGrades')->name('StudentGrades');
             Route::get('student_studyplan', 'AdminController@StudentStudyplan')->name('StudentStudyplan');
             Route::get('student_timetables', 'AdminController@StudentTimetables')->name('StudentTimetables');
+
+            Route::get('updatePassword', function () {
+                if (Session::has('student_id')) {
+                    return view('Student.updatePassword');
+                } else {
+                    return redirect()->route('StudentgetLogin');
+                }
+            })->name('updatePassword');
         });
 
-        // التوجيه في حالة الدخول عبر الرابط updatePassword دون تسجيل الدخول
-        Route::get('updatePassword', function () {
-            return view('Student.updatePassword');
-        })->name('updatePassword');
+
     });
 }
 
