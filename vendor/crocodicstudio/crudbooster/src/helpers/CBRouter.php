@@ -83,7 +83,7 @@ class CBRouter
         Route::group(['middleware' => 'student.auth'], function () {
             // الصفحة الرئيسية للطالب
             Route::get('/student', function () {
-                return view('student');
+                return view('Student.student');
             })->name('student'); // اسم الراوت للصفحة الرئيسية للطالب
 
             // مسار تحديث كلمة المرور
@@ -97,12 +97,8 @@ class CBRouter
 
         // التوجيه في حالة الدخول عبر الرابط updatePassword دون تسجيل الدخول
         Route::get('updatePassword', function () {
-            if (Session::has('student_id')) {
-                return redirect()->route('student');
-            } else {
-                return redirect()->route('StudentgetLogin');
-            }
-        });
+            return view('Student.updatePassword');
+        })->name('updatePassword');
     });
 }
 

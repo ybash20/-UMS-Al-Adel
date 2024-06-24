@@ -1311,123 +1311,8 @@
             margin-top: 20px;
         }
 
-        .header_a1 {
-            text-decoration: none;
-            color: blue;
-        }
-
-
-     /* Modal styles */
-     .modal_wrapper {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-        }
-
-        .modal_content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .modal_content h2 {
-            margin-top: 0;
-            font-size: 24px;
-            color: #333;
-        }
-
-        .modal_content form {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .modal_content form label,
-        .modal_content form input,
-        .modal_content form button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .modal_content form button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .modal_content form button:hover {
-            background-color: #0056b3;
-        }
-
-        #closeModalButton {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        #closeModalButton:hover {
-            background-color: #c82333;
-        }
-
-        .success_message {
-            color: green;
-            margin-top: 10px;
-        }
-  /* Styles for screens smaller than 600px */
-@media (max-width: 599px) {
-    .modal_content {
-        padding: 10px;
-        max-width: 300px;
-    }
-
-    .modal_content h2 {
-        font-size: 20px;
-    }
-
-    .modal_content form label,
-    .modal_content form input,
-    .modal_content form button {
-        font-size: 14px;
-    }
-}
-
-/* Styles for screens between 600px and 900px */
-@media (min-width: 600px) and (max-width: 900px) {
-    .modal_content {
-        max-width: 400px;
-    }
-}
-
-/* Styles for screens larger than 900px */
-@media (min-width: 900px) {
-    .modal_content {
-        max-width: 500px;
-    }
-}
-
+        
+    
     </style>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
     </script>
@@ -1596,8 +1481,8 @@
                                             <a href="#events-section" class="header_a nav-link">
                                                 Events
                                             </a>
+
                                             @if (session()->has('student_id'))
-                                       
                                         <li class="has-children">
                                             <a href="#" class="header_a nav-link">
                                                 Profile
@@ -1609,7 +1494,9 @@
                                                     </a>
                                                 </li> 
                                                 <li>
-                                                    <a href="#" id="resetPasswordButton">Reset Password</a>
+                                                    <a href="{{ route('updatePassword') }}" class="header_a nav-link">
+                                                        Edit Password
+                                                    </a>
                                                 </li>  
                                             </ul>
                                         </li>
@@ -1640,29 +1527,11 @@
     
   <!-- Modal wrapper for reset password form -->
 
-  <div id="resetPasswordModal" class="modal_wrapper">
-    <div class="modal_content">
-        <h2>Reset Password</h2>
-        <form id="resetPasswordForm" action="{{ route('updatePassword') }}" method="POST">
-            @csrf
-            <label for="newPassword">New Password:</label>
-            <input type="password" id="newPassword" name="newPassword" required>
-            <button type="submit">Submit</button>
-        </form>
-        <button id="closeModalButton">Close</button>
-        <div class="success_message" id="successMessage">
-            @if (session('success'))
-                <span style="color: green;">{{ session('success') }}</span>
-            @elseif (session('error'))
-                <span style="color: red;">{{ session('error') }}</span>
-            @endif
-        </div>
-    </div>
-</div>
+  
 
 
 
-<script>
+{{-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         var resetPasswordButton = document.getElementById('resetPasswordButton');
         var resetPasswordModal = document.getElementById('resetPasswordModal');
@@ -1678,7 +1547,7 @@
             document.getElementById('resetPasswordForm').reset(); // Reset form fields on modal close
         });
     });
-</script>
+</script> --}}
 
 
     
