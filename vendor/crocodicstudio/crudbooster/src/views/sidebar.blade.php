@@ -146,7 +146,7 @@
 
                     <li class='treeview'>
                         <a href='#'><i class='fa fa-dashboard'></i>
-                            <span>{{ cbLang('statistic_builder') }}</span> <i
+                            <span>{{ cbLang('Statistic Builder') }}</span> <i
                                 class="fa fa-angle-{{ cbLang('right') }} pull-{{ cbLang('right') }}"></i></a>
                         <ul class='treeview-menu'>
                             <li
@@ -163,7 +163,7 @@
                     </li>
 
                     <li class='treeview'>
-                        <a href='#'><i class='fa fa-fire'></i> <span>{{ cbLang('api_generator') }}</span> <i
+                        <a href='#'><i class='fa fa-fire'></i> <span>{{ cbLang('API Generator') }}</span> <i
                                 class="fa fa-angle-{{ cbLang('right') }} pull-{{ cbLang('right') }}"></i></a>
                         <ul class='treeview-menu'>
                             <li
@@ -186,7 +186,7 @@
 
                     <li class='treeview'>
                         <a href='#'><i class='fa fa-envelope-o'></i>
-                            <span>{{ cbLang('email_templates') }}</span> <i
+                            <span>{{ cbLang('Email Templates') }}</span> <i
                                 class="fa fa-angle-{{ cbLang('right') }} pull-{{ cbLang('right') }}"></i></a>
                         <ul class='treeview-menu'>
                             <li
@@ -204,7 +204,7 @@
 
                     <li class="{{ Request::is(config('crudbooster.ADMIN_PATH') . '/logs*') ? 'active' : '' }}"><a
                             href='{{ Route('LogsControllerGetIndex') }}'><i class='fa fa-flag'></i>
-                            <span>{{ cbLang('logs') }}</span></a></li>
+                            <span>{{ cbLang('Log User Access') }}</span></a></li>
                 @endif
 
             </ul><!-- /.sidebar-menu -->

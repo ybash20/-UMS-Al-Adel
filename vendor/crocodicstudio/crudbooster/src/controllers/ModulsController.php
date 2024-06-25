@@ -263,8 +263,9 @@ class ModulsController extends CBController
         $fontawesome = Fontawesome::getIcons();
 
         $row = CRUDBooster::first($this->table, ['id' => $id]);
+        $page_title = 'Module Generator';
 
-        return view("crudbooster::module_generator.step1", compact("tables_list", "fontawesome", "row", "id"));
+        return view("crudbooster::module_generator.step1", compact("tables_list", "fontawesome", "row", "id", 'page_title'));
     }
 
     public function getStep2($id)
