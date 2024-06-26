@@ -22,19 +22,13 @@ Route::get('/home', function () {
     return view('layouts.home');
 })->name('home');
 
-// Route::get('/lib', function () {
-//     return view('library/library');
-// })->name('library');
 
-// Route::get('/books_computer', function () {
-//     return view('library/books_computer');
-// })->name('books_computer');
-
-// Route::get('/book_computer','BookLibraryController@index')->name('indexbookcomputer');
-// Route::get('/books/{section}', 'BookLibraryController@showBooksBySection')->name('showBooksBySection');
-
+//Library Routs
 Route::get('/library', 'BookLibraryController@library')->name('library');
 Route::get('/books_{section}', 'BookLibraryController@showBooksBySection')->name('showBooksBySection');
+
+
+//Content Routs
 Route::get('/university_president', 'ContentController@university_president')->name('university_president');
 Route::get('/SCBT_AlAdel', 'ContentController@SCBT_AlAdel')->name('SCBT_AlAdel');
 Route::get('/Students_Affairs', 'ContentController@Students_Affairs')->name('Students_Affairs');
@@ -43,42 +37,10 @@ Route::get('/University_Establishment', 'ContentController@University_Establishm
 Route::get('/University_guide', 'ContentController@University_guide')->name('University_guide');
 
 
-
-// Route::get('/student', function () {
-//     return view('student');
-// })->name('student');
-
-// Route::get('/grades', function () {
-//     return view('grades');
-// })->name('grades');
-
-// Route::get('/timetables', function () {
-//     return view('timetables');
-// })->name('timetables');
-
-// Route::get('/studyplan', function () {
-//     return view('studyplan');
-// })->name('studyplan');
-
+//College Routs
 Route::get('/college', function () {
     return view('college');
 })->name('college');
-
-Route::get('/registration', function () {
-    return view('registration');
-})->name('registration');
-
-Route::get('/news', function () {
-    return view('news');
-})->name('news');
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
-Route::get('/forgot-password', function () {
-    return view('forgot-password');
-})->name('forgot-password');
 
 Route::get('/computer', function () {
     return view('college.Computer');
@@ -95,6 +57,20 @@ Route::get('/islamic', function () {
 Route::get('/sharia', function () {
     return view('college.Sharia');
 })->name('sharia');
+
+
+
+Route::get('/registration', function () {
+    return view('registration');
+})->name('registration');
+
+Route::get('/news', function () {
+    return view('news');
+})->name('news');
+
+Route::get('/forgot-password', function () {
+    return view('forgot-password');
+})->name('forgot-password');
 
 Route::get('/translation', function () {
     return view('college.Translation');

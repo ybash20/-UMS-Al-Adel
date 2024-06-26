@@ -7,6 +7,7 @@ use crocodicstudio\crudbooster\middlewares\CBAuthAPI;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use app\Http\Middleware\StudentAuth;
+use Illuminate\Support\Facades\Session;
 
 class CBRouter
 {
@@ -82,14 +83,27 @@ class CBRouter
         Route::group(['middleware' => 'student.auth'], function () {
             // الصفحة الرئيسية للطالب
             Route::get('/student', function () {
-                return view('student');
-            });
+                return view('Student.student');
+            })->name('student'); // اسم الراوت للصفحة الرئيسية للطالب
+
+            // مسار تحديث كلمة المرور
+            Route::post('updatePassword', 'StudentControllerProfile@updatePassword')->name('updatePassword');
 
             // باقي المسارات الخاصة بالطلاب
             Route::get('student_grades', 'AdminController@StudentGrades')->name('StudentGrades');
             Route::get('student_studyplan', 'AdminController@StudentStudyplan')->name('StudentStudyplan');
             Route::get('student_timetables', 'AdminController@StudentTimetables')->name('StudentTimetables');
+
+            Route::get('updatePassword', function () {
+                if (Session::has('student_id')) {
+                    return view('Student.updatePassword');
+                } else {
+                    return redirect()->route('StudentgetLogin');
+                }
+            })->name('updatePassword');
         });
+
+
     });
 }
 

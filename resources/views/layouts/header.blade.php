@@ -1305,6 +1305,13 @@
             padding: 5px 10px;
             border: 1px solid #ccc;
         }
+        .reset-password-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        
+    
     </style>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
     </script>
@@ -1473,12 +1480,24 @@
                                             <a href="#events-section" class="header_a nav-link">
                                                 Events
                                             </a>
+
                                             @if (session()->has('student_id'))
-                                        <li class="nav-item">
-                                            <a href="{{ route('StudentgetLogin') }}" class="header_a nav-link">
+                                        <li class="has-children">
+                                            <a href="#" class="header_a nav-link">
                                                 Profile
-                                                <i class="fas fa-sign-out-alt"></i>
-                                            </a>
+                                                  </a>
+                                             <ul class="header_ul dropdown arrow-top">
+                                                <li>
+                                                    <a href="{{ route('StudentgetLogin') }}" class="header_a nav-link">
+                                                        Main
+                                                    </a>
+                                                </li> 
+                                                <li>
+                                                    <a href="{{ route('updatePassword') }}" class="header_a nav-link">
+                                                        Edit Password
+                                                    </a>
+                                                </li>  
+                                            </ul>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ route('StudentgetLogout') }}" class="header_a nav-link">
@@ -1503,6 +1522,35 @@
             </div>
         </div>
     </div>
+
+    
+  <!-- Modal wrapper for reset password form -->
+
+  
+
+
+
+{{-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var resetPasswordButton = document.getElementById('resetPasswordButton');
+        var resetPasswordModal = document.getElementById('resetPasswordModal');
+        var closeModalButton = document.getElementById('closeModalButton');
+
+        resetPasswordButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            resetPasswordModal.style.display = 'block';
+        });
+
+        closeModalButton.addEventListener('click', function() {
+            resetPasswordModal.style.display = 'none';
+            document.getElementById('resetPasswordForm').reset(); // Reset form fields on modal close
+        });
+    });
+</script> --}}
+
+
+    
+
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

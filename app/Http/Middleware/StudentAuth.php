@@ -20,6 +20,7 @@ class StudentAuth
             return redirect()->route('StudentgetLogin')->with('message', cbLang('login-message'));
         }
 
+        
         return $next($request);
     }
 }

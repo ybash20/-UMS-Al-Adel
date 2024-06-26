@@ -302,17 +302,21 @@ class AdminController extends CBController
                     }
                              
 
-        return view('grades', compact('grades','student'));
+        return view('Student.grades', compact('grades','student'));
     }
 
     public function StudentStudyplan()
     {
-        return view('studyplan');
+        return view('Student.studyplan');
     }
 
     public function StudentTimetables()
     {
-        return view('timetables');
+        return view('Student.timetables');
     }
+
+
+   
+    
 
 }
