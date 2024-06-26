@@ -16,7 +16,6 @@
                                     data-lfr-editable-type="rich-text">نبذة عن الجامعة&nbsp;<br class="snipcss0-4-7-8">
                                 </h2>
                             </div>
-                            
                         </div>
                         <div class="row py-4 text-end snipcss0-1-1-10">
                             <div class="col snipcss0-2-10-11">
