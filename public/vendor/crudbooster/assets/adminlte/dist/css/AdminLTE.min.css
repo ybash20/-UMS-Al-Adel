@@ -257,7 +257,6 @@ a:focus {
     .main-header .navbar-custom-menu a,
     .main-header .navbar-right a {
         color: inherit;
-        background: transparent
     }
 }
 
@@ -1441,7 +1440,8 @@ a:focus {
 
 @media (max-width:991px) {
     .navbar-custom-menu>.navbar-nav {
-        float: right
+        float: right;
+        display: -webkit-inline-box;
     }
 
     .navbar-custom-menu>.navbar-nav>li {
