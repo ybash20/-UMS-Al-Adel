@@ -1,5 +1,13 @@
 <?php
 return [
+    'Qualifications'=>'المؤهلات',
+    'Certificates'=>'الشهادات',
+    'Maritals'=>'الحالة الاجتماعية',
+    'Guardians'=>'اشخاص مقربين',
+    'identitie'=>'الهوية',
+    'Blood'=>'فصيلة الدم',
+    'Registration Portal'=>'التسجيل الالكتروني',
+    'Registration'=>'التسجيل',
     'Management'=>'الادارة',
     'Users'=>'المستخدمين',
     'Departments' => 'الاقسام',

@@ -1,9 +1,16 @@
 <?php
 return [
+    'Qualifications'=>'Qualifications',
+    'Certificates'=>'Certificates',
+    'Maritals'=>'Marital Status',
+    'Guardians'=>'Guardians',
+    'identitie'=>'identity',
+    'Blood'=>'Blood',
+    'Registration Portal' =>'Registration Portal',
     'Management' => 'Management',
     'Users'=>'Users',
     'Departments' => 'Departments',
-
+    'Registration' => 'Registration',
     'Menu Management' => ' Menu Management',
     'Dashboard' => 'Dashboard',
     'collage' => 'Al-Adel',
