@@ -1480,7 +1480,7 @@
                                             <a href="#events-section" class="header_a nav-link">
                                                 Events
                                             </a>
-
+                                        </li>
                                             @if (session()->has('student_id'))
                                         <li class="has-children">
                                             <a href="#" class="header_a nav-link">
@@ -1514,6 +1514,42 @@
                                         </li>
                                         @endif
                                     </ul>
+                                    <li class="has-children">
+                                        <a href="#" class="header_a nav-link">
+                                            {{ ucwords(cbLang('lang')) }}
+                                        </a>
+                                        <ul class="header_ul dropdown arrow-top">
+                                            <li>
+                                                <form id="langForm" method="GET" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form_select">
+                                                    <button type="submit" name="lang" id="langAr" value="ar">
+                                                        <img src="{{ asset('image/ar.png') }}">
+                                                        العربية
+                                                    </button>
+                                                    <button type="submit" name="lang" id="langEn" value="en">
+                                                        <img src="{{ asset('image/en.png') }}">
+                                                        English
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    @push('bottom')
+                                        <script>
+                                            var form = document.getElementById("langForm");
+                                            var locale = "{{ app()->getLocale() }}";
+                                            var langAr = document.getElementById('langAr');
+                                            var langEn = document.getElementById('langEn');
+                                            var icon = document.querySelector('.lang-icon');
+                                            icon.innerHTML = '<i class="fa fa-globe"></i>';
+                                            if (locale === 'en') {
+                                                langEn.classList.add('active');
+                                                icon.innerHTML += 'English';
+                                            } else if (locale === 'ar') {
+                                                langAr.classList.add('active');
+                                                icon.innerHTML += 'العربية';
+                                            }
+                                        </script>
+                                    @endPush
                                 </div>
                             </nav>
                         </div>

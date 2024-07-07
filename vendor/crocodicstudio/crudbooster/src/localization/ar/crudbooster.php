@@ -362,4 +362,38 @@ return [
     'this_field_is_required' => 'الحقل اجباري',
     'text_form' => 'نموذح',
     "your_file_extension_is_not_allowed " => "امتداد الملف غير مسموح به !",
+
+    //Electronic registration
+    'Electronic registration'=>'التسجيل الاكتروني',
+    'personal information'=>'المعلومات الشخصية',
+    'Nationality'=>'الجنسية',
+    'Place of birth'=>'محل الميلاد',
+    'marital status'=>'الحالة الاجتماعية',
+    'Select a Marital Status'=>'حدد الحالة الاجتماعية',
+    'Single'=>'أعزب/عزباء',
+    'Married'=>'متزوج/متزوجة',
+    'Widowed'=>'أرمل/أرملة',
+    'Divorced'=>'مطلق/مطلقة',
+    'blood-type'=>'فصيلة الدم',
+    'Select a blood type'=>'حدد فصيلة الدم',
+    'Current address'=>'العنوان الحالي:الحي/القرية',
+    'issue-location'=>'جهة الإصدار',
+    'issue-date'=>'تاريخ الإصدار',
+    'Mobile number'=>'رقم الجوال',
+    'Email'=>'البريد الالكتروني',
+    'Select a gender'=>'حدد الجنس',
+    'Male'=>'ذكر',
+    'Female'=>'أنثى',
+    'Select a nationality'=>'حدد الجنسية',
+    'date of birth'=>'تاريخ الميلاد',
+    'student name'=>'اسم الطالب',
+    'Governorate'=>'العنوان الحالي:المحافظة',
+    'District'=>'العنوان الحالي:المديرية',
+    
+
+
+
+
+
+
 ];

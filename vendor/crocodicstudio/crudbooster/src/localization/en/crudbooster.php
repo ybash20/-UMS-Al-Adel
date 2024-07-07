@@ -340,4 +340,36 @@ return [
     'this_field_is_required' => 'This field is required',
     'text_form' => 'Form',
     "your_file_extension_is_not_allowed " => "Your file extension is not allowed !",
+
+
+    //Electronic registration
+    'Electronic registration'=>'Electronic registration',
+    'personal information'=>'Personal Information',
+    'Nationality'=>'Nationality',
+    'Place of birth'=>'Place of Birth',
+    'marital status'=>'Marital Status',
+    'Select a Marital Status'=>'Select a Marital Status',
+    'Single'=>'Single',
+    'Married'=>'Married',
+    'Widowed'=>'Widowed',
+    'Divorced'=>'Divorced',
+    'blood-type'=>'Blood Type',
+    'Select a blood type'=>'Select a Blood Type',
+    'Current address'=>'Current address: Neighborhood/Village',
+    'issue-location'=>'Issuing Authority',
+    'issue-date'=>'Date of Issue',
+    'Mobile number'=>'Mobile Number',
+    'Email'=>'Email',
+    'Select a gender'=>'Select a Gender',
+    'Male'=>'Male',
+    'Female'=>'Female',
+    'Select a nationality'=>'Select a Nationality',
+    'date of birth'=>'Date of Birth',
+    'student name'=>'Student Name'
+
+
+
+
+
+
 ];
