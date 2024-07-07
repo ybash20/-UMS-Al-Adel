@@ -318,8 +318,8 @@
                         {{ cbLang('label_employer') }}
                     </p>
                     <img src="{{ asset('vendor/crudbooster/assets/empployee.png') }}" class="img_login">
-                    <input class="input form-control" autocomplete='off' type="text" name='email'
-                        placeholder="Email" required />
+                    <input class="input form-control" autocomplete='off' type="text" name='login'
+                        placeholder="Email or Username" required />
                 </div>
                 <div>
                     <input class="input form-control" autocomplete='off' type="password" name='password'

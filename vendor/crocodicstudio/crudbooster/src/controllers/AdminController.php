@@ -58,41 +58,43 @@ class AdminController extends CBController
     }
 
     public function postLogin()
-    {
+{
+    $validator = Validator::make(Request::all(), [
+        'login' => 'required',
+        'password' => 'required',
+    ]);
 
-        $validator = Validator::make(Request::all(), [
-            'email' => 'required|email|exists:'.config('crudbooster.USER_TABLE'),
-            'password' => 'required',
-        ]);
+    if ($validator->fails()) {
+        $message = $validator->errors()->all();
+        return redirect()->back()->with(['message' => implode('<br>', $message), 'message_type' => 'danger']);
+    }
 
-        if ($validator->fails()) {
-            $message = $validator->errors()->all();
+    $login = Request::input("login");
+    $password = Request::input("password");
 
-            return redirect()->back()->with(['message' => implode('<br>', $message), 'message_type' => 'danger']);
-        }
+    $user = DB::table(config('crudbooster.USER_TABLE'))->where(function($query) use ($login) {
+        $query->where("email", $login)
+              ->orWhere("name", $login);
+    })->first();
 
-        $email = Request::input("email");
-        $password = Request::input("password");
-        $users = DB::table(config('crudbooster.USER_TABLE'))->where("email", $email)->first();
-
-        if (\Hash::check($password, $users->password)) {
-            AdminController::login($users);
-            return redirect(CRUDBooster::adminPath());
-        } else {
-            if(DB::table('password_resets')->where('email', $email)->where('active', '1')->exists()){
-                $token = DB::table('password_resets')->where("email", $email)->first();
-                if (\Hash::check($password, $token->token)) {
-                    AdminController::login($users);
-                    DB::table('password_resets')->where('email', $email)->update(['active' => '0','updated_at' => date('Y-m-d H:i:s')]);
-                    return redirect(CRUDBooster::adminPath())->with(['message' => cbLang('password_reset'), 'message_type' => 'reset_password']);
-                }else{
-                    return redirect()->route('getLogin')->with('message', cbLang('alert_password_wrong'));
-                }
-            }else{
+    if ($user && \Hash::check($password, $user->password)) {
+        AdminController::login($user);
+        return redirect(CRUDBooster::adminPath());
+    } else {
+        if (DB::table('password_resets')->where('email', $login)->where('active', '1')->exists()) {
+            $token = DB::table('password_resets')->where("email", $login)->first();
+            if (\Hash::check($password, $token->token)) {
+                AdminController::login($user);
+                DB::table('password_resets')->where('email', $login)->update(['active' => '0', 'updated_at' => date('Y-m-d H:i:s')]);
+                return redirect(CRUDBooster::adminPath())->with(['message' => cbLang('password_reset'), 'message_type' => 'reset_password']);
+            } else {
                 return redirect()->route('getLogin')->with('message', cbLang('alert_password_wrong'));
             }
+        } else {
+            return redirect()->route('getLogin')->with('message', cbLang('alert_password_wrong'));
         }
     }
+}
     private static function login($users){
         $priv = DB::table("ums_privileges")->where("id", $users->id_ums_privileges)->first();
 
