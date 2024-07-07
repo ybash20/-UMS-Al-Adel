@@ -88,7 +88,7 @@
                             <label for="issue-location" class="label">{{ cbLang('issue-location') }}</label>
                             <input type="text" name="issue-location" id="issue-location" class="input">
 
-                            <label for="mobile" class="label">{{ cbLang('Mobile number') }}</label>
+                            <label for="mobile" class="label">{{ cbLang('Phone Number') }}</label>
                             <input type="tel" name="mobile" id="mobile" class="input">
                         </div>
                         <div class="input_wrap2">
@@ -210,11 +210,11 @@
                                 <option value="Sharia and law">{{ cbLang('Sharia and Law') }}</option>
                             </select>
 
-                            <label>{{ cbLang('College of Administrative Sciences') }}</label>
+                            <label>{{ cbLang('College of Quranic sciences and Islamic studies') }}</label>
                             <select class="select">
-                                <option value="">{{ cbLang('Select Specialization') }}</option>
-                                <option value="business_administration">{{ cbLang('Business Administration') }}</option>
-                                <option value="accounting">{{ cbLang('Accounting') }}</option>
+                                <option value="none">{{ cbLang('Select Specialization') }}</option>
+                                <option value="Islamic studies">{{ cbLang('Islamic studies') }}</option>
+                                <option value="Quran Sciences">{{ cbLang('Quran Sciences') }}</option>
                             </select>
                         </div>
                     </div>
@@ -250,7 +250,7 @@
                             <input type="text" id="guardian_name2" name="guardian_name2" class="input">
                             <input type="text" id="guardian_name3" name="guardian_name3" class="input">
 
-                            <label for="phone_number2">{{ cbLang('Mobile Number') }}</label>
+                            <label for="phone_number2">{{ cbLang('Phone Number') }}</label>
                             <input type="tel" id="phone_number2" name="phone_number2" class="input">
                             <input type="tel" id="phone_number3" name="phone_number3" class="input">
                         </div>
