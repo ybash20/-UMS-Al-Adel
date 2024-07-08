@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Update Password')
+@section('title', cbLang('Edit Password') )
 @section('main')
 <style>
     .content_wrapper_stupass {
@@ -33,7 +33,6 @@
         align-items: center;
     }
 
-    .content_stupass form label,
     .content_stupass form input,
     .content_stupass form button {
         width: 100%;
@@ -51,6 +50,10 @@
         cursor: pointer;
         transition: background-color 0.3s;
     }
+    .content_stupass form label{
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
 
     .content_stupass form button:hover {
         background-color: #0056b3;
@@ -58,12 +61,15 @@
 
     .success_message_stupass {
         color: green;
-        margin-top: 10px;
+        margin-top: 13px;
+        font-size: 17px;
+
     }
 
     .error_message_stupass {
         color: red;
-        margin-top: 10px;
+        margin-top: 13px;
+        font-size: 17px;
     }
 
     /* Styles for screens smaller than 600px */
@@ -101,12 +107,16 @@
 
 <div class="content_wrapper_stupass">
     <div class="content_stupass">
-        <h2>Edit Password</h2>
+        <h2>{{ cbLang('Edit Password') }}</h2>
         <form id="resetPasswordForm" action="{{ route('updatePassword') }}" method="POST">
             @csrf
-            <label for="newPassword">👇 Enter New Password 👇</label>
+            <label for="newPassword"> {{ cbLang('Enter New Password') }} </label>
             <input type="password" id="newPassword" name="newPassword" required>
-            <button type="submit">Submit</button>
+
+            <label for="confirmPassword"> {{ cbLang('Confirm New Password') }} </label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+            <button type="submit">{{ cbLang('Submit') }}</button>
         </form>
         <div class="success_message_stupass" id="successMessage">
             @if (session('success'))
@@ -123,13 +133,34 @@
         var resetPasswordForm = document.getElementById('resetPasswordForm');
         var successMessage = document.getElementById('successMessage');
 
-        // Close the success message automatically after 2 seconds
+        // Close the success message automatically after 10 seconds
         if (successMessage.innerText !== '') {
             setTimeout(function() {
                 successMessage.innerText = '';
                 resetPasswordForm.reset();
             }, 10000);
         }
+
+        // Add event listener to the form submit button
+        resetPasswordForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            
+            // Get the values of the new password and confirm password fields
+            var newPassword = document.getElementById('newPassword').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Check if the passwords match
+            if (newPassword === confirmPassword) {
+                // If the passwords match, submit the form
+                this.submit();
+            } else {
+                // If the passwords don't match, display an error message
+                var errorMessage = document.createElement('div');
+                errorMessage.style.color = 'red';
+                errorMessage.textContent = '{{ cbLang("Passwords do not match") }}';
+                successMessage.appendChild(errorMessage);
+            }
+        });
     });
 </script>
 @endsection

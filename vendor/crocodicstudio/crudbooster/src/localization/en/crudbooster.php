@@ -444,6 +444,29 @@ return [
     'Computer Science' => 'Computer Science',
     'College' => 'College',
     'Library' => 'Library',
+    //page Edit Password
+    'Enter New Password' => 'Enter New Password',
+    'Submit' => 'Submit',
+    'Confirm New Password' => 'Confirm New Password',
+    'Passwords do not match' => 'Password does not match',
+    //page student
+    'timetables' => 'Timetables',
+    'studyplan' => 'Studyplan',
+    'Grades Student' => 'Grades Student :',
+    'Student Name' => 'Student Name :',
+    'Student ID' => 'Student ID :',
+    'Semester' => 'Semester',
+    'S Point' => 'S Point',
+    'Total Grade' => 'Total Grade',
+    'Exam Grade' => 'Exam Grade',
+    'Semester Grade' => 'Semester Grade',
+    'Course Name' => 'Course Name',
+    'Show All Semesters' => 'Show All Semesters',
+    'Hide All Semesters' => 'Hide All Semesters',
+    'An error occurred while retrieving the grades.' =>'An error occurred while retrieving the grades..',
+
+
+
 
 
 

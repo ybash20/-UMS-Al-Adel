@@ -1,5 +1,5 @@
 @extends('layouts.master')
-  @section('title','studyplan')
+  @section('title', cbLang('studyplan'))
       
   @section('main')
   

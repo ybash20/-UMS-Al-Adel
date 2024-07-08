@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Student')
+@section('title', cbLang('Students'))
 
 @section('main')
     <style>
@@ -44,18 +44,18 @@
         <div class="image-container">
             <figure>
                 <a href="{{ route('StudentGrades') }}">
-                    <img src="{{ asset('vendor/crudbooster/assets/grades.png') }}" alt="الدرجات">
+                    <img src="{{ asset('vendor/crudbooster/assets/grades.png') }}" alt={{ cbLang('Grades') }}>
                 </a>
-                <figcaption>الدرجات</figcaption>
+                <figcaption>{{ cbLang('Grades') }}</figcaption>
             </figure>
         </div>
     
         <div class="image-container">
             <figure>
                 <a href="{{ route('StudentTimetables') }}">
-                    <img src="{{ asset('vendor/crudbooster/assets/timetables.png') }}" alt="الجداول الدراسية">
+                    <img src="{{ asset('vendor/crudbooster/assets/timetables.png') }}" alt={{ cbLang('timetables') }}>
                 </a>
-                <figcaption>الجداول الدراسية</figcaption>
+                <figcaption>{{ cbLang('timetables') }}</figcaption>
             </figure>
         </div>
     
@@ -63,9 +63,9 @@
             <div class="image-container">
                 <figure>
                     <a href="{{ route('StudentStudyplan') }}">
-                        <img src="{{ asset('vendor/crudbooster/assets/study_plan.png') }}" alt="الخطة الدراسية">
+                        <img src="{{ asset('vendor/crudbooster/assets/study_plan.png') }}" alt={{ cbLang('studyplan') }}>
                     </a>
-                    <figcaption>الخطة الدراسية</figcaption>
+                    <figcaption>{{ cbLang('studyplan') }}</figcaption>
                 </figure>
             </div>
         </div>

@@ -24,7 +24,7 @@ return [
     'News Images' => 'صور الاخبار',
     'News Categories' => 'فئات الأخبار',
     'News' => 'الاخبار',
-    'Grades' => 'درجات',
+    'Grades' => 'الدرجات',
     'Courses' => 'المنهج الدراسي',
     'Label-Import-helper' => 'قبل تحميل ملف ، من الأفضل قراءة التعليمات التالية: <br>
      * يجب أن يكون تنسيق الملف: xls أو xlsx أو csv <br>
@@ -240,45 +240,7 @@ return [
     'SUPERADMIN' => 'مدير النظام ',
     'click_here' => 'اضغط هنا ',
 
-    // 'degree_levels' => 'مستويات الدرجة العلمية',
-    // 'colleges' => 'الكليات',
-    // 'majors' => 'التخصصات',
-    // 'content_images' => 'صور المحتوى',
-    // 'content_categories' => 'فئات المحتوى',
-    // 'contents' => ' المحتوى',
-    // 'library' => 'المكتبة',
-    // 'sections' => 'أقسام المكتبة',
-    // 'library_sections' => 'أقسام المكتبة',
-    // 'books' => 'الكتب',
 
-    // 'degree_levels' => 'مستويات الدرجة العلمية',
-    // 'colleges' => 'الكليات',
-    // 'majors' => 'التخصصات',
-    // 'students' => 'طلاب',
-    // 'content_images' => 'صور المحتوى',
-    // 'content_categories' => 'فئات المحتوى',
-    // 'contents' => ' المحتوى',
-    // 'library' => 'المكتبة',
-    // 'sections' => 'أقسام المكتبة',
-    // 'library_sections' => 'أقسام المكتبة',
-    // 'books' => 'الكتب',
-    //     ""،
-    // ""،
-    // ""،
-    //  ''،
-    //  ""،
-    //  ""،
-    // ''،
-    //  ""،
-    // ""،
-
-
-    /*
-    * this is for html direction to use in html and css classes like :
-        * pull-left , pull-right , text-right ...
-     * to make it easy to use the the view for rtl langs .
-     * unless your language use right-to-left direction , you should keep it as it is :
-     */
     'right' => 'left',
     'left' => 'right',
 
@@ -463,6 +425,26 @@ return [
     'Computer Science' => 'علوم الحاسوب',
     'College' => 'الكلية',
     'Library' => 'المكتبة',
+    //page Edit Password
+    'Enter New Password' => 'أدخل كلمة المرور الجديدة',
+    'Submit' => 'تعديل',
+    'Confirm New Password' => 'تاكيد كلمة المرور الجديدة',
+    'Passwords do not match' => 'كلمة المرور غير متطابقة',
+    //page student
+    'timetables' => 'الجداول الدراسية',
+    'studyplan' => 'الخطة الدراسية',
+    'Grades Student' => 'درجات الطالب',
+    'Student Name' => ' اسم الطالب :',
+    'Student ID' => ' رقم الطالب :',
+    'Semester' => 'الفصل الدراسي',
+    'S Point' => 'النقاط',
+    'Total Grade' => 'المجموع الكلي',
+    'Exam Grade' => 'درجة الامتحان',
+    'Semester Grade' => 'درجة الفصل الدراسي',
+    'Course Name' => 'اسم المادة',
+    'Show All Semesters' => 'عرض جميع الفصول الدراسية',
+    'Hide All Semesters' => 'إخفاء جميع الفصول الدراسية',
+    'An error occurred while retrieving the grades.' => 'حدث خطأ أثناء استرجاع الدرجات.',
     '' => '',
     '' => '',
     '' => '',
@@ -475,7 +457,12 @@ return [
     '' => '',
     '' => '',
     '' => '',
-
+    '' => '',
+    '' => '',
+    '' => '',
+    '' => '',
+    '' => '',
+    '' => '',
 
 
 
