@@ -3,9 +3,9 @@
 
 @section('main')
 @if (App::getLocale() == 'ar')
-<link rel="stylesheet" href="css/GradesAR.css"> 
+<link rel="stylesheet" href="css/cssAr/Grades.css"> 
 @else
-<link rel="stylesheet" href="css/GradesEN.css">
+<link rel="stylesheet" href="css/cssEN/Grades.css">
     @endif
 
 

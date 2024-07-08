@@ -2,16 +2,17 @@
 @section('title', cbLang('Electronic registration'))
 
 @section('main')
-    {{-- <link rel="stylesheet" type="text/css" href="styles.css"> --}}
-    <link rel="stylesheet" href="css/css_registration.css">
+    @if (App::getLocale() == 'ar')
+<link rel="stylesheet" href="css/cssAr/css_registration.css"> 
+@else
+<link rel="stylesheet" href="css/cssEN/css_registration.css">
+@endif
+    {{-- <link rel="stylesheet" href="css/css_registration.css"> --}}
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    {{-- <header>
-		@include('layouts.header')
-	   </header>
-	 --}}
+   
     <div class="body_form">
 
         <div class="wrapper">
@@ -292,7 +293,7 @@
                 <div class="btns_wrap">
                     <div class="common_btns form_1_btns">
                         <button type="button" class="btn_next">
-                            التالي
+                            {{ cbLang('next') }}
                             <span class="icon">
                                 <ion-icon name="arrow-forward-sharp"></ion-icon>
                             </span>
