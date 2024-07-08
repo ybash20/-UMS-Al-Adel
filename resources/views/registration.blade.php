@@ -361,7 +361,7 @@
                             </span>
                             {{ cbLang('back') }}
                         </button>
-                        <button type="button" class="btn_done"> 
+                        <button type="button" class="btn_done">
                             {{ cbLang('done') }}
                         </button>
                     </div>

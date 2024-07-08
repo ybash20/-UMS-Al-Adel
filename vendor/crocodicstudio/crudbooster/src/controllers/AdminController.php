@@ -199,9 +199,8 @@ class AdminController extends CBController
         CRUDBooster::insertLog('the code',g('code'));
         CRUDBooster::insertLog('the email',Session::get('email'));
         $validator = Validator::make(Request::all(), [
-            'code' => 'required|integer|between:99999,999999',
-        ],
-        [
+            'code' => 'required|integer|between:999999,9999999',
+        ], [
             'code.required' => cbLang('code_required'),
             'code.integer' => cbLang('email_check_code_failed'),
             'code.between' => cbLang('email_check_code_failed'),
@@ -214,7 +213,7 @@ class AdminController extends CBController
             $email = Session::get('email');
             $user = DB::table('email_check')->where('email', $email)->first();
             $code = g('code');
-            if (Hash::check($code, $user->code)) { 
+            if (\Hash::check($code, $user->code)) {
                 DB::table('email_check')->where('email', $email)->delete();
                 CRUDBooster::insertLog($email.' '.cbLang("email_check_code_done"), ['email' => $email, 'ip' => Request::server('REMOTE_ADDR')]);
                 return response()->json(['message' => cbLang("email_check_code_done"), 'type' => 'success']);
@@ -288,7 +287,7 @@ class AdminController extends CBController
         Session::flush();
         return redirect()->route('StudentgetLogin')->with('message', cbLang('logout_student_success'));
     }
-    
+
 
 
     public function StudentGrades()
@@ -302,9 +301,9 @@ class AdminController extends CBController
                     ->get();
                     foreach ($grades as $total) {
                         $total->Grade_100 = $total->Grade_30 + $total->Grade_70;
-                     
+
                     }
-                             
+
 
         return view('Student.grades', compact('grades','student'));
     }
@@ -320,7 +319,7 @@ class AdminController extends CBController
     }
 
 
-   
-    
+
+
 
 }

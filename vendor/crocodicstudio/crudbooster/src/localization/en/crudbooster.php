@@ -21,7 +21,7 @@ return [
     'Import Data' => 'Import Data',
     'Label-Import-helper1' => 'Welcome to Data Importer Tool',
     'Label-Import-helper' => '
-                        Before doing upload a file, its better to read this bellow instructions : 
+                        Before doing upload a file, its better to read this bellow instructions :
                         * File format should be : xls or xlsx or csv....
                         * If you have a big file data, we cannot guarantee. So, please split those files into some parts of file (at least max 5 MB).....
                         * This tool is generate data automatically so, be carefull about your table xls structure. Please make sure correctly the table structure.....
@@ -342,7 +342,7 @@ return [
 
 
     // Electronic registration
-    'Electronic registration' => 'Electronic registration',
+    'Electronic registration' => 'Electronic Registration',
     'personal information' => 'personal information',
     'Nationality' => 'Nationality',
     'Place of birth' => 'Place of birth',
