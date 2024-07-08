@@ -13,6 +13,44 @@
                         <div class="row align-items-xl-center snipcss0-1-1-2">
                             <div class="col-9 snipcss0-2-2-6">
                                 <h2 class="font-weight-normal text-6 snipcss0-3-6-7" data-lfr-editable-id="card2"
+                                    data-lfr-editable-type="rich-text">كلمة العميد&nbsp;<br class="snipcss0-4-7-8">
+                                    <strong class="font-weight-extra-bold snipcss0-4-7-9">د. سالم مبارك </strong>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row py-4 text-end snipcss0-1-1-10">
+                            <div class="col snipcss0-2-10-11">
+                                <p class="text-3-4 snipcss0-3-11-12" data-lfr-editable-id="card3"
+                                    data-lfr-editable-type="rich-text">
+                                    ,أنشئت كلية العلوم الإدارية في جامعة العادل لتزويد المجتمع بالكوادر المؤهلة والمواكبة
+                                    والعشرين. نحن مهتدون برؤية ورسالة الجامعة وساعون لتحقيق أهدافها، مما يساهم في دفع عجلة
+                                    التنمية إلى الأمام من خلال تزويد الطالب بالمهارات اللازمة ليصبح عضواً نافعاً وإنساناً
+                                    صالحاً لدينه ووطنه ونفسه.
+                                    ولتحقيق هذه الأهداف، قامت الكلية بتوفير المتطلبات اللازمة للتعليم والتعلم والبحث العلمي
+                                    من خلال استقطاب كوادر تدريسية متميزة وتجهيز بنية تحتية متقدمة تشمل قاعات حديثة ومختبرات
+                                    متخصصة بشاشات ذكية وعدد كبير من أجهزة الحاسوب المتقدمة وملحقاتها، بالإضافة إلى مكتبة
+                                    ورقية ورقمية.
+                                    تسعى الكلية إلى الاندماج في سوق العمل من خلال دراسة متطلبات السوق وانعكاس ذلك في الخطط
+                                    الدراسية واستراتيجيات التعليم والتعلم. كما تسعى الكلية إلى إقامة شراكات مع جامعات محلية
+                                    وعالمية من خلال مذكرات التفاهم والتوأمة. نسعى جاهدين إلى تطبيق أفضل معايير الجودة
+                                    والاعتماد المؤسسي والبرامجي المحلي والعالمي لضمان حصول الخريج على الكفايات المطلوبة
+                                    لمواكبة تطورات هذا العصر.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-q4i p-cby">
+            <div class="row-nvg item-dr7">
+                <div class="col-qxc">
+                    <div
+                        class="box-content p-4 XXsnipcss_extracted_selector_selectionXX snipcss0-0-0-1 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center">
+                        <div class="row align-items-xl-center snipcss0-1-1-2">
+                            <div class="col-9 snipcss0-2-2-6">
+                                <h2 class="font-weight-normal text-6 snipcss0-3-6-7" data-lfr-editable-id="card2"
                                     data-lfr-editable-type="rich-text">نبذة عن الجامعة&nbsp;<br class="snipcss0-4-7-8">
                                 </h2>
                             </div>
@@ -32,33 +70,6 @@
                                     المتداولة تحتوي مضامين مختلفة تشكل ثقافة الإنسان وتدير دفة حضارة المجتمعات. ففي ضوء هذا
                                     الادراك لأهمية الحاسوب وتقنية المعلومات فقد حرصت جامعة نجران منذ نشأتها على إطلاق برامج
                                     نوعية في مجالات التقنية باستحداث كلية علوم الحاسب ونظم المعلومات.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="content-q4i p-cby">
-            <div class="row-nvg item-dr7">
-                <div class="col-qxc">
-                    <div
-                        class="box-content p-4 XXsnipcss_extracted_selector_selectionXX snipcss0-0-0-1 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center">
-                        <div class="row align-items-xl-center snipcss0-1-1-2">
-                            <div class="col-9 snipcss0-2-2-6">
-                                <h2 class="font-weight-normal text-6 snipcss0-3-6-7" data-lfr-editable-id="card2"
-                                    data-lfr-editable-type="rich-text">كلمة العميد&nbsp;<br class="snipcss0-4-7-8">
-                                    <strong class="font-weight-extra-bold snipcss0-4-7-9">د. سالم مبارك </strong>
-                                </h2>
-                            </div>
-                        </div>
-                        <div class="row py-4 text-end snipcss0-1-1-10">
-                            <div class="col snipcss0-2-10-11">
-                                <p class="text-3-4 snipcss0-3-11-12" data-lfr-editable-id="card3"
-                                    data-lfr-editable-type="rich-text">           
-                                    أنشئت كلية العلوم الإدارية في جامعة العادل لتزويد المجتمع بالكوادر المؤهلة والمواكبة للتطورات في حقل الإدارة التي أصبحت واحدة من الصفات المميزة للتعليم في القرن الواحد والعشرين. نحن مهتدون برؤية ورسالة الجامعة وساعون لتحقيق أهدافها، مما يساهم في دفع عجلة التنمية إلى الأمام من خلال تزويد الطالب بالمهارات اللازمة ليصبح عضواً نافعاً وإنساناً صالحاً لدينه ووطنه ونفسه. 
-                                    ولتحقيق هذه الأهداف، قامت الكلية بتوفير المتطلبات اللازمة للتعليم والتعلم والبحث العلمي من خلال استقطاب كوادر تدريسية متميزة وتجهيز بنية تحتية متقدمة تشمل قاعات حديثة ومختبرات متخصصة بشاشات ذكية وعدد كبير من أجهزة الحاسوب المتقدمة وملحقاتها، بالإضافة إلى مكتبة ورقية ورقمية.
-                                    تسعى الكلية إلى الاندماج في سوق العمل من خلال دراسة متطلبات السوق وانعكاس ذلك في الخطط الدراسية واستراتيجيات التعليم والتعلم. كما تسعى الكلية إلى إقامة شراكات مع جامعات محلية وعالمية من خلال مذكرات التفاهم والتوأمة. نسعى جاهدين إلى تطبيق أفضل معايير الجودة والاعتماد المؤسسي والبرامجي المحلي والعالمي لضمان حصول الخريج على الكفايات المطلوبة لمواكبة تطورات هذا العصر.
-                                </p>
                             </div>
                         </div>
                     </div>

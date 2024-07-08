@@ -7,32 +7,7 @@
     <div class="contener">
         <div class="content-q4i p-cby">
             <div class="row-nvg item-dr7">
-                <div class="col-qxc">
-                    <div
-                        class="box-content p-4 XXsnipcss_extracted_selector_selectionXX snipcss0-0-0-1 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center">
-                        <div class="row align-items-xl-center snipcss0-1-1-2">
-                            <div class="col-9 snipcss0-2-2-6">
-                                <h2 class="font-weight-normal text-6 snipcss0-3-6-7" data-lfr-editable-id="card2"
-                                    data-lfr-editable-type="rich-text">نبذة عن الجامعة&nbsp;<br class="snipcss0-4-7-8">
-                                </h2>
-                            </div>
-                        </div>
-                        <div class="row py-4 text-end snipcss0-1-1-10">
-                            <div class="col snipcss0-2-10-11">
-                                <p class="text-3-4 snipcss0-3-11-12" data-lfr-editable-id="card3"
-                                    data-lfr-editable-type="rich-text">
-                                    {{ DB::table('colleges')->where('id', 2)->value('Description') }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="content-q4i p-cby">
-            <div class="row-nvg item-dr7">
-                <div class="col-qxc">
-                    <div
+                <div
                         class="box-content p-4 XXsnipcss_extracted_selector_selectionXX snipcss0-0-0-1 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center">
                         <div class="row align-items-xl-center snipcss0-1-1-2">
                             <div class="col-9 snipcss0-2-2-6">
@@ -63,6 +38,31 @@
                                     المطلوبة لمواكبة تطورات هذا العصر.
 
                                 </p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="content-q4i p-cby">
+            <div class="row-nvg item-dr7">
+                <div class="col-qxc">
+                    <div class="col-qxc">
+                        <div
+                            class="box-content p-4 XXsnipcss_extracted_selector_selectionXX snipcss0-0-0-1 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center">
+                            <div class="row align-items-xl-center snipcss0-1-1-2">
+                                <div class="col-9 snipcss0-2-2-6">
+                                    <h2 class="font-weight-normal text-6 snipcss0-3-6-7" data-lfr-editable-id="card2"
+                                        data-lfr-editable-type="rich-text">نبذة عن الجامعة&nbsp;<br class="snipcss0-4-7-8">
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="row py-4 text-end snipcss0-1-1-10">
+                                <div class="col snipcss0-2-10-11">
+                                    <p class="text-3-4 snipcss0-3-11-12" data-lfr-editable-id="card3"
+                                        data-lfr-editable-type="rich-text">
+                                        {{ DB::table('colleges')->where('id', 2)->value('Description') }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
