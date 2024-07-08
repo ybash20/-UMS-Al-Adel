@@ -200,57 +200,55 @@
 </head>
 
 <body class="{{ Session::get('theme_color', 'skin-blue') }} {{ config('crudbooster.ADMIN_LAYOUT') }} {{ $sidebar_mode ?? '' }}">
-    <!-- Loader -->
-    <div class="wr" id="wr-loader">
-        <div id="page-loader" class="page-loader"></div>
-    </div>
+        <!-- Loader -->
+        <div class="wr" id="wr-loader">
+            <div id="page-loader" class="page-loader"></div>
+        </div>
 
-    <!-- Main content -->
-    {{-- <div class="main-content"> --}}
-        <div id="app" class="wrapper">
-            @include('crudbooster::header')
-            @include('crudbooster::sidebar')
-            <div class="content-wrapper">
-                <section class="content-header">
-                    @php
-                        $module = CRUDBooster::getCurrentModule();
-                        @endphp
-                    @if ($module)
-                        <h1>
-                            <!-- END BUTTON -->
-                            <ol class="breadcrumb">
-                                <li>
-                                    <a href="{{ CRUDBooster::adminPath() }}">
-                                        <i class="fa fa-dashboard"></i>
-                                        {{ cbLang('home') }}
-                                    </a>
-                                </li>
-                                <li class="active">
-                                    <i class="{{ $page_icon ?? $module->icon }}"></i>
-                                    {{ cbLang($page_title) }}
-                                </li>
-                                {{-- @if ($button_show || ($button_add && CRUDBooster::isCreate()) || ($button_export && CRUDBooster::getCurrentMethod() == 'getIndex') || ($button_import && CRUDBooster::getCurrentMethod() == 'getIndex')) --}}
-                                <li>
-                                    @if (CRUDBooster::getCurrentMethod() == 'getIndex')
-                                        @if ($button_show)
-                                            <a href="{{ CRUDBooster::mainpath() . '?' . http_build_query(Request::all()) }}" id="btn_show_data" class="btn btn-sm btn-primary" title="{{ cbLang('action_show_data') }}">
-                                                <i class="fa fa-table"></i>
-                                                {{ cbLang('action_show_data') }}
-                                            </a>
-                                        @endif
-                                        @if ($button_add && CRUDBooster::isCreate())
-                                            <a href="{{ CRUDBooster::mainpath('add') . '?return_url=' . urlencode(Request::fullUrl()) . '&parent_id=' . g('parent_id') . '&parent_field=' . $parent_field }}" id="btn_add_new_data" class="btn btn-sm btn-success" title="{{ cbLang('action_add_data') }}">
-                                                <i class="fa fa-plus-circle"></i>
-                                                {{ cbLang('action_add_data') }}
-                                            </a>
-                                        @endif
-                                    @endif
-                                    @if ($button_export && CRUDBooster::getCurrentMethod() == 'getIndex')
-                                        <a href="javascript:void(0)" id="btn_export_data" data-url-parameter="{{ $build_query }}" title="Export Data" class="btn btn-sm btn-primary btn-export-data">
-                                            <i class="fa fa-upload"></i>
-                                            {{ cbLang('button_export') }}
+    <div id="app" class="wrapper">
+        @include('crudbooster::header')
+        @include('crudbooster::sidebar')
+        <div class="content-wrapper">
+            <section class="content-header">
+                @php
+                    $module = CRUDBooster::getCurrentModule();
+                    @endphp
+                @if ($module)
+                    <h1>
+                        <!-- END BUTTON -->
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="{{ CRUDBooster::adminPath() }}">
+                                    <i class="fa fa-dashboard"></i>
+                                    {{ cbLang('home') }}
+                                </a>
+                            </li>
+                            <li class="active">
+                                <i class="{{ $page_icon ?? $module->icon }}"></i>
+                                {{ cbLang($page_title) }}
+                            </li>
+                            {{-- @if ($button_show || ($button_add && CRUDBooster::isCreate()) || ($button_export && CRUDBooster::getCurrentMethod() == 'getIndex') || ($button_import && CRUDBooster::getCurrentMethod() == 'getIndex')) --}}
+                            <li>
+                                @if (CRUDBooster::getCurrentMethod() == 'getIndex')
+                                    @if ($button_show)
+                                        <a href="{{ CRUDBooster::mainpath() . '?' . http_build_query(Request::all()) }}" id="btn_show_data" class="btn btn-sm btn-primary" title="{{ cbLang('action_show_data') }}">
+                                            <i class="fa fa-table"></i>
+                                            {{ cbLang('action_show_data') }}
                                         </a>
                                     @endif
+                                    @if ($button_add && CRUDBooster::isCreate())
+                                        <a href="{{ CRUDBooster::mainpath('add') . '?return_url=' . urlencode(Request::fullUrl()) . '&parent_id=' . g('parent_id') . '&parent_field=' . $parent_field }}" id="btn_add_new_data" class="btn btn-sm btn-success" title="{{ cbLang('action_add_data') }}">
+                                            <i class="fa fa-plus-circle"></i>
+                                            {{ cbLang('action_add_data') }}
+                                        </a>
+                                    @endif
+                                @endif
+                                @if ($button_export && CRUDBooster::getCurrentMethod() == 'getIndex')
+                                    <a href="javascript:void(0)" id="btn_export_data" data-url-parameter="{{ $build_query }}" title="Export Data" class="btn btn-sm btn-primary btn-export-data">
+                                        <i class="fa fa-upload"></i>
+                                        {{ cbLang('button_export') }}
+                                    </a>
+                                @endif
 
                                     @if ($button_import && CRUDBooster::getCurrentMethod() == 'getIndex')
                                         <a href="{{ CRUDBooster::mainpath('import-data') }}" id="btn_import_data" data-url-parameter="{{ $build_query }}" title="Import Data" class="btn btn-sm btn-primary btn-import-data">
@@ -259,31 +257,33 @@
                                         </a>
                                     @endif
 
-                                    @if (!empty($index_button))
-                                        @foreach ($index_button as $ib)
-                                            <a href='{{ $ib['url'] }}' id='{{ str_slug($ib['label']) }}' class='btn {{ $ib['color'] ? 'btn-' . $ib['color'] : 'btn-primary' }} btn-sm'
-                                                @if ($ib['onClick']) onClick='return {{ $ib['onClick'] }}' @endif
-                                                @if ($ib['onMouseOver']) onMouseOver='return {{ $ib['onMouseOver'] }}' @endif
-                                                @if ($ib['onMouseOut']) onMouseOut='return {{ $ib['onMouseOut'] }}' @endif
-                                                @if ($ib['onKeyDown']) onKeyDown='return {{ $ib['onKeyDown'] }}' @endif
-                                                @if ($ib['onLoad']) onLoad='return {{ $ib['onLoad'] }}' @endif >
-                                                <i class='{{ $ib['icon'] }}'></i> {{ $ib['label'] }}
-                                            </a>
-                                        @endforeach
-                                </li>
-                                {{-- @endif --}}
-                            </ol>
-                        </h1>
-                    @endif
-                    @else
-                        <h1>
-                            {{ Session::get('appname') }}
-                            <small>
-                                {{ cbLang($page_title) }}
-                            </small>
-                        </h1>
-                    @endif
-                </section>
+                                @if (!empty($index_button))
+                                    @foreach ($index_button as $ib)
+                                        <a href='{{ $ib['url'] }}' id='{{ str_slug($ib['label']) }}' class='btn {{ $ib['color'] ? 'btn-' . $ib['color'] : 'btn-primary' }} btn-sm'
+                                            @if ($ib['onClick']) onClick='return {{ $ib['onClick'] }}' @endif
+                                            @if ($ib['onMouseOver']) onMouseOver='return {{ $ib['onMouseOver'] }}' @endif
+                                            @if ($ib['onMouseOut']) onMouseOut='return {{ $ib['onMouseOut'] }}' @endif
+                                            @if ($ib['onKeyDown']) onKeyDown='return {{ $ib['onKeyDown'] }}' @endif
+                                            @if ($ib['onLoad']) onLoad='return {{ $ib['onLoad'] }}' @endif >
+                                            <i class='{{ $ib['icon'] }}'></i> {{ $ib['label'] }}
+                                        </a>
+                                    @endforeach
+                            </li>
+                            {{-- @endif --}}
+                        </ol>
+                    </h1>
+                @endif
+                @else
+                <h1 class="dash">
+                    <span>
+                    {{ Session::get('appname') }}
+                    </span>
+                    <small>
+                        {{ cbLang($page_title) }}
+                    </small>
+                </h1>
+                @endif
+            </section>
 
                 <!-- Main content -->
                 <!-- <section id='content_section' class="content"> -->

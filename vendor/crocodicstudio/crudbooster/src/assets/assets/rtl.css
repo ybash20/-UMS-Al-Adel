@@ -4,19 +4,22 @@
     font-weight: 400;
     src: url(fonts/DroidNaskh-Regular.eot);
     src: url(fonts/DroidNaskh-Regular.eot?#iefix) format('embedded-opentype'),
-    url(fonts/DroidNaskh-Regular.woff2) format('woff2'),
-    url(fonts/DroidNaskh-Regular.woff) format('woff'),
-    url(fonts/DroidNaskh-Regular.ttf) format('truetype');
+        url(fonts/DroidNaskh-Regular.woff2) format('woff2'),
+        url(fonts/DroidNaskh-Regular.woff) format('woff'),
+        url(fonts/DroidNaskh-Regular.ttf) format('truetype');
 }
 
 /*main font*/
-body,.h1, .h2, .h3, .h4, .h5, .h6 {
+body, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: "Droid Arabic Naskh";
+    direction: rtl;
 }
+
 .pull-right,
 .user-menu {
     font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
 .logo {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -25,7 +28,6 @@ body,.h1, .h2, .h3, .h4, .h5, .h6 {
 .sidebar-menu>li {
     position: relative !important;
     margin: 0 !important;
-    padding-right: 10px !important;
 }
 
 /*set the breadcrumb to the left*/
@@ -63,7 +65,8 @@ body,.h1, .h2, .h3, .h4, .h5, .h6 {
     margin-left: 0 !important;
 }
 .main-sidebar, .left-side {
-    left: initial !important;
+    left: 100% !important;
+    transform: translateX(-230px) !important;
 }
 .main-header .navbar-custom-menu,
 .main-header .navbar-right {
@@ -92,5 +95,5 @@ body,.h1, .h2, .h3, .h4, .h5, .h6 {
     .sidebar-collapse .main-footer {
       margin-right: 0 !important;
     }
-   
+
   }
