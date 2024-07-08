@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 use App\Models\student;
 use App\Models\Grades_Student;
 
@@ -199,7 +200,8 @@ class AdminController extends CBController
         CRUDBooster::insertLog('the email',Session::get('email'));
         $validator = Validator::make(Request::all(), [
             'code' => 'required|integer|between:99999,999999',
-        ], [
+        ],
+        [
             'code.required' => cbLang('code_required'),
             'code.integer' => cbLang('email_check_code_failed'),
             'code.between' => cbLang('email_check_code_failed'),
@@ -212,12 +214,12 @@ class AdminController extends CBController
             $email = Session::get('email');
             $user = DB::table('email_check')->where('email', $email)->first();
             $code = g('code');
-            if (\Hash::check($code, $user->code)) {
+            if (Hash::check($code, $user->code)) { 
                 DB::table('email_check')->where('email', $email)->delete();
                 CRUDBooster::insertLog($email.' '.cbLang("email_check_code_done"), ['email' => $email, 'ip' => Request::server('REMOTE_ADDR')]);
                 return response()->json(['message' => cbLang("email_check_code_done"), 'type' => 'success']);
             }
-            else{
+            else {
                 CRUDBooster::insertLog(cbLang('email_check_code_failed'), 'code is invalid');
                 return response()->json(['message' => cbLang('email_check_code_failed'), 'type' => 'error']);
             }
