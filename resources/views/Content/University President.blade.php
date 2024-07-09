@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('title','Speech of the university president')
+@section('university_president', 'active')
+@section('about', 'active')
 
 @section('main')
 <style>

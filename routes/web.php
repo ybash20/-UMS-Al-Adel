@@ -22,20 +22,23 @@ Route::get('/home', function () {
     return view('layouts.home');
 })->name('home');
 
-
 //Library Routs
 Route::get('/library', 'BookLibraryController@library')->name('library');
-Route::get('/books_{section}', 'BookLibraryController@showBooksBySection')->name('showBooksBySection');
 
+Route::get('/books_{section}', 'BookLibraryController@showBooksBySection')->name('showBooksBySection');
 
 //Content Routs
 Route::get('/university_president', 'ContentController@university_president')->name('university_president');
-Route::get('/SCBT_AlAdel', 'ContentController@SCBT_AlAdel')->name('SCBT_AlAdel');
-Route::get('/Students_Affairs', 'ContentController@Students_Affairs')->name('Students_Affairs');
-Route::get('/Foreign_relations', 'ContentController@Foreign_relations')->name('Foreign_relations');
-Route::get('/University_Establishment', 'ContentController@University_Establishment')->name('University_Establishment');
-Route::get('/University_guide', 'ContentController@University_guide')->name('University_guide');
 
+Route::get('/SCBT_AlAdel', 'ContentController@SCBT_AlAdel')->name('SCBT_AlAdel');
+
+Route::get('/Students_Affairs', 'ContentController@Students_Affairs')->name('Students_Affairs');
+
+Route::get('/Foreign_relations', 'ContentController@Foreign_relations')->name('Foreign_relations');
+
+Route::get('/University_Establishment', 'ContentController@University_Establishment')->name('University_Establishment');
+
+Route::get('/University_guide', 'ContentController@University_guide')->name('University_guide');
 
 //College Routs
 Route::get('/college', function () {
@@ -58,8 +61,6 @@ Route::get('/sharia', function () {
     return view('college.Sharia');
 })->name('sharia');
 
-
-
 Route::get('/registration', function () {
     return view('registration');
 })->name('registration');
@@ -78,21 +79,3 @@ Route::get('/translation', function () {
 
 Route::post('check-email', [AdminController::class, 'checkEmail'])->name('check-email');
 Route::post('check-code', [AdminController::class, 'checkCode'])->name('check-code');
-// Route::resource('grades', 'GradesController');
-
-//Route::post('/send-email', [EmailController::class, 'send'])->name('send-email');
-
-// Route::get('/verify-email', function () {
-//     return view('auth.verify-email');
-// })->name('verify-email');
-
-// Route::post('/send-verification-email', [ForgotConroller::class, 'sendVerificationEmail'])
-//      ->name('send-verification-email');
-
-// Route::post('/verify-code', [ForgotConroller::class, 'verifyCode'])
-//      ->name('verify-code');
-
-//Route::post('check-email', ['uses' => 'AdminController@checkEmail', 'as' => 'checkEmail']);
-
-//Route::post('check-email', ['uses' => 'AdminController@checkEmail', 'as' => 'checkEmail']);
-

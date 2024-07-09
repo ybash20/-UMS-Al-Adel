@@ -340,6 +340,8 @@ return [
     'text_form' => 'Form',
     "your_file_extension_is_not_allowed " => "Your file extension is not allowed !",
 
+    'news' => 'News',
+
 
     // Electronic registration
     'Electronic registration' => 'Electronic Registration',

@@ -2,12 +2,12 @@
 @section('title', cbLang('Grades'))
 
 @section('main')
-@if (App::getLocale() == 'ar')
-<link rel="stylesheet" href="css/cssAr/Grades.css"> 
-@else
-<link rel="stylesheet" href="css/cssEN/Grades.css">
-    @endif
 
+@if (App::getLocale() == 'ar')
+    <link rel="stylesheet" href="css/cssAr/Grades.css">
+@else
+    <link rel="stylesheet" href="css/cssEN/Grades.css">
+@endif
 
 <div class="container-grades">
         <div class="divstudent">

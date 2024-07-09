@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('title','The establishment of the university, vision and goals')
+@section('University_Establishment', 'active')
+@section('about', 'active')
 
 @section('main')
 <style>

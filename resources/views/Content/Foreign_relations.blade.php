@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('title','Foreign relations')
+@section('Foreign_relations', 'active')
+@section('about', 'active')
 
 @section('main')
 <style>

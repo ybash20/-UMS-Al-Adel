@@ -2,6 +2,7 @@
 @section('title')
 {{ $section->Name }}
 @endsection
+@section('library', 'active')
 
 @section('main')
     <style>
@@ -177,7 +178,7 @@
         font-size: 24px;
         margin-top: 7%;
     }
-    
+
     .search_books_form_new_books .search-form-new-books{
         margin-top: 7%;
     }
@@ -308,7 +309,7 @@
         font-size: 30px;
     }
 }
-        
+
     </style>
 
 <div class="main_body_book">

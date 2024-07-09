@@ -59,7 +59,7 @@ class AdminController extends CBController
     }
 
     public function postLogin()
-{
+    {
     $validator = Validator::make(Request::all(), [
         'login' => 'required',
         'password' => 'required',
@@ -74,8 +74,7 @@ class AdminController extends CBController
     $password = Request::input("password");
 
     $user = DB::table(config('crudbooster.USER_TABLE'))->where(function($query) use ($login) {
-        $query->where("email", $login)
-              ->orWhere("name", $login);
+        $query->where("email", $login)->orWhere("name", $login);
     })->first();
 
     if ($user && \Hash::check($password, $user->password)) {

@@ -1,6 +1,7 @@
 @extends('layouts.master')
-@section('title', 'business')
-
+@section('title', 'Business')
+@section('business', 'active')
+@section('college', 'active')
 
 @section('main')
     <link rel="stylesheet" href="css/css_college.css">

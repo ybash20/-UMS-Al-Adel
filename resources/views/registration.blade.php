@@ -1,18 +1,17 @@
 @extends('layouts.master')
 @section('title', cbLang('Electronic registration'))
+@section('registration', 'active')
 
 @section('main')
-    @if (App::getLocale() == 'ar')
-<link rel="stylesheet" href="css/cssAr/css_registration.css"> 
+@if (App::getLocale() == 'ar')
+    <link rel="stylesheet" href="css/cssAr/css_registration.css">
 @else
-<link rel="stylesheet" href="css/cssEN/css_registration.css">
+    <link rel="stylesheet" href="css/cssEN/css_registration.css">
 @endif
-    {{-- <link rel="stylesheet" href="css/css_registration.css"> --}}
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-   
+
     <div class="body_form">
 
         <div class="wrapper">
@@ -383,12 +382,14 @@
         </div>
     </div>
 
+@endsection
+
+@push('bottom')
     <script>
         $(document).ready(function() {
             $('#emailForm').on('submit', function(event) {
                 var wrapper = document.querySelector(".email_wrapper");
                 event.preventDefault(); // منع إعادة تحميل الصفحة
-
                 $.ajax({
                     url: "{{ route('check-email') }}",
                     method: "POST",
@@ -405,7 +406,6 @@
             $('#codeForm').on('submit', function(event) {
                 var wrapper = document.querySelector(".code_wrapper");
                 event.preventDefault(); // منع إعادة تحميل الصفحة
-
                 $.ajax({
                     url: "{{ route('check-code') }}",
                     method: "POST",
@@ -419,16 +419,13 @@
                     }
                 });
             });
-
             function showNotification(message, type, wrapper) {
                 wrapper.classList.add("active");
                 var notification = wrapper.querySelector('.success_wrap');
-
                 if (notification.querySelector('p')) {
                     notification.querySelector('p').remove();
                 }
                 var mod_icon = notification.querySelector('.modal_icon');
-
                 var Paragraph = document.createElement('p');
                 if (type === 'error') {
                     mod_icon.classList.add('error');
@@ -437,10 +434,8 @@
                     mod_icon.classList.remove('error');
                     mod_icon.innerHTML = '<ion-icon name="checkmark-sharp"></ion-icon>';
                 }
-
                 Paragraph.textContent = message;
                 notification.appendChild(Paragraph);
-
                 // إخفاء الإشعار بعد 5 ثوانٍ
                 // setTimeout(function() {
                 //     $(notification).slideUp(function() {
@@ -451,11 +446,9 @@
             var modal_wrapper = document.querySelector(".modal_wrapper");
             var email_wrapper = document.querySelector(".email_wrapper");
             var code_wrapper = document.querySelector(".code_wrapper");
-
             var mod_shadow = document.querySelector(".mod_shadow");
             var code_shadow = document.querySelector(".code_shadow");
             var email_shadow = document.querySelector(".email_shadow");
-
             mod_shadow.addEventListener("click", function() {
                 modal_wrapper.classList.remove("active");
             });
@@ -467,6 +460,5 @@
             });
         });
     </script>
-    {{-- <script type="text/javascript" src="scripts.js"></script> --}}
     <script src="js/js_registration.js"></script>
-@endsection
+@endpush

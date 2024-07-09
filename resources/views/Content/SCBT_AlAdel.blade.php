@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('title','Speech of the Chairman of the Board of Trustees of Al-Adel University')
+@section('SCBT_AlAdel', 'active')
+@section('about', 'active')
 
 @section('main')
 <style>

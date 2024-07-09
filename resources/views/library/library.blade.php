@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Library')
+@section('library', 'active')
+
 <!-- slider -->
 @section('divcontent')
 <link rel="stylesheet" href="css/lib/styleslider.css">
@@ -72,7 +74,7 @@
                 <div class="arrows_book">
                     <button class="prev-button"><span><</span></button>
                 </div>
-    
+
                 @foreach ($bookShow[$section->id] as $book)
                     <div class="book">
                         <img src="{{ $book->Cover_Image ? asset($book->Cover_Image) : asset('image/about.png') }}" alt="صورة الكتاب">
@@ -80,7 +82,7 @@
                         <p>{{ $book->Author }}</p>
                     </div>
                 @endforeach
-                
+
                 <div class="arrows_book">
                     <button class="next-button"><span>></span></button>
                 </div>
@@ -91,7 +93,7 @@
             </div>
         @endforeach
 
-        
+
 
 
 
@@ -160,12 +162,12 @@
                             booksPerRow = 2; // Change value to 2 for mobile view
                             prevButton.style.display = 'none';
                             nextButton.style.display = 'none';
-                        } 
+                        }
                         else if (window.innerWidth < 900) { // Adjust the upper threshold to 700
                             booksPerRow = 2; // Change value to 2 for mobile view
                             prevButton.style.display = 'none';
                             nextButton.style.display = 'none';
-                        } 
+                        }
                         else {
                             booksPerRow = 3; // Default value for non-mobile view
                             prevButton.style.display = 'inline-block';

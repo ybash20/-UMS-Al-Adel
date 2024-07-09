@@ -24,7 +24,11 @@ prev.onclick = function(){
 }
 // auto run slider
 let refreshInterval = setInterval(() => {
-    next.click();
+    itemActive = itemActive + 1;
+    if(itemActive >= countItem){
+        itemActive = 0;
+    }
+    showSlider();
 }, 5000)
 function showSlider(){
     // remove item active old
@@ -37,6 +41,10 @@ function showSlider(){
     // clear auto time run slider
     clearInterval(refreshInterval);
     refreshInterval = setInterval(() => {
-        next.click();
+        itemActive = itemActive + 1;
+        if(itemActive >= countItem){
+            itemActive = 0;
+        }
+        showSlider();
     }, 5000)
 }

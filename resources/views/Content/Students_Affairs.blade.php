@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('title','Students Affairs')
+@section('Students_Affairs', 'active')
+@section('about', 'active')
 
 @section('main')
 <style>

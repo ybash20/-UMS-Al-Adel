@@ -96,6 +96,9 @@
     align-items: center;
     fill: #fff;
 }
+.slider .list .item .content p {
+    font-size: 14px;
+}
 
 .arrows button svg {
     width: 15px;
@@ -137,10 +140,6 @@
 @media screen and (max-width: 352px) and (max-height: 1368px) {
     .slider .list .item .content h2 {
         font-size: 60px;
-    }
-
-    .slider .list .item .content p {
-        font-size: 14px;
     }
 
     .slider .list .item .content {

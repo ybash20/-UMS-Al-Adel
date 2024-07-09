@@ -4,14 +4,13 @@
 <head>
     <style>
         /* Center the loader on the screen */
-        #page-loader {
+         #page-loader {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 9999; /* Make sure the loader is on top of everything */
-            width: 200px; /* Adjust width to your animation size */
-            height: 200px; /* Adjust height to your animation size */
+            height: 250px; /* Adjust height to your animation size */
         }
         .wr{
             position: absolute;
@@ -164,6 +163,7 @@
             transition: .3s;
         }
     </style>
+
     @push('bottom')
         <script>
         // Function to remove the third <li> if it is empty
@@ -193,17 +193,19 @@
     @stack('head')
 
     @if (App::getLocale() == 'ar')
-        <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
+        <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/bootstrap-rtl.min.css') }}">
         <link href="{{ asset('vendor/crudbooster/assets/rtl.css') }}" rel="stylesheet" type="text/css">
     @endif
 
 </head>
 
 <body class="{{ Session::get('theme_color', 'skin-blue') }} {{ config('crudbooster.ADMIN_LAYOUT') }} {{ $sidebar_mode ?? '' }}">
-        <!-- Loader -->
-        <div class="wr" id="wr-loader">
-            <div id="page-loader" class="page-loader"></div>
-        </div>
+
+    <!-- Loader -->
+    <div class="wr" id="wr-loader">
+        <div id="page-loader" class="page-loader"></div>
+    </div>
+    <!-- Loader -->
 
     <div id="app" class="wrapper">
         @include('crudbooster::header')
@@ -274,59 +276,54 @@
                     </h1>
                 @endif
                 @else
-                <h1 class="dash">
-                    <span>
-                    {{ Session::get('appname') }}
-                    </span>
-                    <small>
-                        {{ cbLang($page_title) }}
-                    </small>
-                </h1>
+                    <h1 class="dash">
+                        <span>
+                            {{ Session::get('appname') }}
+                        </span>
+                        <small>
+                            {{ cbLang($page_title) }}
+                        </small>
+                    </h1>
                 @endif
             </section>
 
                 <!-- Main content -->
                 <!-- <section id='content_section' class="content"> -->
 
-                @if (@$alerts)
-                    @foreach (@$alerts as $alert)
-                        <div class='callout callout-{{ $alert['type'] }}'>
-                            {!! $alert['message'] !!}
-                        </div>
-                    @endforeach
-                @endif
-
-                @if (Session::get('message') != '')
-                    <div class='alert alert-{{ Session::get('message_type') }}'>
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                            &times;
-                        </button>
-                        <h4>
-                            <i class="icon fa fa-info"></i>
-                            {{ cbLang('alert_' . Session::get('message_type')) }}
-                        </h4>
-                        {!! Session::get('message') !!}
+            @if (@$alerts)
+                @foreach (@$alerts as $alert)
+                    <div class='callout callout-{{ $alert['type'] }}'>
+                        {!! $alert['message'] !!}
                     </div>
-                @endif
-                <!-- Your Page Content Here -->
-                @yield('content')
-                </section><!-- /.content -->
-            </div><!-- /.content-wrapper -->
+                @endforeach
+            @endif
+            @if (Session::get('message') != '')
+                <div class='alert alert-{{ Session::get('message_type') }}'>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4>
+                        <i class="icon fa fa-info"></i>
+                        {{ cbLang('alert_' . Session::get('message_type')) }}
+                    </h4>
+                    {!! Session::get('message') !!}
+                </div>
+            @endif
+            <!-- Your Page Content Here -->
+            @yield('content')
 
-            <!-- Footer -->
-            @include('crudbooster::footer')
+        </div><!-- /.content-wrapper -->
 
-        </div><!-- ./wrapper -->
-    {{-- </div> --}}
+        <!-- Footer -->
+        @include('crudbooster::footer')
+
+    </div><!-- ./wrapper -->
     {{-- main-content --}}
-
-
 
     @include('crudbooster::admin_template_plugins')
     <!-- loader -->
     <script src="{{ asset('vendor/crudbooster/assets/lottie.min.js') }}"></script>
     <!-- Load jQuery -->
-    <script src="{{ asset('vendor/crudbooster/assets/jquery-3.6.0.min.js') }}"></script>
     <script>
         // Load the animation
         var animation = lottie.loadAnimation({
