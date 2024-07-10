@@ -33,6 +33,7 @@
 			$this->col[] = ["label"=>"Student ID","name"=>"Student_ID","join"=>"students,id"];
 			$this->col[] = ["label"=>"Student Name","name"=>"Student_ID","join"=>"students,Name"];
 			$this->col[] = ["label"=>"Course","name"=>"Course_ID","join"=>"courses,Name"];
+			$this->col[] = ["label"=>"Semester","name"=>"Semester"];
 			$this->col[] = ["label"=>"Semester Grade","name"=>"Grade_30"];
 			$this->col[] = ["label"=>"Exam Grade","name"=>"Grade_70"];
 			$this->col[] = ["label"=>"Total Grade","name"=>"Grade_100"];
@@ -44,12 +45,11 @@
 			$this->form = [];
 			$this->form[] = ['label'=>'Student Name','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'students,Name'];
 			$this->form[] = ['label'=>'Course','name'=>'Course_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'courses,Name'];
-			$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Total Grade','name'=>'Grade_100','type'=>'number','width'=>'col-sm-9','readonly'=>'true'];
+			$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required|integer','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required|integer','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','validation'=>'required|integer','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','validation'=>'required','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
@@ -275,6 +275,8 @@
 				$Grade_70 = $postdata['Grade_70'];
 				$Grade_100 = $Grade_30 + $Grade_70 ;
 				$postdata['Grade_100'] = $Grade_100 ;
+				$postdata['Spoint'] = $Grade_100 / 20 ;
+
 	    }
 
 	    /*

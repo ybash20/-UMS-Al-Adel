@@ -15,14 +15,19 @@ class Grades_StudentFactory extends Factory
      */
     public function definition()
     {
-        return [
+        $grade30 = $this->faker->numberBetween(5, 50);
+        $grade70 = $this->faker->numberBetween(5, 50);
+        $grade100 = $grade30 + $grade70;
+        $spoint = $grade100 / 20;
 
-            'Student_ID' => 3,
-            'Course_ID' => $this->faker->unique()->numberBetween(1, 25),
-            'Grade_30' => $this->faker->numberBetween(5, 50),
-            'Grade_70' => $this->faker->numberBetween(5, 50),
+        return [
+            'Student_ID' => 7,
+            'Course_ID' => $this->faker->unique()->numberBetween(1, 44),
+            'Grade_30' => $grade30,
+            'Grade_70' => $grade70,
+            'Grade_100' => $grade100,
+            'Spoint' => $spoint,
             'Semester' => $this->faker->numberBetween(1, 8),
-            
         ];
     }
 }
