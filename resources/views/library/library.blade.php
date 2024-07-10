@@ -49,17 +49,9 @@
     <div class="main_continar">
         <div class="about">
             <div class="about_tag">
-                <h1>About Us</h1>
+                <h1>{{ cbLang(('About Us')) }}</h1>
                 <p>
-                    There is a library equipped with reference books and amenities to achieve its goal. The library
-                    contains
-                    more than 1,800 titles in various sciences, such as: Qur’anic sciences, hadith, jurisprudence,
-                    principles, translations, history, languages, translation, economics, management, computer science,
-                    and
-                    information technology. This is in addition to a number of educational publications, cultural
-                    periodicals, peer-reviewed journals, and scientific theses. Internet service and e-books are also
-                    available in the electronic resource room.
-                    Here on the website we provide the names of books and authors available in the library
+                    {{ cbLang('contentlib') }}
                 </p>
             </div>
         </div>
@@ -87,7 +79,7 @@
                     <button class="next-button"><span>></span></button>
                 </div>
                 <form action="{{ route('showBooksBySection', ['section' => $section->Name]) }}" method="GET">
-                    <button type="submit" class="read-more-button">Read more</i>
+                    <button type="submit" class="read-more-button">{{ cbLang('Read more') }}</i>
                     </button>
                 </form>
             </div>

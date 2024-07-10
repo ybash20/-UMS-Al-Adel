@@ -466,6 +466,17 @@ return [
     'Show All Semesters' => 'Show All Semesters',
     'Hide All Semesters' => 'Hide All Semesters',
     'An error occurred while retrieving the grades.' =>'An error occurred while retrieving the grades..',
+    'contentlib'=>'There is a library equipped with reference books and amenities to achieve its goal. The library
+                    contains
+                    more than 1,800 titles in various sciences, such as: Qur’anic sciences, hadith, jurisprudence,
+                    principles, translations, history, languages, translation, economics, management, computer science,
+                    and
+                    information technology. This is in addition to a number of educational publications, cultural
+                    periodicals, peer-reviewed journals, and scientific theses. Internet service and e-books are also
+                    available in the electronic resource room.
+                    Here on the website we provide the names of books and authors available in the library',
+                    'Read more'=>'Read more',
+                    'About Us'=>'About Us',
 
 
 

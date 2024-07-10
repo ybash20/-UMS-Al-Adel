@@ -3,6 +3,7 @@
 @section('registration', 'active')
 
 @section('main')
+<<<<<<< Updated upstream
 @if (App::getLocale() == 'ar')
     <link rel="stylesheet" href="css/cssAr/css_registration.css">
 @else
@@ -10,10 +11,7 @@
 @endif
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
     <div class="body_form">
-
         <div class="wrapper">
             <div class="header">
                 <ul>
@@ -40,11 +38,6 @@
                     <li class="form_5_progessbar">
                         <div>
                             <p>5</p>
-                        </div>
-                    </li>
-                    <li class="form_6_progessbar">
-                        <div>
-                            <p>6</p>
                         </div>
                     </li>
                 </ul>
@@ -268,27 +261,25 @@
                 <div class="form_5 data_info" style="display: none;">
                     <h2>{{ cbLang('Communication Methods') }}</h2>
                     <form id="emailForm" class="input_wrap"> @csrf <label for="email"
-                            id="label_email">{{ cbLang('Email') }}</label> <input type="email" id="email"
-                            name="email" class="input_email" required> <button type="submit" name="submit"
-                            value="send" class="butten_email">{{ cbLang('Confirm') }}</button>
-                        <div class="email_wrapper">
-                            <div class="email_shadow"></div>
-                            <div class="success_wrap"> <span class="modal_icon"> </span> </div>
-                        </div>
-                    </form>
+                        id="label_email">{{ cbLang('Email') }}</label> <input type="email" id="email"
+                        name="email" class="input_email" required> <button type="submit" name="submit"
+                        value="send" class="butten_email">{{ cbLang('Confirm') }}</button>
+                    <div class="email_wrapper">
+                        <div class="email_shadow"></div>
+                        <div class="success_wrap"> <span class="modal_icon"> </span> </div>
+                    </div>
+                </form>
+                    <form id="codeForm" class="input_wrap" style="display: none;"> @csrf <label for="code"
+                        id="label_email">{{ cbLang('Confirm Email') }}</label> <input type="text" id="code"
+                        name="code" class="input_email" required> <input type="submit" name="submit"
+                        value="{{ cbLang('Confirm') }}" class="butten_email">
+                    <div class="code_wrapper">
+                        <div class="code_shadow"></div>
+                        <div class="success_wrap"> <span class="modal_icon"> </span> </div>
+                    </div>
+                </form>
                 </div>
-                <div class="form_6 data_info" style="display: none;">
-                    <h2>{{ cbLang('Communication Methods') }}</h2>
-                    <form id="codeForm" class="input_wrap"> @csrf <label for="code"
-                            id="label_email">{{ cbLang('Confirm Email') }}</label> <input type="text" id="code"
-                            name="code" class="input_email" required> <input type="submit" name="submit"
-                            value="{{ cbLang('Confirm') }}" class="butten_email">
-                        <div class="code_wrapper">
-                            <div class="code_shadow"></div>
-                            <div class="success_wrap"> <span class="modal_icon"> </span> </div>
-                        </div>
-                    </form>
-                </div>
+
                 <div class="btns_wrap">
                     <div class="common_btns form_1_btns">
                         <button type="button" class="btn_next">
@@ -347,20 +338,6 @@
                             </span>
                             {{ cbLang('back') }}
                         </button>
-                        <button type="button" class="btn_next">
-                            {{ cbLang('next') }}
-                            <span class="icon">
-                                <ion-icon name="arrow-forward-sharp"></ion-icon>
-                            </span>
-                        </button>
-                    </div>
-                    <div class="common_btns form_6_btns" style="display: none;">
-                        <button type="button" class="btn_back">
-                            <span class="icon">
-                                <ion-icon name="arrow-back-sharp"></ion-icon>
-                            </span>
-                            {{ cbLang('back') }}
-                        </button>
                         <button type="button" class="btn_done">
                             {{ cbLang('done') }}
                         </button>
@@ -381,7 +358,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @push('bottom')
@@ -396,6 +372,12 @@
                     data: $(this).serialize(),
                     success: function(response) {
                         showNotification(response.message, response.type, wrapper);
+                        if (response.type === 'success') {
+                            // Show the code form and hide the email form
+                            $('#emailForm').hide();
+                            $('#codeForm').show();
+
+                        }
                     },
                     error: function(xhr) {
                         showNotification(xhr.responseJSON.message, xhr.responseJSON.type,
@@ -403,6 +385,7 @@
                     }
                 });
             });
+
             $('#codeForm').on('submit', function(event) {
                 var wrapper = document.querySelector(".code_wrapper");
                 event.preventDefault(); // منع إعادة تحميل الصفحة
@@ -412,6 +395,11 @@
                     data: $(this).serialize(),
                     success: function(response) {
                         showNotification(response.message, response.type, wrapper);
+                        if (response.type === 'success') {
+                            // Hide the code form
+                            $('#codeForm').hide();
+
+                        }
                     },
                     error: function(xhr) {
                         showNotification(xhr.responseJSON.message, xhr.responseJSON.type,
@@ -431,18 +419,19 @@
                     mod_icon.classList.add('error');
                     mod_icon.innerHTML = '<ion-icon name="alert-circle-sharp"></ion-icon>';
                 } else {
-                    mod_icon.classList.remove('error');
+                    mod_icon.classList.add('success');
                     mod_icon.innerHTML = '<ion-icon name="checkmark-sharp"></ion-icon>';
                 }
                 Paragraph.textContent = message;
                 notification.appendChild(Paragraph);
-                // إخفاء الإشعار بعد 5 ثوانٍ
-                // setTimeout(function() {
-                //     $(notification).slideUp(function() {
-                //         $(notification).remove();
-                //     });
-                // }, 5000);
+                // Hide the notification after 5 seconds
+                setTimeout(function() {
+                    $(notification).slideUp(function() {
+                        $(notification).remove();
+                    });
+                }, 8000);
             }
+
             var modal_wrapper = document.querySelector(".modal_wrapper");
             var email_wrapper = document.querySelector(".email_wrapper");
             var code_wrapper = document.querySelector(".code_wrapper");

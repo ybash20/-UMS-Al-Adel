@@ -448,6 +448,8 @@ return [
     'Show All Semesters' => 'عرض جميع الفصول الدراسية',
     'Hide All Semesters' => 'إخفاء جميع الفصول الدراسية',
     'An error occurred while retrieving the grades.' => 'حدث خطأ أثناء استرجاع الدرجات.',
+    'Read more'=>'اقراء المزيد',
+    'About Us'=>'عن المكتبة',
     '' => '',
     '' => '',
     '' => '',

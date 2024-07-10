@@ -26,8 +26,9 @@
             margin-top: 10px;
             font-size: 16px;
         }
+        
 
-        @media (max-width: 500px) {
+        @media (max-width: 854px) {
             .center {
                 flex-direction: column;
                 align-items: center;

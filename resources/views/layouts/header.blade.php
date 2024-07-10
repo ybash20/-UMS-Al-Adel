@@ -1,6 +1,10 @@
-
 {{-- Header Content --}}
 <header>
+    @if (App::getLocale() == 'ar')
+    <link rel="stylesheet" href="css/cssAr/header.css"> 
+    @else
+    <link rel="stylesheet" href="css/cssEN/header.css">
+    @endif
     <div class="bodyheader">
         <div class="site-mobile-menu site-navbar-target">
             <div class="site-mobile-menu-header">
@@ -263,3 +267,11 @@
         });
     </script>
 @endpush
+{{-- =======
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/main.js"></script>
+    @show
+>>>>>>> Stashed changes --}}
