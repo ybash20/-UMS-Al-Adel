@@ -15,9 +15,9 @@ class CreateCollegesTable extends Migration
     {
         Schema::create('colleges', function (Blueprint $table) {
             $table->id();
-            $table->string('Name', 30)->nullable();
-            $table->string('Dean', 30)->nullable();
-            $table->string('Dean_Speech')->nullable();
+            $table->string('Name')->nullable();
+            $table->text('Dean')->nullable();
+            $table->text('Dean_Speech')->nullable();
             $table->text('Description')->nullable();
             $table->timestamps();
         });
