@@ -253,7 +253,7 @@ footer.footer .region-bottom-footer {
     }
 
     .footer-block{
-        display: inherit;
+        min-width: -webkit-fill-available;
     }
 }
 

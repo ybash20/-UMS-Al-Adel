@@ -1,5 +1,5 @@
 @extends('layouts.master')
-  @section('title','timetables')
+  @section('title',cblang('timetables'))
       
   @section('main')
   

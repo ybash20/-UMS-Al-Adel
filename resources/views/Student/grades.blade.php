@@ -30,6 +30,7 @@
                         <th>{{ cbLang('Exam Grade') }}</th>
                         <th>{{ cbLang('Total Grade') }}</th>
                         <th>{{ cbLang('S Point') }}</th>
+                        <th>{{ cbLang('Note') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,6 +41,7 @@
                             <td>{{ $total->Grade_70 }}</td>
                             <td>{{ $total->Grade_100 }}</td>
                             <td>{{ $total->Spoint }}</td>
+                            <td>{{ $total->Note }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -59,6 +61,7 @@
                                     <th>{{ cbLang('Exam Grade') }}</th>
                                     <th>{{ cbLang('Total Grade') }}</th>
                                     <th>{{ cbLang('S Point') }}</th>
+                                    <th>{{ cbLang('Note') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,6 +72,7 @@
                                         <td>{{ $total->Grade_70 }}</td>
                                         <td>{{ $total->Grade_100 }}</td>
                                         <td>{{ $total->Spoint }}</td>
+                                        <td>{{ $total->Note }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

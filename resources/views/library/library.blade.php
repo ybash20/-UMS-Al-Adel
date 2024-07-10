@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Library')
+@section('title', cbLang('Library'))
 @section('library', 'active')
 
 <!-- slider -->
@@ -40,8 +40,6 @@
 </div>
 <script src="js/lib/js_slider_library.js"></script>
 @endsection
-
-
 @section('main')
     <link rel="stylesheet" href="css/lib/stylelib.css">
 
@@ -84,14 +82,6 @@
                 </form>
             </div>
         @endforeach
-
-
-
-
-
-
-
-
         </div>
 
         <script>

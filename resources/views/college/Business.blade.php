@@ -11,7 +11,7 @@
                 <div class="box-content p-4">
                     <div class="row align-items-xl-center">
                         <div class="col-9">
-                            <h2 class="font-weight-normal text-6">كلمة العميد&nbsp;<br>
+                            <h2 class="font-weight-normal text-6">{{ cbLang('Dean speech') }}&nbsp;<br>
                                 <strong class="font-weight-extra-bold">{{ $college->Dean }}</strong>
                             </h2>
                         </div>
@@ -31,7 +31,7 @@
                         <div class="box-content p-4">
                             <div class="row align-items-xl-center">
                                 <div class="col-9">
-                                    <h2 class="font-weight-normal text-6">نبذة عن الكلية&nbsp;<br></h2>
+                                    <h2 class="font-weight-normal text-6">{{ cbLang('About the college') }}&nbsp;<br></h2>
                                 </div>
                             </div>
                             <div class="row py-4 text-end">
@@ -44,19 +44,16 @@
                 </div>
             </div>
         </div>
-
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
     <section id="res-i5c" class="section-j6v">
         <div class="section-header">
             <div class="section-header-inner">
-                <a href="#">الاقسام</a>
+                <a href="#">{{ cbLang('Sections') }}</a>
             </div>
         </div>
         <div class="content">

@@ -440,10 +440,10 @@ return [
     'University President speech' => 'University President speech',
     'About' => 'About',
     'Languages and Translation' => 'Languages and Translation',
-    'Sharia and Law' => 'Sharia and Law',
+    // 'Sharia and Law' => 'Sharia and Law',
     'Islamic Studies and Quranic Sciences' => 'Islamic Studies and Quranic Sciences',
-    'Business Administration' => 'Business Administration',
-    'Computer Science' => 'Computer Science',
+    // 'Business Administration' => 'Business Administration',
+    // 'Computer Science' => 'Computer Science',
     'College' => 'College',
     'Library' => 'Library',
     //page Edit Password
@@ -465,6 +465,8 @@ return [
     'Course Name' => 'Course Name',
     'Show All Semesters' => 'Show All Semesters',
     'Hide All Semesters' => 'Hide All Semesters',
+    'Note'=>'Note',
+    //page Library
     'An error occurred while retrieving the grades.' =>'An error occurred while retrieving the grades..',
     'contentlib'=>'There is a library equipped with reference books and amenities to achieve its goal. The library
                     contains
@@ -477,6 +479,21 @@ return [
                     Here on the website we provide the names of books and authors available in the library',
                     'Read more'=>'Read more',
                     'About Us'=>'About Us',
+      //page home        
+    'Events and news' => 'Events and news',
+    'more' => 'more',
+    'University statistics' => 'University statistics',
+    //footer
+    'University logo' => 'University Logo',
+    'University location' => 'University location',
+    'copyright' => 'Copyright © All rights reserved. Al-Adil University. 2012 -',
+    //page college
+    'Dean speech' => 'Dean s speech',
+    'Sections' => 'Sections',
+    'About the college' => 'About the college',
+
+
+
 
 
 

@@ -11,7 +11,7 @@
         <div class="statistics-header">
             <div class="statistics-header-inner">
                 <h3>
-                    إحصائيات الجامعة
+                    {{ cbLang('University statistics') }}
                 </h3>
             </div>
         </div>

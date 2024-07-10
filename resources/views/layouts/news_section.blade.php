@@ -2,7 +2,7 @@
     <div class="news-header">
         <div class="news-header-inner">
             <a href="{{ route('news') }}">
-                الأحداث والأخبار
+                {{ cbLang('Events and news') }}
             </a>
         </div>
     </div>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="more-news">
                     <a href="{{ route('news') }}">
-                        المزيد
+                        {{ cbLang('more') }}
                     </a>
                 </div>
             </div>

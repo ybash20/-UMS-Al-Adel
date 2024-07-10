@@ -27,7 +27,7 @@
         .search_books_form_new_books .search-form-new-books button {
             font-size: 18px;
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #6c757dbd;
             /* لون خلفية الزر */
             color: white;
             /* لون النص */
@@ -40,12 +40,12 @@
         }
 
         .search_books_form_new_books .search-form-new-books button:hover {
-            background-color: #45a049;
+            background-color: #0a75d4bd;
             /* لون الخلفية عند التحويل */
         }
 
         .search_books_form_new_books .search-form-new-books button:active {
-            background-color: #4CAF50;
+            background-color: #0a75d4bd;
             /* لون الخلفية عند النقر */
         }
 
@@ -54,7 +54,7 @@
             font-size: 18px;
             padding: 10px;
             width: 300px;
-            border: 2px solid #4CAF50;
+            border: 2px solid #6c757dbd;
             /* لون الحدود */
             border-radius: 5px;
             /* شكل الحواف */
@@ -63,7 +63,7 @@
         }
 
         .search_books_form_new_books .search-form-new-books input[type="text"]:focus {
-            border-color: #45a049;
+            border-color: #6c757dbd;
             /* لون الحدود عند التركيز */
         }
 
@@ -319,7 +319,7 @@
             <form action="{{ route('showBooksBySection', ['section' => $section->Name]) }}" method="GET" id="search-form" class="search-form-new-books">
                 <input type="text" name="query" id="search-query" placeholder="Find the book"
                     value="{{ $query ?? '' }}" class="search_books_input_new_books">
-                <button type="submit">Search</button>
+                <button type="submit">{{ cbLang('Search') }}</button>
             </form>
         </div>
     </div>
