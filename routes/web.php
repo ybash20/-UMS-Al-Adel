@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use crocodicstudio\crudbooster\controllers\AdminController;
 use App\Http\Controllers\BookLibraryController;
-
+use App\Http\Controllers\CollegeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,25 +41,26 @@ Route::get('/University_Establishment', 'ContentController@University_Establishm
 Route::get('/University_guide', 'ContentController@University_guide')->name('University_guide');
 
 //College Routs
-Route::get('/college', function () {
-    return view('college');
-})->name('college');
+// Route::get('/college', function () {
+//     return view('college');
+// })->name('college');
 
-Route::get('/computer', function () {
-    return view('college.Computer');
-})->name('computer');
+Route::get('/computer', [CollegeController::class, 'computer'])->name('computer');
+Route::get('/business', [CollegeController::class, 'business'])->name('business');
+Route::get('/islamic', [CollegeController::class, 'islamic'])->name('islamic');
+Route::get('/sharia', [CollegeController::class, 'sharia'])->name('sharia');
+Route::get('/translation', [CollegeController::class, 'translation'])->name('translation');
+// Route::get('/business', function () {Route::get('/business', [CollegeController::class, 'business'])->name('business');
+//     return view('college.Business');
+// })->name('business');
 
-Route::get('/business', function () {
-    return view('college.Business');
-})->name('business');
+// Route::get('/islamic', function () {
+//     return view('college.Islamic');
+// })->name('islamic');
 
-Route::get('/islamic', function () {
-    return view('college.Islamic');
-})->name('islamic');
-
-Route::get('/sharia', function () {
-    return view('college.Sharia');
-})->name('sharia');
+// Route::get('/sharia', function () {
+//     return view('college.Sharia');
+// })->name('sharia');
 
 Route::get('/registration', function () {
     return view('registration');
