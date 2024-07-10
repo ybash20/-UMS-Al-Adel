@@ -390,7 +390,7 @@ return [
     'Department' => 'Department',
     'Translation' => 'Translation',
     'English Language' => 'English Language',
-    'Select Specialization' => 'Select Specialization',
+    'Select Specialization' => 'Select Major',
     'College of Languages and Translation' => 'College of Languages and Translation',
     'Accounting' => 'Accounting',
     'Business Administration' => 'Business Administration',

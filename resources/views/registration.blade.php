@@ -61,22 +61,17 @@
                             <label for="marital-status" class="label">{{ cbLang('marital status') }}</label>
                             <select name="marital-status" id="marital-status" class="input">
                                 <option value="">{{ cbLang('Select a Marital Status') }}</option>
-                                <option value="single">{{ cbLang('Single') }}</option>
-                                <option value="married">{{ cbLang('Married') }}</option>
-                                <option value="divorced">{{ cbLang('Divorced') }}</option>
-                                <option value="widowed">{{ cbLang('Widowed') }}</option>
+                                @foreach($maritalStatuses as $id => $status)
+                                <option value="{{ $id }}">{{ $status }}</option>
+                                @endforeach
                             </select>
                             <label for="blood-type" class="label">{{ cbLang('blood-type') }}</label>
                             <select name="blood-type" id="blood-type" class="input">
                                 <option value="">{{ cbLang('Select a blood type') }}</option>
-                                <option value="A+">A+</option>
-                                <option value="A-">A-</option>
-                                <option value="B+">B+</option>
-                                <option value="B-">B-</option>
-                                <option value="AB+">AB+</option>
-                                <option value="AB-">AB-</option>
-                                <option value="O+">O+</option>
-                                <option value="O-">O-</option>
+                                @foreach($bloodTypes as $id => $type)
+                                    <option value="{{ $id }}">{{ $type }}</option>
+                                @endforeach
+
                             </select>
 
                             <label for="city" class="label">{{ cbLang('Current address') }}</label>
@@ -100,8 +95,8 @@
                                 <label for="gender">{{ cbLang('Select a gender') }}</label>
                                 <select class="select">
                                     <option value="">{{ cbLang('Select a gender') }}</option>
-                                    <option value="male">{{ cbLang('Male') }}</option>
-                                    <option value="female">{{ cbLang('Female') }}</option>
+                                    <option value="0">{{ cbLang('Male') }}</option>
+                                    <option value="1">{{ cbLang('Female') }}</option>
                                 </select>
 
                                 <label for="current address">{{ cbLang('Governorate') }}</label>
@@ -113,9 +108,9 @@
                                 <label for="id-type">{{ cbLang('ID Type') }}</label>
                                 <select name="id-type" id="id-type" class="input">
                                     <option value="">{{ cbLang('Select ID Type') }}</option>
-                                    <option value="National identity card">{{ cbLang('National Identity Card') }}</option>
-                                    <option value="passport">{{ cbLang('Passport') }}</option>
-                                    <option value="driving license">{{ cbLang('Driving License') }}</option>
+                                    @foreach($identityTypes as $id => $type)
+                                    <option value="{{ $id }}">{{ $type }}</option>
+                                @endforeach
                                 </select>
 
                                 <label for="id-number">{{ cbLang('ID Number') }}</label>
@@ -184,15 +179,16 @@
                                 <label>{{ cbLang('College of Administrative Sciences') }}</label>
                                 <select class="select">
                                     <option value="">{{ cbLang('Select Specialization') }}</option>
-                                    <option value="business_administration">{{ cbLang('Business Administration') }}
-                                    </option>
-                                    <option value="accounting">{{ cbLang('Accounting') }}</option>
+                                    @foreach($majorsAdministration as $id => $name)
+                                    <option value="{{ $id }}">{{ $name }}</option>
+                                @endforeach
                                 </select>
                                 <label>{{ cbLang('College of Languages and Translation') }}</label>
                                 <select class="select">
                                     <option value="">{{ cbLang('Select Specialization') }}</option>
-                                    <option value="English Language">{{ cbLang('English Language') }}</option>
-                                    <option value="Translation">{{ cbLang('Translation') }}</option>
+                                    @foreach($majorsLanguages as $id => $name)
+                                     <option value="{{ $id }}">{{ $name }}</option>
+                                     @endforeach
                                 </select>
                             </div>
                         </div>
@@ -200,25 +196,29 @@
                             <label>{{ cbLang('College of Computer Science') }}</label>
                             <select class="select">
                                 <option value="">{{ cbLang('Select Specialization') }}</option>
-                                <option value="Computer Science">{{ cbLang('Computer Science') }}</option>
-                                <option value="information technology">{{ cbLang('Information Technology') }}</option>
-                                <option value="networks">{{ cbLang('Networks') }}</option>
+                                @foreach($majorsComputerScience as $id => $name)
+                                <option value="{{ $id }}">{{ $name }}</option>
+                            @endforeach
                             </select>
                             <label>{{ cbLang('College of Sharia and Law') }}</label>
                             <select class="select">
                                 <option value="">{{ cbLang('Select Specialization') }}</option>
-                                <option value="Sharia and law">{{ cbLang('Sharia and Law') }}</option>
+                                @foreach($majorsSharia as $id => $name)
+                                <option value="{{ $id }}">{{ $name }}</option>
+                            @endforeach
                             </select>
 
                             <label>{{ cbLang('College of Quranic sciences and Islamic studies') }}</label>
                             <select class="select">
                                 <option value="none">{{ cbLang('Select Specialization') }}</option>
-                                <option value="Islamic studies">{{ cbLang('Islamic studies') }}</option>
-                                <option value="Quran Sciences">{{ cbLang('Quran Sciences') }}</option>
+                                @foreach($majorsIslamicStudies as $id => $name)
+                                <option value="{{ $id }}">{{ $name }}</option>
+                            @endforeach
                             </select>
                         </div>
                     </div>
                 </div>
+                
                 <div class="form_4 data_info" style="display: none;">
                     <h2>{{ cbLang('Student Guardian Information') }}</h2>
                     <div class="form_inputs">

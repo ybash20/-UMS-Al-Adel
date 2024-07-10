@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class address extends Model
 {
     use HasFactory;
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class, 'Address_ID');
+    }
 }

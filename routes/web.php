@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use crocodicstudio\crudbooster\controllers\AdminController;
 use App\Http\Controllers\BookLibraryController;
 use App\Http\Controllers\CollegeController;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,9 +63,11 @@ Route::get('/translation', [CollegeController::class, 'translation'])->name('tra
 //     return view('college.Sharia');
 // })->name('sharia');
 
-Route::get('/registration', function () {
-    return view('registration');
-})->name('registration');
+Route::get('/registration', [RegistrationController::class, 'create'])->name('registration');
+
+// Route::get('/registration', function () {
+//     return view('registration');
+// })->name('registration');
 
 Route::get('/news', function () {
     return view('news');
