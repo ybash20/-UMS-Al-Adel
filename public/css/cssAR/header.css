@@ -946,7 +946,7 @@ button:not(:disabled),
     padding: 0px 0;
     margin-top: 20px;
     margin-left: 0px;
-    background: #f6f6f6;
+    background: #fff;
     -webkit-transition: 0.2s 0s;
     -o-transition: 0.2s 0s;
     transition: 0.2s 0s;

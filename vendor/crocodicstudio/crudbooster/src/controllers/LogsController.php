@@ -16,7 +16,7 @@ class LogsController extends CBController
 			$this->button_add = false;
 			$this->button_edit = false;
 			$this->button_delete = true;
-			$this->button_detail = false;
+			$this->button_detail = true;
 			$this->button_show = false;
 			$this->button_filter = false;
 			$this->button_import = false;
@@ -25,14 +25,14 @@ class LogsController extends CBController
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
-        $this->col = [];
-        $this->col[] = ["label" => "Time Access", "name" => "created_at"];
-        $this->col[] = ["label" => "IP Address", "name" => "ipaddress"];
-        $this->col[] = ["label" => "User", "name" => "id_ums_users", "join" => config('crudbooster.USER_TABLE').",name"];
-        $this->col[] = ["label" => "Description", "name" => "description"];
-		# END COLUMNS DO NOT REMOVE THIS LINE
+			$this->col = [];
+			$this->col[] = ["label"=>"Time Access","name"=>"created_at"];
+			$this->col[] = ["label"=>"IP Address","name"=>"ipaddress"];
+			$this->col[] = ["label"=>"User","name"=>"id_ums_users","join"=>"ums_users,name"];
+			$this->col[] = ["label"=>"Description","name"=>"description"];
+			# END COLUMNS DO NOT REMOVE THIS LINE
 
-		# START FORM DO NOT REMOVE THIS LINE
+			# START FORM DO NOT REMOVE THIS LINE
         $this->form = [];
         $this->form[] = ["label" => "Time Access", "name" => "created_at", "readonly" => true];
         $this->form[] = ["label" => "IP Address", "name" => "ipaddress", "readonly" => true];

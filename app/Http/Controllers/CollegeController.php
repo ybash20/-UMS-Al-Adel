@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\college;
 use App\Models\content;
+use crocodicstudio\crudbooster\helpers\CRUDBooster;
 
 class CollegeController extends Controller
 {
@@ -50,6 +51,8 @@ class CollegeController extends Controller
     {
         // جلب بيانات الكلية بواسطة الـ ID = 2
         $college = College::find(6);
+
+        // CRUDBooster::insertLog('translation', $college);
 
         // إرسال البيانات إلى صفحة Blade باستخدام compact
         return view('college.translation', compact('college'));

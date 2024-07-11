@@ -301,3 +301,6 @@
     background-positon-x: 0px;
   }
 }
+.waves {
+    z-index: 1;
+}
