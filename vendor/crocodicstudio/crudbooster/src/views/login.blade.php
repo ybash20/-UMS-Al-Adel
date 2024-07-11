@@ -24,260 +24,257 @@
     @endif
     <link rel='stylesheet' href='{{ asset('vendor/crudbooster/assets/css/main.css') }}' />
     <style type="text/css">
-        a {
-            color: #3c8dbc
-        }
+       a {
+  color: #3c8dbc;
+}
 
-        a:hover,
-        a:active,
-        a:focus {
-            outline: none;
-            text-decoration: none;
-            color: #72afd2
-        }
+a:hover,
+a:active,
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: #72afd2;
+}
 
-        .btn:active {
-            -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-            -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
-        }
+.btn:active {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
 
-        .btn:focus {
-            outline: none
-        }
+.btn:focus {
+  outline: none;
+}
 
-        .btn-primary {
-            background-color: #3c8dbc;
-            border-color: #367fa9
-        }
+.btn-primary {
+  background-color: #3c8dbc;
+  border-color: #367fa9;
+}
 
-        .btn-primary:hover,
-        .btn-primary:active {
-            background-color: #367fa9
-        }
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: #367fa9;
+}
 
-        @media (max-width:768px) {
-            .login-box {
-                width: 90%;
-                margin-top: 20px
-            }
-        }
+@media (max-width: 768px) {
+  .login-box {
+    width: 90%;
+    margin-top: 20px;
+  }
+}
 
-        .login-box-body {
-            background: #fff;
-            padding: 20px;
-            border-top: 0;
-            color: #666
-        }
+.login-box-body {
+  background: #fff;
+  padding: 20px;
+  border-top: 0;
+  color: #666;
+}
 
-        .login-box-msg {
-            margin: 0;
-            text-align: center;
-            padding: 0 20px 20px 20px
-        }
+.login-box-msg {
+  margin: 0;
+  text-align: center;
+  padding: 0 20px 20px 20px;
+}
 
-        :root {
-            --primary: #0661c278;
-            --secondary: #bfc0c0;
-            --white: #fff;
-            --text-clr: #5b6475;
-            --header-clr: #25273d;
-        }
+:root {
+  --primary: #0661c278;
+  --secondary: #bfc0c0;
+  --white: #fff;
+  --text-clr: #5b6475;
+  --header-clr: #25273d;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            list-style: none;
-            outline: none;
-            /* font-family: 'Lemonada', cursive; */
-        }
-        .input {
-            margin: 7px 0;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  outline: none;
+}
 
-        .input:focus {
-            border-color: var(--primary);
-        }
+.input {
+  margin: 7px 0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .fas.fa-user-graduate {
-            font-size: 80px;
-            color: rgb(0, 0, 0);
-            justify-content: center;
-        }
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 5px var(--primary);
+}
 
-        .fas.fa-user-tie {
-            font-size: 80px;
-            color: rgb(6, 6, 6);
-            justify-content: center;
-        }
+.input:hover {
+  background-color: #f0f0f0;
+}
 
-        .button {
-            background: #fff;
-            border-radius: 20px;
-            padding: 15px;
-            border-width: 1px;
-            border-style: solid;
-        }
+.input:active {
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
-        .img_login {
-            width: 250px;
-            height: 150px;
-        }
+.fas.fa-user-graduate {
+  font-size: 80px;
+  color: rgb(0, 0, 0);
+  justify-content: center;
+}
 
-        .button_lang {
-            width: 75px;
-            background-color: #3c8dbc;
-            border-radius: 4px;
-            color: white;
-            border: none;
-            font-family: sans-serif;
-            text-align: center;
-        }
+.fas.fa-user-tie {
+  font-size: 80px;
+  color: rgb(6, 6, 6);
+  justify-content: center;
+}
 
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            /* max-width: 1200px; */
-            margin: 0 auto;
-        }
+.button {
+  background: #fff;
+  border-radius: 20px;
+  padding: 15px;
+  border-width: 1px;
+  border-style: solid;
+}
 
-        .header-button {
-            background-color: #5c81cc;
-            border: none;
-            color: #fff;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 40px;
-            border-radius: 4px;
-            cursor: pointer;
-            padding: 5px;
-            width: 100%;
-        }
+.img_login {
+  width: 250px;
+  height: 150px;
+}
 
-        .header-button:hover {
-            background-color: #fff
-        }
+.button_lang {
+  width: 75px;
+  background-color: #3c8dbc;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  font-family: sans-serif;
+  text-align: center;
+}
 
-        /* @media (max-width: 508px) {
-            .header-button {
-                background-color: #5c81cc;
-                border: none;
-                color: #fff;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 30px;
-                border-radius: 4px;
-                cursor: pointer;
-                padding: 5px;
-                width: 100%;
-                margin-top: -256px;
-            }
-        } */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
 
-        .login-page {
-            margin-top: 0;
-            margin-bottom: 0;
-            background: #0661c278;
-        }
+.header-button {
+  background-color: #5c81cc;
+  border: none;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+}
 
-        .login-box-body {
-            background: #fff;
-            padding: 20px;
-            border-top: 0;
-            color: #666
-        }
+.header-button:hover {
+  background-color: #fff;
+}
 
-        .login-box-body {
-            max-width: 508px;
-            box-shadow: 10px 10px 35px -10px black;
-            border-radius: 15px;
-            height: 100%;
-            padding: 37px;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            margin-bottom: 5px;
-        }
 
-        /* @media (max-width: 700px) {
-            .login-box-body {
-                width: auto;
-                margin: 0px auto;
-                margin-top: 100%;
-                box-shadow: 9px 12px 54px -8px #555;
-                border-radius: 4%;
-                height: 215px;
-                padding: 37px;
-                background-color: white;
-            }
-        } */
+.login-page {
+  margin-top: 0;
+  margin-bottom: 0;
+  background: #0661c278;
+}
 
-        .login-box-msg {
-            font-weight: 600;
-            font-size: 16px;
-            margin: 0;
-            text-align: center;
-            padding: 0 20px 20px 20px
-        }
+.login-box-body {
+  background: #fff;
+  padding: 20px;
+  border-top: 0;
+  color: #666;
+}
 
-        .alert-warning {
-            border: 1px solid transparent;
-            padding: 15px;
-            border-color: #e08e0b;
-            margin-bottom: 20px;
-            border-radius: 3px;
-            background-color: #f39c12 !important;
-            color: #fff !important;
-            animation: ani .5s;
-            position: relative;
-        }
+.login-box-body {
+  max-width: 508px;
+  box-shadow: 10px 10px 35px -10px black;
+  border-radius: 15px;
+  height: 100%;
+  padding: 37px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
 
-        @keyframes ani {
-            from {
-                transform: translateY(-15px);
-            }
 
-            to {
-                transform: translateY(0);
-            }
-        }
 
-        .login-box {
-            width: 360px;
-            position: absolute;
-            top: 71%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+.login-box-msg {
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+  text-align: center;
+  padding: 0 20px 20px 20px;
+}
 
-        /* @media (max-width:768px) {
-            .login-box {
-                width: auto;
-                margin-top: auto
-            }
-        } */
+.alert-warning {
+  border: 1px solid transparent;
+  padding: 15px;
+  border-color: #e08e0b;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  background-color: #f39c12 !important;
+  color: #fff !important;
+  animation: ani .5s;
+  position: relative;
+}
 
-        .form-control,
-        .btn {
-            border-radius: 4px;
-        }
+@keyframes ani {
+  from {
+    transform: translateY(-15px);
+  }
 
-        .forgot {
-            text-align: center;
-            font-size: 14px;
-            font-weight: 500;
-            margin: 7px 0;
-        }
-        .form_1,
-        .form_2,
-        .form_select{
-            text-align: center;
-        }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.login-box {
+  width: 360px;
+  position: absolute;
+  top: 71%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ @media (max-width:768px) {
+    .login-box-body {
+        margin-top: -349px;
+        padding: 37px;
+        background-color: white;
+    }
+} 
+
+.form-control,
+.btn {
+  border-radius: 4px;
+}
+
+.forgot {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 7px 0;
+}
+/* Flip Animation on X-Axis */
+@keyframes flipFromBottom {
+  0% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(0);
+  }
+}
+
+.form_1, .form_2, .form_select {
+    animation: flipFromBottom 2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    animation-fill-mode: forwards;
+    transform-style: preserve-3d;
+    text-align: center;
+}
     </style>
 </head>
 

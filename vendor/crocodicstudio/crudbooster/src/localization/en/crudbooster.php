@@ -488,9 +488,13 @@ return [
     'University location' => 'University location',
     'copyright' => 'Copyright © All rights reserved. Al-Adil University. 2012 -',
     //page college
-    'Dean speech' => 'Dean s speech',
+    'Dean speech' => 'Dean`s speech',
     'Sections' => 'Sections',
     'About the college' => 'About the college',
+    'Read less' => 'Read less',
+    'Objectives' => 'Objectives',
+
+
 
 
 

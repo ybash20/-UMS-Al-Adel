@@ -1,10 +1,14 @@
 @extends('layouts.master')
-@section('title', 'Business')
+@section('title', cbLang('College of Administrative Sciences'))
 @section('business', 'active')
 @section('college', 'active')
 
 @section('main')
-    <link rel="stylesheet" href="css/css_college.css">
+@if (App::getLocale() == 'ar')
+    <link rel="stylesheet" href="css/cssAr/css_college.css">
+@else
+    <link rel="stylesheet" href="css/cssEN/css_college.css">
+@endif
     <div class="contener">
         <div class="content-q4i p-cby">
             <div class="row-nvg item-dr7">
@@ -79,7 +83,7 @@
                             scrolling="auto"></iframe>
                     </span>
                 </p>
-                <button class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</button>
+                <button class="read-more" onclick="toggleReadMore(this)">{{ cbLang('Read more') }}</button>
             </div>
             <div id="Business-Administration" class="section2">
                 <h2 class="h2">محاسبة</h2>
@@ -104,7 +108,7 @@
                             scrolling="auto"></iframe>
                     </span>
                 </p>
-                <button class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</button>
+                <button class="read-more" onclick="toggleReadMore(this)">{{ cbLang('Read more') }}</button>
             </div>
 
         </div>
@@ -114,7 +118,7 @@
                 const moreContent = element.previousElementSibling.querySelector('.more-content');
                 if (moreContent.style.display === 'none' || moreContent.style.display === '') {
                     moreContent.style.display = 'inline';
-                    element.textContent = 'اقرأ أقل';
+                    element.textContent = '{{ cbLang('Read less') }}';
                 } else {
                     moreContent.style.display = 'none';
                     element.textContent = 'اقرأ المزيد';
@@ -125,7 +129,7 @@
     <section id="res-i5c" class="section-j6v">
         <div class="section-header">
             <div class="section-header-inner">
-                <a href="#">الاهداف</a>
+                <a href="#">{{ cbLang('Objectives') }}</a>
             </div>
         </div>
         <div class="contener">

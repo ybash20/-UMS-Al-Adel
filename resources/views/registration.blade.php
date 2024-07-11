@@ -3,7 +3,6 @@
 @section('registration', 'active')
 
 @section('main')
-<<<<<<< Updated upstream
 @if (App::getLocale() == 'ar')
     <link rel="stylesheet" href="css/cssAr/css_registration.css">
 @else

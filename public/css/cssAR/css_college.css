@@ -173,6 +173,7 @@
     top: 0;
     width: 50%;
     background-color: #0088CC;
+    border-radius: 15px 0px 0px;
 }
 
 :selection {
@@ -198,6 +199,7 @@
 .h2 {
     color: #212529;
     font-weight: 200;
+    letter-spacing: -.05em;
     margin: 0;
     -webkit-font-smoothing: antialiased;
 }

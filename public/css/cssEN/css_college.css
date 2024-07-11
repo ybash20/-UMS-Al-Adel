@@ -1,0 +1,384 @@
+* {
+    box-sizing: border-box;
+}
+
+.row-nvg {
+    text-align: left;
+    font-size: 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: auto;
+    }
+}
+
+.p-cby {
+    padding: 1.5rem !important;
+}
+
+.content-q4i {
+    border-radius: 8px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    border-top-width: 4px;
+    padding: 1.8rem;
+    position: relative;
+    padding: 15px;
+    box-shadow: 9px 8px 13px -9px #777;
+    background-color: #f3f3f3;
+}
+
+.content-q4i {
+    border-top-color: #0088CC;
+}
+
+.content-q4i:not(.box-content-border-0) {
+    margin-top: 62px;
+    border-top-width: 6px;
+    /* margin-bottom: 164px; */
+    /* margin-right: 40px; */
+    margin: 69px 15px 40px;
+    background-color: #fff;
+}
+
+*,
+:before,
+:after {
+    box-sizing: border-box;
+}
+
+:selection {
+    color: #FFF;
+    background: #0088CC;
+}
+
+.col-qxc {
+    padding-right: 15px;
+    padding-left: 15px;
+    position: relative;
+    width: 100%;
+}
+
+.col-qxc {
+    flex: 0 0 75%;
+}
+
+.col-qxc h2 {
+    text-align: left;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.section {
+    color: #1b3c6a;
+}
+
+/* .contener {
+    display: flex;
+} */
+
+#res-i5c.section-j6v {
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 43px;
+}
+
+.section1,
+.section2,
+.section3 {
+    box-shadow: 0px 3px 2px 2px darkgrey;
+    margin: 34px;
+    height: auto;
+    text-align: left;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    border-top: 3px inset #007bff;
+}
+
+@media (max-width: 600px) {
+    .contener {
+        display: block;
+    }
+
+    .networks,
+    .information-technology,
+    .computer-science {
+        box-shadow: 0px 3px 2px 2px darkgrey;
+        margin: 34px;
+        height: auto;
+        text-align: left;
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 18px;
+        border-top: 3px inset #007bff;
+    }
+
+    #res-i5c.section-j6v {
+        border: none;
+        border-radius: 10px;
+        margin: 15px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --animate-duration: 1s;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: auto;
+    }
+}
+
+.section.section-j6v {
+    background: #f7f7f7;
+    border-top: 5px solid #f1f1f1;
+    margin: 30px 0;
+    padding: 50px 0;
+}
+
+#res-i5c {
+    background-position: 100% 100%;
+    /* background-repeat: no-repeat; */
+    position: relative;
+    box-shadow: 11px 2px 26px 3px darkgrey;
+    /* border-radius: 64px;*/
+}
+
+*,
+:before,
+:after {
+    box-sizing: border-box;
+}
+
+#res-i5c:before {
+    content: "";
+    display: block;
+    height: 12px;
+    left: 0;
+    max-width: 465px;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    background-color: #0088CC;
+    border-radius: 15px 0px 0px;
+}
+
+:selection {
+    color: #FFF;
+    background: #0088CC;
+}
+
+.h2 {
+    margin-bottom: .5rem;
+    margin-top: 0;
+}
+
+.h2 {
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+}
+
+
+
+.h2 {
+    font-size: 2rem;
+}
+
+.h2 {
+    color: #212529;
+    font-weight: 200;
+    letter-spacing: -.05em;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.h2 {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 300;
+    line-height: 42px;
+    margin: 0 0 32px 0;
+}
+
+.section {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.section {
+    color: #c99e2d;
+}
+
+/* .section {
+                text-decor.sectiontion: none;
+            } */
+
+.section {
+    color: #1b3c6a;
+}
+
+.section {
+    outline: none !important;
+}
+
+.section:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.section:hover {
+    color: #0099e6;
+}
+
+.section,
+.section:hover {
+    color: #1b3c6a;
+}
+
+.section:not(.btn):hover {
+    text-decoration: none;
+}
+
+/* These were inline style tags. Uses id+class to override almost everything */
+/* Section Styles */
+/* Section Styles */
+
+
+/* .section-header {
+                display: flex;
+                justify-content: center;
+                max-width: 1562px;
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-right: auto !important;
+                margin-left: auto !important;
+            }
+
+            .section-header-inner {
+                text-align: center !important;
+                line-height: 1.5;
+                font-size: 32px;
+                font-weight: 500;
+                margin: 30px 0;
+            }
+
+            .section-header-inner a {
+                color: #212529;
+                text-decoration: none;
+                position: relative;
+            } */
+
+@media (max-width: 1562px) {
+    .section-header {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+
+
+.section-btn-coll {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.section-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.section-button:hover {
+    background-color: #0056b3;
+}
+
+.content {
+    padding: 20px;
+}
+
+
+.more-content {
+    display: none;
+}
+
+
+.read-more {
+    color: #fbfbfb;
+    /* cursor: pointer; */
+    border: none;
+    box-shadow: 0px 2px 12px -1px #777;
+    width: 87px;
+    background-color: #0769ffb8;
+    border-radius: 6px;
+    display: inherit;
+    height: 31px;
+    margin-left: auto;
+}
+
+
+
+iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+    /* box-shadow: 13px 2px 21px 3px darkgrey; */
+    border-radius: 4px;
+    margin: 5px;
+    text-align: center;
+    scrollbar-width: 0px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: center;
+    max-width: 1562px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+.section-header-inner {
+    text-align: center !important;
+    line-height: 1.5;
+    font-size: 32px;
+    font-weight: 500;
+    margin: 30px 0;
+}
+
+.section-header-inner a {
+    color: #007bff;
+}
+
+.section-header-inner a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: #00496b;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.section-header-inner a:hover::after {
+    width: 90%;
+}
+
+.section-header-inner a {
+    color: #212529;
+    text-decoration: none;
+    position: relative;
+}

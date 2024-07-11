@@ -1,17 +1,21 @@
 @extends('layouts.master')
-@section('title', 'Computer')
+@section('title', cbLang('College of Computer Science'))
 @section('computer', 'active')
 @section('college', 'active')
 
 @section('main')
-    <link rel="stylesheet" href="css/css_college.css">
-    <div class="contener">
+@if (App::getLocale() == 'ar')
+    <link rel="stylesheet" href="css/cssAr/css_college.css">
+@else
+    <link rel="stylesheet" href="css/cssEN/css_college.css">
+@endif
+      <div class="contener">
         <div class="content-q4i p-cby">
             <div class="row-nvg item-dr7">
                 <div class="box-content p-4">
                     <div class="row align-items-xl-center">
                         <div class="col-9">
-                            <h2 class="font-weight-normal text-6">كلمة العميد&nbsp;<br>
+                            <h2 class="font-weight-normal text-6">{{ cbLang('Dean speech') }}&nbsp;<br>
                                 <strong class="font-weight-extra-bold">{{ $college->Dean }}</strong>
                             </h2>
                         </div>
@@ -31,7 +35,7 @@
                         <div class="box-content p-4">
                             <div class="row align-items-xl-center">
                                 <div class="col-9">
-                                    <h2 class="font-weight-normal text-6">نبذة عن الكلية&nbsp;<br></h2>
+                                    <h2 class="font-weight-normal text-6">{{ cbLang('About the college') }}&nbsp;<br></h2>
                                 </div>
                             </div>
                             <div class="row py-4 text-end">
@@ -56,7 +60,7 @@
     <section id="res-i5c" class="section-j6v">
         <div class="section-header">
             <div class="section-header-inner">
-                <a href="#" class="section">الاقسام</a>
+                <a href="#" class="section">{{ cbLang('Sections') }}</a>
             </div>
         </div>
         <div class="content">
@@ -84,7 +88,7 @@
                     </span>
 
                 </p>
-                <button class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</button>
+                <button class="read-more" onclick="toggleReadMore(this)">{{ cbLang('Read more') }}</button>
             </div>
             <div id="information-technology" class="section2">
                 <h2 class="h2">تقنية المعلومات</h2>
@@ -109,7 +113,7 @@
                             scrolling="auto"></iframe>
                     </span>
                 </p>
-                <button class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</button>
+                <button class="read-more" onclick="toggleReadMore(this)">{{ cbLang('Read more') }} </button>
             </div>
             <div id="networks" class="section3">
                 <h2 class="h2">شبكات</h2>
@@ -134,7 +138,7 @@
                     </span>
 
                 </p>
-                <button class="read-more" onclick="toggleReadMore(this)">اقرأ المزيد</button>
+                <button class="read-more" onclick="toggleReadMore(this)">{{ cbLang('Read more') }} </button>
             </div>
         </div>
         <script>
@@ -142,7 +146,7 @@
                 const moreContent = element.previousElementSibling.querySelector('.more-content');
                 if (moreContent.style.display === 'none' || moreContent.style.display === '') {
                     moreContent.style.display = 'inline';
-                    element.textContent = 'اقرأ أقل';
+                    element.textContent = '{{ cbLang('Read less') }}';
                 } else {
                     moreContent.style.display = 'none';
                     element.textContent = 'اقرأ المزيد';
@@ -153,7 +157,7 @@
     <section id="res-i5c" class="section-j6v">
         <div class="section-header">
             <div class="section-header-inner">
-                <a href="#">الاهداف</a>
+                <a href="#">{{ cbLang('Objectives') }}</a>
             </div>
         </div>
         <div class="contener">
