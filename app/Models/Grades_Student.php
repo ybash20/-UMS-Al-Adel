@@ -9,7 +9,7 @@ use App\Models\course;
 class Grades_Student extends Model
 {
     use HasFactory;
-    protected $table = 'grades__students';
+    protected $table = 'grades';
 
     protected $fillable = ['Student_ID','Course_ID','Grade_30', 'Grade_70', 'Grade_100','Semester']; // قم بتضمين 'Grade_100' هنا إذا لم يت
 

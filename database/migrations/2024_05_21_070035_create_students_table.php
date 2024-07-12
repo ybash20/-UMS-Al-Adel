@@ -18,16 +18,16 @@ class CreateStudentsTable extends Migration
             $table->string('Name')->nullable();
             $table->unsignedBigInteger('Major_ID')->nullable();
             $table->unsignedBigInteger('Level_ID')->nullable();
-            $table->string('Code')->nullable();
+            $table->string('Code', 11)->nullable();
             $table->boolean('Gender')->nullable();
             $table->date('DOB')->nullable();
-            $table->string('Email')->nullable();
+            $table->string('Email')->unique()->nullable();
             $table->string('Phone_number')->nullable();
             $table->unsignedBigInteger('Address_ID')->nullable();
-            $table->string('Status')->nullable();
+            $table->string('Status', 30)->nullable();
             $table->boolean('Not_Allowed_Show')->nullable();
-            $table->string('Notes')->nullable();
-            $table->string('Photo')->nullable();
+            $table->text('Notes')->nullable();
+            $table->text('Photo')->nullable();
             $table->timestamps();
         });
     }

@@ -20,16 +20,17 @@ class CreateRegistrationsTable extends Migration
             $table->boolean('Gender')->nullable();
             $table->string('Nationality', 30)->nullable();
             $table->date('DOB')->nullable();
-            $table->string('Place_Of_Birth', 30)->nullable();
+            $table->string('Place_Of_Birth')->nullable();
             $table->unsignedBigInteger('Marital_ID')->nullable();
             $table->unsignedBigInteger('Blood_ID')->nullable();
             $table->unsignedBigInteger('Address_ID')->nullable();
             $table->unsignedBigInteger('Identity_ID')->nullable();
-            $table->string('Mobile_Phone_Number', 9)->nullable();
+            $table->string('Mobile_Phone_Number', 13)->nullable();
+            $table->string('Landline_Number', 11)->nullable();
             $table->unsignedBigInteger('Major_ID')->nullable();
             $table->unsignedBigInteger('Certificate_ID')->nullable();
             $table->unsignedBigInteger('Qualification_ID')->nullable();
-            $table->string('Photo')->nullable();
+            $table->text('Photo')->nullable();
             $table->timestamps();
         });
     }

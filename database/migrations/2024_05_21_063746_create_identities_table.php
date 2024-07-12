@@ -19,7 +19,7 @@ class CreateIdentitiesTable extends Migration
             $table->string('Number', 30)->nullable();
             $table->date('Issue_Date')->nullable();
             $table->date('Issuing_Authority')->nullable();
-            $table->string('Image')->nullable();
+            $table->text('Image')->nullable();
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class CreateContentImagesTable extends Migration
         Schema::create('content_images', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('Content_ID')->nullable();
-            $table->string('Image')->nullable();
+            $table->text('Image')->nullable();
             $table->timestamps();
         });
     }

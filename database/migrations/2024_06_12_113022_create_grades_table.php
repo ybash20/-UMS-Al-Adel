@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGradesTable extends Migration
+class CreateGradesStudentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,6 +14,7 @@ class CreateGradesTable extends Migration
     public function up()
     {
         Schema::create('grades', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('Student_ID')->nullable();
             $table->unsignedBigInteger('Course_ID')->nullable();
             $table->unsignedInteger('Grade_30')->nullable();

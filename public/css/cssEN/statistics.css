@@ -256,6 +256,10 @@
   background-size: 1000px 100px;
 }
 
+.waves{
+    z-index: 1;
+}
+
 .wave#wave1 {
   z-index: 1000;
   opacity: 1;

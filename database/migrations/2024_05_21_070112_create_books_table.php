@@ -19,10 +19,10 @@ class CreateBooksTable extends Migration
             $table->string('Title')->nullable();
             $table->string('Author')->nullable();
             $table->unsignedInteger('Number_of_Page')->nullable();
-            $table->string('Cover_Image')->nullable();
+            $table->text('Cover_Image')->nullable();
             $table->string('Edition', 30)->nullable();
             $table->unsignedBigInteger('Section_ID')->nullable();
-            $table->unsignedInteger('Publication_year')->nullable();
+            $table->date('Publication_year')->nullable();
             $table->string('Publisher')->nullable();
             $table->string('Language', 50)->nullable();
             $table->unsignedInteger('Quantity')->nullable();

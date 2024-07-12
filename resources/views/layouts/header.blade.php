@@ -20,13 +20,13 @@
                     <div class="header_row align-items-center">
                         <div class="col-6">
                             <div class="d-flex mr-auto">
-                                <a href="#" class="header_a d-flex align-items-center mr-4 fs-12">
+                                <a href="mailto:au.adu1@gmali.com" class="header_a d-flex align-items-center mr-4 fs-12">
                                     <span class="icon-envelope mr-2"></span>
                                     <span class="d-none d-md-inline-block">
                                         au.adu1@gmali.com
                                     </span>
                                 </a>
-                                <a href="#" class="header_a d-flex align-items-center mr-auto fs-12">
+                                <a href="#" id="copyLink" class="header_a d-flex align-items-center mr-auto fs-12">
                                     <span class="icon-phone mr-2"></span>
                                     <span class="d-none d-md-inline-block">
                                         +967 2 367 133
@@ -264,6 +264,28 @@
                     dropdownMenu.classList.remove('iopen');
                 }
             });
+        });
+    </script>
+    <script>
+        document.getElementById('copyLink').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default action (navigating to the link)
+
+            const valueToCopy = "+967 2 367 133"; // The constant value to copy
+
+            // Create a temporary textarea element to hold the text
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = valueToCopy;
+            document.body.appendChild(tempTextArea);
+
+            // Select the text and copy it to the clipboard
+            tempTextArea.select();
+            document.execCommand('copy');
+
+            // Remove the temporary textarea element
+            document.body.removeChild(tempTextArea);
+
+            // Provide feedback to the user
+            document.getElementById('status').textContent = 'Text copied to clipboard!';
         });
     </script>
 @endpush

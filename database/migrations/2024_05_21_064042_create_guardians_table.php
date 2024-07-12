@@ -17,12 +17,12 @@ class CreateGuardiansTable extends Migration
             $table->id();
             $table->unsignedBigInteger('Registration_ID')->nullable();
             $table->string('Name')->nullable();
-            $table->string('Relationship', 30)->nullable();
-            $table->string('Profession', 30)->nullable();
-            $table->string('Workplace', 30)->nullable();
+            $table->string('Relationship')->nullable();
+            $table->string('Profession')->nullable();
+            $table->string('Workplace')->nullable();
             $table->unsignedBigInteger('Address_ID')->nullable();
-            $table->string('Phone_Number', 30)->nullable();
-            $table->string('Landline_No', 30)->nullable();
+            $table->string('Phone_Number', 13)->nullable();
+            $table->string('Landline_No', 11)->nullable();
             $table->timestamps();
         });
     }
