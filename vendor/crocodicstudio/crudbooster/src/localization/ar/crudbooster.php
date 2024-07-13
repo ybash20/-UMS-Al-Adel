@@ -397,13 +397,9 @@ return [
     'College of Quranic sciences and Islamic studies' => 'كلية علوم القرآن والدراسات الإسلامية',
     'College of Sharia and Law' => 'كلية الشريعة والقانون',
     'College of Computer Science' => 'كلية علوم الحاسوب',
-<<<<<<< Updated upstream
-    'Seat Number' => 'رقم المقعد',
     'Certificate Data' => 'بيانات الشهادة',
-=======
     'Seat Number' => 'رقم الجلوس',
     'High School Certificate Data' => 'بيانات شهادة الثانوية العامة',
->>>>>>> Stashed changes
     'Your information has been sent. Wait for a response' => 'تم إرسال المعلومات الخاصة بك. انتظر الرد',
     'done' => 'تم',
     'next' => 'التالي',
