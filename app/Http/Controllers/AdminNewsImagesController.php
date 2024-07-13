@@ -38,15 +38,15 @@
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
 			$this->form[] = ['label'=>'News','name'=>'News_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'news,Title'];
-			$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','validation'=>'required|image','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Caption','name'=>'Caption','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'News Image','name'=>'News_Image','type'=>'upload','validation'=>'required|image','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Caption','name'=>'Caption','type'=>'text','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
 			//$this->form[] = ['label'=>'News','name'=>'News_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'news,Title'];
 			//$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','validation'=>'required|image','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Caption','name'=>'Caption','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Caption','name'=>'Caption','type'=>'text','width'=>'col-sm-10'];
 			# OLD END FORM
 
 			/*

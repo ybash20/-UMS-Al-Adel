@@ -71,7 +71,7 @@ Route::post('/registration', [RegistrationController::class, 'post_reg'])->name(
 // })->name('registration');
 
 Route::get('/news', function () {
-    return view('news');
+    return view('news.news');
 })->name('news');
 
 Route::get('/forgot-password', function () {
