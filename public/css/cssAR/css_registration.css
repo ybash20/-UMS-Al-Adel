@@ -464,3 +464,29 @@
 
     }
 }
+.input-error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+.btn_done {
+    display: none;
+    bottom: 0%;
+    border: 0;
+    padding: 12px 15px;
+    background: var(--primary);
+    color: var(--white);
+    width: 135px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 3px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+
+.btn_done:hover {
+    bottom: 0%;
+    background: var(--next-btn-hover);
+}

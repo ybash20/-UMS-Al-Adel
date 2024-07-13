@@ -7,19 +7,23 @@
     --next-btn-hover: #007bff;
     --back-btn-hover: #8b8c8c;
 }
+
 .notification_reg {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #4CAF50; /* لون الخلفية للرسالة الناجحة */
+    background-color: #4CAF50;
+    /* لون الخلفية للرسالة الناجحة */
     color: white;
     text-align: center;
     padding: 10px;
     z-index: 1000;
     display: none;
 }
+
 .notification_reg.error {
-    background-color: #f44336; /* لون الخلفية للرسالة الفاشلة */
+    background-color: #f44336;
+    /* لون الخلفية للرسالة الفاشلة */
 }
 
 
@@ -42,18 +46,18 @@
 }
 
 .wrapper {
-    width: 840px;
-    max-width: 100%;
+    max-width: 750px;
     background: var(--white);
     margin: auto;
-    padding: 30px;
+    padding: 50px;
+    padding-top: 30px;
     border-radius: 5px;
 }
 
 .wrapper .header {
-    margin-bottom: 35px;
     display: flex;
     justify-content: center;
+    margin-bottom: 15px;
 }
 
 .wrapper .header ul {
@@ -107,22 +111,17 @@
     background: #5ea3eb;
 }
 
-.wrapper .form_wrap {
-    margin-bottom: 30px;
-
-}
-
 .wrapper .form_wrap h2 {
     color: var(--header-clr);
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 20px;
-
+    margin: 0 20px 10px;
 }
 
 .form_inputs {
     display: flex;
-    justify-content: space-evenly;
+    gap: 10px;
+    flex-direction: column;
 }
 
 .wrapper .form_wrap .input_wrap2:last-child,
@@ -135,13 +134,13 @@
     display: block;
     margin-bottom: 5px;
     margin-right: 15px;
-    text-align:left;
+    text-align: left;
 }
 
 .wrapper .form_wrap .input_wrap .input,
-    .wrapper .form_wrap .input_wrap2 .input,
-    .wrapper .form_wrap .input_wrap2 .select,
-    .wrapper .form_wrap .input_wrap .select  {
+.wrapper .form_wrap .input_wrap2 .input,
+.wrapper .form_wrap .input_wrap2 .select,
+.wrapper .form_wrap .input_wrap .select {
     border: 2px solid var(--secondary);
     border-radius: 3px;
     padding: 10px;
@@ -149,10 +148,6 @@
     font-size: 14px;
     transition: 0.5s ease;
     text-align: left;
-    margin-right: 10px;
-    margin-left: 10px;
-
-
 }
 
 .wrapper .form_wrap .input_wrap2 .input2,
@@ -195,12 +190,6 @@
     margin-bottom: 20px;
     margin-top: 0;
 } */
-
-.wrapper .btns_wrap {
-    bottom: 0%;
-    max-width: 100%;
-    margin: 36px auto;
-}
 
 
 .wrapper .btns_wrap .common_btns {
@@ -258,6 +247,7 @@
     background: var(--back-btn-hover);
     bottom: 0%;
 }
+
 .code_wrapper,
 .email_wrapper,
 .modal_wrapper {
@@ -270,9 +260,10 @@
     z-index: 150;
 
 }
+
 .code_wrapper .code_shadow,
 .email_wrapper .email_shadow,
-.modal_wrapper  .mod_shadow{
+.modal_wrapper .mod_shadow {
     position: absolute;
     top: 0;
     left: 0;
@@ -282,6 +273,7 @@
     opacity: 0;
     transition: 0.2s ease;
 }
+
 .email_wrapper .success_wrap,
 .code_wrapper .success_wrap,
 .modal_wrapper .success_wrap {
@@ -296,6 +288,7 @@
     border-radius: 5px;
     transition: 0.5s ease;
 }
+
 .email_wrapper .success_wrap .modal_icon,
 .code_wrapper .success_wrap .modal_icon,
 .modal_wrapper .success_wrap .modal_icon {
@@ -311,24 +304,29 @@
     font-size: 32px;
     font-weight: 700;
 }
-.modal_icon.error{
+
+.modal_icon.error {
     background: #f44336 !important;
 }
+
 .email_wrapper.active,
 .code_wrapper.active,
 .modal_wrapper.active {
     visibility: visible;
 }
+
 .email_wrapper.active .email_shadow,
 .code_wrapper.active .code_shadow,
-.modal_wrapper.active  .mod_shadow{
+.modal_wrapper.active .mod_shadow {
     opacity: 1;
 }
+
 .email_wrapper.active .success_wrap,
 .code_wrapper.active .success_wrap,
 .modal_wrapper.active .success_wrap {
     transform: translate(-50%, -50%);
 }
+
 .input_email {
     border: 2px solid var(--secondary);
     border-radius: 3px;
@@ -341,7 +339,8 @@
     /* margin-left: 50px; */
     /* margin-bottom: 8px; */
 }
-.butten_email{
+
+.butten_email {
     bottom: 0%;
     border: 0;
     padding: 12px 15px;
@@ -356,69 +355,51 @@
     transition: 0.5s ease;
     margin: 5px 0px 0px 25px;
 }
+
 @media (max-width: 915px) {
     .wrapper {
-        padding: 10px;
-        max-width: 300px;
+        /* padding: 10px;
+        max-width: 300px; */
         align-items: center;
-
-
     }
+
     .body_form {
         font-family: 'Lemonada', cursive;
         background: var(--primary);
         color: var(--text-clr);
         font-size: 16px;
         position: relative;
-        padding: 50px;
+        padding: 90px;
     }
 
     .wrapper .header ul li p {
-        width: 25px;
-        height: 25px;
+        /* width: 25px; */
+        /* height: 25px; */
         background: var(--secondary);
         color: var(--white);
         text-align: center;
-        line-height: 153%;
+        /* line-height: 153%; */
         border-radius: 50%;
 
     }
-    .form_inputs {
-        flex-direction: column-reverse;
-    }
+
+
     .wrapper .header ul {
         display: flex;
     }
 
     .wrapper .header ul li {
-        margin-right: 10px;
+        /* margin-right: 10px; */
         position: relative;
-    }
-
-    .wrapper .header ul li:before {
-        left: 30px;
     }
 
     .wrapper .form_wrap .input_wrap label {
         margin-right: 0;
     }
 
-    .wrapper .form_wrap .input_wrap .input,
-    .wrapper .form_wrap .input_wrap2 .input,
-    .wrapper .form_wrap .input_wrap2 .input2,
-    .wrapper .form_wrap .input_wrap .input2,
-    .wrapper .form_wrap .input_wrap2 .select,
-    .wrapper .form_wrap .input_wrap .select {
-        max-width: 259px;
-        font-size: 12px;
-        margin-top: 4px;
-
-
-    }
-
     .wrapper .btns_wrap .common_btns button {
-        width: 100%;
-        margin-bottom: 10px;
+        /* width: 100%; */
+        /* margin-bottom: 10px; */
         font-size: 14px;
     }
 
@@ -431,10 +412,12 @@
         margin-right: 15px;
         text-align: left;
     }
+
     .wrapper .header ul li div {
         padding: 5px;
         border-radius: 50%;
     }
+
     .input_email {
         border: 2px solid var(--secondary);
         border-radius: 3px;
@@ -445,10 +428,10 @@
         text-align: left;
         margin-right: 60px;
         margin-left: 12px;
-
         margin-bottom: 8px;
     }
-    .butten_email{
+
+    .butten_email {
         bottom: 0%;
         border: 0;
         padding: 12px 15px;
@@ -464,4 +447,164 @@
         margin: 0px 0px 0px 0px;
 
     }
+}
+@media (max-width: 880px) {
+    .wrapper{
+        padding: 30px;
+        padding-top: 20px;
+    }
+    .body_form{
+        padding: 80px;
+    }
+}
+@media (max-width: 860px) {
+    .body_form{
+        padding: 70px;
+    }
+}
+@media (max-width: 840px) {
+    .body_form{
+        padding: 60px;
+    }
+}
+@media (max-width: 820px) {
+    .body_form{
+        padding: 50px;
+    }
+@media (max-width: 800px) {
+    .body_form{
+        padding: 40px;
+    }
+}
+}
+@media (max-width: 780px) {
+    .body_form{
+        padding: 40px 30px 30px;
+    }
+}
+@media (max-width: 760px) {
+    .body_form{
+        padding: 40px 20px 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .wrapper {
+        padding: 20px;
+        max-width: 300px;
+        align-items: center;
+    }
+    .wrapper .btns_wrap .common_btns button {
+        width: 100px;
+        font-size: 14px;
+
+    }
+    .wrapper .form_wrap .input_wrap .input,
+    .wrapper .form_wrap .input_wrap2 .input,
+    .wrapper .form_wrap .input_wrap2 .input2,
+    .wrapper .form_wrap .input_wrap .input2,
+    .wrapper .form_wrap .input_wrap2 .select,
+    .wrapper .form_wrap .input_wrap .select {
+        max-width: 260px;
+        font-size: 12px;
+        margin-top: 4px;
+    }
+    .wrapper .header ul li:before {
+        left: 40px;
+    }
+    .wrapper .header ul li {
+        margin-right: 10px;
+        position: relative;
+    }
+    .wrapper .header ul li p {
+        width: 35px;
+        height: 35px;
+        background: var(--secondary);
+        color: var(--white);
+        text-align: center;
+        line-height: 210%;
+        border-radius: 50%;
+
+    }
+    .input_wrap {
+        flex-direction: column;
+        align-items: center;
+    }
+    .wrapper .header {
+    margin-bottom: 15px;
+    }
+    .wrapper .form_wrap h2 {
+        margin: 0 10px 10px;
+        font-size: 18px;
+    }
+    .wrapper .btns_wrap .common_btns button.btn_next .icon {
+        margin-left: 5px;
+    }
+    .wrapper .btns_wrap .common_btns button.btn_back .icon {
+        margin-left: 5px;
+    }
+}
+
+.input-error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+.btn_done {
+    display: none;
+    bottom: 0%;
+    border: 0;
+    padding: 12px 15px;
+    background: var(--primary);
+    color: var(--white);
+    width: 135px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 3px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+
+.btn_done:hover {
+    bottom: 0%;
+    background: var(--next-btn-hover);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    margin-right: 15px;
+    text-align: left;
+}
+
+select,
+input {
+    border: 2px solid var(--secondary);
+    border-radius: 3px;
+    padding: 10px;
+    width: 300px;
+    font-size: 14px;
+    transition: 0.5s ease;
+    text-align: left;
+}
+.input_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.input_guardian_name{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.input_wrap div{
+    align-content: end;
+}
+.btns_wrap {
+    margin-top: 20px;
+}
+.input_wrap.majors,
+.input_wrap.colleges {
+    justify-content: center;
 }

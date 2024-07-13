@@ -11,11 +11,12 @@ class LogsController extends CBController
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
 			$this->title_field = "ipaddress";
 			$this->global_privilege = false;
-			$this->button_table_action = false;
+			$this->button_table_action = true;
 			$this->button_bulk_action = true;
+			$this->button_action_style = "button_icon";
 			$this->button_add = false;
 			$this->button_edit = false;
-			$this->button_delete = true;
+			$this->button_delete = false;
 			$this->button_detail = true;
 			$this->button_show = false;
 			$this->button_filter = false;
@@ -33,22 +34,34 @@ class LogsController extends CBController
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
-        $this->form = [];
-        $this->form[] = ["label" => "Time Access", "name" => "created_at", "readonly" => true];
-        $this->form[] = ["label" => "IP Address", "name" => "ipaddress", "readonly" => true];
-        $this->form[] = ["label" => "User Agent", "name" => "useragent", "readonly" => true];
-        $this->form[] = ["label" => "URL", "name" => "url", "readonly" => true];
-        $this->form[] = [
-            "label" => "User",
-            "name" => "id_ums_users",
-            "type" => "select",
-            "datatable" => config('crudbooster.USER_TABLE').",name",
-            "readonly" => true,
-        ];
-        $this->form[] = ["label" => "Description", "name" => "description", "readonly" => true];
-        $this->form[] = ["label" => "Details", "name" => "details", "type" => "custom"];
-        # END FORM DO NOT REMOVE THIS LINE
-    }
+			$this->form = [];
+			$this->form[] = ['label'=>'Time Access','name'=>'created_at','type'=>'text','width'=>'col-sm-10','readonly'=>'1'];
+			$this->form[] = ['label'=>'IP Address','name'=>'ipaddress','type'=>'text','width'=>'col-sm-10','readonly'=>'1'];
+			$this->form[] = ['label'=>'User Agent','name'=>'useragent','type'=>'text','width'=>'col-sm-10','readonly'=>'1'];
+			$this->form[] = ['label'=>'URL','name'=>'url','type'=>'text','width'=>'col-sm-10','readonly'=>'1'];
+			$this->form[] = ['label'=>'User','name'=>'id_ums_users','type'=>'select','width'=>'col-sm-10','datatable'=>'ums_users,name'];
+			$this->form[] = ['label'=>'Description','name'=>'description','type'=>'text','width'=>'col-sm-10','readonly'=>'1'];
+			$this->form[] = ['label'=>'Details','name'=>'details','type'=>'custom','width'=>'col-sm-10'];
+			# END FORM DO NOT REMOVE THIS LINE
+
+			# OLD START FORM
+			//$this->form = [];
+			//$this->form[] = ["label" => "Time Access", "name" => "created_at", "readonly" => true];
+			//$this->form[] = ["label" => "IP Address", "name" => "ipaddress", "readonly" => true];
+			//$this->form[] = ["label" => "User Agent", "name" => "useragent", "readonly" => true];
+			//$this->form[] = ["label" => "URL", "name" => "url", "readonly" => true];
+			//$this->form[] = [
+			//"label" => "User",
+			//"name" => "id_ums_users",
+			//"type" => "select",
+			//"datatable" => config('crudbooster.USER_TABLE').",name",
+			//"readonly" => true,
+			//];
+			//$this->form[] = ["label" => "Description", "name" => "description", "readonly" => true];
+			//$this->form[] = ["label" => "Details", "name" => "details", "type" => "custom"];
+			# OLD END FORM
+
+			}
 
     public static function displayDiff($old_values, $new_values)
     {

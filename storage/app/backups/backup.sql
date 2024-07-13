@@ -143,24 +143,6 @@ INSERT INTO `email_check` VALUES ('joker735698@gmail.com','$2y$10$TpKm8RTeCF.vVb
 UNLOCK TABLES;
 
 --
--- Dumping data for table `event_catagories`
---
-
-LOCK TABLES `event_catagories` WRITE;
-/*!40000 ALTER TABLE `event_catagories` DISABLE KEYS */;
-/*!40000 ALTER TABLE `event_catagories` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `events`
---
-
-LOCK TABLES `events` WRITE;
-/*!40000 ALTER TABLE `events` DISABLE KEYS */;
-/*!40000 ALTER TABLE `events` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Dumping data for table `failed_jobs`
 --
 
@@ -216,13 +198,15 @@ LOCK TABLES `guardians` WRITE;
 UNLOCK TABLES;
 
 --
--- Dumping data for table `identities`
+-- Dumping data for table `identity_types`
 --
 
-LOCK TABLES `identities` WRITE;
-/*!40000 ALTER TABLE `identities` DISABLE KEYS */;
-INSERT INTO `identities` VALUES (1,'هوية شخصية',NULL,NULL,NULL,NULL,'2024-07-06 16:08:24',NULL),(2,'جواز سفر',NULL,NULL,NULL,NULL,'2024-07-06 16:08:34',NULL);
-/*!40000 ALTER TABLE `identities` ENABLE KEYS */;
+LOCK TABLES `identity_types` WRITE;
+/*!40000 ALTER TABLE `identity_types` DISABLE KEYS */;
+INSERT INTO `identity_types` VALUES
+(1,'هوية شخصية','2024-07-06 16:08:24',NULL),
+(2,'جواز سفر','2024-07-06 16:08:34',NULL);
+/*!40000 ALTER TABLE `identity_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -331,13 +315,6 @@ UNLOCK TABLES;
 --
 -- Dumping data for table `registrations`
 --
-
-LOCK TABLES `registrations` WRITE;
-/*!40000 ALTER TABLE `registrations` DISABLE KEYS */;
-INSERT INTO `registrations` VALUES (1,'Bilal','2024-07-09',0,'Ye','2024-07-24',NULL,NULL,3,NULL,NULL,NULL,1,NULL,NULL,NULL,'2024-07-06 16:01:19',NULL);
-/*!40000 ALTER TABLE `registrations` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Dumping data for table `students`
 --
@@ -504,14 +481,6 @@ UNLOCK TABLES;
 --
 -- Dumping data for table `users`
 --
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -3,11 +3,11 @@
 @section('registration', 'active')
 
 @section('main')
-@if (App::getLocale() == 'ar')
-    <link rel="stylesheet" href="css/cssAr/css_registration.css">
-@else
-    <link rel="stylesheet" href="css/cssEN/css_registration.css">
-@endif
+    @if (App::getLocale() == 'ar')
+        <link rel="stylesheet" href="css/cssAr/css_registration.css">
+    @else
+        <link rel="stylesheet" href="css/cssEN/css_registration.css">
+    @endif
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div class="body_form">
@@ -41,244 +41,319 @@
                     </li>
                 </ul>
             </div>
-            <div class="form_wrap">
+            <form method="POST" class="form_wrap" id="reg-form">
+                @csrf
                 <div class="form_1 data_info">
                     <h2>{{ cbLang('personal information') }}</h2>
                     <div class="form_inputs">
                         <div class="input_wrap">
-                            <label for="Nationality" class="label">{{ cbLang('Nationality') }}</label>
-                            <input type="text" name="Nationality" class="input" id="Nationality">
-                            <label for="Place of birth" class="label">{{ cbLang('Place of birth') }}</label>
-                            <input type="text" name="Place of birth" class="input" id="Place of birth">
-                            <label for="marital-status" class="label">{{ cbLang('marital status') }}</label>
-                            <select name="marital-status" id="marital-status" class="input">
-                                <option value="">{{ cbLang('Select a Marital Status') }}</option>
-                                @foreach($maritalStatuses as $id => $status)
-                                <option value="{{ $id }}">{{ $status }}</option>
-                                @endforeach
-                            </select>
-                            <label for="blood-type" class="label">{{ cbLang('blood-type') }}</label>
-                            <select name="blood-type" id="blood-type" class="input">
-                                <option value="">{{ cbLang('Select a blood type') }}</option>
-                                @foreach($bloodTypes as $id => $type)
-                                    <option value="{{ $id }}">{{ $type }}</option>
-                                @endforeach
-
-                            </select>
-
-                            <label for="city" class="label">{{ cbLang('Current address') }}</label>
-                            <input type="text" name="city" id="city" class="input">
-
-                            <label for="issue-date" class="label">{{ cbLang('issue-date') }}</label>
-                            <input type="date" name="issue-date" id="issue-date" class="input">
-
-                            <label for="issue-location" class="label">{{ cbLang('issue-location') }}</label>
-                            <input type="text" name="issue-location" id="issue-location" class="input">
-
-                            <label for="mobile" class="label">{{ cbLang('Phone Number') }}</label>
-                            <input type="tel" name="mobile" id="mobile" class="input">
-                        </div>
-                        <div class="input_wrap2">
                             <div>
-                                <label for="name"> {{ cbLang('student name') }}</label>
-                                <input type="text" name="name" class="input" id="name">
-                                <label for="date of birth">{{ cbLang('date of birth') }}</label>
-                                <input type="date" name="date of birth" class="input" id="date of birth">
+                                <label for="nameAR">{{ cbLang('student name Arabic') }}</label>
+                                <input type="text" name="nameAR" class="input" id="nameAR" required>
+                            </div>
+                            <div>
+                                <label for="nameEN">{{ cbLang('student name English') }}</label>
+                                <input type="text" name="nameEN" class="input" id="nameEN" required>
+                            </div>
+                        </div>
+                        <div class="input_wrap">
+                            <div>
                                 <label for="gender">{{ cbLang('Select a gender') }}</label>
-                                <select class="select">
+                                <select name="gender" id="gender" class="input" required>
                                     <option value="">{{ cbLang('Select a gender') }}</option>
                                     <option value="0">{{ cbLang('Male') }}</option>
                                     <option value="1">{{ cbLang('Female') }}</option>
                                 </select>
-
-                                <label for="current address">{{ cbLang('Governorate') }}</label>
-                                <input type="text" name="current address" class="input" id="current address">
-
-                                <label for="district">{{ cbLang('District') }}</label>
-                                <input type="text" name="district" id="district" class="input">
-
-                                <label for="id-type">{{ cbLang('ID Type') }}</label>
-                                <select name="id-type" id="id-type" class="input">
-                                    <option value="">{{ cbLang('Select ID Type') }}</option>
-                                    @foreach($identityTypes as $id => $type)
-                                    <option value="{{ $id }}">{{ $type }}</option>
-                                @endforeach
+                            </div>
+                            <div>
+                                <label for="nationality" class="label">{{ cbLang('Nationality') }}</label>
+                                <input type="text" name="nationality" class="input" id="nationality" required>
+                            </div>
+                        </div>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="place_of_birth" class="label">{{ cbLang('Place of birth') }}</label>
+                                <input type="text" name="place_of_birth" class="input" id="place_of_birth" required>
+                            </div>
+                            <div>
+                                <label for="date_of_birth">{{ cbLang('date of birth') }}</label>
+                                <input type="date" name="date_of_birth" class="input" id="date_of_birth" required>
+                            </div>
+                        </div>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="blood_type" class="label">{{ cbLang('blood-type') }}</label>
+                                <select name="blood_type" id="blood_type" class="input" required>
+                                    <option value="">{{ cbLang('Select a blood type') }}</option>
+                                    @foreach ($bloodTypes as $id => $type)
+                                        <option value="{{ $id }}">{{ $type }}</option>
+                                    @endforeach
                                 </select>
-
-                                <label for="id-number">{{ cbLang('ID Number') }}</label>
-                                <input type="text" name="id-number" id="id-number" class="input">
-
+                            </div>
+                            <div>
+                                <label for="marital_status" class="label">{{ cbLang('marital status') }}</label>
+                                <select name="marital_status" id="marital_status" class="input" required>
+                                    <option value="">{{ cbLang('Select a Marital Status') }}</option>
+                                    @foreach ($maritalStatuses as $id => $status)
+                                        <option value="{{ $id }}">{{ $status }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <h2>{{ cbLang('address information') }}</h2>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="governorate">{{ cbLang('Governorate') }}</label>
+                                <input type="text" name="governorate" class="input" id="governorate" required>
+                            </div>
+                            <div>
+                                <label for="directorate">{{ cbLang('Directorate') }}</label>
+                                <input type="text" name="directorate" id="directorate" class="input" required>
+                            </div>
+                        </div>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="neighborbooh">{{ cbLang('neighborbooh') }}</label>
+                                <input type="text" name="neighborbooh" id="neighborbooh" class="input" required>
+                            </div>
+                            <div>
+                                <label for="address_note" class="label">{{ cbLang('address note') }}</label>
+                                <input type="text" name="address_note" id="address_note" class="input">
+                            </div>
+                        </div>
+                        <h2>{{ cbLang('Communication Methods') }}</h2>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="mobile" class="label">{{ cbLang('Phone Number') }}</label>
+                                <input type="tel" name="mobile" id="mobile" class="input" required>
+                            </div>
+                            <div>
                                 <label for="landline">{{ cbLang('Landline Number') }}</label>
                                 <input type="tel" name="landline" id="landline" class="input">
+                            </div>
+                        </div>
+                        <h2>{{ cbLang('Identity information') }}</h2>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="id_type">{{ cbLang('ID Type') }}</label>
+                                <select name="id_type" id="id_type" class="input" required>
+                                    <option value="">{{ cbLang('Select ID Type') }}</option>
+                                    @foreach ($identityTypes as $id => $type)
+                                        <option value="{{ $id }}">{{ $type }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div>
+                                <label for="id_number">{{ cbLang('ID Number') }}</label>
+                                <input type="text" name="id_number" id="id_number" class="input" required>
+                            </div>
+                        </div>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="issue_location" class="label">{{ cbLang('issue-location') }}</label>
+                                <input type="text" name="issue_location" id="issue_location" class="input" required>
+                            </div>
+                            <div>
+                                <label for="issue_date" class="label">{{ cbLang('issue-date') }}</label>
+                                <input type="date" name="issue_date" id="issue_date" class="input" required>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="form_2 data_info" style="display: none;">
-                    <h2>{{ cbLang('High School Certificate Data') }}</h2>
                     <div class="form_inputs">
+                        <h2> {{ cbLang('qualifications') }} </h2>
                         <div class="input_wrap">
-                            <div> <label for="seat-number">{{ cbLang('Seat Number') }}</label>
-                                <input type="number" name="seat-number" id="seat-number" class="input">
-                                <label for="department">{{ cbLang('Department') }}</label>
-                                <select name="department" id="department" class="select">
-                                    <option value="">{{ cbLang('Select Department Type') }}</option>
-                                    <option value="Scientific">{{ cbLang('Scientific') }}</option>
-                                    <option value="literary">{{ cbLang('Literary') }}</option>
+                            <div>
+                                <label for="qualification_Type">{{ cbLang('qualification_Type') }}</label>
+                                <select name="id_type" id="id_type" class="input" required>
+                                    <option value="">{{ cbLang('Select Qualification Type') }}</option>
+                                    @foreach ($qualificationType as $id => $name)
+                                        <option value="{{ $id }}">{{ $name }}</option>
+                                    @endforeach
                                 </select>
-
-                                <label for="percentage">{{ cbLang('Percentage') }}</label>
-                                <input type="number" name="percentage" id="percentage" class="input">
-
-                                <label for="governorate">{{ cbLang('Governorate') }}</label>
-                                <input type="text" name="governorate" id="governorate" class="input">
-
-                                <label for="director">{{ cbLang('Directorate') }}</label>
-                                <input type="text" name="director" id="director" class="input">
+                            </div>
+                            <div>
+                                <label for="disciplines">{{ cbLang('disciplines') }}</label>
+                                <select name="disciplines" id="disciplines" class="input" required>
+                                    <option value="">{{ cbLang('Select disciplines Type') }}</option>
+                                    @foreach ($disciplines as $id => $name)
+                                        <option value="{{ $id }}">{{ $name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
-                        <div class="input_wrap2">
-                            <label for="total-marks">{{ cbLang('Total Marks') }}</label>
-                            <input type="number" name="total-marks" id="total-marks" class="input">
+                        <h2>{{ cbLang('Institution address information') }}</h2>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="institution_name">{{ cbLang('institution_name') }}</label>
+                                <input type="text" name="institution_name" id="institution_name" class="input" required>
+                            </div>
+                            <div>
+                                <label for="institution_country">{{ cbLang('institution_country') }}</label>
+                                <input type="text" name="institution_country" id="institution_country" class="input" required>
+                            </div>
+                        </div>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="institution_governorate">{{ cbLang('institution_Governorate') }}</label>
+                                <input type="text" name="governorate" class="input" id="institution_governorate" required>
+                            </div>
+                            <div>
+                                <label for="institution_directorate">{{ cbLang('institution_Directorate') }}</label>
+                                <input type="text" name="institution_directorate" id="institution_directorate" class="input" required>
+                            </div>
+                        </div>
+                        <h2>{{ cbLang('Certificate Data') }}</h2>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="academic_year">{{ cbLang('Academic Year') }}</label>
+                                <select name="academic_year" id="academic_year" class="input" required>
+                                    <?php
+                                    $currentYear = date('Y');
+                                    for ($year = 2001; $year <= $currentYear; $year++) {
+                                        $nextYear = $year + 1;
+                                        $academicYear = $year . '-' . $nextYear;
+                                        echo "<option value=\"$academicYear\">$academicYear</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="seat_number">{{ cbLang('Seat Number') }}</label>
+                                <input type="number" name="seat_number" id="seat_number" class="input" required>
+                            </div>
 
-                            <label for="academic-year">{{ cbLang('Academic Year') }}</label>
-                            <select name="academic-year" id="academic-year" class="select">
-                                <?php
-                                $currentYear = date('Y');
-                                for ($year = 2001; $year <= $currentYear; $year++) {
-                                    $nextYear = $year + 1;
-                                    $academicYear = $year . '-' . $nextYear;
-                                    echo "<option value=\"$academicYear\">$academicYear</option>";
-                                }
-                                ?>
-                            </select>
-                            <label for="final-grade">{{ cbLang('Final Grade') }}</label>
-                            <input type="number" name="final-grade" id="final-grade" class="input">
-
-                            <label for="certificate-date">{{ cbLang('Certificate Date') }}</label>
-                            <input type="date" name="certificate-date" id="certificate-date" class="input">
-
-                            <label for="school">{{ cbLang('School') }}</label>
-                            <input type="text" name="school" id="school" class="input">
+                        </div>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="total_grade">{{ cbLang('Final Grade') }}</label>
+                                <input type="number" name="total_grade" id="total_grade" class="input" required>
+                            </div>
+                            <div>
+                                <label for="max_pass_grade">{{ cbLang('Total Marks') }}</label>
+                                <input type="number" name="max_pass_grade" id="max_pass_grade" class="input" required>
+                            </div>
+                        </div>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="percentage">{{ cbLang('Percentage') }}</label>
+                                <input type="number" name="percentage" id="percentage" class="input" required>
+                            </div>
+                            <div>
+                                <label for="certificate_date">{{ cbLang('Certificate Date') }}</label>
+                                <input type="date" name="certificate_date" id="certificate_date" class="input" required>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="form_3 data_info" style="display: none;">
-                    <h2>{{ cbLang('Desired Student Specialization') }}</h2>
+                    <h2>
+                        {{ cbLang('Desired Student Specialization') }}
+                    </h2>
                     <div class="form_inputs">
-                        <div class="input_wrap">
+                        <div class="input_wrap colleges">
                             <div>
-                                <label>{{ cbLang('College of Administrative Sciences') }}</label>
-                                <select class="select">
-                                    <option value="">{{ cbLang('Select Specialization') }}</option>
-                                    @foreach($majorsAdministration as $id => $name)
-                                    <option value="{{ $id }}">{{ $name }}</option>
-                                @endforeach
-                                </select>
-                                <label>{{ cbLang('College of Languages and Translation') }}</label>
-                                <select class="select">
-                                    <option value="">{{ cbLang('Select Specialization') }}</option>
-                                    @foreach($majorsLanguages as $id => $name)
-                                     <option value="{{ $id }}">{{ $name }}</option>
-                                     @endforeach
+                                <label>{{ cbLang('Colleges') }}</label>
+                                <select name="colleges" class="input" id="colleges">
+                                    <option value="">{{ cbLang('Select College') }}</option>
+                                    {{-- @foreach ($colleges as $id => $name)
+                                        <option value="{{ $id }}">{{ $name }}</option>
+                                    @endforeach --}}
                                 </select>
                             </div>
                         </div>
-                        <div class="input_wrap2">
-                            <label>{{ cbLang('College of Computer Science') }}</label>
-                            <select class="select">
-                                <option value="">{{ cbLang('Select Specialization') }}</option>
-                                @foreach($majorsComputerScience as $id => $name)
-                                <option value="{{ $id }}">{{ $name }}</option>
-                            @endforeach
-                            </select>
-                            <label>{{ cbLang('College of Sharia and Law') }}</label>
-                            <select class="select">
-                                <option value="">{{ cbLang('Select Specialization') }}</option>
-                                @foreach($majorsSharia as $id => $name)
-                                <option value="{{ $id }}">{{ $name }}</option>
-                            @endforeach
-                            </select>
-
-                            <label>{{ cbLang('College of Quranic sciences and Islamic studies') }}</label>
-                            <select class="select">
-                                <option value="none">{{ cbLang('Select Specialization') }}</option>
-                                @foreach($majorsIslamicStudies as $id => $name)
-                                <option value="{{ $id }}">{{ $name }}</option>
-                            @endforeach
-                            </select>
+                        <div class="input_wrap majors">
+                            <div>
+                                <label>{{ cbLang('Majors') }}</label>
+                                <select name="majors" class="input" id="majors">
+                                    <option value="">{{ cbLang('Select Specialization') }}</option>
+                                    {{-- @foreach ($majors as $id => $name)
+                                        <option value="{{ $id }}">{{ $name }}</option>
+                                    @endforeach --}}
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
                 <div class="form_4 data_info" style="display: none;">
                     <h2>{{ cbLang('Student Guardian Information') }}</h2>
                     <div class="form_inputs">
                         <div class="input_wrap">
-                            <div> <label for="relationship">{{ cbLang('Relationship') }}</label> <input type="text"
-                                    id="relationship" name="relationship" class="input">
-                                <label for="occupation">{{ cbLang('Occupation') }}</label>
-                                <input type="text" id="occupation" name="occupation" class="input">
-
-                                <label for="phone_number">{{ cbLang('Phone Number') }}</label>
-                                <input type="tel" id="phone_number" name="phone_number" class="input">
+                            <div>
+                                <label for="guardian_name">{{ cbLang('Guardian Name') }}</label>
+                                <input type="text" id="guardian_name" name="guardian_name" class="input" required>
+                            </div>
+                            <div>
+                                <label for="guardian_relationship">{{ cbLang('Relationship') }}</label>
+                                <input type="text" id="guardian_relationship" name="guardian_relationship" class="input" required>
                             </div>
                         </div>
-                        <div class="input_wrap2">
-                            <label for="guardian_name">{{ cbLang('Guardian Name') }}</label>
-                            <input type="text" id="guardian_name" name="guardian_name" class="input">
-
-                            <label for="workplace">{{ cbLang('Workplace') }}</label>
-                            <input type="text" id="workplace" name="workplace" class="input">
-
-                            <label for="location">{{ cbLang('Location') }}</label>
-                            <input type="text" id="location" name="location" class="input">
+                        <div class="input_wrap">
+                            <div>
+                                <label for="guardian_occupation">{{ cbLang('Occupation') }}</label>
+                                <input type="text" id="guardian_occupation" name="guardian_occupation" class="input" required>
+                            </div>
+                            <div>
+                                <label for="workplace">{{ cbLang('Workplace') }}</label>
+                                <input type="text" id="workplace" name="workplace" class="input" required>
+                            </div>
                         </div>
-                    </div>
-                    <h2>{{ cbLang('Contact Persons') }}</h2>
-                    <div class="input_wrap">
-                        <div class="input_guardian_name">
-                            <label for="guardian_name2">{{ cbLang('Name') }}</label>
-                            <input type="text" id="guardian_name2" name="guardian_name2" class="input">
-                            <input type="text" id="guardian_name3" name="guardian_name3" class="input">
-
-                            <label for="phone_number2">{{ cbLang('Phone Number') }}</label>
-                            <input type="tel" id="phone_number2" name="phone_number2" class="input">
-                            <input type="tel" id="phone_number3" name="phone_number3" class="input">
+                        <div class="input_wrap">
+                            <div>
+                                <label for="guardian_phone">{{ cbLang('Phone Number') }}</label>
+                                <input type="tel" id="guardian_phone" name="guardian_phone" class="input" required>
+                            </div>
+                            <div>
+                                <label for="guardian_location">{{ cbLang('Location') }}</label>
+                                <input type="text" id="guardian_location" name="guardian_location" class="input" required>
+                            </div>
                         </div>
-                        <div class="input_wrap2">
-                            <label for="telephone_fix">{{ cbLang('Landline Number') }}</label>
-                            <input type="tel" id="telephone_fix" name="telephone_fix" class="input">
-                            <input type="tel" id="telephone_fix2" name="telephone_fix2" class="input">
-
-                            <label for="relationship2">{{ cbLang('Relationship') }}</label>
-                            <input type="text" id="relationship2" name="relationship2" class="input">
-                            <input type="text" id="relationship3" name="relationship3" class="input">
+                        <div class="input_wrap">
+                            <div>
+                                <label for="guardian_landline">{{ cbLang('Landline Number') }}</label>
+                                <input type="tel" id="guardian_landline" name="guardian_landline" class="input" required>
+                            </div>
+                        </div>
+                        <h2>{{ cbLang('Contact Persons') }}</h2>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="guardian_name2">{{ cbLang('Name') }}</label>
+                                <input type="text" id="guardian_name2" name="guardian_name2" class="input" required>
+                            </div>
+                            <div>
+                                <input type="text" id="guardian_name3" name="guardian_name3" class="input">
+                            </div>
+                        </div>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="guardian_phone2">{{ cbLang('Phone Number') }}</label>
+                                <input type="tel" id="guardian_phone2" name="guardian_phone2" class="input" required>
+                            </div>
+                            <div>
+                                <input type="tel" id="guardian_phone3" name="guardian_phone3" class="input">
+                            </div>
+                        </div>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="guardian_landline2">{{ cbLang('Landline Number') }}</label>
+                                <input type="tel" id="guardian_landline2" name="guardian_landline2" class="input" required>
+                            </div>
+                            <div>
+                                <input type="tel" id="guardian_landline3" name="guardian_landline3" class="input">
+                            </div>
+                        </div>
+                        <div class="input_wrap">
+                            <div>
+                                <label for="guardian_relationship2">{{ cbLang('Relationship') }}</label>
+                                <input type="text" id="guardian_relationship2" name="guardian_relationship2" class="input" required>
+                            </div>
+                            <div>
+                                <input type="text" id="guardian_relationship3" name="guardian_relationship3" class="input">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="form_5 data_info" style="display: none;">
-                    <h2>{{ cbLang('Communication Methods') }}</h2>
-                    <form id="emailForm" class="input_wrap"> @csrf <label for="email"
-                        id="label_email">{{ cbLang('Email') }}</label> <input type="email" id="email"
-                        name="email" class="input_email" required> <button type="submit" name="submit"
-                        value="send" class="butten_email">{{ cbLang('Confirm') }}</button>
-                    <div class="email_wrapper">
-                        <div class="email_shadow"></div>
-                        <div class="success_wrap"> <span class="modal_icon"> </span> </div>
-                    </div>
-                </form>
-                    <form id="codeForm" class="input_wrap" style="display: none;"> @csrf <label for="code"
-                        id="label_email">{{ cbLang('Confirm Email') }}</label> <input type="text" id="code"
-                        name="code" class="input_email" required> <input type="submit" name="submit"
-                        value="{{ cbLang('Confirm') }}" class="butten_email">
-                    <div class="code_wrapper">
-                        <div class="code_shadow"></div>
-                        <div class="success_wrap"> <span class="modal_icon"> </span> </div>
-                    </div>
-                </form>
-                </div>
-
                 <div class="btns_wrap">
                     <div class="common_btns form_1_btns">
                         <button type="button" class="btn_next">
@@ -323,11 +398,8 @@
                             </span>
                             {{ cbLang('back') }}
                         </button>
-                        <button type="button" class="btn_next">
-                            {{ cbLang('next') }}
-                            <span class="icon">
-                                <ion-icon name="arrow-forward-sharp"></ion-icon>
-                            </span>
+                        <button type="submit" class="btn_done">
+                            {{ cbLang('done') }}
                         </button>
                     </div>
                     <div class="common_btns form_5_btns" style="display: none;">
@@ -337,23 +409,49 @@
                             </span>
                             {{ cbLang('back') }}
                         </button>
-                        <button type="button" class="btn_done">
+                        <button type="submit" class="btn_done">
                             {{ cbLang('done') }}
                         </button>
                     </div>
                 </div>
+            </form>
+            <div class="form_5 data_info" style="display: none;">
+                <h2>{{ cbLang('Communication Methods') }}</h2>
+                <form id="emailForm" class="input_wrap">
+                    @csrf
+                    <label for="email" id="label_email">
+                        {{ cbLang('Email') }}
+                    </label>
+                    <input type="email" id="email" name="email" class="input_email" required>
+                    <button type="submit" name="submit" value="send" class="butten_email">
+                        {{ cbLang('Confirm') }}
+                    </button>
+                    <div class="email_wrapper">
+                        <div class="email_shadow"></div>
+                        <div class="success_wrap">
+                            <span class="modal_icon"></span>
+                        </div>
+                    </div>
+                </form>
+                <form id="codeForm" class="input_wrap" style="display: none;">
+                    @csrf
+                    <label for="code" id="label_email">
+                        {{ cbLang('Confirm Email') }}
+                    </label>
+                    <input type="text" id="code" name="code" class="input_email" required>
+                    <input type="submit" name="submit" value="{{ cbLang('Confirm') }}" class="butten_email">
+                    <div class="code_wrapper">
+                        <div class="code_shadow"></div>
+                        <div class="success_wrap">
+                            <span class="modal_icon"></span>
+                        </div>
+                    </div>
             </div>
         </div>
-
         <div class="modal_wrapper">
             <div class="mod_shadow"></div>
             <div class="success_wrap">
-                <span class="modal_icon">
-                    <ion-icon name="checkmark-sharp"></ion-icon>
-                </span>
-                <p>
-                    {{ cbLang('Your information has been sent. Wait for a response') }}
-                </p>
+                <span class="modal_icon"></span>
             </div>
         </div>
     </div>
@@ -375,12 +473,10 @@
                             // Show the code form and hide the email form
                             $('#emailForm').hide();
                             $('#codeForm').show();
-
                         }
                     },
                     error: function(xhr) {
-                        showNotification(xhr.responseJSON.message, xhr.responseJSON.type,
-                            wrapper);
+                        showNotification(xhr.responseJSON.message, xhr.responseJSON.type, wrapper);
                     }
                 });
             });
@@ -397,15 +493,30 @@
                         if (response.type === 'success') {
                             // Hide the code form
                             $('#codeForm').hide();
-
                         }
                     },
                     error: function(xhr) {
-                        showNotification(xhr.responseJSON.message, xhr.responseJSON.type,
-                            wrapper);
+                        showNotification(xhr.responseJSON.message, xhr.responseJSON.type, wrapper);
                     }
                 });
             });
+
+            $('#reg-form').on('submit', function(event) {
+                var wrapper = document.querySelector(".modal_wrapper");
+                event.preventDefault(); // منع إعادة تحميل الصفحة
+                $.ajax({
+                    url: "{{ route('post-reg') }}",
+                    method: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        showNotification(response.message, response.type, wrapper);
+                    },
+                    error: function(xhr) {
+                        showNotification(xhr.responseJSON.message, xhr.responseJSON.type, wrapper);
+                    }
+                });
+            });
+
             function showNotification(message, type, wrapper) {
                 wrapper.classList.add("active");
                 var notification = wrapper.querySelector('.success_wrap');

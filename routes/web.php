@@ -64,6 +64,7 @@ Route::get('/translation', [CollegeController::class, 'translation'])->name('tra
 // })->name('sharia');
 
 Route::get('/registration', [RegistrationController::class, 'create'])->name('registration');
+Route::post('/registration', [RegistrationController::class, 'post_reg'])->name('post-reg');
 
 // Route::get('/registration', function () {
 //     return view('registration');

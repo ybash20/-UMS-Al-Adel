@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewsTable extends Migration
+class CreateIdentityTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('identity_types', function (Blueprint $table) {
             $table->id();
-            $table->string('Title')->nullable();
-            $table->text('Article')->nullable();
-            $table->string('Author', 30)->nullable();
-            $table->date('Publication_date')->nullable();
-            $table->unsignedBigInteger('Category_ID')->nullable();
+            $table->string('Name');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('identity_types');
     }
 }

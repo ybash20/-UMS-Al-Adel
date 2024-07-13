@@ -15,11 +15,9 @@ class CreateQualificationsTable extends Migration
     {
         Schema::create('qualifications', function (Blueprint $table) {
             $table->id();
-            $table->string('Name')->nullable();
-            $table->string('Level')->nullable();
-            $table->string('Institution')->nullable();
-            $table->unsignedBigInteger('Address_ID')->nullable();
-            $table->string('Country', 30)->nullable();
+            $table->unsignedBigInteger('Qualification_Type_ID')->nullable();
+            $table->unsignedBigInteger('Disciplines_ID')->nullable();
+            $table->unsignedBigInteger('Institution_ID')->nullable();
             $table->text('Description')->nullable();
             $table->timestamps();
         });

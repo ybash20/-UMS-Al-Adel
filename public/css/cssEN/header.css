@@ -1067,7 +1067,7 @@ button:not(:disabled),
     position: fixed;
     left: 0;
     z-index: 2000;
-    background: #f6f6f6;
+    background: #fff;
     height: calc(100vh);
     -webkit-transform: translateX(-110%);
     -ms-transform: translateX(-110%);

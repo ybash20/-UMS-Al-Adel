@@ -200,21 +200,22 @@
 </head>
 
 <body class="{{ Session::get('theme_color', 'skin-blue') }} {{ config('crudbooster.ADMIN_LAYOUT') }} {{ $sidebar_mode ?? '' }}">
-
-    <!-- Loader -->
-    <div class="wr" id="wr-loader">
-        <div id="page-loader" class="page-loader"></div>
-    </div>
-    <!-- Loader -->
+    @php
+        $module = CRUDBooster::getCurrentModule();
+    @endphp
+    @if (!$module)
+        <!-- Loader -->
+        <div class="wr" id="wr-loader">
+            <div id="page-loader" class="page-loader"></div>
+        </div>
+        <!-- Loader -->
+    @endif
 
     <div id="app" class="wrapper">
         @include('crudbooster::header')
         @include('crudbooster::sidebar')
         <div class="content-wrapper">
             <section class="content-header">
-                @php
-                    $module = CRUDBooster::getCurrentModule();
-                    @endphp
                 @if ($module)
                     <h1>
                         <!-- END BUTTON -->
