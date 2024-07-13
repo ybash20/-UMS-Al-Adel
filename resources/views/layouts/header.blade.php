@@ -126,8 +126,8 @@
                                                             {{ cbLang('Sharia and Law') }}
                                                         </a>
                                                     </li>
-                                                    <li class="@yield('translation')">
-                                                        <a href="{{ route('translation') }}" class="header_a nav-link">
+                                                    <li class="@yield('Translation_College')">
+                                                        <a href="{{ route('Translation_College') }}" class="header_a nav-link">
                                                             {{ cbLang('Languages and Translation') }}
                                                         </a>
                                                     </li>

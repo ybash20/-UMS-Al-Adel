@@ -47,14 +47,12 @@ class CollegeController extends Controller
         return view('college.sharia', compact('college'));
     }
 
-    public function translation()
+    public function Translation_College()
     {
         // جلب بيانات الكلية بواسطة الـ ID = 2
         $college = College::find(6);
 
-        // CRUDBooster::insertLog('translation', $college);
-
         // إرسال البيانات إلى صفحة Blade باستخدام compact
-        return view('college.translation', compact('college'));
+        return view('college.Translation_College', compact('college'));
     }
 }

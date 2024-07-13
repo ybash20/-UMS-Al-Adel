@@ -50,7 +50,7 @@ Route::get('/computer', [CollegeController::class, 'computer'])->name('computer'
 Route::get('/business', [CollegeController::class, 'business'])->name('business');
 Route::get('/islamic', [CollegeController::class, 'islamic'])->name('islamic');
 Route::get('/sharia', [CollegeController::class, 'sharia'])->name('sharia');
-Route::get('/translation', [CollegeController::class, 'translation'])->name('translation');
+Route::get('/Translation_College', [CollegeController::class, 'Translation_College'])->name('Translation_College');
 // Route::get('/business', function () {Route::get('/business', [CollegeController::class, 'business'])->name('business');
 //     return view('college.Business');
 // })->name('business');
@@ -78,9 +78,9 @@ Route::get('/forgot-password', function () {
     return view('forgot-password');
 })->name('forgot-password');
 
-Route::get('/translation', function () {
-    return view('college.Translation');
-})->name('translation');
+// Route::get('/translation', function () {
+//     return view('college.Translation');
+// })->name('translation');
 
 Route::post('check-email', [AdminController::class, 'checkEmail'])->name('check-email');
 Route::post('check-code', [AdminController::class, 'checkCode'])->name('check-code');
