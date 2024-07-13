@@ -465,8 +465,8 @@ return [
     //page student
     'timetables' => 'Timetables',
     'studyplan' => 'Studyplan',
-    'Grades Student' => 'Grades Student :',
-    'student Name' => 'Student Name',
+    'Grades Student' => 'Grades Student ',
+    'Student Name' => 'Student Name :',
     'student name Arabic' => 'Student Name in Arabic',
     'student name English' => 'Student Name in English',
     'Student ID' => 'Student ID :',

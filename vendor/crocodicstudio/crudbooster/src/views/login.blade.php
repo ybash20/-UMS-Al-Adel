@@ -413,12 +413,12 @@
         var btnEN2 = document.getElementById('form2-langEN');
 
         // Hide the appropriate button based on the selected language
-        if (selectedLang === 'ar') {
-            btnAR1.style.display = 'none';
-            btnAR2.style.display = 'none';
-        } else {
+        if (selectedLang === 'en') {
             btnEN1.style.display = 'none';
             btnEN2.style.display = 'none';
+        } else {
+            btnAR1.style.display = 'none';
+            btnAR2.style.display = 'none';
         }
 
         // Helper function to get the value of a cookie
