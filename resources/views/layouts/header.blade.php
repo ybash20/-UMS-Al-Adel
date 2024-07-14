@@ -176,7 +176,7 @@
                                                 </a>
                                             </li>
                                             <li class="@yield('news')">
-                                                <a href="#news-section" class="header_a nav-link">
+                                                <a href="{{ route('news') }}" class="header_a nav-link">
                                                     {{ cbLang('news') }}
                                                 </a>
                                             </li>
