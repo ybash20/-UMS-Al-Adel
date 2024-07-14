@@ -5,6 +5,7 @@ use crocodicstudio\crudbooster\controllers\AdminController;
 use App\Http\Controllers\BookLibraryController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,10 +70,12 @@ Route::post('/registration', [RegistrationController::class, 'post_reg'])->name(
 // Route::get('/registration', function () {
 //     return view('registration');
 // })->name('registration');
+Route::get('/news', [NewsController::class, 'getnews'])->name('news');
+Route::get('/details_news_{id}', [NewsController::class, 'details_news'])->name('news.details');
 
-Route::get('/news', function () {
-    return view('news.news');
-})->name('news');
+// Route::get('/newsd', function () {
+//     return view('news.details_news');
+// })->name('news');
 
 Route::get('/forgot-password', function () {
     return view('forgot-password');

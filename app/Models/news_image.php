@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class news_image extends Model
 {
     use HasFactory;
+    protected $table = 'news_images';
+
+    public function news()
+    {
+        return $this->belongsTo(news::class, 'News_ID');
+    }
 }

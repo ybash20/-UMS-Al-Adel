@@ -75,7 +75,7 @@
 }
 
 .news img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 5px 5px 0 0;
 }
@@ -91,7 +91,7 @@
 
     .news p {
         text-align: center;
-        font-size: 12px;
+        font-size: 16px;
         margin-top: 5px;
         font-family: 'Lemonada', cursive;
         word-break: break-all;
@@ -203,145 +203,149 @@
 </style>
 
 <div class="continar_news">
+    @foreach($categories as $category)
     <div class="news_row">
-        <h2>Category News Category </h2>
+        <h2>{{ $category->Name }}</h2>
         <div class="arrows_news">
             <button class="prev-button"><span>&lt;</span></button>
         </div>
         
-        <button class="news">
-            <img src="image/about.png" alt="News Image">
-            <p>Date News 1</p>
-            <p>News Content 1</p>
-        </button>
-        
-        
-    </div>
-
-   
+        @foreach($category->news as $news)
+        <a href="{{ route('news.details', $news->id) }}" class="news">
+            @if($news->images->isNotEmpty())
+                <img src="{{ $news->images->first()->News_Image ? asset($news->images->first()->News_Image) : asset('image/about.png') }}" alt="News Image">
+            @else
+                <img src="{{ asset('image/about.png') }}" alt="News Image">
+            @endif
+            <p>{{ \Carbon\Carbon::parse($news->Publication_date)->format('Y-m-d') }}</p>
+            <p>{{ $news->Title }}</p>
+        </a>
+        @endforeach
         
         <div class="arrows_news">
             <button class="next-button"><span>&gt;</span></button>
         </div>
     </div>
+    @endforeach
 </div>
+
 
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const rows = document.querySelectorAll('.news_row');
-        rows.forEach(row => {
-            const news = row.querySelectorAll('.news');
-            const prevButton = row.querySelector('.prev-button');
-            const nextButton = row.querySelector('.next-button');
-            let currentIndex = 0;
-            let newsPerRow = 3; // Number of news per row
-            let autoSlideInterval; // Interval for automatic slide
-            const intervalTime = 3000; // 3 seconds
-            let touchMoveFlag = false; // Flag to check if touch move happened
+    const rows = document.querySelectorAll('.news_row');
+    rows.forEach(row => {
+        const news = row.querySelectorAll('.news');
+        const prevButton = row.querySelector('.prev-button');
+        const nextButton = row.querySelector('.next-button');
+        let currentIndex = 0;
+        let newsPerRow = 4; // Number of news per row
+        let autoSlideInterval; // Interval for automatic slide
+        const intervalTime = 3000; // 3 seconds
+        let touchMoveFlag = false; // Flag to check if touch move happened
 
-            function showNews(startIndex) {
-                news.forEach((newsItem, i) => {
-                    if (i >= startIndex && i < startIndex + newsPerRow) {
-                        newsItem.style.display = 'block';
-                        newsItem.classList.add('fade-in');
-                    } else {
-                        newsItem.style.display = 'none';
-                        newsItem.classList.remove('fade-in');
-                    }
-                });
-            }
-
-            function showNextNews() {
-                const nextIndex = currentIndex + newsPerRow;
-                if (nextIndex < news.length) {
-                    currentIndex = nextIndex;
-                    showNews(currentIndex);
+        function showNews(startIndex) {
+            news.forEach((newsItem, i) => {
+                if (i >= startIndex && i < startIndex + newsPerRow) {
+                    newsItem.style.display = 'inline-block';
+                    newsItem.classList.add('fade-in');
                 } else {
-                    // If we reach the end, reset to the beginning
-                    currentIndex = 0;
-                    showNews(currentIndex);
+                    newsItem.style.display = 'none';
+                    newsItem.classList.remove('fade-in');
                 }
-                if (!touchMoveFlag) {
-                    resetAutoSlide();
-                }
-            }
+            });
+        }
 
-            function showPreviousNews() {
-                const previousIndex = currentIndex - newsPerRow;
-                if (previousIndex >= 0) {
-                    currentIndex = previousIndex;
-                    showNews(currentIndex);
-                } else {
-                    // If we reach the beginning, go to the end
-                    currentIndex = Math.max(0, news.length - newsPerRow);
-                    showNews(currentIndex);
-                }
-                if (!touchMoveFlag) {
-                    resetAutoSlide();
-                }
-            }
-
-            function adjustNewsPerRow() {
-                if (window.innerWidth < 650) {
-                    newsPerRow = 2;
-                    prevButton.style.display = 'none';
-                    nextButton.style.display = 'none';
-                } else if (window.innerWidth < 900) {
-                    newsPerRow = 2;
-                    prevButton.style.display = 'none';
-                    nextButton.style.display = 'none';
-                } else {
-                    newsPerRow = 3;
-                    prevButton.style.display = 'inline-block';
-                    nextButton.style.display = 'inline-block';
-                }
+        function showNextNews() {
+            const nextIndex = currentIndex + newsPerRow;
+            if (nextIndex < news.length) {
+                currentIndex = nextIndex;
+                showNews(currentIndex);
+            } else {
+                // If we reach the end, reset to the beginning
+                currentIndex = 0;
                 showNews(currentIndex);
             }
-
-            function handleTouchStart(event) {
-                xDown = event.touches[0].clientX;
-                touchMoveFlag = false; // Reset touch move flag
+            if (!touchMoveFlag) {
+                resetAutoSlide();
             }
+        }
 
-            function handleTouchMove(event) {
-                if (!xDown) return;
-
-                let xUp = event.touches[0].clientX;
-                let xDiff = xDown - xUp;
-
-                if (xDiff > 0) {
-                    showNextNews(); // Swipe left to show next news
-                } else {
-                    showPreviousNews(); // Swipe right to show previous news
-                }
-                touchMoveFlag = true; // Set touch move flag
-                xDown = null; // Reset value
+        function showPreviousNews() {
+            const previousIndex = currentIndex - newsPerRow;
+            if (previousIndex >= 0) {
+                currentIndex = previousIndex;
+                showNews(currentIndex);
+            } else {
+                // If we reach the beginning, go to the end
+                currentIndex = Math.max(0, news.length - newsPerRow);
+                showNews(currentIndex);
             }
-
-            function resetAutoSlide() {
-                clearInterval(autoSlideInterval);
-                autoSlideInterval = setInterval(showNextNews, intervalTime);
+            if (!touchMoveFlag) {
+                resetAutoSlide();
             }
+        }
 
-            prevButton.addEventListener('click', () => {
-                showPreviousNews();
-                resetAutoSlide(); // Reset auto slide when button clicked
-            });
+        function adjustNewsPerRow() {
+            if (window.innerWidth < 650) {
+                newsPerRow = 1;
+                prevButton.style.display = 'none';
+                nextButton.style.display = 'none';
+            } else if (window.innerWidth < 900) {
+                newsPerRow = 2;
+                prevButton.style.display = 'none';
+                nextButton.style.display = 'none';
+            } else {
+                newsPerRow = 4;
+                prevButton.style.display = 'inline-block';
+                nextButton.style.display = 'inline-block';
+            }
+            showNews(currentIndex);
+        }
 
-            nextButton.addEventListener('click', () => {
-                showNextNews();
-                resetAutoSlide(); // Reset auto slide when button clicked
-            });
+        function handleTouchStart(event) {
+            xDown = event.touches[0].clientX;
+            touchMoveFlag = false;
+        }
 
-            window.addEventListener('resize', adjustNewsPerRow);
-            row.addEventListener('touchstart', handleTouchStart);
-            row.addEventListener('touchmove', handleTouchMove);
+        function handleTouchMove(event) {
+            if (!xDown) return;
 
-            adjustNewsPerRow(); // Initial call to set up the view
-            autoSlideInterval = setInterval(showNextNews, intervalTime); // Start auto slide when page loads
+            let xUp = event.touches[0].clientX;
+            let xDiff = xDown - xUp;
+
+            if (xDiff > 0) {
+                showNextNews(); // Swipe left to show next news
+            } else {
+                showPreviousNews(); // Swipe right to show previous news
+            }
+            touchMoveFlag = true;
+            xDown = null;
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(showNextNews, intervalTime);
+        }
+
+        prevButton.addEventListener('click', () => {
+            showPreviousNews();
+            resetAutoSlide();
         });
+
+        nextButton.addEventListener('click', () => {
+            showNextNews();
+            resetAutoSlide();
+        });
+
+        window.addEventListener('resize', adjustNewsPerRow);
+        row.addEventListener('touchstart', handleTouchStart);
+        row.addEventListener('touchmove', handleTouchMove);
+
+        adjustNewsPerRow();
+        autoSlideInterval = setInterval(showNextNews, intervalTime);
     });
+});
 
 </script>
 @endsection
