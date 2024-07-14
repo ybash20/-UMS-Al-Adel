@@ -97,9 +97,24 @@
   text-align: center;
   padding-top: 4%;
   display: none; /* Hide by default */
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 1s ease-in-out;
   margin-top: 2%;
 
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: slideInFromLeft 2s ease-out;
 }
 
 .book img {
@@ -173,19 +188,6 @@
 .arrows_book button:active {
   background-color: #0ddb4b;
 }
-
-
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.fade-in {
-  animation: fadeIn 0.5s;
-}
-
-
 
 
 hr {

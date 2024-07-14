@@ -1,8 +1,12 @@
 <?php
 
-$lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'ar';
+// $lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'ar';
 
 return [
+    'session' => [
+        'driver' => 'file',
+        // ... الإعدادات الأخرى
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -82,7 +86,9 @@ return [
     |
     */
 
-    'locale' => isset($_GET['lang']) ? $_GET['lang'] :$lang,
+    // 'locale' => isset($_GET['lang']) ? $_GET['lang'] : $lang,
+    'locale' => 'ar',
+
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +101,8 @@ return [
     |
     */
 
-    'fallback_locale' => isset($_GET['lang']) ? $_GET['lang'] : $lang,
+    // 'fallback_locale' => isset($_GET['lang']) ? $_GET['lang'] : $lang,
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------

@@ -87,3 +87,4 @@ Route::get('/forgot-password', function () {
 
 Route::post('check-email', [AdminController::class, 'checkEmail'])->name('check-email');
 Route::post('check-code', [AdminController::class, 'checkCode'])->name('check-code');
+Route::get('/change-language/{locale}', 'LanguageController@changeLanguage');
