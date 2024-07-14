@@ -41,7 +41,7 @@ class PrivilegesController extends CBController
         $this->form[] = ["label" => "Is Manager", "name" => "is_manager", 'required' => true];
 
         $this->alert[] = [
-            'message' => "You can use the helper <code>CRUDBooster::getMyPrivilegeId()</code> to get current user login privilege id, or <code>CRUDBooster::getMyPrivilegeName()</code> to get current user login privilege name",
+            'message' => "You can use the helper PrivilegeID to get current user login privilege id, or PrivilegeName to get current user login privilege name",
             'type' => 'info',
         ];
         # END FORM DO NOT REMOVE THIS LINE

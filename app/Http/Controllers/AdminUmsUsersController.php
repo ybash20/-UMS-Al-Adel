@@ -24,7 +24,7 @@ class AdminUmsUsersController extends CBController {
 			$this->button_show = true;
 			$this->button_filter = true;
 			$this->button_import = false;
-			$this->button_export = false;
+			$this->button_export = true;
 			$this->table = "ums_users";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
