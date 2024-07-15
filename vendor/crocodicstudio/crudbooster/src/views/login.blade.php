@@ -322,19 +322,19 @@
                 {{ cbLang('login_message') }}
             </p>
 
-            <form class="form_1 data_info" autocomplete='off' action="{{ route('postLogin') }}" method="post">
+            <form class="form_2 data_info" action="{{ route('StudentpostLogin') }}" method="post">
                 @csrf
+                <p class='login-box-msg'>{{ cbLang('student_form') }}</p>
+                <img src="{{ asset('vendor/crudbooster/assets/student.png') }}" class="img_login">
                 <div>
-                    <p class='login-box-msg'>
-                        {{ cbLang('label_employer') }}
-                    </p>
-                    <img src="{{ asset('vendor/crudbooster/assets/empployee.png') }}" class="img_login">
-                    <input class="input form-control" autocomplete='off' type="text" name='login'
-                        placeholder="Email or Username" required />
-                </div>
-                <div>
-                    <input class="input form-control" autocomplete='off' type="password" name='password'
-                        placeholder="Password" required />
+                    <div>
+                        <input class="input form-control" type="text" name="id" id="ID" placeholder="ID"
+                            required>
+                    </div>
+                    <div>
+                        <input class="input form-control" type="password" name="Code" id="password2"
+                            placeholder="Code" required>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
                     <i class='fa fa-lock'></i>
@@ -372,19 +372,20 @@
                 {{ cbLang('login_message') }}
             </p>
 
-            <form class="form_2 data_info" action="{{ route('StudentpostLogin') }}" method="post">
+            
+            <form class="form_1 data_info" autocomplete='off' action="{{ route('postLogin') }}" method="post">
                 @csrf
-                <p class='login-box-msg'>{{ cbLang('student_form') }}</p>
-                <img src="{{ asset('vendor/crudbooster/assets/student.png') }}" class="img_login">
                 <div>
-                    <div>
-                        <input class="input form-control" type="text" name="id" id="ID" placeholder="ID"
-                            required>
-                    </div>
-                    <div>
-                        <input class="input form-control" type="password" name="Code" id="password2"
-                            placeholder="Code" required>
-                    </div>
+                    <p class='login-box-msg'>
+                        {{ cbLang('label_employer') }}
+                    </p>
+                    <img src="{{ asset('vendor/crudbooster/assets/empployee.png') }}" class="img_login">
+                    <input class="input form-control" autocomplete='off' type="text" name='login'
+                        placeholder="Email or Username" required />
+                </div>
+                <div>
+                    <input class="input form-control" autocomplete='off' type="password" name='password'
+                        placeholder="Password" required />
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
                     <i class='fa fa-lock'></i>
@@ -399,7 +400,6 @@
                     <i class="fas fa-user-graduate"></i>
                 </button>
             </form>
-
             <!--a href="#">I forgot my password</a-->
         </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
