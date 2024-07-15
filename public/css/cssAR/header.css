@@ -54,6 +54,15 @@
     src: url(../../fonts/font-awesome/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(../../fonts/font-awesome/fa-brands-400.woff2) format("woff2"), url(../../fonts/font-awesome/fa-brands-400.woff) format("woff"), url(../../fonts/font-awesome/fa-brands-400.ttf) format("truetype"), url(../../fonts/font-awesome/fa-brands-400.svg#fontawesome) format("svg")
 }
 
+@font-face {
+    font-family: "DIN-NEXT";
+    src: url(../../fonts/DIN-NEXT.otf);
+}
+
+.headerh1{
+    font-family: 'DIN-NEXT';
+}
+
 .fab {
     font-family: "Font Awesome 5 Brands"
 }
@@ -606,8 +615,8 @@ button:not(:disabled),
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
     color: #495057;
-    background-color: #f6f6f6;;
-    border-color: #dee2e6 #dee2e6 #f6f6f6;
+    background-color: #fff;;
+    border-color: #dee2e6 #dee2e6 #fff;
 }
 
 .nav-tabs .dropdown-menu {
@@ -996,7 +1005,7 @@ button:not(:disabled),
     list-style: none;
     padding: 0;
     margin: 0;
-    min-width: 200px;
+    min-width: 255px;
 }
 
 .site-navbar .site-navigation .site-menu .has-children .dropdown>li:first-child>a {
@@ -1058,14 +1067,15 @@ button:not(:disabled),
     margin-top: 0px;
     visibility: visible;
     opacity: 1;
+    text-align: right;
 }
 
 .site-mobile-menu {
-    width: 300px;
+    width: 365px;
     position: fixed;
     right: 0;
     z-index: 2000;
-    background: #f6f6f6;
+    background: #fff;
     height: calc(100vh);
     -webkit-transform: translateX(110%);
     -ms-transform: translateX(110%);
@@ -1209,12 +1219,12 @@ button:not(:disabled),
 .site-mobile-menu .site-nav-wrap>li {
     display: block;
     position: relative;
-    float: left;
+    float: right;
     width: 100%;
 }
 
 .site-mobile-menu .site-nav-wrap>li>a {
-    padding-left: 20px;
+    padding-right: 20px;
     font-size: 20px;
 }
 
@@ -1229,7 +1239,7 @@ button:not(:disabled),
 }
 
 .site-mobile-menu .site-nav-wrap>li>ul>li>a {
-    padding-left: 40px;
+    padding-right: 40px;
     font-size: 16px;
 }
 
@@ -1244,7 +1254,7 @@ button:not(:disabled),
 
 .site-mobile-menu .site-nav-wrap>li>ul>li>ul>li>a {
     font-size: 16px;
-    padding-left: 60px;
+    padding-right: 60px;
 }
 
 .sticky-wrapper {
@@ -1291,25 +1301,6 @@ button:not(:disabled),
     line-height: .75em;
     vertical-align: -.0667em
 }
-
-.my-translate-element {
-    /* Add your custom styles here */
-    font-family: 'Your Preferred Font', sans-serif;
-    font-size: 14px;
-    color: #c90d0d;
-}
-
-.my-translate-element .goog-te-gadget {
-    /* Target specific elements within the Google Translate element */
-    font-size: 16px;
-}
-
-.my-translate-element .goog-te-combo {
-    /* Style the language dropdown */
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-}
-
 .reset-password-container {
     text-align: center;
     margin-top: 20px;
@@ -1323,6 +1314,8 @@ button:not(:disabled),
 
 .lang-icon{
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 .lang-dropdown-menu{
     position: absolute;
@@ -1332,7 +1325,7 @@ button:not(:disabled),
     float: left;
     font-size: 14px;
     text-align: left;
-    background-color: #f6f6f6;
+    background-color: #fff;
     border-radius: 0 0 4px 4px;
 }
 
@@ -1350,30 +1343,28 @@ button:not(:disabled),
     padding: 5px 0;
 }
 
-#langForm>button {
-    background: #f6f6f6;
+#langForm>a {
+    background: #fff;
     border: none;
     text-align: left;
     padding: 7px 10px;
     display: flex;
     align-items: center;
     gap: 7px;
+    text-decoration: none;
+    color: #444;
 }
 
-#langForm>button:hover {
+#langForm>a:hover {
     background: #3c8dbc;
     color: #fff;
 }
 
-#langForm button:first-child {
-    font-family: 'Segoe UI';
-}
-
-#langForm button:first-child img {
+#langForm a:first-child img {
     height: 22px;
 }
 
-#langForm>button.active {
+#langForm>a.active {
     background: #3c8dbc;
     color: #fff;
 }
@@ -1381,12 +1372,20 @@ button:not(:disabled),
 .lang-header {
     padding: 7px 10px;
     border-bottom: 2px solid #f4f4f4;
-    color: #444444;
+    color: #444;
     font-size: 15px;
+    text-align: right;
 }
 .lang-dropdown-menu {
     transition: .3s;
 }
 .lang-dropdown-menu.iopen {
     display: block;
+}
+#langEn {
+    font-family: "Dosis";
+}
+#langAr{
+    font-family: "GE-Dinar";
+    justify-content: space-between;
 }

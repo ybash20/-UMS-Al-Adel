@@ -129,7 +129,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `directorates` WRITE;
 /*!40000 ALTER TABLE `directorates` DISABLE KEYS */;
-INSERT INTO `directorates` VALUES (1,'المنصورة','2024-07-14 18:29:51',NULL),(2,'الشيخ','2024-07-14 18:29:55',NULL),(3,'الحوطة','2024-07-14 18:30:23',NULL),(4,'صبر','2024-07-14 18:30:28',NULL);
+INSERT INTO `directorates` VALUES (1,'المنصورة',1,'2024-07-15 20:47:06',NULL),(2,'الشيخ',1,'2024-07-15 20:47:06',NULL),(3,'التواهي',1,'2024-07-15 20:47:06',NULL),(4,'المعلا',1,'2024-07-15 20:47:06',NULL),(5,'البريقا',1,'2024-07-15 20:47:06',NULL),(6,'رداع',2,'2024-07-15 20:47:06',NULL),(7,'المكيراس',2,'2024-07-15 20:47:06',NULL),(8,'الصومعة',2,'2024-07-15 20:47:06',NULL),(9,'زاهر',2,'2024-07-15 20:47:06',NULL),(10,'الحوطة',3,'2024-07-14 18:30:23',NULL),(11,'صبر',3,'2024-07-14 18:30:28',NULL);
 /*!40000 ALTER TABLE `directorates` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,6 +139,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `disciplines` WRITE;
 /*!40000 ALTER TABLE `disciplines` DISABLE KEYS */;
+INSERT INTO `disciplines` VALUES (1,'عدن','2024-07-15 20:47:06',NULL),(2,'البيضاء','2024-07-15 20:47:06',NULL);
 /*!40000 ALTER TABLE `disciplines` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +177,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `governorates` WRITE;
 /*!40000 ALTER TABLE `governorates` DISABLE KEYS */;
-INSERT INTO `governorates` VALUES (1,'عدن','2024-07-14 18:29:42','2024-07-14 18:30:07'),(2,'لحج','2024-07-14 18:30:14',NULL);
+INSERT INTO `governorates` VALUES (1,'عدن','2024-07-15 20:47:06',NULL),(2,'البيضاء','2024-07-15 20:47:06',NULL),(3,'لحج','2024-07-14 18:30:14',NULL);
 /*!40000 ALTER TABLE `governorates` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -330,6 +331,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `qualification_type` WRITE;
 /*!40000 ALTER TABLE `qualification_type` DISABLE KEYS */;
+INSERT INTO `qualification_type` VALUES (1,'ثانوية عامة','2024-07-15 20:47:06',NULL);
 /*!40000 ALTER TABLE `qualification_type` ENABLE KEYS */;
 UNLOCK TABLES;
 

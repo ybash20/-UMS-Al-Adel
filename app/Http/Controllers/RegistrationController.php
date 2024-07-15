@@ -29,6 +29,18 @@ class RegistrationController extends Controller
         $addresses = Address::all();
         $qualifications = Qualification::all();
     }
+    public function getMajors($collegeId)
+    {
+        $majors = DB::table('majors')->where('College_ID', $collegeId)->pluck('Name', 'id');
+
+        return response()->json($majors);
+    }
+    public function getDirectorates($govId)
+    {
+        $dirs = DB::table('directorates')->where('Governorate_ID', $govId)->pluck('Name', 'id');
+
+        return response()->json($dirs);
+    }
 
     public function create()
     {
@@ -37,6 +49,8 @@ class RegistrationController extends Controller
         $identityTypes = identity_types::pluck('Name', 'id');
         $qualificationType = DB::table('qualification_type')->pluck('Name','id');
         $disciplines = DB::table('disciplines')->pluck('Name','id');
+        $colleges = DB::table('colleges')->pluck('Name','id');
+        $gov = DB::table('governorates')->pluck('Name','id');
 
         // جلب التخصصات حسب الكليات
         $majorsComputerScience = Major::where('College_ID', 1)->pluck('name', 'id');
@@ -55,131 +69,226 @@ class RegistrationController extends Controller
             'majorsLanguages',
             'majorsSharia',
             'majorsIslamicStudies',
-            'majorsComputerScience'
+            'majorsComputerScience',
+            'colleges',
+            'gov'
         ));
     }
     public function post_reg(Request $request){
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'Nationality' => 'required|string|max:255',
+            // Personal Information
+            'nameAR' => 'required|string|max:255',
+            'nameEN' => 'required|string|max:255',
+            'gender' => 'required|in:0,1',
+            'nationality' => 'required|string|max:255',
             'place_of_birth' => 'required|string|max:255',
-            'marital_status' => 'required|integer|exists:marital,Marital_ID',
-            'blood_type' => 'required|integer|exists:blood,Blood_ID',
-            'city' => 'required|string|max:255',
-            'issue_date' => 'required|date',
-            'issue_location' => 'required|string|max:255',
-            'mobile' => 'required|string|max:20',
             'date_of_birth' => 'required|date',
-            'gender' => 'required|boolean',
-            'current_address' => 'required|string|max:255',
-            'district' => 'required|string|max:255',
-            'id_type' => 'required|integer|exists:identity,Identity_ID',
-            'id_number' => 'required|string|max:50',
-            'landline' => 'nullable|string|max:20',
-            'seat_number' => 'required|integer',
-            'department' => 'required|string|max:255',
-            'percentage' => 'required|numeric|min:0|max:100',
+            'blood_type' => 'required|exists:bloods,id',
+            'marital_status' => 'required|exists:maritals,id',
+
+            // Address Information
             'governorate' => 'required|string|max:255',
-            'director' => 'required|string|max:255',
-            'total_marks' => 'required|integer',
+            'directorate' => 'required|string|max:255',
+            'neighborhood' => 'required|string|max:255',
+            'address_notes' => 'nullable|string|max:255',
+
+            // Communication Methods
+            'mobile' => 'required|digits_between:10,15',
+            'landline' => 'nullable|digits_between:10,15',
+
+            // Identity Information
+            'id_type' => 'required|exists:identity_types,id',
+            'id_number' => 'required|string|max:255',
+            'issue_location' => 'required|string|max:255',
+            'issue_date' => 'required|date',
+
+            // Qualifications
+            'qualification_Type' => 'required|exists:qualification_type,id',
+            'disciplines' => 'required|exists:disciplines,id',
+            'institution_name' => 'required|string|max:255',
+            'institution_governorate' => 'required|string|max:255',
+            'institution_directorate' => 'required|string|max:255',
             'academic_year' => 'required|string|regex:/^\d{4}-\d{4}$/',
-            'final_grade' => 'required|numeric|min:0|max:100',
+            'seat_number' => 'required|integer',
+            'total_grades' => 'required|numeric',
+            'max_pass_grade' => 'required|numeric',
+            'percentage' => 'required|numeric|between:0,100',
             'certificate_date' => 'required|date',
-            'school' => 'required|string|max:255',
-            'administration_science_specialization' => 'integer|exists:qualifications,Qualification_ID',
-            'language_translation_specialization' => 'integer|exists:qualifications,Qualification_ID',
-            'computer_science_specialization' => 'integer|exists:qualifications,Qualification_ID',
-            'sharia_law_specialization' => 'integer|exists:qualifications,Qualification_ID',
-            'islamic_studies_specialization' => 'integer|exists:qualifications,Qualification_ID',
-            'occupation' => 'required|string|max:255',
-            'workplace' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
+
+            // Desired Student Specialization
+            'majors' => 'required|exists:majors,id',
+
+            // Student Guardian Information
             'guardian_name' => 'required|string|max:255',
+            'guardian_relationship' => 'required|string|max:255',
+            'guardian_occupation' => 'required|string|max:255',
+            'guardian_workplace' => 'required|string|max:255',
+            'guardian_phone' => 'required|digits_between:10,15',
+            'guardian_landline' => 'nullable|digits_between:10,15',
+            'guardian_governorate' => 'required|string|max:255',
+            'guardian_directorate' => 'required|string|max:255',
             'guardian_name2' => 'nullable|string|max:255',
-            'phone_number' => 'required|string|max:20',
-            'phone_number2' => 'nullable|string|max:20',
-            'telephone_fix' => 'nullable|string|max:20',
-            'telephone_fix2' => 'nullable|string|max:20',
-            'relationship' => 'required|string|max:255',
-            'relationship2' => 'nullable|string|max:255'
+            'guardian_name3' => 'nullable|string|max:255',
+            'guardian_relationship2' => 'nullable|string|max:255',
+            'guardian_relationship3' => 'nullable|string|max:255',
+            'guardian_phone2' => 'nullable|digits_between:10,15',
+            'guardian_phone3' => 'nullable|digits_between:10,15',
+            'guardian_landline2' => 'nullable|digits_between:10,15',
+            'guardian_landline3' => 'nullable|digits_between:10,15',
         ]);
 
         if ($validator->fails()) {
             $message = $validator->errors()->all();
-            return redirect()->back()->with(['message' => implode('<br>', $message), 'message_type' => 'danger']);
+            return response()->json(['message' => implode('<br>', $message), 'type' => 'error']);
         }
 
         try{
             DB::beginTransaction();
 
-            DB::table('registration')->insert([
-                "Name" => $request->name,
-                "Date" => now(),
-                "Gender" => $request->gender,
-                "Nationality" => $request->Nationality,
-                "DOB" => $request->date_of_birth,
-                "Place_of_birth" => $request->place_of_birth,
-                "Marital_ID" => $request->marital_status,
-                "Blood_ID" => $request->blood_type,
-                "Mobile_Phone_No" => $request->mobile,
-                "Landline_No" => $request->mobile,
+            if($request->institution_governorate == 'other'){
+                DB::table('directorates')->insert([
+                    'Name' => $request->institution_directorate,
+                ]);
+                $ins_dir_id = DB::getPdo()->lastInsertId();
+                DB::table('addresses')->insert([
+                    'Directorate_ID' => $ins_dir_id,
+                ]);
+                $ins_address_id = DB::getPdo()->lastInsertId();
+            }
+            else{
+                DB::table('addresses')->insert([
+                    'Directorate_ID' => $request->institution_directorate,
+                ]);
+                $ins_address_id = DB::getPdo()->lastInsertId();
+            }
 
-                "Identity_ID" => $request->id_type,
-                "Address_ID" => 1, // Set the appropriate address ID
-                "Major_ID" => 1, // Set the appropriate major ID
-                "Certificate_ID" => 1, // Set the appropriate certificate ID
-                "Qualification_ID" => 1, // Set the appropriate qualification ID
+            DB::table('qualifications')->insert([
+                'Qualification_Type_ID' => $request->qualification_Type, // Provide appropriate description
+                'Disciplines_ID' => $request->disciplines, // Provide appropriate level
+                'Institution_ID' => $ins_address_id, // Provide appropriate institution
             ]);
 
-            DB::table('guardians')->insert([
-                'Registration_ID' => DB::getPdo()->lastInsertId(), // Get last inserted ID for registration
-                'Name' => $request->guardian_name,
-                'Relationship' => $request->relationship,
-                'Profession' => $request->occupation,
-                'Workplace' => $request->workplace,
-                'Phone_No' => $request->phone_number,
-                'Landline_No' => $request->landline,
+            $qual_id = DB::getPdo()->lastInsertId();
 
-                'Address_ID' => 1, // Set the appropriate address ID
+            DB::table('certificates')->insert([
+                'Qualification_ID' => $qual_id, // Set the appropriate qualification ID
+                'Graduation_Year' => explode('-', $request->academic_year)[1], // Extract year from academic year
+                'Maximum_Pass_Grade' => $request->max_pass_grade, // Assuming 100 is the max pass grade
+                'Total_Grades' => $request->total_grades,
+                'Percentage' => $request->percentage,
+                'Issue_Date' => $request->certificate_date,
+                'Seat_Number' => $request->seat_number,
             ]);
 
-            DB::table('identity')->insert([
-                'Type' => $request->id_type,
-                'No' => $request->id_number,
+            $cer_id = DB::getPdo()->lastInsertId();
+
+            DB::table('identities')->insert([
+                'identity_types_id' => $request->id_type,
+                'Number' => $request->id_number,
                 'Issue_Date' => $request->issue_date,
                 'Issuing_Authority' => $request->issue_location,
             ]);
 
-            DB::table('certificate')->insert([
-                'Name' => $request->school,
-                'Graduation_Year' => explode('-', $request->academic_year)[1], // Extract year from academic year
-                'Disciplines' => $request->department,
-                'Maximum_Pass_Grade' => 100, // Assuming 100 is the max pass grade
-                'Total_Grades' => $request->total_marks,
-                'Percentage' => $request->percentage,
-                'Issue_Date' => $request->certificate_date,
+            $identity_id = DB::getPdo()->lastInsertId();
 
-                'Qualification_ID' => 1, // Set the appropriate qualification ID
+            if($request->governorate == 'other'){
+                DB::table('directorates')->insert([
+                    'Name' => $request->directorate,
+                ]);
+                $reg_dir_id = DB::getPdo()->lastInsertId();
+                DB::table('addresses')->insert([
+                    'Directorate_ID' => $reg_dir_id,
+                    'Neighborhood' => $request->neighborhood,
+                    'Notes' => $request->address_notes,
+                ]);
+                $reg_address_id = DB::getPdo()->lastInsertId();
+            }
+            else{
+                DB::table('addresses')->insert([
+                    'Directorate_ID' => $request->directorate,
+                    'Neighborhood' => $request->neighborhood,
+                    'Notes' => $request->address_notes,
+                ]);
+                $reg_address_id = DB::getPdo()->lastInsertId();
+            }
+
+            DB::table('registrations')->insert([
+                "NameAR" => $request->nameAR,
+                "NameEN" => $request->nameEN,
+                "Date" => now(),
+                "Gender" => $request->gender,
+                "Nationality" => $request->nationality,
+                "DOB" => $request->date_of_birth,
+                "Place_Of_Birth" => $request->place_of_birth,
+                "Marital_ID" => $request->marital_status,
+                "Blood_ID" => $request->blood_type,
+                "Mobile_Phone_Number" => $request->mobile,
+                "Landline_Number" => $request->lindline,
+                "Major_ID" => $request->majors,
+                "Identity_ID" => $identity_id,
+                "Address_ID" => $reg_address_id,
+                "Certificate_ID" => $cer_id,
             ]);
 
-            DB::table('qualifications')->insert([
-                'Name' => $request->school,
-                'Description' => 'Qualification description', // Provide appropriate description
-                'Level' => 'Bachelor', // Provide appropriate level
-                'Institution' => 'University Name', // Provide appropriate institution
-                'Address_ID' => 1, // Set the appropriate address ID
-                'Country' => 'Country Name', // Provide appropriate country
+            $reg_id = DB::getPdo()->lastInsertId();
+
+            if($request->guardian_governorate == 'other'){
+                DB::table('directorates')->insert([
+                    'Name' => $request->guardian_directorate,
+                ]);
+                $guard_dir_id = DB::getPdo()->lastInsertId();
+                DB::table('addresses')->insert([
+                    'Directorate_ID' => $request->guard_dir_id,
+                ]);
+                $guard_address_id = DB::getPdo()->lastInsertId();
+            }
+            else{
+                DB::table('addresses')->insert([
+                    'Directorate_ID' => $request->guardian_directorate,
+                ]);
+                $guard_address_id = DB::getPdo()->lastInsertId();
+            }
+
+
+            DB::table('guardians')->insert([
+                'Registration_ID' => $reg_id, // Get last inserted ID for registration
+                'Name' => $request->guardian_name,
+                'Relationship' => $request->guardian_relationship,
+                'Profession' => $request->guardian_occupation,
+                'Workplace' => $request->guardian_workplace,
+                'Phone_Number' => $request->guardian_phone,
+                'Landline_Number' => $request->guardian_landline,
+                'Address_ID' => $guard_address_id, // Set the appropriate address ID
             ]);
+
+            if(isset($request->guardian_name2) && isset($request->guardian_relationship2) && isset($request->guardian_phone2) && isset($request->guardian_landline2)){
+                DB::table('guardians')->insert([
+                    'Registration_ID' => $reg_id, // Get last inserted ID for registration
+                    'Name' => $request->guardian_name2,
+                    'Relationship' => $request->guardian_relationship2,
+                    'Phone_Number' => $request->guardian_phone2,
+                    'Landline_Number' => $request->guardian_landline2,
+                ]);
+            }
+            if(isset($request->guardian_name3) && isset($request->guardian_relationship3) && isset($request->guardian_phone3) && isset($request->guardian_landline3)){
+                DB::table('guardians')->insert([
+                    'Registration_ID' => $reg_id, // Get last inserted ID for registration
+                    'Name' => $request->guardian_name3,
+                    'Relationship' => $request->guardian_relationship3,
+                    'Phone_Number' => $request->guardian_phone3,
+                    'Landline_Number' => $request->guardian_landline3,
+                ]);
+            }
 
             DB::commit();
 
-            CRUDBooster::insertLog("test Reg success", $request->all());
-            return redirect()->back()->with(['message' => "test reg success", 'type' => 'success']);
+            CRUDBooster::insertLog("Registration ID:$reg_id Success ", $request->all());
+            return response()->json(['message' => 'You have been registered', 'type' => 'success']);
         } catch (\Exception $e) {
             DB::rollBack();
             $message = $e->getMessage();
-            CRUDBooster::insertLog("test reg failed", $message);
-            return redirect()->back()->with(['message' => $message, 'type' => 'danger']);
+            CRUDBooster::insertLog("Registration failed", $message);
+            return response()->json(['message' => $message, 'type' => 'error']);
         }
     }
 }

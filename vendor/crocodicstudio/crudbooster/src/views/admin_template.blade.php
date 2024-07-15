@@ -120,7 +120,8 @@
             padding: 5px 0;
         }
 
-        #langForm>button {
+        #langForm>a {
+            color: inherit;
             background: #fff;
             border: none;
             text-align: left;
@@ -130,20 +131,20 @@
             gap: 7px;
         }
 
-        #langForm>button:hover {
+        #langForm>a:hover {
             background: #3c8dbc;
             color: #fff;
         }
 
-        #langForm button:first-child {
+        #langForm a:first-child {
             font-family: 'Segoe UI';
         }
 
-        #langForm button:first-child img {
+        #langForm a:first-child img {
             height: 22px;
         }
 
-        #langForm>button.active {
+        #langForm>a.active {
             background: #3c8dbc;
             color: #fff;
         }
@@ -193,8 +194,32 @@
     @stack('head')
 
     @if (App::getLocale() == 'ar')
+        <style>
+            .sidebar-menu>li:hover>a, .sidebar-menu>li.active>a {
+                color: #fff;
+                background: #1e282c;
+                border-right-color: #3c8dbc;
+            }
+            .sidebar-menu>li>a {
+                border-right: 3px solid transparent;
+            }
+            .sidebar-menu .treeview-menu>li>a {
+                padding: 5px 25px 5px 5px;
+            }
+        </style>
         <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/bootstrap-rtl.min.css') }}">
         <link href="{{ asset('vendor/crudbooster/assets/rtl.css') }}" rel="stylesheet" type="text/css">
+    @else
+        <style>
+            .sidebar-menu>li:hover>a, .sidebar-menu>li.active>a {
+                color: #fff;
+                background: #1e282c;
+                border-left-color: #3c8dbc;
+            }
+            .sidebar-menu>li>a {
+                border-left: 3px solid transparent;
+            }
+        </style>
     @endif
 
 </head>
@@ -210,7 +235,6 @@
         </div>
         <!-- Loader -->
     @endif
-
     <div id="app" class="wrapper">
         @include('crudbooster::header')
         @include('crudbooster::sidebar')

@@ -15,7 +15,8 @@ class CreateRegistrationsTable extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
-            $table->string('Name')->nullable();
+            $table->string('NameAR')->nullable();
+            $table->string('NameEN')->nullable();
             $table->date('Date')->nullable();
             $table->boolean('Gender')->nullable();
             $table->string('Nationality', 30)->nullable();
@@ -29,7 +30,6 @@ class CreateRegistrationsTable extends Migration
             $table->string('Landline_Number', 11)->nullable();
             $table->unsignedBigInteger('Major_ID')->nullable();
             $table->unsignedBigInteger('Certificate_ID')->nullable();
-            $table->unsignedBigInteger('Qualification_ID')->nullable();
             $table->text('Photo')->nullable();
             $table->timestamps();
         });

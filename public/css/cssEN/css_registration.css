@@ -26,8 +26,6 @@
     /* لون الخلفية للرسالة الفاشلة */
 }
 
-
-
 * {
     margin: 0;
     padding: 0;
@@ -35,9 +33,27 @@
     list-style: none;
     outline: none;
 }
+@font-face {
+    font-family: "bahnschrift";
+    src: url(../../fonts/bahnschrift.ttf);
+}
+
+@font-face {
+    font-family: "Dosis";
+    src: url(../../fonts/Dosis-Medium.ttf);
+    font-weight: normal;
+    font-style: normal
+}
+
+label {
+    font-family: 'Dosis';
+}
+
+h2 {
+    font-family: "bahnschrift";
+}
 
 .body_form {
-    font-family: 'Lemonada', cursive;
     background: var(--primary);
     color: var(--text-clr);
     font-size: 16px;
@@ -57,7 +73,6 @@
 .wrapper .header {
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
 }
 
 .wrapper .header ul {
@@ -101,6 +116,7 @@
     text-align: center;
     line-height: 50px;
     border-radius: 50%;
+    font-weight: bold;
 }
 
 .wrapper .header ul li.active:before {
@@ -115,7 +131,7 @@
     color: var(--header-clr);
     text-align: center;
     text-transform: uppercase;
-    margin: 0 20px 10px;
+    margin: 20px 10px 0;
 }
 
 .form_inputs {
@@ -133,7 +149,6 @@
 .wrapper .form_wrap .input_wrap label {
     display: block;
     margin-bottom: 5px;
-    margin-right: 15px;
     text-align: left;
 }
 
@@ -171,27 +186,6 @@
     border-color: var(--primary);
 }
 
-/* .wrapper .form_wrap .input_wrap2 .select,
-.wrapper .form_wrap .input_wrap .select {
-    border: 2px solid var(--secondary);
-    border-radius: 3px;
-    padding: 10px;
-    width: 300px;
-    font-size: 14px;
-    transition: 0.5s ease;
-    text-align: right;
-    margin-right: 10px;
-    margin-left: 10px;
-} */
-
-/* .wrapper .form_wrap .input_wrap2 {
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-bottom: 20px;
-    margin-top: 0;
-} */
-
-
 .wrapper .btns_wrap .common_btns {
     bottom: 0%;
     display: flex;
@@ -213,10 +207,11 @@
     justify-content: center;
     display: flex;
     align-items: center;
-    font-size: 16px;
     border-radius: 3px;
     transition: 0.5s ease;
     cursor: pointer;
+    font-family: bahnschrift;
+    font-size: 18px;
 }
 
 
@@ -282,7 +277,7 @@
     left: 50%;
     transform: translate(-50%, -800px);
     background: var(--white);
-    padding: 50px;
+    padding: 35px;
     display: flex;
     align-items: center;
     border-radius: 5px;
@@ -292,7 +287,6 @@
 .email_wrapper .success_wrap .modal_icon,
 .code_wrapper .success_wrap .modal_icon,
 .modal_wrapper .success_wrap .modal_icon {
-    margin-right: 20px;
     width: 50px;
     height: 50px;
     background: var(--primary);
@@ -327,19 +321,6 @@
     transform: translate(-50%, -50%);
 }
 
-.input_email {
-    border: 2px solid var(--secondary);
-    border-radius: 3px;
-    padding: 10px;
-    width: 200px;
-    font-size: 12px;
-    transition: 0.5s ease;
-    text-align: right;
-    margin: 5px 0px 0px 25px;
-    /* margin-left: 50px; */
-    /* margin-bottom: 8px; */
-}
-
 .butten_email {
     bottom: 0%;
     border: 0;
@@ -358,13 +339,10 @@
 
 @media (max-width: 915px) {
     .wrapper {
-        /* padding: 10px;
-        max-width: 300px; */
         align-items: center;
     }
 
     .body_form {
-        font-family: 'Lemonada', cursive;
         background: var(--primary);
         color: var(--text-clr);
         font-size: 16px;
@@ -373,62 +351,30 @@
     }
 
     .wrapper .header ul li p {
-        /* width: 25px; */
-        /* height: 25px; */
         background: var(--secondary);
         color: var(--white);
         text-align: center;
-        /* line-height: 153%; */
         border-radius: 50%;
-
     }
-
 
     .wrapper .header ul {
         display: flex;
-    }
-
-    .wrapper .header ul li {
-        /* margin-right: 10px; */
-        position: relative;
     }
 
     .wrapper .form_wrap .input_wrap label {
         margin-right: 0;
     }
 
-    .wrapper .btns_wrap .common_btns button {
-        /* width: 100%; */
-        /* margin-bottom: 10px; */
-        font-size: 14px;
-    }
-
-
-
     .wrapper .form_wrap .input_wrap2 label,
     .wrapper .form_wrap .input_wrap label {
         display: block;
         margin-bottom: 5px;
-        margin-right: 15px;
         text-align: left;
     }
 
     .wrapper .header ul li div {
         padding: 5px;
         border-radius: 50%;
-    }
-
-    .input_email {
-        border: 2px solid var(--secondary);
-        border-radius: 3px;
-        padding: 10px;
-        width: 200px;
-        font-size: 12px;
-        transition: 0.5s ease;
-        text-align: left;
-        margin-right: 60px;
-        margin-left: 12px;
-        margin-bottom: 8px;
     }
 
     .butten_email {
@@ -527,14 +473,15 @@
 
     }
     .input_wrap {
-        flex-direction: column;
+        flex-direction: column  !important;
         align-items: center;
+        gap: 10px;
     }
     .wrapper .header {
     margin-bottom: 15px;
     }
     .wrapper .form_wrap h2 {
-        margin: 0 10px 10px;
+        margin: 20px 10px 0;
         font-size: 18px;
     }
     .wrapper .btns_wrap .common_btns button.btn_next .icon {
@@ -575,7 +522,6 @@
 label {
     display: block;
     margin-bottom: 5px;
-    margin-right: 15px;
     text-align: left;
 }
 
@@ -607,4 +553,58 @@ input {
 .input_wrap.majors,
 .input_wrap.colleges {
     justify-content: center;
+}
+#emailForm, #codeForm {
+    flex-direction: column !important;
+    gap: 10px;
+    align-items: normal;
+}
+
+#emailForm div,
+#codeForm div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#emailForm h2,
+#codeForm h2 {
+    text-align: center;
+}
+
+.input_email {
+    border: 2px solid var(--secondary);
+    border-radius: 3px;
+    padding: 10px;
+    width: 300px;
+    transition: 0.5s ease;
+    text-align: left;
+}
+
+@media (max-width: 700px) {
+    #emailForm, #codeForm {
+        flex-direction: column !important;
+        gap: 10px;
+    }
+    .input_email {
+        border: 2px solid var(--secondary);
+        border-radius: 3px;
+        padding: 10px;
+        transition: 0.5s ease;
+        text-align: left;
+        width: auto;
+    }
+    #emailForm h2,
+    #codeForm h2 {
+        font-size: 22px;
+    }
+}
+.end{
+    display: none;
+    font-size: 20px;
+    padding: 15px 30px;
+    line-height: 1.5;
+    color: #444;
+}
+.end ul{
+    margin: 10px 35px;
 }

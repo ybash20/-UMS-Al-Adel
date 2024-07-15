@@ -21,7 +21,7 @@ class NewsController extends Controller
         return view('news.news', compact('categories'));
     }
 
-    public function details_news($id)
+    public function news_details($id)
     {
         $news = news::with('images', 'category')->findOrFail($id);
         return view('news.details_news', compact('news'));

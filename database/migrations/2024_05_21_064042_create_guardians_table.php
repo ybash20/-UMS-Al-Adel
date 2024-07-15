@@ -22,7 +22,7 @@ class CreateGuardiansTable extends Migration
             $table->string('Workplace')->nullable();
             $table->unsignedBigInteger('Address_ID')->nullable();
             $table->string('Phone_Number', 13)->nullable();
-            $table->string('Landline_No', 11)->nullable();
+            $table->string('Landline_Number', 11)->nullable();
             $table->timestamps();
         });
     }

@@ -53,6 +53,14 @@
     src: url(../../fonts/font-awesome/fa-brands-400.eot);
     src: url(../../fonts/font-awesome/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(../../fonts/font-awesome/fa-brands-400.woff2) format("woff2"), url(../../fonts/font-awesome/fa-brands-400.woff) format("woff"), url(../../fonts/font-awesome/fa-brands-400.ttf) format("truetype"), url(../../fonts/font-awesome/fa-brands-400.svg#fontawesome) format("svg")
 }
+@font-face {
+    font-family: "granada";
+    src: url(../../fonts/granada.ttf);
+}
+
+.headerh1{
+    font-family: 'granada';
+}
 
 .fab {
     font-family: "Font Awesome 5 Brands"
@@ -214,13 +222,16 @@ body {
     display: block;
 }
 
-.header_ul {
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-
-.header_ul .header_ul {
+.site-menu.main-menu {
     margin-bottom: 0;
+    direction: ltr;
+    padding: 0;
+}
+.nav.site-navigation{
+    padding: 0;
+}
+.nav.site-navigation div{
+    padding: 0;
 }
 
 .header_a {
@@ -606,8 +617,8 @@ button:not(:disabled),
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
     color: #495057;
-    background-color: #f6f6f6;;
-    border-color: #dee2e6 #dee2e6 #f6f6f6;
+    background-color: #fff;;
+    border-color: #dee2e6 #dee2e6 #fff;
 }
 
 .nav-tabs .dropdown-menu {
@@ -868,22 +879,19 @@ button:not(:disabled),
 }
 
 .site-navbar .site-logo {
-    /* font-weight: 300; */
-    /* line-height: 0; */
     position: relative;
     display: inline-grid;
 }
 
 .site-navbar .site-logo a {
-    font-weight: 200;
     color: #fff;
     font-size: 20px;
-    font-weight: bold;
     text-decoration: none;
 }
 
 .site-navbar .site-navigation .site-menu {
-    margin-bottom: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .site-navbar .site-navigation .site-menu a {
@@ -998,7 +1006,7 @@ button:not(:disabled),
     list-style: none;
     padding: 0;
     margin: 0;
-    min-width: 200px;
+    min-width: 255px;
 }
 
 .site-navbar .site-navigation .site-menu .has-children .dropdown>li:first-child>a {
@@ -1063,7 +1071,7 @@ button:not(:disabled),
 }
 
 .site-mobile-menu {
-    width: 300px;
+    width:345px;
     position: fixed;
     left: 0;
     z-index: 2000;
@@ -1291,25 +1299,6 @@ button:not(:disabled),
     line-height: .75em;
     vertical-align: -.0667em
 }
-
-.my-translate-element {
-    /* Add your custom styles here */
-    font-family: 'Your Preferred Font', sans-serif;
-    font-size: 14px;
-    color: #c90d0d;
-}
-
-.my-translate-element .goog-te-gadget {
-    /* Target specific elements within the Google Translate element */
-    font-size: 16px;
-}
-
-.my-translate-element .goog-te-combo {
-    /* Style the language dropdown */
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-}
-
 .reset-password-container {
     text-align: center;
     margin-top: 20px;
@@ -1323,6 +1312,9 @@ button:not(:disabled),
 
 .lang-icon{
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
 }
 .lang-dropdown-menu{
     position: absolute;
@@ -1332,7 +1324,7 @@ button:not(:disabled),
     float: left;
     font-size: 14px;
     text-align: left;
-    background-color: #f6f6f6;
+    background-color: #fff;
     border-radius: 0 0 4px 4px;
 }
 
@@ -1342,6 +1334,7 @@ button:not(:disabled),
     min-width: 120px;
     list-style: none;
     transform: translateX(40%);
+    direction: ltr;
 }
 
 #langForm {
@@ -1350,30 +1343,33 @@ button:not(:disabled),
     padding: 5px 0;
 }
 
-#langForm>button {
-    background: #f6f6f6;
+#langForm>a {
+    background: #fff;
     border: none;
     text-align: left;
     padding: 7px 10px;
     display: flex;
     align-items: center;
     gap: 7px;
+    text-decoration: none;
+    color: #444;
+
 }
 
-#langForm>button:hover {
+#langForm>a:hover {
     background: #3c8dbc;
     color: #fff;
 }
 
-#langForm button:first-child {
+#langForm a:first-child {
     font-family: 'Segoe UI';
 }
 
-#langForm button:first-child img {
+#langForm a:first-child img {
     height: 22px;
 }
 
-#langForm>button.active {
+#langForm>a.active {
     background: #3c8dbc;
     color: #fff;
 }
@@ -1381,7 +1377,7 @@ button:not(:disabled),
 .lang-header {
     padding: 7px 10px;
     border-bottom: 2px solid #f4f4f4;
-    color: #444444;
+    color: #444;
     font-size: 15px;
 }
 .lang-dropdown-menu {
@@ -1389,4 +1385,11 @@ button:not(:disabled),
 }
 .lang-dropdown-menu.iopen {
     display: block;
+}
+#langEn {
+    font-family: "Dosis";
+}
+#langAr{
+    font-family: "GE-Dinar";
+    justify-content: space-between;
 }

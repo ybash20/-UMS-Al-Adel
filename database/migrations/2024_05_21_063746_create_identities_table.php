@@ -18,7 +18,7 @@ class CreateIdentitiesTable extends Migration
             $table->unsignedBigInteger('identity_types_id')->nullable();
             $table->string('Number', 30)->nullable();
             $table->date('Issue_Date')->nullable();
-            $table->date('Issuing_Authority')->nullable();
+            $table->string('Issuing_Authority')->nullable();
             $table->text('Image')->nullable();
             $table->timestamps();
         });

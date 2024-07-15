@@ -303,15 +303,10 @@
     </header>
     <div class="login-box">
         <div class="login-box-body form-login1">
-            <form id="langForm" method="GET" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form_select">
-                <button id="form1-langAR" type="submit" name="lang" value="ar" class="button_lang">
-                    AR
-                </button>
-                <button id="form1-langEN" type="submit" name="lang" value="en" class="button_lang">
-                    EN
-                </button>
-            </form>
-
+            <div id="langForm" class="form_select">
+                <a href="/change-language/ar" name="lang" id="form1-langAR" value="ar"> AR </a>
+                <a href="/change-language/en" name="lang" id="form1-langEN" value="en"> EN </a>
+            </div>
             @if (Session::get('message') != '')
                 <div class='alert-warning'>
                     {{ Session::get('message') }}

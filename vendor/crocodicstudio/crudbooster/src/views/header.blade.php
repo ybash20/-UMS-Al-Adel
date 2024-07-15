@@ -1,14 +1,6 @@
 <!-- Main Header -->
 <header class="main-header">
 
-    @push('head')
-        @php
-            if (isset($_GET['lang'])) {
-                setcookie('lang', $_GET['lang'], time() + 3 * 86, 400);
-            }
-        @endphp
-    @endpush
-
     <!-- Logo -->
     <a href="{{url(config('crudbooster.ADMIN_PATH'))}}" title='{{Session::get('appname')}}' class="logo">
         {{CRUDBooster::getSetting('appname')}}
@@ -32,16 +24,16 @@
                     <ul id='list_language' class="dropdown-menu">
                         <li class="lang-header">{{ ucwords(cbLang('lang')) }}</li>
                         <li>
-                            <form id="langForm" method="GET" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form_select">
-                                <button type="submit" name="lang" id="langAr" value="ar">
+                            <div id="langForm" class="form_select">
+                                <a href="/change-language/ar" name="lang" id="langAr" value="ar">
                                     <img src="{{ asset('image/ar.png') }}">
                                     العربية
-                                </button>
-                                <button type="submit" name="lang" id="langEn" value="en">
+                                </a>
+                                <a href="/change-language/en" name="lang" id="langEn" value="en">
                                     <img src="{{ asset('image/en.png') }}">
                                     English
-                                </button>
-                            </form>
+                                </a>
+                            </div>
                         </li>
                         @push('bottom')
                             <script>
