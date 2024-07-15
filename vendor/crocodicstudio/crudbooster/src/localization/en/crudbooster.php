@@ -23,6 +23,7 @@ return [
     'News Images' => 'News Images',
     'News Categories' => 'News Categories ',
     'News' => 'News',
+    'News Details' => 'News Details',
     'Grades' => 'Grades',
     'Courses' => 'Courses ',
     'Import Data' => 'Import Data',

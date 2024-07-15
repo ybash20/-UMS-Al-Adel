@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','details news')
+@section('title',cbLang('News Details'))
 @section('details_news', 'active')
 @section('about', 'active')
 
@@ -84,7 +84,7 @@
         .slide-wrapper img {
     width: auto;
     height: auto;
-    object-fit: cover;
+    /* object-fit:fill; */
     object-position: center;
     /* position: absolute; */
     top: 0;
@@ -109,12 +109,11 @@
     }
 
     .slider-container {
-        width: 100%;
-        /* Adjust height as needed */
-        height: 464px;
-        position: relative;
-        /* overflow: hidden; */
-    }
+    width: 100%;
+    height: 50%;
+    position: relative;
+    /* overflow: hidden; */
+}
 
     .slider-track {
         display: flex;
@@ -132,7 +131,7 @@
     .slide-wrapper img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        /* object-fit: cover; */
         object-position: center;
         /* position: absolute; */
         top: 0;
@@ -159,6 +158,10 @@
     .next-btn {
         right: 10px;
     }
+    .section_separator {
+            border-top: 1px solid #ccc;
+            margin-top: 30px;
+        }
 </style>
 
 <div class="details_news-main">
@@ -183,6 +186,7 @@
                 </button>
             </div>
         </div>
+        <hr class="section_separator">
     </div>
     <div class="details_news-details">
         <h1 class="details_news-caption2">{{ \Carbon\Carbon::parse($news->Publication_date)->format('Y-m-d') }}</h1>

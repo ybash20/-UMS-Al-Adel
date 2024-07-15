@@ -107,6 +107,11 @@
                                                     {{ cbLang('home') }}
                                                 </a>
                                             </li>
+                                            <li class="@yield('news')">
+                                                <a href="{{ route('news') }}" class="header_a nav-link">
+                                                    {{ cbLang('news') }}
+                                                </a>
+                                            </li>
                                             <li class="@yield('library')">
                                                 <a href="{{ route('library') }}" class="header_a nav-link">
                                                     {{ cbLang('Library') }}
@@ -190,11 +195,6 @@
                                             <li class="@yield('registration')">
                                                 <a href="{{ route('registration') }}" class="header_a nav-link">
                                                     {{ cbLang('Regstiration') }}
-                                                </a>
-                                            </li>
-                                            <li class="@yield('news')">
-                                                <a href="{{ route('news') }}" class="header_a nav-link">
-                                                    {{ cbLang('news') }}
                                                 </a>
                                             </li>
                                             @if (session()->has('student_id'))

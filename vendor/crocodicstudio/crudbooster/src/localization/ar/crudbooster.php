@@ -34,6 +34,7 @@ return [
     'News Images' => 'صور الاخبار',
     'News Categories' => 'فئات الأخبار',
     'News' => 'الاخبار',
+    'News Details' => 'تفاصيل الاخبار',
     'Grades' => 'الدرجات',
     'Courses' => 'المنهج الدراسي',
     'Label-Import-helper' => 'قبل تحميل ملف ، من الأفضل قراءة التعليمات التالية: <br>
