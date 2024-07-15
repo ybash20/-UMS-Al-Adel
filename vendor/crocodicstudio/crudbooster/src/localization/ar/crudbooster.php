@@ -1,5 +1,8 @@
 <?php
 return [
+    'Adresses'=>'العنوان',
+    'Governorates'=>'المحافظات',
+    'Directorates'=>'المديريات',
     'qualifications' => 'المؤهلات',
     'qualification_Type' => 'نوع المؤهل',
     'Institution address information' => 'عنوان الموؤسسة التعليمية',

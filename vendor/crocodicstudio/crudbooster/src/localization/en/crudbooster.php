@@ -1,5 +1,9 @@
 <?php
 return [
+  'Search'=>'Search',
+    'Adresses'=>'Adresses',
+    'Governorates'=>'Governorates',
+    'Directorates'=>'Directorates',
     'qualifications' => 'Qualifications',
     'qualification_Type' => 'Qualification Type',
     'Institution address information' => 'Institution Address Information',
