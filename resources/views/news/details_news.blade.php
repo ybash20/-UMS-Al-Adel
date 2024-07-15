@@ -72,9 +72,10 @@
     .details_news-details {
         width: 100%;
         font-size: 22px;
-        text-align: justify;
+        text-align: unset;
         color: #333;
-    }
+        margin: 10px;
+        }
     
     /* للشاشات التي أصغر من 600px */
     @media (max-width: 600px) {
