@@ -74,7 +74,7 @@ class AdminController extends CBController
     $password = Request::input("password");
 
     $user = DB::table(config('crudbooster.USER_TABLE'))->where(function($query) use ($login) {
-        $query->where("email", $login)->orWhere("name", $login);
+        $query->where("email", $login)->orWhere("Username", $login);
     })->first();
 
     if ($user && \Hash::check($password, $user->password)) {
