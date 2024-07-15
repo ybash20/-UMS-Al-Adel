@@ -40,24 +40,39 @@ class AdminUmsUsersController extends CBController {
 			$this->form = [];
 			$this->form[] = ['label'=>'Name','name'=>'name','type'=>'text','validation'=>'required|alpha_spaces|min:3','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Email','name'=>'email','type'=>'email','validation'=>'required|email|unique:ums_users,email,6','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Photo','name'=>'photo','type'=>'upload','validation'=>'required|image|max:1000','width'=>'col-sm-9','help'=>'Recommended resolution is 200x200px'];
-			$this->form[] = ['label'=>'Privilege','name'=>'id_ums_privileges','type'=>'select','width'=>'col-sm-9','datatable'=>'ums_privileges,name'];
-			$this->form[] = ['label'=>'Theme Color','name'=>'theme_color','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'skin-blue;skin-blue-light;skin-yellow;skin-yellow-light;skin-green;skin-green-light;skin-purple;skin-purple-light;skin-red;skin-red-light;skin-black;skin-black-light'];
-			$this->form[] = ['label'=>'Password','name'=>'password','type'=>'password','width'=>'col-sm-9','help'=>'Please leave empty if not change'];
-			$this->form[] = ['label'=>'Password Confirmation','name'=>'password_confirmation','type'=>'password','width'=>'col-sm-9','help'=>'Please leave empty if not change'];
+			$this->form[] = ['label'=>'Username','name'=>'Username','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Photo','name'=>'photo','type'=>'upload','validation'=>'image|max:1000','width'=>'col-sm-9','help'=>'Recommended resolution is 200x200px'];
+			$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'0;1','help'=>'0 Male   ,   1 Female'];
+			$this->form[] = ['label'=>'Privilege','name'=>'id_ums_privileges','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'ums_privileges,name'];
+			$this->form[] = ['label'=>'Department','name'=>'Department_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'departments,Name'];
+			$this->form[] = ['label'=>'Theme Color','name'=>'theme_color','type'=>'select','width'=>'col-sm-9','dataenum'=>'skin-blue;skin-blue-light;skin-yellow;skin-yellow-light;skin-green;skin-green-light;skin-purple;skin-purple-light;skin-red;skin-red-light;skin-black;skin-black-light'];
+			$this->form[] = ['label'=>'Password','name'=>'password','type'=>'password','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Password Confirmation','name'=>'password_confirmation','type'=>'password','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Governorates','name'=>'Address_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'governorates,Name'];
+			$this->form[] = ['label'=>'Directorates','name'=>'Address_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'directorates,Name'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
-			// $this->form = array();
-			// $this->form[] = array("label"=>"Name","name"=>"name",'required'=>true,'validation'=>'required|alpha_spaces|min:3');
-			// $this->form[] = array("label"=>"Email","name"=>"email",'required'=>true,'type'=>'email','validation'=>'required|email|unique:ums_users,email,'.CRUDBooster::getCurrentId());
-			// $this->form[] = array("label"=>"Photo","name"=>"photo","type"=>"upload","help"=>"Recommended resolution is 200x200px",'required'=>true,'validation'=>'required|image|max:1000','resize_width'=>90,'resize_height'=>90);
-			// $this->form[] = array("label"=>"Privilege","name"=>"id_ums_privileges","type"=>"select","datatable"=>"ums_privileges,name",'required'=>true);
-			// // $this->form[] = array("label"=>"Password","name"=>"password","type"=>"password","help"=>"Please leave empty if not change");
-			// $this->form[] = array("label"=>"Password","name"=>"password","type"=>"password","help"=>"Please leave empty if not change");
-			// $this->form[] = array("label"=>"Password Confirmation","name"=>"password_confirmation","type"=>"password","help"=>"Please leave empty if not change");
+			//$this->form = [];
+			//$this->form[] = ['label'=>'Name','name'=>'name','type'=>'text','validation'=>'required|alpha_spaces|min:3','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Email','name'=>'email','type'=>'email','validation'=>'required|email|unique:ums_users,email,6','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Username','name'=>'Username','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Photo','name'=>'photo','type'=>'upload','validation'=>'image|max:1000','width'=>'col-sm-9','help'=>'Recommended resolution is 200x200px'];
+			//$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'0;1','help'=>'0 Male   ,   1 Female'];
+			//$this->form[] = ['label'=>'Privilege','name'=>'id_ums_privileges','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'ums_privileges,name'];
+			//$this->form[] = ['label'=>'Department','name'=>'Department_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'departments,Name'];
+			//$this->form[] = ['label'=>'Theme Color','name'=>'theme_color','type'=>'select','width'=>'col-sm-9','dataenum'=>'skin-blue;skin-blue-light;skin-yellow;skin-yellow-light;skin-green;skin-green-light;skin-purple;skin-purple-light;skin-red;skin-red-light;skin-black;skin-black-light'];
+			//$this->form[] = ['label'=>'Password','name'=>'password','type'=>'password','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Password Confirmation','name'=>'password_confirmation','type'=>'password','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Governorates','name'=>'Address_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'governorates,Name'];
+			//$this->form[] = ['label'=>'Directorates','name'=>'Address_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'directorates,Name'];
 			# OLD END FORM
-            $this->script_js = '$(function () {
+
+			$this->script_js = '$(function () {
                 $("select[name=theme_color]").change(function () {
                     var n = $(this).val();
                     $("body").attr("class", n);
