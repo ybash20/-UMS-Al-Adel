@@ -178,12 +178,12 @@
                                                             {{ cbLang('Students Affairs') }}
                                                         </a>
                                                     </li>
-                                                    <li class="@yield('Foreign_relations')">
+                                                    {{-- <li class="@yield('Foreign_relations')">
                                                         <a href="{{ route('Foreign_relations') }}"
                                                             class="header_a nav-link">
                                                             {{ cbLang('Foreign relations') }}
                                                         </a>
-                                                    </li>
+                                                    </li> --}}
                                                     <li class="@yield('University_guide')">
                                                         <a href="{{ route('University_guide') }}"
                                                             class="header_a nav-link">
