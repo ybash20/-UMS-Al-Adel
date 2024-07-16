@@ -15,11 +15,9 @@ class CreateContentsTable extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
-            $table->text('Content_Arabic')->nullable();
-            $table->text('Content_English')->nullable();
+            $table->text('Content')->nullable();
             $table->unsignedBigInteger('Category_ID')->nullable();
-            $table->text('Description_Arabic')->nullable(); // Corrected spelling: "Arabic"
-            $table->text('Description_English')->nullable(); // Corrected spelling: "English"
+            $table->text('Description')->nullable();
             $table->timestamps();
         });
     }
