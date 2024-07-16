@@ -1,28 +1,11 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 12px;
-        }
-
-        th,
-        td {
-            padding: 5px;
-            border: 1px solid #ccc;
-        }
-
-        th {
-            background: #eeeeee;
-            font-weight: bold;
-        }
-    </style>
+    @if (App::getLocale() == 'ar')
+    <link rel="stylesheet" href="css/cssAr/Report.css">
+@else
+    <link rel="stylesheet" href="css/cssEN/Report.css">
+@endif
 </head>
 
 <body>
