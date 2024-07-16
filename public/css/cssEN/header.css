@@ -892,6 +892,7 @@ button:not(:disabled),
 .site-navbar .site-navigation .site-menu {
     padding: 0;
     margin: 0;
+    direction: rtl;
 }
 
 .site-navbar .site-navigation .site-menu a {
@@ -955,7 +956,7 @@ button:not(:disabled),
     box-shadow: 0 0px 4px 0px rgba(0, 0, 0, 0.25);
     padding: 0px 0;
     margin-top: 20px;
-    margin-right: -124px;
+    margin-right: -168px;
     background: #fff;
     -webkit-transition: 0.2s 0s;
     -o-transition: 0.2s 0s;
