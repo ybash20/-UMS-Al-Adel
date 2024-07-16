@@ -31,22 +31,26 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Id","name"=>"id"];
-			$this->col[] = ["label"=>"Content","name"=>"Content"];
+			$this->col[] = ["label"=>"Content Arabic","name"=>"Content_Arabic"];
 			$this->col[] = ["label"=>"Category ID","name"=>"Category_ID","join"=>"content_categories,Name"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Content','name'=>'Content','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Content Arabic','name'=>'Content_Arabic','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Content English','name'=>'Content_English','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'content_categories,Name'];
-			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Description Arabic','name'=>'Description_Arabic','type'=>'wysiwyg','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Description English','name'=>'Description_English','type'=>'wysiwyg','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Content','name'=>'Content','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'content_categories,Name'];
-			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Content Arabic','name'=>'Content_Arabic','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Content English','name'=>'Content_English','type'=>'text','validation'=>'required','width'=>'col-sm-9','datatable'=>'content_categories,Name'];
+			//$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Description Arabic','name'=>'Description_Arabic','type'=>'wysiwyg','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Description English','name'=>'Description_English','type'=>'wysiwyg','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*
