@@ -1,7 +1,20 @@
 @if(Request::input('fileformat') == 'pdf')
     <h3>{{Request::input('filename')}}</h3>
 @endif
-<table border='1' width='100%' cellpadding='3' cellspacing="0" style='border-collapse: collapse;font-size:12px'>
+<style>
+    table {
+        border-collapse: collapse;
+        font-size:12px
+    }
+    @font-face {
+        font-family: Arial;
+        src: url({{ asset('fonts/arial.ttf') }});
+    }
+    body {
+        font-family: Arial;
+    }
+</style>
+<table border='1' width='100%' cellpadding='3' cellspacing="0">
     <thead>
     <tr>
         <?php
@@ -93,5 +106,4 @@
         $font = Font_Metrics::get_font("helvetica", "bold");
         $pdf->page_text(36, 18, "Page {PAGE_NUM} of {PAGE_COUNT}", $font, 6, array(0,0,0));
     }
-
 </script>

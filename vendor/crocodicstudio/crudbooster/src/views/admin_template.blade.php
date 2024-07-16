@@ -4,15 +4,18 @@
 <head>
     <style>
         /* Center the loader on the screen */
-         #page-loader {
+        #page-loader {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 9999; /* Make sure the loader is on top of everything */
-            height: 250px; /* Adjust height to your animation size */
+            z-index: 9999;
+            /* Make sure the loader is on top of everything */
+            height: 250px;
+            /* Adjust height to your animation size */
         }
-        .wr{
+
+        .wr {
             position: absolute;
             background: #fff;
             height: 100%;
@@ -21,16 +24,21 @@
         }
     </style>
     <meta charset="UTF-8">
-    <title>{{ $page_title ? get_setting('appname') . ': ' . strip_tags( cbLang($page_title) ): 'Admin Area' }}</title>
+    <title>{{ $page_title ? get_setting('appname') . ': ' . strip_tags(cbLang($page_title)) : 'Admin Area' }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="noindex,nofollow">
-    <link rel="shortcut icon" href="{{ CRUDBooster::getSetting('favicon') ? asset(CRUDBooster::getSetting('favicon')) : asset('vendor/crudbooster/assets/logo50.png') }}">
+    <link rel="shortcut icon"
+        href="{{ CRUDBooster::getSetting('favicon') ? asset(CRUDBooster::getSetting('favicon')) : asset('vendor/crudbooster/assets/logo50.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="{{ asset('vendor/crudbooster/assets/adminlte/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('vendor/crudbooster/assets/adminlte/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/crudbooster/assets/adminlte/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"
+        type="text/css">
+    <link href="{{ asset('vendor/crudbooster/assets/adminlte/font-awesome/css/font-awesome.min.css') }}"
+        rel="stylesheet" type="text/css">
     <link href="{{ asset('vendor/crudbooster/ionic/css/ionicons.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('vendor/crudbooster/assets/adminlte/dist/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('vendor/crudbooster/assets/adminlte/dist/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/crudbooster/assets/adminlte/dist/css/AdminLTE.min.css') }}" rel="stylesheet"
+        type="text/css">
+    <link href="{{ asset('vendor/crudbooster/assets/adminlte/dist/css/skins/_all-skins.min.css') }}" rel="stylesheet"
+        type="text/css">
     <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/css/main.css') }}">
 
     @if ($style_css)
@@ -167,27 +175,27 @@
 
     @push('bottom')
         <script>
-        // Function to remove the third <li> if it is empty
-        function removeEmptyThirdLi() {
-            // Select the <ol> element with the class 'breadcrumb'
-            var breadcrumb = document.querySelector('.breadcrumb');
-            if (breadcrumb) {
-                // Get the list of <li> elements inside the <ol>
-                var listItems = breadcrumb.getElementsByTagName('li');
-                // Check if there are at least 3 <li> elements
-                if (listItems.length >= 3) {
-                    // Get the third <li> element
-                    var thirdLi = listItems[2];
-                    // Check if the third <li> is empty (only contains whitespace or no text)
-                    if (thirdLi.innerHTML.trim() === '') {
-                        // Remove the third <li> element
-                        thirdLi.remove();
+            // Function to remove the third <li> if it is empty
+            function removeEmptyThirdLi() {
+                // Select the <ol> element with the class 'breadcrumb'
+                var breadcrumb = document.querySelector('.breadcrumb');
+                if (breadcrumb) {
+                    // Get the list of <li> elements inside the <ol>
+                    var listItems = breadcrumb.getElementsByTagName('li');
+                    // Check if there are at least 3 <li> elements
+                    if (listItems.length >= 3) {
+                        // Get the third <li> element
+                        var thirdLi = listItems[2];
+                        // Check if the third <li> is empty (only contains whitespace or no text)
+                        if (thirdLi.innerHTML.trim() === '') {
+                            // Remove the third <li> element
+                            thirdLi.remove();
+                        }
                     }
                 }
             }
-        }
-        // Call the function to remove the empty third <li>
-        removeEmptyThirdLi();
+            // Call the function to remove the empty third <li>
+            removeEmptyThirdLi();
         </script>
     @endpush
 
@@ -195,14 +203,17 @@
 
     @if (App::getLocale() == 'ar')
         <style>
-            .sidebar-menu>li:hover>a, .sidebar-menu>li.active>a {
+            .sidebar-menu>li:hover>a,
+            .sidebar-menu>li.active>a {
                 color: #fff;
                 background: #1e282c;
                 border-right-color: #3c8dbc;
             }
+
             .sidebar-menu>li>a {
                 border-right: 3px solid transparent;
             }
+
             .sidebar-menu .treeview-menu>li>a {
                 padding: 5px 25px 5px 5px;
             }
@@ -211,11 +222,13 @@
         <link href="{{ asset('vendor/crudbooster/assets/rtl.css') }}" rel="stylesheet" type="text/css">
     @else
         <style>
-            .sidebar-menu>li:hover>a, .sidebar-menu>li.active>a {
+            .sidebar-menu>li:hover>a,
+            .sidebar-menu>li.active>a {
                 color: #fff;
                 background: #1e282c;
                 border-left-color: #3c8dbc;
             }
+
             .sidebar-menu>li>a {
                 border-left: 3px solid transparent;
             }
@@ -224,7 +237,8 @@
 
 </head>
 
-<body class="{{ Session::get('theme_color', 'skin-blue') }} {{ config('crudbooster.ADMIN_LAYOUT') }} {{ $sidebar_mode ?? '' }}">
+<body
+    class="{{ Session::get('theme_color', 'skin-blue') }} {{ config('crudbooster.ADMIN_LAYOUT') }} {{ $sidebar_mode ?? '' }}">
     @php
         $module = CRUDBooster::getCurrentModule();
     @endphp
@@ -258,40 +272,49 @@
                             <li>
                                 @if (CRUDBooster::getCurrentMethod() == 'getIndex')
                                     @if ($button_show)
-                                        <a href="{{ CRUDBooster::mainpath() . '?' . http_build_query(Request::all()) }}" id="btn_show_data" class="btn btn-sm btn-primary" title="{{ cbLang('action_show_data') }}">
+                                        <a href="{{ CRUDBooster::mainpath() . '?' . http_build_query(Request::all()) }}"
+                                            id="btn_show_data" class="btn btn-sm btn-primary"
+                                            title="{{ cbLang('action_show_data') }}">
                                             <i class="fa fa-table"></i>
                                             {{ cbLang('action_show_data') }}
                                         </a>
                                     @endif
                                     @if ($button_add && CRUDBooster::isCreate())
-                                        <a href="{{ CRUDBooster::mainpath('add') . '?return_url=' . urlencode(Request::fullUrl()) . '&parent_id=' . g('parent_id') . '&parent_field=' . $parent_field }}" id="btn_add_new_data" class="btn btn-sm btn-success" title="{{ cbLang('action_add_data') }}">
+                                        <a href="{{ CRUDBooster::mainpath('add') . '?return_url=' . urlencode(Request::fullUrl()) . '&parent_id=' . g('parent_id') . '&parent_field=' . $parent_field }}"
+                                            id="btn_add_new_data" class="btn btn-sm btn-success"
+                                            title="{{ cbLang('action_add_data') }}">
                                             <i class="fa fa-plus-circle"></i>
                                             {{ cbLang('action_add_data') }}
                                         </a>
                                     @endif
                                 @endif
                                 @if ($button_export && CRUDBooster::getCurrentMethod() == 'getIndex')
-                                    <a href="javascript:void(0)" id="btn_export_data" data-url-parameter="{{ $build_query }}" title="Export Data" class="btn btn-sm btn-primary btn-export-data">
+                                    <a href="javascript:void(0)" id="btn_export_data"
+                                        data-url-parameter="{{ $build_query }}" title="Export Data"
+                                        class="btn btn-sm btn-primary btn-export-data">
                                         <i class="fa fa-upload"></i>
                                         {{ cbLang('button_export') }}
                                     </a>
                                 @endif
 
-                                    @if ($button_import && CRUDBooster::getCurrentMethod() == 'getIndex')
-                                        <a href="{{ CRUDBooster::mainpath('import-data') }}" id="btn_import_data" data-url-parameter="{{ $build_query }}" title="Import Data" class="btn btn-sm btn-primary btn-import-data">
-                                            <i class="fa fa-download"></i>
-                                            {{ cbLang('button_import') }}
-                                        </a>
-                                    @endif
+                                @if ($button_import && CRUDBooster::getCurrentMethod() == 'getIndex')
+                                    <a href="{{ CRUDBooster::mainpath('import-data') }}" id="btn_import_data"
+                                        data-url-parameter="{{ $build_query }}" title="Import Data"
+                                        class="btn btn-sm btn-primary btn-import-data">
+                                        <i class="fa fa-download"></i>
+                                        {{ cbLang('button_import') }}
+                                    </a>
+                                @endif
 
                                 @if (!empty($index_button))
                                     @foreach ($index_button as $ib)
-                                        <a href='{{ $ib['url'] }}' id='{{ str_slug($ib['label']) }}' class='btn {{ $ib['color'] ? 'btn-' . $ib['color'] : 'btn-primary' }} btn-sm'
+                                        <a href='{{ $ib['url'] }}' id='{{ str_slug($ib['label']) }}'
+                                            class='btn {{ $ib['color'] ? 'btn-' . $ib['color'] : 'btn-primary' }} btn-sm'
                                             @if ($ib['onClick']) onClick='return {{ $ib['onClick'] }}' @endif
                                             @if ($ib['onMouseOver']) onMouseOver='return {{ $ib['onMouseOver'] }}' @endif
                                             @if ($ib['onMouseOut']) onMouseOut='return {{ $ib['onMouseOut'] }}' @endif
                                             @if ($ib['onKeyDown']) onKeyDown='return {{ $ib['onKeyDown'] }}' @endif
-                                            @if ($ib['onLoad']) onLoad='return {{ $ib['onLoad'] }}' @endif >
+                                            @if ($ib['onLoad']) onLoad='return {{ $ib['onLoad'] }}' @endif>
                                             <i class='{{ $ib['icon'] }}'></i> {{ $ib['label'] }}
                                         </a>
                                     @endforeach
@@ -300,20 +323,20 @@
                         </ol>
                     </h1>
                 @endif
-                @else
-                    <h1 class="dash">
-                        <span>
-                            {{ Session::get('appname') }}
-                        </span>
-                        <small>
-                            {{ cbLang($page_title) }}
-                        </small>
-                    </h1>
+            @else
+                <h1 class="dash">
+                    <span>
+                        {{ Session::get('appname') }}
+                    </span>
+                    <small>
+                        {{ cbLang($page_title) }}
+                    </small>
+                </h1>
                 @endif
             </section>
 
-                <!-- Main content -->
-                <!-- <section id='content_section' class="content"> -->
+            <!-- Main content -->
+            <!-- <section id='content_section' class="content"> -->
 
             @if (@$alerts)
                 @foreach (@$alerts as $alert)

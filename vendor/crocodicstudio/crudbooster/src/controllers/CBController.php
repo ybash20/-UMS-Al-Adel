@@ -656,11 +656,16 @@ class CBController extends Controller
         switch ($filetype) {
             case "pdf":
                 $view = view('crudbooster::export', $response)->render();
-                $pdf = App::make('dompdf.wrapper');
-                $pdf->loadHTML($view);
-                $pdf->setPaper($papersize, $paperorientation);
 
-                return $pdf->stream($filename.'.pdf');
+                // Load mPDF
+                $mpdf = new \Mpdf\Mpdf([
+                    'mode' => 'utf-8',
+                    'format' => $papersize,
+                    'orientation' => $paperorientation
+                ]);
+
+                $mpdf->WriteHTML($view);
+                return $mpdf->Output($filename . '.pdf', \Mpdf\Output\Destination::INLINE);
             case 'xls':
                 return Excel::download(new DefaultExportXls($response),$filename.".xls");
             case 'csv':
@@ -1103,7 +1108,7 @@ class CBController extends Controller
             }
         }
     }
-    
+
     public function getAdd()
     {
         $this->cbLoader();
