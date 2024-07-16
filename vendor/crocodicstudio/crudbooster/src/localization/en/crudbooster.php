@@ -1,5 +1,6 @@
 <?php
 return [
+  
   'Search'=>'Search',
     'Adresses'=>'Adresses',
     'Governorates'=>'Governorates',
@@ -355,6 +356,17 @@ return [
 
 
     // Electronic registration
+
+
+      'guardian_directorate'=>'guardian_directorate',
+      'guardian_governorate'=>'guardian_governorate',
+    'institution_directorate'=>'institution_directorate',
+    ' Institution information'=>'Institution information',
+    'directorate_label'=>'directorate_label',
+    'Other'=>'Other',
+    'Select directorate'=>'Select directorate',
+    'Select governorate'=>'Select governorate',
+    'address_notes'=>'address_notes',
     'Electronic registration' => 'Electronic Registration',
     'personal information' => 'personal information',
     'Nationality' => 'Nationality',

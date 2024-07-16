@@ -1,5 +1,6 @@
 <?php
 return [
+    
     'Adresses'=>'العنوان',
     'Governorates'=>'المحافظات',
     'Directorates'=>'المديريات',
@@ -340,6 +341,15 @@ return [
 
 
     // Electronic registration
+    'guardian_directorate'=>'المديرية',
+    'guardian_governorate'=>'محافظة ',
+    'institution_directorate'=>'مؤسسة_مديرية',
+    'Institution information'=>'معلومات المؤسسة',
+    'directorate_label'=>'المديرية',
+    'Other'=>'اخرى',
+    'Select directorate'=>'اختر المديرية',
+    'Select governorate'=>'اختر المحافظة',
+    'address_notes'=>'ملاحظة ',
     'Electronic registration' => 'التسجيل الإلكتروني',
     'personal information' => 'المعلومات الشخصية',
     'Nationality' => 'الجنسية',
