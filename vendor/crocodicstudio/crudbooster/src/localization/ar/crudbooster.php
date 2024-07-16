@@ -51,6 +51,7 @@ return [
     'Content Categories' => 'فئات المحتوى',
     'Contents' => 'المحتويات',
     'Books' => 'الكتب',
+    'Report'=>'تقارير/',
     'Sections' => 'اقسام المكتبة',
     'Library' => 'المكتبة',
     'Add Data' => 'اضافة البيانات',

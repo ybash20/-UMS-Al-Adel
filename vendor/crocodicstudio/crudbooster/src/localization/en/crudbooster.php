@@ -20,6 +20,7 @@ return [
     'Registration' => 'Registration',
     'Menu Management' => ' Menu Management',
     'Dashboard' => 'Dashboard',
+    'Report'=>'Report/',
     'News Images' => 'News Images',
     'News Categories' => 'News Categories ',
     'News' => 'News',
