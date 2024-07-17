@@ -93,7 +93,7 @@ class RegistrationController extends Controller
             'address_notes' => 'nullable|string|max:255',
 
             // Communication Methods
-            'mobile' => 'required|digits_between:10,15',
+            'mobile' => 'required|digits_between:9,13',
             'landline' => 'nullable|digits_between:10,15',
 
             // Identity Information
@@ -123,18 +123,22 @@ class RegistrationController extends Controller
             'guardian_relationship' => 'required|string|max:255',
             'guardian_occupation' => 'required|string|max:255',
             'guardian_workplace' => 'required|string|max:255',
-            'guardian_phone' => 'required|digits_between:10,15',
-            'guardian_landline' => 'nullable|digits_between:10,15',
+            'guardian_phone' => 'required|digits_between:9,13',
+            'guardian_landline' => 'nullable|digits_between:7,11',
             'guardian_governorate' => 'required|string|max:255',
             'guardian_directorate' => 'required|string|max:255',
+
             'guardian_name2' => 'nullable|string|max:255',
             'guardian_name3' => 'nullable|string|max:255',
+
             'guardian_relationship2' => 'nullable|string|max:255',
             'guardian_relationship3' => 'nullable|string|max:255',
-            'guardian_phone2' => 'nullable|digits_between:10,15',
-            'guardian_phone3' => 'nullable|digits_between:10,15',
-            'guardian_landline2' => 'nullable|digits_between:10,15',
-            'guardian_landline3' => 'nullable|digits_between:10,15',
+
+            'guardian_phone2' => 'nullable|digits_between:9,13',
+            'guardian_phone3' => 'nullable|digits_between:9,13',
+
+            'guardian_landline2' => 'nullable|digits_between:7,11',
+            'guardian_landline3' => 'nullable|digits_between:7,11',
         ]);
 
         if ($validator->fails()) {

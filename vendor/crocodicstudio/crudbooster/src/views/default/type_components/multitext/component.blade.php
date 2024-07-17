@@ -5,7 +5,7 @@
         @endif
     </label>
 
-    <div class="{{$col_width?:'col-sm-10'}} input_fields_wrap {{$name}}">
+    <div class="{{$col_width?:'col-sm-9'}} input_fields_wrap {{$name}}">
 
         <div class="input-group">
             <input type='text' title="{{$form['label']}}"

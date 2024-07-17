@@ -39,14 +39,14 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Registration','name'=>'Registration_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'registrations,Name'];
-			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Relationship','name'=>'Relationship','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Profession','name'=>'Profession','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Workplace','name'=>'Workplace','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Phone Number','name'=>'Phone_Number','type'=>'number','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Landline No','name'=>'Landline_No','type'=>'text','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Registration','name'=>'Registration_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'registrations,Name'];
+			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Relationship','name'=>'Relationship','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Profession','name'=>'Profession','type'=>'text','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Workplace','name'=>'Workplace','type'=>'text','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'text','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Phone Number','name'=>'Phone_Number','type'=>'number','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Landline No','name'=>'Landline_No','type'=>'text','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM

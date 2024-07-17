@@ -54,7 +54,7 @@
                     <div class="box-footer" style="background: #F5F5F5">
                         <div class="form-group">
                             <label class="control-label col-sm-2"></label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-9">
                                 @if($button_cancel && CRUDBooster::getCurrentMethod() != 'getDetail')
                                     @if(g('return_url'))
                                         <a href='{{g("return_url")}}' class='btn btn-default'>

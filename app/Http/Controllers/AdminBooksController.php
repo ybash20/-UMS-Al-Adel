@@ -31,8 +31,8 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"id","name"=>"id","width"=>"60"];
-			$this->col[] = ["label"=>"Title","name"=>"Title","width"=>"350"];
-			$this->col[] = ["label"=>"Author","name"=>"Author","width"=>"350"];
+			$this->col[] = ["label"=>"Title","name"=>"Title","width"=>"300"];
+			$this->col[] = ["label"=>"Author","name"=>"Author","width"=>"250"];
 			$this->col[] = ["label"=>"Section","name"=>"Section_ID","join"=>"library_sections,Name","width"=>"300"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 

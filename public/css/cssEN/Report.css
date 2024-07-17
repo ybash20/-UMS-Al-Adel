@@ -1,20 +1,86 @@
+@font-face {
+    font-family: 'arial';
+    src: url(../../fonts/arial.ttf);
+}
+@font-face {
+    font-family: 'DIN-NEXT';
+    src: url(../../fonts/DIN-NEXT.otf);
+}
+@font-face {
+    font-family: 'Dosis';
+    src: url(../../fonts/Dosis-Medium.ttf);
+}
+@font-face {
+    font-family:  'granada';
+    src: url(../../fonts/granada.ttf);
+}
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'arial';
 }
 
 table {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
-    font-size: 12px;
+    margin: auto;
 }
 
 th,
 td {
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #444;
 }
 
 th {
     background: #eeeeee;
     font-weight: bold;
+}
+hr{
+    width: 90%;
+    height: 1px;
+    background-color: #444;
+}
+.logo img{
+    height: 90px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.AR , .EN{
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.AR{
+    padding-right: 20px ;
+    font-family: 'DIN-NEXT';
+    text-align: right;
+}
+.EN{
+    padding-left: 20px ;
+    font-family: 'granada';
+}
+.EN li,
+.AR li {
+    list-style: none;
+    padding: 5px;
+}
+.footer{
+    font-family: 'Dosis';
+    font-weight: 600;
+}
+.No{
+    padding-right: 20px;
+}
+.email{
+    padding-left: 20px;
+}
+h2{
+    text-align: center;
+    font-family: 'granada';
 }

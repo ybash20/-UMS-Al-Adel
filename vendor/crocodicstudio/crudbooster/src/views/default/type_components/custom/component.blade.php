@@ -5,7 +5,7 @@
         @endif
     </label>
 
-    <div class="{{$col_width?:'col-sm-10'}}">
+    <div class="{{$col_width?:'col-sm-9'}}">
         {!! $form['html'] !!}
 
         <div class="text-danger">{!! $errors->first($name)?"<i class='fa fa-info-circle'></i> ".$errors->first($name):"" !!}</div>

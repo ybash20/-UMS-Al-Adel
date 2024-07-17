@@ -6,7 +6,7 @@
         @endif
     </label>
 
-    <div class="{{$col_width?:'col-sm-10'}}">
+    <div class="{{$col_width?:'col-sm-9'}}">
         <div class="input-group">
 
             <span class="input-group-addon"><a href='javascript:void(0)' onclick='$("#{{$name}}").data("daterangepicker").toggle();'><i

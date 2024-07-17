@@ -40,15 +40,15 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Qualification','name'=>'Qualification_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'qualifications,Name'];
-			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Graduation Year','name'=>'Graduation_Year','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Disciplines','name'=>'Disciplines','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Maximum Pass Grade','name'=>'Maximum_Pass_Grade','type'=>'number','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Total Grades','name'=>'Total_Grades','type'=>'number','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Percentage','name'=>'Percentage','type'=>'number','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Issue Date','name'=>'Issue_Date','type'=>'date','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Certificate','name'=>'Certificate','type'=>'text','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Qualification','name'=>'Qualification_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'qualifications,Name'];
+			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Graduation Year','name'=>'Graduation_Year','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Disciplines','name'=>'Disciplines','type'=>'text','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Maximum Pass Grade','name'=>'Maximum_Pass_Grade','type'=>'number','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Total Grades','name'=>'Total_Grades','type'=>'number','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Percentage','name'=>'Percentage','type'=>'number','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Issue Date','name'=>'Issue_Date','type'=>'date','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Certificate','name'=>'Certificate','type'=>'text','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM

@@ -5,7 +5,7 @@
         @endif
     </label>
 
-    <div class="{{$col_width?:'col-sm-10'}}">
+    <div class="{{$col_width?:'col-sm-9'}}">
         <input type='number' step="{{($form['step'])?:'1'}}" title="{{$form['label']}}"
                {{$required}} {{$readonly}} {!!$placeholder!!} {{$disabled}} {{$validation['min']?"min=".$validation['min']:""}} {{$validation['max']?"max=".$validation['max']:""}} class='form-control'
                name="{{$name}}" id="{{$name}}" value='{{$value}}'/>

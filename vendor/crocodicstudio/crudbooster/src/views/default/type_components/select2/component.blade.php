@@ -124,7 +124,7 @@
         @endif
     </label>
 
-    <div class="{{$col_width?:'col-sm-10'}}">
+    <div class="{{$col_width?:'col-sm-9'}}">
         <select style='width:100%' class='form-control' id="{{$name}}"
                 {{$required}} {{$readonly}} {!!$placeholder!!} {{$disabled}} name="{{$name}}{{($form['relationship_table'])?'[]':''}}" {{ ($form['relationship_table'])?'multiple="multiple"':'' }} >
             @if($form['dataenum'])
@@ -175,7 +175,7 @@
                         $value = DB::table($form['relationship_table'])->where($foreignKey, $id);
                         $value = $value->pluck($foreignKey2)->toArray();
                     }
-                    
+
                     foreach ($result as $r) {
                         $option_label = $r->{$select_title};
                         $option_value = $r->id;

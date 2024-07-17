@@ -37,16 +37,16 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'News','name'=>'News_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'news,Title'];
-			$this->form[] = ['label'=>'News Image','name'=>'News_Image','type'=>'upload','validation'=>'required|image','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Caption','name'=>'Caption','type'=>'text','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'News','name'=>'News_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'news,Title'];
+			$this->form[] = ['label'=>'News Image','name'=>'News_Image','type'=>'upload','validation'=>'required|image','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Caption','name'=>'Caption','type'=>'text','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'News','name'=>'News_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'news,Title'];
-			//$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','validation'=>'required|image','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Caption','name'=>'Caption','type'=>'text','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'News','name'=>'News_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'news,Title'];
+			//$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','validation'=>'required|image','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Caption','name'=>'Caption','type'=>'text','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*

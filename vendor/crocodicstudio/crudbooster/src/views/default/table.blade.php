@@ -296,7 +296,6 @@ $total = $result->total();
                     var v = $(this).val();
                     if (v != '') $(this).prop('disabled', false);
                 })
-
             })
         </script>
 
@@ -471,13 +470,14 @@ $total = $result->total();
                     </div>
                     <form method='post' target="_blank" action='{{ CRUDBooster::mainpath("export-data?t=".time()) }}'>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="date" value="{{date("d/N/Y")}}">
                         {!! CRUDBooster::getUrlParameters() !!}
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>
                                     {{cbLang("export_dialog_filename")}}
                                 </label>
-                                <input type='text' name='filename' class='form-control' required value='Report {{ $module_name }} - {{date("d M Y")}}'/>
+                                <input type='text' name='filename' class='form-control' required value='Report {{ $page_title }} - {{date("d \of M Y, G:i")}}'/>
                                 <div class='help-block'>
                                     {{cbLang("export_dialog_help_filename")}}
                                 </div>
@@ -503,7 +503,7 @@ $total = $result->total();
                                 <select name='fileformat' class='form-control'>
                                     <option value='pdf'>PDF</option>
                                     <option value='xls'>Microsoft Excel (xls)</option>
-                                    {{-- <option value='csv'>CSV</option> --}}
+                                    <option value='csv'>CSV</option>
                                 </select>
                             </div>
                             <p>

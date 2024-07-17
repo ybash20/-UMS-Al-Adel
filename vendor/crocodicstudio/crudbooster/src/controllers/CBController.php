@@ -639,7 +639,7 @@ class CBController extends Controller
     public function postExportData()
     {
         ini_set('memory_limit', '1024M');
-        set_time_limit(180);
+        set_time_limit(30);
 
         $this->limit = Request::input('limit');
         $this->index_return = true;
@@ -657,19 +657,26 @@ class CBController extends Controller
             case "pdf":
                 $view = view('crudbooster::export', $response)->render();
 
-                // Load mPDF
-                $mpdf = new \Mpdf\Mpdf([
-                    'mode' => 'utf-8',
-                    'format' => $papersize,
-                    'orientation' => $paperorientation
-                ]);
+                return view('crudbooster::export', $response)->render();
 
-                $mpdf->WriteHTML($view);
-                return $mpdf->Output($filename . '.pdf', \Mpdf\Output\Destination::INLINE);
+                // Load mPDF
+                // $mpdf = new \Mpdf\Mpdf([
+                //     'mode' => 'utf-8',
+                //     'format' => $papersize,
+                //     'orientation' => $paperorientation
+                // ]);
+
+                // $mpdf->WriteHTML($view);
+                // return $mpdf->Output($filename . '.pdf', \Mpdf\Output\Destination::INLINE);
+
+                // $pdf = App::make('dompdf.wrapper');
+                // $pdf->loadHTML($view);
+                // $pdf->setPaper($papersize, $paperorientation);
+
+                // return $pdf->stream($filename.'.pdf');
             case 'xls':
                 return Excel::download(new DefaultExportXls($response),$filename.".xls");
             case 'csv':
-
                 return Excel::download(new DefaultExportXls($response),$filename.".csv");
         }
     }

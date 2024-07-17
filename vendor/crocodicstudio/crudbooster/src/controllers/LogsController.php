@@ -35,13 +35,13 @@ class LogsController extends CBController
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Time Access','name'=>'created_at','type'=>'text','width'=>'col-sm-10','readonly'=>'1'];
-			$this->form[] = ['label'=>'IP Address','name'=>'ipaddress','type'=>'text','width'=>'col-sm-10','readonly'=>'1'];
-			$this->form[] = ['label'=>'User Agent','name'=>'useragent','type'=>'text','width'=>'col-sm-10','readonly'=>'1'];
-			$this->form[] = ['label'=>'URL','name'=>'url','type'=>'text','width'=>'col-sm-10','readonly'=>'1'];
-			$this->form[] = ['label'=>'User','name'=>'id_ums_users','type'=>'select','width'=>'col-sm-10','datatable'=>'ums_users,name'];
-			$this->form[] = ['label'=>'Description','name'=>'description','type'=>'text','width'=>'col-sm-10','readonly'=>'1'];
-			$this->form[] = ['label'=>'Details','name'=>'details','type'=>'custom','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Time Access','name'=>'created_at','type'=>'text','width'=>'col-sm-9','readonly'=>'1'];
+			$this->form[] = ['label'=>'IP Address','name'=>'ipaddress','type'=>'text','width'=>'col-sm-9','readonly'=>'1'];
+			$this->form[] = ['label'=>'User Agent','name'=>'useragent','type'=>'text','width'=>'col-sm-9','readonly'=>'1'];
+			$this->form[] = ['label'=>'URL','name'=>'url','type'=>'text','width'=>'col-sm-9','readonly'=>'1'];
+			$this->form[] = ['label'=>'User','name'=>'id_ums_users','type'=>'select','width'=>'col-sm-9','datatable'=>'ums_users,name'];
+			$this->form[] = ['label'=>'Description','name'=>'description','type'=>'text','width'=>'col-sm-9','readonly'=>'1'];
+			$this->form[] = ['label'=>'Details','name'=>'details','type'=>'custom','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM

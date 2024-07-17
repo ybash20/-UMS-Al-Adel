@@ -1,6 +1,6 @@
 <?php
 return [
-  
+
   'Search'=>'Search',
     'Adresses'=>'Adresses',
     'Governorates'=>'Governorates',
@@ -21,7 +21,7 @@ return [
     'Registration' => 'Registration',
     'Menu Management' => ' Menu Management',
     'Dashboard' => 'Dashboard',
-    'Report'=>'Report/',
+    'Report'=>'Report of ',
     'News Images' => 'News Images',
     'News Categories' => 'News Categories ',
     'News' => 'News',
@@ -48,7 +48,7 @@ return [
     'email_setting' => 'Email Setting',
     'label_employer' => 'Form Employer',
     'email_footer' => 'Do not reply any email to this email address. This email sent automatically by our system. ',
-    'login_message' => 'Please login to start your session',
+    'login_message' => 'login',
     'text_forgot_password' => 'Forgot the password ?',
     'page_title_login' => 'Login Panel',
     'page_title_forgot' => 'Forgot Password',
@@ -474,7 +474,6 @@ return [
     // 'Business Administration' => 'Business Administration',
     // 'Computer Science' => 'Computer Science',
     'College' => 'College',
-    'Library' => 'Library',
     //page Edit Password
     'Enter New Password' => 'Enter New Password',
     'Submit' => 'Submit',

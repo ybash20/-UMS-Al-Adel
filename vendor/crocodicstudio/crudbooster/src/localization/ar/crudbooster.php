@@ -1,6 +1,6 @@
 <?php
 return [
-    
+
     'Adresses'=>'العنوان',
     'Governorates'=>'المحافظات',
     'Directorates'=>'المديريات',
@@ -52,7 +52,7 @@ return [
     'Content Categories' => 'فئات المحتوى',
     'Contents' => 'المحتويات',
     'Books' => 'الكتب',
-    'Report'=>'تقارير/',
+    'Report'=>'تقرير ',
     'Sections' => 'اقسام المكتبة',
     'Library' => 'المكتبة',
     'Add Data' => 'اضافة البيانات',
@@ -61,7 +61,7 @@ return [
     'student_form' => 'واجهة الطالب',
     'label_employer' => 'واجهة الموظف',
     'email_footer' => 'هذه رسالة تلقائية ، الرجاء عدم الرد مباشرة على هذا البريد الإلكتروني .',
-    'login_message' => 'الرجاء تسجيل الدخول',
+    'login_message' => 'تسجيل الدخول',
     'text_forgot_password' => 'نسيت كلمة المرور؟',
     'page_title_login' => 'تسجيل الدخول',
     'page_title_forgot' => 'نسيت كلمة المرور',
@@ -194,7 +194,7 @@ return [
     'export_dialog_filename' => 'اسم الملف',
     'export_dialog_help_filename' => 'يمكنك تغيير اسم الملف لما تراه مناسبا',
     'export_dialog_maxdata' => "اكبر قيمة",
-    'export_dialog_help_maxdata' => 'اقصى حد لعمليات التصدير في الجسة : 100,000 عملية',
+    'export_dialog_help_maxdata' => 'اقصى حد لعمليات التصدير في الجلسة : 100,000 عملية',
     'export_dialog_columns' => 'اعمدة',
     'export_dialog_format_export' => 'تنسيق التصدير',
     'export_dialog_show_advanced' => 'خيارات التصدير المتقدمة',

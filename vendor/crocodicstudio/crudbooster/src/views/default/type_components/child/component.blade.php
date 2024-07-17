@@ -20,7 +20,7 @@ $name = str_slug($form['label'], '');
                 <div class="panel-body">
 
                     <div class='row'>
-                        <div class='col-sm-10'>
+                        <div class='col-sm-9'>
                             <div class="panel panel-default">
                                 <div class="panel-heading"><i class="fa fa-pencil-square-o"></i> {{cbLang("text_form")}}</div>
                                 <div class="panel-body child-form-area">
@@ -33,7 +33,7 @@ $name = str_slug($form['label'], '');
                                                                                         title="{{cbLang('this_field_is_required')}}">*</span> @endif
                                                 </label>
                                             @endif
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-9">
                                                 @if($col['type']=='text')
                                                     <input id='{{$name_column}}' type='text'
                                                            {{ ($col['max'])?"maxlength='".$col['max']."'":"" }} name='child-{{$col["name"]}}'

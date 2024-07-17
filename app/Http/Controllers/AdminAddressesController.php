@@ -38,18 +38,18 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Governorate','name'=>'Governorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'governorates,Name'];
-			$this->form[] = ['label'=>'Directorate','name'=>'Directorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'directorates,Name'];
-			$this->form[] = ['label'=>'Neighborhood','name'=>'Neighborhood','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Notes','name'=>'Notes','type'=>'textarea','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Governorate','name'=>'Governorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'governorates,Name'];
+			$this->form[] = ['label'=>'Directorate','name'=>'Directorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'directorates,Name'];
+			$this->form[] = ['label'=>'Neighborhood','name'=>'Neighborhood','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Notes','name'=>'Notes','type'=>'textarea','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Governorate','name'=>'Governorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'governorates,Name'];
-			//$this->form[] = ['label'=>'Directorate','name'=>'Directorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-10','datatable'=>'directorates,Name'];
-			//$this->form[] = ['label'=>'Neighborhood','name'=>'Neighborhood','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Notes','name'=>'Notes','type'=>'textarea','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Governorate','name'=>'Governorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'governorates,Name'];
+			//$this->form[] = ['label'=>'Directorate','name'=>'Directorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'directorates,Name'];
+			//$this->form[] = ['label'=>'Neighborhood','name'=>'Neighborhood','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Notes','name'=>'Notes','type'=>'textarea','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*

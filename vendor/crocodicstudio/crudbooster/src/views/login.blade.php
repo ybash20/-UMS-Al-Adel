@@ -1,6 +1,3 @@
-<?php if (isset($_GET['lang'])) {
-    setcookie('lang', $_GET['lang'], time() + 3 * 86, 400);
-} ?>
 <!DOCTYPE html>
 <html>
 
@@ -22,6 +19,14 @@
     @if (in_array(App::getLocale(), ['ar', 'fa']))
         <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css" />
         <link href="{{ asset('vendor/crudbooster/assets/rtl.css') }}" rel="stylesheet" type="text/css" />
+        <style>
+            .form-control{
+                text-align: left;
+            }
+            .btn-primary{
+                text-align: center;
+            }
+        </style>
     @endif
     <link rel='stylesheet' href='{{ asset('vendor/crudbooster/assets/css/main.css') }}' />
     <style type="text/css">
@@ -102,6 +107,9 @@
             border-color: var(--primary);
             box-shadow: 0 0 5px var(--primary);
         }
+        #langForm{
+            width: 40%;
+        }
 
         .input:hover {
             background-color: #f0f0f0;
@@ -112,14 +120,10 @@
         }
 
         .fas.fa-user-graduate {
-            font-size: 80px;
-            color: rgb(0, 0, 0);
             justify-content: center;
         }
 
         .fas.fa-user-tie {
-            font-size: 80px;
-            color: rgb(6, 6, 6);
             justify-content: center;
         }
 
@@ -138,33 +142,39 @@
 
         .button_lang {
             width: 75px;
-            background-color: #3c8dbc;
-            border-radius: 4px;
-            color: white;
-            border: none;
-            font-family: sans-serif;
             text-align: center;
+            background-color: #3c8dbc;
+            border: none;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 5px;
+            width: 100%;
+            font-family: sans-serif;
         }
 
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 0 auto;
+            padding: 0 0 15px;
         }
 
         .header-button {
-            background-color: #5c81cc;
+            background-color: #3c8dbc;
             border: none;
             color: #fff;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 40px;
             border-radius: 4px;
             cursor: pointer;
             padding: 5px;
-            width: 100%;
+            width: 40%;
+            font-family: sans-serif;
         }
 
         .header-button:hover {
@@ -195,8 +205,6 @@
             color: #666;
             text-align: center;
         }
-
-
 
         .login-box-msg {
             font-weight: 600;
@@ -231,7 +239,7 @@
         .login-box {
             width: 360px;
             position: absolute;
-            top: 71%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
@@ -294,18 +302,16 @@
 </head>
 
 <body class="login-page">
-    <header>
-        <div class="header-container">
-            <a href="{{ route('home') }}" class="header-button">
-                <i class="fas fa-home"></i>
-            </a>
-        </div>
-    </header>
     <div class="login-box">
         <div class="login-box-body form-login1">
-            <div id="langForm" class="form_select">
-                <a href="/change-language/ar" name="lang" id="form1-langAR" value="ar"> AR </a>
-                <a href="/change-language/en" name="lang" id="form1-langEN" value="en"> EN </a>
+            <div class="header-container">
+                <a href="{{ route('home') }}" class="header-button">
+                    Home
+                </a>
+                <div id="langForm" class="form_select">
+                    <a href="/change-language/ar" name="lang" id="form2-langAR" class="button_lang" value="ar"> AR </a>
+                    <a href="/change-language/en" name="lang" id="form2-langEN" class="button_lang" value="en"> EN </a>
+                </div>
             </div>
             @if (Session::get('message') != '')
                 <div class='alert-warning'>
@@ -316,11 +322,10 @@
             <p class='login-box-msg'>
                 {{ cbLang('login_message') }}
             </p>
+            <p class='login-box-msg'>{{ cbLang('student_form') }}</p>
 
             <form class="form_2 data_info" action="{{ route('StudentpostLogin') }}" method="post">
                 @csrf
-                <p class='login-box-msg'>{{ cbLang('student_form') }}</p>
-                <img src="{{ asset('vendor/crudbooster/assets/student.png') }}" class="img_login">
                 <div>
                     <div>
                         <input class="input form-control" type="text" name="id" id="ID" placeholder="ID"
@@ -332,15 +337,16 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
-                    <i class='fa fa-lock'></i>
                     {{ cbLang('button_sign_in') }}
+                    <i class='fa fa-lock'></i>
                 </button>
                 <p class="forgot">
                     <a href='{{ route('getForgot') }}'>
                         {{ cbLang('text_forgot_password') }}
                     </a>
                 </p>
-                <button type="button" class="button" id="btn1">
+                <button type="button" class="btn btn-primary btn-block" id="btn1">
+                    تسجيل كموظف
                     <i class="fas fa-user-tie"></i>
                 </button>
             </form>
@@ -348,14 +354,15 @@
             <!--a href="#">I forgot my password</a-->
         </div><!-- /.login-box-body -->
         <div class="login-box-body form-login2 hidden">
-            <form id="langForm" method="GET" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form_select">
-                <button id="form2-langAR" type="submit" name="lang" value="ar" class="button_lang">
-                    AR
-                </button>
-                <button id="form2-langEN" type="submit" name="lang" value="en" class="button_lang">
-                    EN
-                </button>
-            </form>
+            <div class="header-container">
+                <a href="{{ route('home') }}" class="header-button">
+                    <i class="fas fa-home"></i>
+                </a>
+            </div>
+            <div id="langForm" class="form_select">
+                <a href="/change-language/ar" name="lang" id="form1-langAR" class="button_lang" value="ar"> AR </a>
+                <a href="/change-language/en" name="lang" id="form1-langEN" class="button_lang" value="en"> EN </a>
+            </div>
 
             @if (Session::get('message') != '')
                 <div class='alert-warning'>
@@ -367,7 +374,6 @@
                 {{ cbLang('login_message') }}
             </p>
 
-            
             <form class="form_1 data_info" autocomplete='off' action="{{ route('postLogin') }}" method="post">
                 @csrf
                 <div>
@@ -400,7 +406,7 @@
     </div><!-- /.login-box -->
     <script>
         // Get the selected language from the cookie
-        var selectedLang = getCookie('lang');
+        var selectedLang = "{{ App::getLocale() }}";
         // Get the language buttons
         var btnAR1 = document.getElementById('form1-langAR');
         var btnEN1 = document.getElementById('form1-langEN');
@@ -415,19 +421,10 @@
             btnAR1.style.display = 'none';
             btnAR2.style.display = 'none';
         }
-
-        // Helper function to get the value of a cookie
-        function getCookie(name) {
-            var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-            if (match) {
-                return match[2];
-            } else {
-                return '';
-            }
-        }
     </script>
     <script>
         window.onload = function() {
+
             var form1 = document.querySelector(".form-login1");
             var form2 = document.querySelector(".form-login2");
 

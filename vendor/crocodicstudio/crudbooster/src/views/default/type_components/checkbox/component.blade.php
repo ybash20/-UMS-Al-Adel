@@ -4,7 +4,7 @@
             <span class='text-danger' title='{!! cbLang('this_field_is_required') !!}'>*</span>
         @endif
     </label>
-    <div class="{{$col_width?:'col-sm-10'}}">
+    <div class="{{$col_width?:'col-sm-9'}}">
 
         @if($form['dataenum']!='')
             <?php
@@ -71,7 +71,7 @@
                     echo "
 												<div data-val='$val' class='checkbox $disabled'>
 												  <label>
-												    <input type='checkbox' $disabled $checked name='".$name."[]' value='".$d->id."'> ".$d->{$datatable_field}."								    
+												    <input type='checkbox' $disabled $checked name='".$name."[]' value='".$d->id."'> ".$d->{$datatable_field}."
 												  </label>
 												</div>";
                 }
@@ -86,7 +86,7 @@
                     echo "
 												<div data-val='$val' class='checkbox $disabled'>
 												  <label>
-												    <input type='checkbox' $disabled $checked name='".$name."[]' value='".$d->id."'> ".$val." 								    
+												    <input type='checkbox' $disabled $checked name='".$name."[]' value='".$d->id."'> ".$val."
 												  </label>
 												</div>";
                 }
@@ -105,7 +105,7 @@
                     echo "
 												<div data-val='$val' class='checkbox $disabled'>
 												  <label>
-												    <input type='checkbox' $disabled $checked name='".$name."[]' value='$q->value'> ".$q->label." 								    
+												    <input type='checkbox' $disabled $checked name='".$name."[]' value='$q->value'> ".$q->label."
 												  </label>
 												</div>";
                 }

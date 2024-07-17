@@ -6,7 +6,7 @@
             @endif
         </label>
 
-        <div class="{{$col_width?:'col-sm-10'}}">
+        <div class="{{$col_width?:'col-sm-9'}}">
             <div class="input-group">
                 @if(!$disabled)
                     <span class="input-group-addon"><i class='fa fa-clock-o'></i></span>

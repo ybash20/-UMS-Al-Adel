@@ -6,7 +6,7 @@
         @endif
     </label>
 
-    <div class="{{$col_width?:'col-sm-10'}}">
+    <div class="{{$col_width?:'col-sm-9'}}">
         <input type='text' title="{{$form['label']}}"
                {{$required}} {{$readonly}} {!!$placeholder!!} {{$disabled}} {{$validation['max']?"maxlength=".$validation['max']:""}} class='form-control'
                name="{{$name}}" id="{{$name}}" value='{{$value}}'/>

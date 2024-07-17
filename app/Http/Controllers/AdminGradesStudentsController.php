@@ -43,25 +43,25 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Student Name','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'students,Name'];
-			$this->form[] = ['label'=>'Course','name'=>'Course_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'courses,Name'];
-			$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required|integer','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required|integer','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','validation'=>'required|integer','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','validation'=>'required','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Student Name','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'students,Name'];
+			$this->form[] = ['label'=>'Course','name'=>'Course_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'courses,Name'];
+			$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required|integer','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required|integer','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','validation'=>'required|integer','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Student Name','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'students,Name'];
-			//$this->form[] = ['label'=>'Course','name'=>'Course_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'courses,Name'];
-			//$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Student Name','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'students,Name'];
+			//$this->form[] = ['label'=>'Course','name'=>'Course_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'courses,Name'];
+			//$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Total Grade','name'=>'Grade_100','type'=>'number','width'=>'col-sm-9','readonly'=>'true'];
-			//$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*

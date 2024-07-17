@@ -4,7 +4,7 @@
             <span class='text-danger' title='{!! cbLang('this_field_is_required') !!}'>*</span>
         @endif
     </label>
-    <div class="{{$col_width?:'col-sm-10'}}">
+    <div class="{{$col_width?:'col-sm-9'}}">
         <textarea name="{{$form['name']}}" id="{{$name}}"
                   {{$required}} {{$readonly}} {!!$placeholder!!} {{$disabled}} {{$validation['max']?"maxlength=".$validation['max']:""}} class='form-control'
                   rows='5'>{{ $value}}</textarea>

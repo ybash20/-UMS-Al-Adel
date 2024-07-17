@@ -38,19 +38,19 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'news_categories,Name'];
-			$this->form[] = ['label'=>'Title','name'=>'Title','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'news_categories,Name'];
+			$this->form[] = ['label'=>'Title','name'=>'Title','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Publication Date','name'=>'Publication_date','type'=>'date','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Author','name'=>'Author','type'=>'text','validation'=>'min:1|max:30','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Article','name'=>'Article','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Author','name'=>'Author','type'=>'text','validation'=>'min:1|max:30','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Article','name'=>'Article','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'news_categories,Name'];
-			//$this->form[] = ['label'=>'Title','name'=>'Title','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Author','name'=>'Author','type'=>'text','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Article','name'=>'Article','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'news_categories,Name'];
+			//$this->form[] = ['label'=>'Title','name'=>'Title','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Author','name'=>'Author','type'=>'text','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Article','name'=>'Article','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*
@@ -213,9 +213,9 @@
 
 
 			$userId = CRUDBooster::myId();
-    
+
 			$user = DB::table('ums_users')->where('id', $userId)->first();
-			
+
 			if ($user->id_ums_privileges == 1 || $user->id_ums_privileges == 2) {
 				$this->button_export = true;
 				$this->button_import = true;
@@ -223,7 +223,7 @@
 				$this->button_export = false;
 				$this->button_import = false;
 			}
-		
+
 	    }
 
 
@@ -249,9 +249,9 @@
 	    |
 	    */
 	    public function hook_query_index(&$query) {
-	
+
 		}
-		
+
 
 	    /*
 	    | ----------------------------------------------------------------------
@@ -260,7 +260,7 @@
 	    |
 	    */
 		public function hook_row_index($column_index, &$column_value) {
-			
+
 		}
 
 	    /*

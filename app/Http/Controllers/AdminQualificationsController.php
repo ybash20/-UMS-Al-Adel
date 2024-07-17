@@ -40,12 +40,12 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Level','name'=>'Level','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Institution','name'=>'Institution','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Country','name'=>'Country','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Level','name'=>'Level','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Institution','name'=>'Institution','type'=>'text','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'text','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Country','name'=>'Country','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM

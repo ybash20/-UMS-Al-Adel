@@ -6,7 +6,7 @@
         @endif
     </label>
 
-    <div class="{{$col_width?:'col-sm-10'}}">
+    <div class="{{$col_width?:'col-sm-9'}}">
 
         <?php
         $datamodal_field = explode(',', $form['datamodal_columns'])[0];

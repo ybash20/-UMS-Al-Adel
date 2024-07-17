@@ -558,10 +558,12 @@
                         data: $(this).serialize(),
                         success: function(response) {
                             showNotification(response.message, response.type, wrapper);
-                            form_4.style.display = "none";
-                            form_5.style.display = "block";
-                            form_4_btns.style.display = "none";
-                            form_5_progessbar.classList.add("active");
+                            if (response.type === 'success') {
+                                form_4.style.display = "none";
+                                form_5.style.display = "block";
+                                form_4_btns.style.display = "none";
+                                form_5_progessbar.classList.add("active");
+                            }
                         },
                         error: function(xhr) {
                             showNotification(xhr.responseJSON.message, xhr.responseJSON.type, wrapper);

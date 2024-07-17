@@ -39,35 +39,35 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Name','name'=>'name','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required','width'=>'col-sm-10','dataenum'=>'0;1','help'=>'0 Male   ,   1 Female'];
-			$this->form[] = ['label'=>'Username','name'=>'Username','type'=>'text','validation'=>'required|min:5|max:30|unique:ums_users','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Email','name'=>'email','type'=>'email','validation'=>'required|min:1|max:255|email|unique:ums_users','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Password','name'=>'password','type'=>'password','validation'=>'min:3|max:50','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Department','name'=>'Department_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'departments,Name'];
-			$this->form[] = ['label'=>'Privileges','name'=>'id_ums_privileges','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'ums_privileges,name','datatable_where'=>'name NOT IN (\'Manager\', \'Admin\')'];
-			$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select','width'=>'col-sm-10','datatable'=>'addresses,Neighborhood'];
-			$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','validation'=>'integer','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Photo','name'=>'photo','type'=>'upload','validation'=>'image|max:3000','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select','validation'=>'required','width'=>'col-sm-10','dataenum'=>'Single;Married'];
+			$this->form[] = ['label'=>'Name','name'=>'name','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'0;1','help'=>'0 Male   ,   1 Female'];
+			$this->form[] = ['label'=>'Username','name'=>'Username','type'=>'text','validation'=>'required|min:5|max:30|unique:ums_users','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Email','name'=>'email','type'=>'email','validation'=>'required|min:1|max:255|email|unique:ums_users','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Password','name'=>'password','type'=>'password','validation'=>'min:3|max:50','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Department','name'=>'Department_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'departments,Name'];
+			$this->form[] = ['label'=>'Privileges','name'=>'id_ums_privileges','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'ums_privileges,name','datatable_where'=>'name NOT IN (\'Manager\', \'Admin\')'];
+			$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required|date','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select','width'=>'col-sm-9','datatable'=>'addresses,Neighborhood'];
+			$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','validation'=>'integer','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Photo','name'=>'photo','type'=>'upload','validation'=>'image|max:3000','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'Single;Married'];
 			$this->form[] = ['label'=>'Theme Color','name'=>'theme_color','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'skin-blue;skin-blue-light;skin-yellow;skin-yellow-light;skin-green;skin-green-light;skin-purple;skin-purple-light;skin-red;skin-red-light;skin-black;skin-black-light'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Name','name'=>'name','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
-			//$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required','width'=>'col-sm-10','dataenum'=>'0;1','help'=>'0 Male   ,   1 Female'];
-			//$this->form[] = ['label'=>'Username','name'=>'Username','type'=>'text','validation'=>'required|min:5|max:30|unique:ums_users','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Email','name'=>'email','type'=>'email','validation'=>'required|min:1|max:255|email|unique:ums_users','width'=>'col-sm-10','help'=>'Minimum 5 characters. Please leave empty if you did not change the password.'];
-			//$this->form[] = ['label'=>'Password','name'=>'password','type'=>'password','validation'=>'min:3|max:50','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Department','name'=>'Department_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'departments,Name'];
-			//$this->form[] = ['label'=>'Privileges','name'=>'id_ums_privileges','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'ums_privileges,name','datatable_where'=>'name NOT IN (\'Manager\', \'Admin\')'];
-			//$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select','width'=>'col-sm-10','datatable'=>'addresses,Neighborhood'];
-			//$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','validation'=>'required||integer','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
-			//$this->form[] = ['label'=>'Photo','name'=>'photo','type'=>'upload','validation'=>'image|max:3000','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select','validation'=>'required','width'=>'col-sm-10','dataenum'=>'Single;Married'];
+			//$this->form[] = ['label'=>'Name','name'=>'name','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-9','placeholder'=>'You can only enter the letter only'];
+			//$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'0;1','help'=>'0 Male   ,   1 Female'];
+			//$this->form[] = ['label'=>'Username','name'=>'Username','type'=>'text','validation'=>'required|min:5|max:30|unique:ums_users','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Email','name'=>'email','type'=>'email','validation'=>'required|min:1|max:255|email|unique:ums_users','width'=>'col-sm-9','help'=>'Minimum 5 characters. Please leave empty if you did not change the password.'];
+			//$this->form[] = ['label'=>'Password','name'=>'password','type'=>'password','validation'=>'min:3|max:50','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Department','name'=>'Department_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'departments,Name'];
+			//$this->form[] = ['label'=>'Privileges','name'=>'id_ums_privileges','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'ums_privileges,name','datatable_where'=>'name NOT IN (\'Manager\', \'Admin\')'];
+			//$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required|date','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select','width'=>'col-sm-9','datatable'=>'addresses,Neighborhood'];
+			//$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','validation'=>'required||integer','width'=>'col-sm-9','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
+			//$this->form[] = ['label'=>'Photo','name'=>'photo','type'=>'upload','validation'=>'image|max:3000','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'Single;Married'];
 			//$this->form[] = ['label'=>'Theme Color','name'=>'theme_color','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'skin-blue;skin-blue-light;skin-yellow;skin-yellow-light;skin-green;skin-green-light;skin-purple;skin-purple-light;skin-red;skin-red-light;skin-black;skin-black-light'];
 			# OLD END FORM
 
