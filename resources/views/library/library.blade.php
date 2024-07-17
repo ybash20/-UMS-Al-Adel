@@ -15,8 +15,13 @@
                         <div class="item active">
                             <img src="{{ $image->Image }}" alt="Content Image">
                             <div class="content">
-                                <h2>{{ $content->Content }}</h2>
-                                <p>{!! $content->Description !!}</p>
+                                @if (App::getLocale() == 'ar')
+                                <h2>{{ $content->Content_Arabic }}</h2>
+                                <p>{!! $content->Description_Arabic !!}</p>
+                            @else
+                            <h2>{{ $content->Content_English}}</h2>
+                            <p>{!! $content->Description_English !!}</p>
+                            @endif 
                             </div>
                         </div>
                     @endforeach

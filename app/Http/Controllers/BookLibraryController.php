@@ -31,7 +31,7 @@ class BookLibraryController extends Controller
     // حلقة لجلب المحتويات المرتبطة بكل فئة
     foreach ($categories as $category) {
         // التحقق من اسم الفئة
-        if ($category->Name == 'Library Content Slider') {
+        if ($category->Name_Arabic == 'شريط تمرير محتوى المكتبة') {
             // جلب المحتويات التي تنتمي للفئة المحددة بشرط Category_ID
             $contents[$category->id] = Content::where('Category_ID', $category->id)
             ->with(['images' => function ($query) {
