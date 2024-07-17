@@ -167,7 +167,11 @@
 
 <div class="details_news-main">
     <div class="details_news-content">
-        <h1 class="details_news-caption">{{ $news->Title }}</h1>
+        @if (App::getLocale() == 'ar')
+        <h1 class="details_news-caption">{{ $news->Title_Arabic }}</h1>
+    @else
+    <h1 class="details_news-caption">{{ $news->Title_English }}</h1>
+    @endif  
         <div class="slider-container">
             <div class="slider-track">
                 <div class="slide-wrapper">
@@ -191,7 +195,13 @@
     </div>
     <div class="details_news-details">
         <h1 class="details_news-caption2">{{ \Carbon\Carbon::parse($news->Publication_date)->format('Y-m-d') }}</h1>
-        <p class="details_news-caption3">{!! $news->Article !!}</p>
+        @if (App::getLocale() == 'ar')
+        <p class="details_news-caption3">{!! $news->Article_Arabic !!}</p>
+
+        @else
+        <p class="details_news-caption3">{!! $news->Article_English !!}</p>
+
+        @endif  
         <p class="details_news-caption3">{!! $news->Author !!}</p>
     </div>
 </div>

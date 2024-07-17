@@ -104,9 +104,15 @@
         @foreach ($categories as $category)
             <div class="news_section">
                 <div class="news-header-inner">
-                    <a>
-                        {{ $category->Name }}
-                    </a>
+                    @if (App::getLocale() == 'ar')
+                        <a>
+                            {{ $category->Name_Arabic }}
+                        </a>
+                    @else
+                        <a>
+                            {{ $category->Name_English }}
+                        </a>
+                    @endif
                 </div>
                 <div class="news_list">
                     @php
@@ -125,8 +131,12 @@
                             <div class="news_content">
                                 <p class="publication_date">
                                     {{ \Carbon\Carbon::parse($news->Publication_date)->format('Y-m-d') }}</p>
-                                <p class="news_title">{{ $news->Title }}</p>
-                            </div>
+                                    @if (App::getLocale() == 'ar')
+                                    <p class="news_title">{{ $news->Title_Arabic }}</p>
+                                @else
+                                <p class="news_title">{{ $news->Title_English }}</p>
+                                @endif  
+                                </div>
                         </a>
                     @endforeach
                 </div>
