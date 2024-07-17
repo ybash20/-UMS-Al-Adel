@@ -18,7 +18,7 @@ class ContentController extends Controller
     // حلقة لجلب المحتويات المرتبطة بكل فئة
     foreach ($categories as $category) {
         // التحقق من اسم الفئة
-        if ($category->Name == 'كلمة رئيس الجامعة') {
+        if ($category->Name_Arabic == 'كلمة رئيس الجامعة') {
             // جلب المحتويات التي تنتمي للفئة المحددة بشرط Category_ID
             $contents = Content::where('Category_ID', $category->id)
                 ->with(['images' => function ($query) {
@@ -42,7 +42,7 @@ public function SCBT_AlAdel()
     // حلقة لجلب المحتويات المرتبطة بكل فئة
     foreach ($categories as $category) {
         // التحقق من اسم الفئة
-        if ($category->Name == 'كلمة رئيس مجلس أمناء جامعة العادل') {
+        if ($category->Name_Arabic == 'كلمة رئيس مجلس أمناء جامعة العادل') {
             // جلب المحتويات التي تنتمي للفئة المحددة بشرط Category_ID
             $contents = Content::where('Category_ID', $category->id)
                 ->with(['images' => function ($query) {
@@ -65,7 +65,7 @@ public function Students_Affairs()
     // حلقة لجلب المحتويات المرتبطة بكل فئة
     foreach ($categories as $category) {
         // التحقق من اسم الفئة
-        if ($category->Name == 'مقتطفات من اللائحة الموحدة لشؤون الطلاب') {
+        if ($category->Name_Arabic == 'مقتطفات من اللائحة الموحدة لشؤون الطلاب') {
             // جلب المحتويات التي تنتمي للفئة المحددة بشرط Category_ID
             $contents = Content::where('Category_ID', $category->id)
                 ->with(['images' => function ($query) {
@@ -89,7 +89,7 @@ public function Foreign_relations()
     // حلقة لجلب المحتويات المرتبطة بكل فئة
     foreach ($categories as $category) {
         // التحقق من اسم الفئة
-        if ($category->Name == 'علاقات خارجية') {
+        if ($category->Name_Arabic == 'علاقات خارجية') {
             // جلب المحتويات التي تنتمي للفئة المحددة بشرط Category_ID
             $contents = Content::where('Category_ID', $category->id)
                 ->with(['images' => function ($query) {
@@ -114,7 +114,7 @@ public function University_Establishment()
     // حلقة لجلب المحتويات المرتبطة بكل فئة
     foreach ($categories as $category) {
         // التحقق من اسم الفئة
-        if ($category->Name == 'نشأة الجامعة') {
+        if ($category->Name_Arabic == 'نشأة الجامعة') {
             // جلب المحتويات التي تنتمي للفئة المحددة بشرط Category_ID
             $contents = Content::where('Category_ID', $category->id)
                 ->with(['images' => function ($query) {
@@ -138,7 +138,7 @@ public function University_guide()
     // حلقة لجلب المحتويات المرتبطة بكل فئة
     foreach ($categories as $category) {
         // التحقق من اسم الفئة
-        if ($category->Name == 'دليل الجامعة') {
+        if ($category->Name_Arabic == 'دليل الجامعة') {
             // جلب المحتويات التي تنتمي للفئة المحددة بشرط Category_ID
             $contents = Content::where('Category_ID', $category->id)
                 ->with(['images' => function ($query) {

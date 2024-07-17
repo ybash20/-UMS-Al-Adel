@@ -31,18 +31,18 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Id","name"=>"id"];
-			$this->col[] = ["label"=>"Content","name"=>"Content_ID","join"=>"contents,Content"];
+			$this->col[] = ["label"=>"Content Arabic","name"=>"Content_ID","join"=>"contents,Content_Arabic"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Content','name'=>'Content_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'contents,Content'];
+			$this->form[] = ['label'=>'Content','name'=>'Content_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'Contents,Content_Arabic,Content_English'];
 			$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','validation'=>'required|image','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Content','name'=>'Content_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'contents,Content'];
+			//$this->form[] = ['label'=>'Content','name'=>'Content_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'contents,Content_Arabic'];
 			//$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','validation'=>'required|image','width'=>'col-sm-9'];
 			# OLD END FORM
 

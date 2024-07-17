@@ -15,8 +15,10 @@ class CreateContentCategoriesTable extends Migration
     {
         Schema::create('content_categories', function (Blueprint $table) {
             $table->id();
-            $table->text('Name')->nullable();
-            $table->text('Description')->nullable();
+            $table->text('Name_Arabic')->nullable();
+            $table->text('Name_English')->nullable();
+            $table->text('Description_Arabic')->nullable();
+            $table->text('Description_English')->nullable();
             $table->timestamps();
         });
     }

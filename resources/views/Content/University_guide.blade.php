@@ -121,15 +121,22 @@
 <div class="president-main">
     @foreach ($contents as $content)
         <div class="president-content">
-            <h1 class="president-caption">{{ $content->Content }}</h1>
-            @foreach ($content->images as $image)
+            @if (App::getLocale() == 'ar')
+            <h1 class="president-caption">{{ $content->Content_Arabic }}</h1>
+        @else
+        <h1 class="president-caption">{{ $content->Content_English }}</h1>
+        @endif             @foreach ($content->images as $image)
                 <img src="{{ $image->Image }}" alt="President Image" class="president-image">
             @endforeach
         </div>
         <div class="president-details">
-            <h1 class="president-caption2">{{ $content->category->Name }}</h1>
-            <p class="president-caption3">{!! $content->Description !!}</p>
-        </div>
+            @if (App::getLocale() == 'ar')
+            <h1 class="president-caption2">{{ $content->category->Name_Arabic }}</h1>
+            <p class="president-caption3">{!! $content->Description_Arabic !!}</p>
+        @else
+        <h1 class="president-caption2">{{ $content->category->Name_English }}</h1>
+            <p class="president-caption3">{!! $content->Description_English !!}</p>
+        @endif        </div>
     @endforeach
 </div>
 
