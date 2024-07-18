@@ -44,14 +44,16 @@
 			$this->form[] = ['label'=>'Degree Level','name'=>'Degree_Level_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'degree_levels,Name_Arabic'];
 			$this->form[] = ['label'=>'Description Arabic','name'=>'Description_Arabic','type'=>'wysiwyg','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Description English','name'=>'Description_English','type'=>'wysiwyg','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Courses','name'=>'Courses','type'=>'upload','validation'=>'image','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Time table','name'=>'Timetable','type'=>'upload','validation'=>'image','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
 			//$this->form[] = ['label'=>'Name Arabic','name'=>'Name_Arabic','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Name English','name'=>'Name_English','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'College','name'=>'College_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'degree_levels,Name_Arabic'];
-			//$this->form[] = ['label'=>'Degree Level','name'=>'Degree_Level_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'College','name'=>'College_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'colleges,Name_Arabic'];
+			//$this->form[] = ['label'=>'Degree Level','name'=>'Degree_Level_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'degree_levels,Name_Arabic'];
 			//$this->form[] = ['label'=>'Description Arabic','name'=>'Description_Arabic','type'=>'wysiwyg','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Description English','name'=>'Description_English','type'=>'wysiwyg','width'=>'col-sm-9'];
 			# OLD END FORM

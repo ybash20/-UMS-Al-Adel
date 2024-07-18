@@ -37,11 +37,13 @@ Route::get('/University_Establishment', 'ContentController@University_Establishm
 Route::get('/University_guide', 'ContentController@University_guide')->name('University_guide');
 
 //colleges Routes
-Route::get('/computer', [CollegeController::class, 'computer'])->name('computer');
-Route::get('/business', [CollegeController::class, 'business'])->name('business');
-Route::get('/islamic', [CollegeController::class, 'islamic'])->name('islamic');
-Route::get('/sharia', [CollegeController::class, 'sharia'])->name('sharia');
-Route::get('/Translation_College', [CollegeController::class, 'Translation_College'])->name('Translation_College');
+Route::get('/colleges', [CollegeController::class, 'index'])->name('colleges.index');
+Route::get('/colleges/{id}', [CollegeController::class, 'show'])->name('colleges.show');
+// Route::get('/computer', [CollegeController::class, 'computer'])->name('computer');
+// Route::get('/business', [CollegeController::class, 'business'])->name('business');
+// Route::get('/islamic', [CollegeController::class, 'islamic'])->name('islamic');
+// Route::get('/sharia', [CollegeController::class, 'sharia'])->name('sharia');
+// Route::get('/Translation_College', [CollegeController::class, 'Translation_College'])->name('Translation_College');
 
 //Registration Routes
 Route::get('/registration', [RegistrationController::class, 'create'])->name('registration');

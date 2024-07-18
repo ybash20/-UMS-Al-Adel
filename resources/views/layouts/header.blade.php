@@ -109,32 +109,23 @@
                                                     {{ cbLang('College') }}
                                                 </a>
                                                 <ul class="header_ul dropdown arrow-top">
-                                                    <li class="@yield('computer')">
-                                                        <a href="{{ route('computer') }}" class="header_a nav-link">
-                                                            {{ cbLang('Computer Science') }}
-                                                        </a>
-                                                    </li>
-                                                    <li class="@yield('business')">
-                                                        <a href="{{ route('business') }}" class="header_a nav-link">
-                                                            {{ cbLang('Business Administration') }}
-                                                        </a>
-                                                    </li>
-                                                    <li class="@yield('islamic')">
-                                                        <a href="{{ route('islamic') }}" class="header_a nav-link">
-                                                            {{ cbLang('Islamic Studies and Quranic Sciences') }}
-                                                        </a>
-                                                    </li>
-                                                    <li class="@yield('sharia')">
-                                                        <a href="{{ route('sharia') }}" class="header_a nav-link">
-                                                            {{ cbLang('Sharia and Law') }}
-                                                        </a>
-                                                    </li>
-                                                    <li class="@yield('Translation_College')">
-                                                        <a href="{{ route('Translation_College') }}" class="header_a nav-link">
-                                                            {{ cbLang('Languages and Translation') }}
-                                                        </a>
-                                                    </li>
+                                                    @if(isset($colleges) && $colleges->count() > 0)
+                                                        @foreach($colleges as $college)
+                                                            <li>
+                                                                <a href="{{ route('colleges.show', $college->id) }}" class="header_a nav-link">
+                                                                    @if (App::getLocale() == 'ar')
+                                                                        {{ $college->Name_Arabic }}
+                                                                    @else
+                                                                        {{ $college->Name_English }}
+                                                                    @endif
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    @else
+                                                        <li>{{ __('No colleges available') }}</li>
+                                                    @endif
                                                 </ul>
+                                                
                                             </li>
                                             <li class="has-children @yield('about')">
                                                 <a href="#" class="header_a nav-link">

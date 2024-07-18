@@ -43,16 +43,23 @@
 			$this->form[] = ['label'=>'Dean English','name'=>'Dean_English','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Dean Speech_Arabic','name'=>'Dean_Speech_Arabic','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Dean Speech_English','name'=>'Dean_Speech_English','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Description Arabic','name'=>'Description_Arabic','type'=>'wysiwyg','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Description English','name'=>'Description_English','type'=>'wysiwyg','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Description Arabic','name'=>'Description_Arabic','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Description English','name'=>'Description_English','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Objectives Arabic','name'=>'Objectives_Arabic','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Objectives English','name'=>'Objectives_English','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Dean','name'=>'Dean','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Dean Speech','name'=>'Dean_Speech','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Name Arabic','name'=>'Name_Arabic','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Name English','name'=>'Name_English','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Dean Arabic','name'=>'Dean_Arabic','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Dean English','name'=>'Dean_English','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Dean Speech_Arabic','name'=>'Dean_Speech_Arabic','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Dean Speech_English','name'=>'Dean_Speech_English','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Description Arabic','name'=>'Description_Arabic','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Description English','name'=>'Description_English','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Objectives Arabic','name'=>'Objectives_Arabic','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*

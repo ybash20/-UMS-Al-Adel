@@ -23,7 +23,8 @@ class CreateCollegesTable extends Migration
             $table->text('Dean_Speech_English')->nullable();
             $table->text('Description_Arabic')->nullable();
             $table->text('Description_English')->nullable();
-
+            $table->text('Objectives_Arabic')->nullable();
+            $table->text('Objectives_English')->nullable();
             $table->timestamps();
         });
     }

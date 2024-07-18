@@ -21,6 +21,8 @@ class CreateMajorsTable extends Migration
             $table->unsignedBigInteger('Degree_Level_ID')->nullable();
             $table->text('Description_Arabic')->nullable();
             $table->text('Description_English')->nullable();
+            $table->string('Courses')->nullable();
+            $table->string('Timetable')->nullable();
             $table->timestamps();
         });
     }
