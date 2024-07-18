@@ -53,13 +53,14 @@
     src: url(../../fonts/font-awesome/fa-brands-400.eot);
     src: url(../../fonts/font-awesome/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(../../fonts/font-awesome/fa-brands-400.woff2) format("woff2"), url(../../fonts/font-awesome/fa-brands-400.woff) format("woff"), url(../../fonts/font-awesome/fa-brands-400.ttf) format("truetype"), url(../../fonts/font-awesome/fa-brands-400.svg#fontawesome) format("svg")
 }
+
 @font-face {
-    font-family: "granada";
-    src: url(../../fonts/granada.ttf);
+    font-family: "DIN-NEXT";
+    src: url(../../fonts/DIN-NEXT.otf);
 }
 
 .headerh1{
-    font-family: 'granada';
+    font-family: 'DIN-NEXT';
 }
 
 .fab {
@@ -212,16 +213,13 @@ body {
     display: block;
 }
 
-.site-menu.main-menu {
+.header_ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.header_ul .header_ul {
     margin-bottom: 0;
-    direction: ltr;
-    padding: 0;
-}
-.nav.site-navigation{
-    padding: 0;
-}
-.nav.site-navigation div{
-    padding: 0;
 }
 
 .header_a {
@@ -761,7 +759,7 @@ button:not(:disabled),
 }
 
 .mr-4 {
-    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
 }
 
 .pl-0 {
@@ -839,7 +837,6 @@ button:not(:disabled),
 .header_a,
 .header_a:hover {
     text-decoration: none !important;
-    direction: ltr;
 }
 
 .site-navbar-wrap {
@@ -847,7 +844,6 @@ button:not(:disabled),
     z-index: 99;
     width: 100%;
     left: 0;
-    direction: rtl
 }
 
 .site-navbar-wrap a {
@@ -869,20 +865,22 @@ button:not(:disabled),
 }
 
 .site-navbar .site-logo {
+    /* font-weight: 300; */
+    /* line-height: 0; */
     position: relative;
     display: inline-grid;
 }
 
 .site-navbar .site-logo a {
+    font-weight: 200;
     color: #fff;
     font-size: 20px;
+    font-weight: bold;
     text-decoration: none;
 }
 
 .site-navbar .site-navigation .site-menu {
-    padding: 0;
-    margin: 0;
-    direction: rtl;
+    margin-bottom: 0;
 }
 
 .site-navbar .site-navigation .site-menu a {
@@ -946,7 +944,7 @@ button:not(:disabled),
     box-shadow: 0 0px 4px 0px rgba(0, 0, 0, 0.25);
     padding: 0px 0;
     margin-top: 20px;
-    margin-right: -168px;
+    margin-left: 0px;
     background: #fff;
     -webkit-transition: 0.2s 0s;
     -o-transition: 0.2s 0s;
@@ -1059,18 +1057,19 @@ button:not(:disabled),
     margin-top: 0px;
     visibility: visible;
     opacity: 1;
+    text-align: right;
 }
 
 .site-mobile-menu {
-    width:345px;
+    width: 365px;
     position: fixed;
-    left: 0;
+    right: 0;
     z-index: 2000;
     background: #fff;
     height: calc(100vh);
-    -webkit-transform: translateX(-110%);
-    -ms-transform: translateX(-110%);
-    transform: translateX(-110%);
+    -webkit-transform: translateX(110%);
+    -ms-transform: translateX(110%);
+    transform: translateX(110%);
     -webkit-box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
     box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
     -webkit-transition: .3s all ease-in-out;
@@ -1082,6 +1081,8 @@ button:not(:disabled),
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     transform: translateX(0%);
+    direction: rtl;
+
 }
 
 .site-mobile-menu .site-mobile-menu-header {
@@ -1169,7 +1170,7 @@ button:not(:disabled),
 
 .site-mobile-menu .site-nav-wrap .arrow-collapse {
     position: absolute;
-    right: 0px;
+    left: 0px;
     top: 10px;
     z-index: 20;
     width: 36px;
@@ -1208,12 +1209,12 @@ button:not(:disabled),
 .site-mobile-menu .site-nav-wrap>li {
     display: block;
     position: relative;
-    float: left;
+    float: right;
     width: 100%;
 }
 
 .site-mobile-menu .site-nav-wrap>li>a {
-    padding-left: 20px;
+    padding-right: 20px;
     font-size: 20px;
 }
 
@@ -1228,7 +1229,7 @@ button:not(:disabled),
 }
 
 .site-mobile-menu .site-nav-wrap>li>ul>li>a {
-    padding-left: 40px;
+    padding-right: 40px;
     font-size: 16px;
 }
 
@@ -1243,7 +1244,7 @@ button:not(:disabled),
 
 .site-mobile-menu .site-nav-wrap>li>ul>li>ul>li>a {
     font-size: 16px;
-    padding-left: 60px;
+    padding-right: 60px;
 }
 
 .sticky-wrapper {
@@ -1305,7 +1306,6 @@ button:not(:disabled),
     cursor: pointer;
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
 }
 .lang-dropdown-menu{
     position: absolute;
@@ -1324,8 +1324,7 @@ button:not(:disabled),
     padding: 0;
     min-width: 120px;
     list-style: none;
-    transform: translateX(40%);
-    direction: ltr;
+    transform: translateX(-40%);
 }
 
 #langForm {
@@ -1344,16 +1343,11 @@ button:not(:disabled),
     gap: 7px;
     text-decoration: none;
     color: #444;
-
 }
 
 #langForm>a:hover {
     background: #3c8dbc;
     color: #fff;
-}
-
-#langForm a:first-child {
-    font-family: 'Segoe UI';
 }
 
 #langForm a:first-child img {
@@ -1370,6 +1364,7 @@ button:not(:disabled),
     border-bottom: 2px solid #f4f4f4;
     color: #444;
     font-size: 15px;
+    text-align: right;
 }
 .lang-dropdown-menu {
     transition: .3s;
