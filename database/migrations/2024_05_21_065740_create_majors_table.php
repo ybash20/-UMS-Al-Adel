@@ -15,12 +15,12 @@ class CreateMajorsTable extends Migration
     {
         Schema::create('majors', function (Blueprint $table) {
             $table->id();
-            $table->string('Name')->nullable();
+            $table->string('Name_Arabic')->nullable();
+            $table->string('Name_English')->nullable();
             $table->unsignedBigInteger('College_ID')->nullable();
             $table->unsignedBigInteger('Degree_Level_ID')->nullable();
-            $table->text('Prerequisites')->nullable();
-            $table->text('Career_Opportunities')->nullable();
-            $table->text('Description')->nullable();
+            $table->text('Description_Arabic')->nullable();
+            $table->text('Description_English')->nullable();
             $table->timestamps();
         });
     }

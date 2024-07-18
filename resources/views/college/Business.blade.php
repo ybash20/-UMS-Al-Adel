@@ -4,25 +4,34 @@
 @section('college', 'active')
 
 @section('main')
-@if (App::getLocale() == 'ar')
-    <link rel="stylesheet" href="css/cssAr/css_college.css">
-@else
-    <link rel="stylesheet" href="css/cssEN/css_college.css">
-@endif
+
     <div class="contener">
         <div class="content-q4i p-cby">
             <div class="row-nvg item-dr7">
+                @if (App::getLocale() == 'ar')
+                    <link rel="stylesheet" href="css/cssAr/css_college.css">
+                @else
+                    <link rel="stylesheet" href="css/cssEN/css_college.css">
+                @endif
                 <div class="box-content p-4">
                     <div class="row align-items-xl-center">
                         <div class="col-9">
                             <h2 class="font-weight-normal text-6">{{ cbLang('Dean speech') }}&nbsp;<br>
-                                <strong class="font-weight-extra-bold">{{ $college->Dean }}</strong>
+                                @if (App::getLocale() == 'ar')
+                                    <strong class="font-weight-extra-bold">{{ $college->Dean_Arabic }}</strong>
+                                @else
+                                    <strong class="font-weight-extra-bold">{{ $college->Dean_English }}</strong>
+                                @endif
                             </h2>
                         </div>
                     </div>
                     <div class="row py-4 text-end">
                         <div class="col">
-                            <p class="text-3-4">{!! $college->Dean_Speech !!}</p>
+                            @if (App::getLocale() == 'ar')
+                                <p class="text-3-4">{!! $college->Dean_Speech_Arabic !!}</p>
+                            @else
+                                <p class="text-3-4">{!! $college->Dean_Speech_English !!}</p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -40,7 +49,11 @@
                             </div>
                             <div class="row py-4 text-end">
                                 <div class="col">
-                                    <p class="text-3-4">{!! $college->Description !!}</p>
+                                    @if (App::getLocale() == 'ar')
+                                        <p class="text-3-4">{!! $college->Description_Arabic !!}</p>
+                                    @else
+                                        <p class="text-3-4">{!! $college->Description_English !!}</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>

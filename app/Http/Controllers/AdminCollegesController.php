@@ -31,16 +31,20 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Id","name"=>"id"];
-			$this->col[] = ["label"=>"Name","name"=>"Name"];
-			$this->col[] = ["label"=>"Dean","name"=>"Dean"];
+			$this->col[] = ["label"=>"Name Arabic","name"=>"Name_Arabic"];
+			$this->col[] = ["label"=>"Dean Arabic","name"=>"Dean_Arabic"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Dean','name'=>'Dean','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Dean Speech','name'=>'Dean_Speech','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Name Arabic','name'=>'Name_Arabic','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Name English','name'=>'Name_English','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Dean Arabic','name'=>'Dean_Arabic','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Dean English','name'=>'Dean_English','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Dean Speech_Arabic','name'=>'Dean_Speech_Arabic','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Dean Speech_English','name'=>'Dean_Speech_English','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Description Arabic','name'=>'Description_Arabic','type'=>'wysiwyg','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Description English','name'=>'Description_English','type'=>'wysiwyg','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
@@ -48,7 +52,7 @@
 			//$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Dean','name'=>'Dean','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Dean Speech','name'=>'Dean_Speech','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'textarea','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*

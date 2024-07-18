@@ -314,9 +314,13 @@
 
 <div class="main_body_book">
     <div class="section_departmaent_book">
-        {{ $section->Name }}
-        <div class="search_books_form_new_books">
-            <form action="{{ route('showBooksBySection', ['section' => $section->Name]) }}" method="GET" id="search-form" class="search-form-new-books">
+        @if (App::getLocale() == 'ar')
+        <h2>{{ $section->Name_Arabic }}</h2>
+        @else
+        <h2>{{ $section->Name_English }}</h2>
+        @endif      
+          <div class="search_books_form_new_books">
+            <form action="{{ route('showBooksBySection', ['section' => $section->Name_Arabic]) }}" method="GET" id="search-form" class="search-form-new-books">
                 <input type="text" name="query" id="search-query" placeholder="Find the book"
                     value="{{ $query ?? '' }}" class="search_books_input_new_books">
                 <button type="submit">{{ cbLang('Search') }}</button>

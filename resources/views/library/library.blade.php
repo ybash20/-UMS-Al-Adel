@@ -65,7 +65,11 @@
 
             @foreach ($sections as $section)
             <div class="book_lib_row">
-                <h2>{{ $section->Name }}</h2>
+                @if (App::getLocale() == 'ar')
+                <h2>{{ $section->Name_Arabic }}</h2>
+                @else
+                <h2>{{ $section->Name_English }}</h2>
+                @endif  
                 <div class="arrows_book">
                     <button class="prev-button"><span><</span></button>
                 </div>
@@ -79,9 +83,9 @@
                 @endforeach
 
                 <div class="arrows_book">
-                    <button class="next-button"><span>></span></button>
+                    <button class="next-button"><span></span></button>
                 </div>
-                <form action="{{ route('showBooksBySection', ['section' => $section->Name]) }}" method="GET">
+                <form action="{{ route('showBooksBySection', ['section' => $section->Name_Arabic]) }}" method="GET">
                     <button type="submit" class="read-more-button">{{ cbLang('Read more') }}</i>
                     </button>
                 </form>

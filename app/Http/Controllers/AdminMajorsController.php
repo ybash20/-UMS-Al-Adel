@@ -31,29 +31,29 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Id","name"=>"id","width"=>"50"];
-			$this->col[] = ["label"=>"Name","name"=>"Name","width"=>"250"];
-			$this->col[] = ["label"=>"College","name"=>"College_ID","join"=>"colleges,Name","width"=>"250"];
-			$this->col[] = ["label"=>"Degree Level","name"=>"Degree_Level_ID","join"=>"degree_levels,Name","width"=>"250"];
+			$this->col[] = ["label"=>"Name Arabic","name"=>"Name_Arabic","width"=>"250"];
+			$this->col[] = ["label"=>"College","name"=>"College_ID","join"=>"colleges,Name_Arabic","width"=>"250"];
+			$this->col[] = ["label"=>"Degree Level","name"=>"Degree_Level_ID","join"=>"degree_levels,Name_Arabic","width"=>"250"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'College','name'=>'College_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'colleges,Name'];
-			$this->form[] = ['label'=>'Degree Level','name'=>'Degree_Level_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'degree_levels,Name'];
-			$this->form[] = ['label'=>'Prerequisites','name'=>'Prerequisites','type'=>'text','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Career Opportunities','name'=>'Career_Opportunities','type'=>'text','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'wysiwyg','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Name Arabic','name'=>'Name_Arabic','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Name English','name'=>'Name_English','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'College','name'=>'College_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'colleges,Name_Arabic'];
+			$this->form[] = ['label'=>'Degree Level','name'=>'Degree_Level_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'degree_levels,Name_Arabic'];
+			$this->form[] = ['label'=>'Description Arabic','name'=>'Description_Arabic','type'=>'wysiwyg','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Description English','name'=>'Description_English','type'=>'wysiwyg','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'College','name'=>'College_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'colleges,Name'];
-			//$this->form[] = ['label'=>'Degree Level','name'=>'Degree_Level_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'degree_levels,Name'];
-			//$this->form[] = ['label'=>'Prerequisites','name'=>'Prerequisites','type'=>'text','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Career Opportunities','name'=>'Career_Opportunities','type'=>'text','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Description','name'=>'Description','type'=>'text','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Name Arabic','name'=>'Name_Arabic','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Name English','name'=>'Name_English','type'=>'text','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'College','name'=>'College_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'degree_levels,Name_Arabic'];
+			//$this->form[] = ['label'=>'Degree Level','name'=>'Degree_Level_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Description Arabic','name'=>'Description_Arabic','type'=>'wysiwyg','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Description English','name'=>'Description_English','type'=>'wysiwyg','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*

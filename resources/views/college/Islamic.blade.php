@@ -9,47 +9,68 @@
 @else
     <link rel="stylesheet" href="css/cssEN/css_college.css">
 @endif
-     <div class="contener">
-        <div class="content-q4i p-cby">
-            <div class="row-nvg item-dr7">
-                <div class="box-content p-4">
-                    <div class="row align-items-xl-center">
-                        <div class="col-9">
-                            <h2 class="font-weight-normal text-6">{{ cbLang('Dean speech') }}&nbsp;<br>
-                                <strong class="font-weight-extra-bold">{{ $college->Dean }}</strong>
-                            </h2>
-                        </div>
+<div class="contener">
+    <div class="content-q4i p-cby">
+        <div class="row-nvg item-dr7">
+            @if (App::getLocale() == 'ar')
+                <link rel="stylesheet" href="css/cssAr/css_college.css">
+            @else
+                <link rel="stylesheet" href="css/cssEN/css_college.css">
+            @endif
+            <div class="box-content p-4">
+                <div class="row align-items-xl-center">
+                    <div class="col-9">
+                        <h2 class="font-weight-normal text-6">{{ cbLang('Dean speech') }}&nbsp;<br>
+                            @if (App::getLocale() == 'ar')
+                                <strong class="font-weight-extra-bold">{{ $college->Dean_Arabic }}</strong>
+                            @else
+                                <strong class="font-weight-extra-bold">{{ $college->Dean_English }}</strong>
+                            @endif
+                        </h2>
                     </div>
-                    <div class="row py-4 text-end">
-                        <div class="col">
-                            <p class="text-3-4">{!! $college->Dean_Speech !!}</p>
-                        </div>
+                </div>
+                <div class="row py-4 text-end">
+                    <div class="col">
+                        @if (App::getLocale() == 'ar')
+                            <p class="text-3-4">{!! $college->Dean_Speech_Arabic !!}</p>
+                        @else
+                            <p class="text-3-4">{!! $college->Dean_Speech_English !!}</p>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
-        <div class="content-q4i p-cby">
-            <div class="row-nvg item-dr7">
-                <div class="col-qxc">
-                    <div class="col-qxc">
-                        <div class="box-content p-4">
-                            <div class="row align-items-xl-center">
-                                <div class="col-9">
-                                    <h2 class="font-weight-normal text-6">{{ cbLang('About the college') }}&nbsp;<br></h2>
-                                </div>
-                            </div>
-                            <div class="row py-4 text-end">
-                                <div class="col">
-                                    <p class="text-3-4">{!! $college->Description !!}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
+    <div class="content-q4i p-cby">
+        <div class="row-nvg item-dr7">
+            <div class="col-qxc">
+                <div class="col-qxc">
+                    <div class="box-content p-4">
+                        <div class="row align-items-xl-center">
+                            <div class="col-9">
+                                <h2 class="font-weight-normal text-6">{{ cbLang('About the college') }}&nbsp;<br></h2>
+                            </div>
+                        </div>
+                        <div class="row py-4 text-end">
+                            <div class="col">
+                                @if (App::getLocale() == 'ar')
+                                    <p class="text-3-4">{!! $college->Description_Arabic !!}</p>
+                                @else
+                                    <p class="text-3-4">{!! $college->Description_English !!}</p>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
     <section id="res-i5c" class="section-j6v">
         <div class="section-header">
             <div class="section-header-inner">
