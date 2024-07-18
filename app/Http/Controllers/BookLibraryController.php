@@ -65,6 +65,8 @@ return view('library.library', compact('sections', 'bookShow', 'categories', 'co
     }
     
 
+    
+
 
     /**
      * Display a listing of the resource.
