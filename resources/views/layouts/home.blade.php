@@ -37,6 +37,7 @@
             <link rel="stylesheet" href="{{ asset('css/cssEN/news_section.css') }}">
             <link rel="stylesheet" href="{{ asset('css/cssEN/college_section.css') }}">
         @endif
+    <link rel="stylesheet" href="css/lib/styleslider.css">
     @endpush
 
     @push('top_loader')
@@ -61,6 +62,8 @@
 
     @include('layouts.college')
     {{-- News Section --}}
+
+
 
     {{-- Statistics --}}
     @include('layouts.statistics')

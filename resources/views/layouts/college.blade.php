@@ -3,7 +3,7 @@
         <div class="statistics-header-inner">
             <h3 style="color: #007bff">
                 {{ cbLang('Colleges') }}
-                        </h3>
+            </h3>
         </div>
     </div>
     <div class="college_container">
