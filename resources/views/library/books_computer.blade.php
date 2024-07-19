@@ -5,313 +5,91 @@
 @section('library', 'active')
 
 @section('main')
-    <style>
-        .main_body_book {
-            margin-top: 7%;
-            font-family: 'Lemonada', cursive;
-            text-align: center;
-
-        }
-
-        .section_departmaent_book {
-            font-size: 30px;
-            margin-top: 50px;
-
-        }
-
-        .search_books_form_new_books {
-            margin-top: 2%;
-        }
-
-        /* تنسيق الزر */
-        .search_books_form_new_books .search-form-new-books button {
-            font-size: 18px;
-            padding: 10px 20px;
-            background-color: #6c757dbd;
-            /* لون خلفية الزر */
-            color: white;
-            /* لون النص */
-            border: none;
-            border-radius: 5px;
-            /* شكل الحواف */
-            cursor: pointer;
-            transition: background-color 0.3s;
-            /* تأثير التحويل */
-        }
-
-        .search_books_form_new_books .search-form-new-books button:hover {
-            background-color: #0a75d4bd;
-            /* لون الخلفية عند التحويل */
-        }
-
-        .search_books_form_new_books .search-form-new-books button:active {
-            background-color: #0a75d4bd;
-            /* لون الخلفية عند النقر */
-        }
-
-        /* تنسيق حقل النص */
-        .search_books_form_new_books .search-form-new-books input[type="text"] {
-            font-size: 18px;
-            padding: 10px;
-            width: 300px;
-            border: 2px solid #6c757dbd;
-            /* لون الحدود */
-            border-radius: 5px;
-            /* شكل الحواف */
-            transition: border-color 0.3s;
-            /* تأثير التحويل */
-        }
-
-        .search_books_form_new_books .search-form-new-books input[type="text"]:focus {
-            border-color: #6c757dbd;
-            /* لون الحدود عند التركيز */
-        }
-
-
-
-        .books-container-1 {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            margin-top: 50px;
-        }
-
-        .book-1 {
-            width: 30%;
-            margin: 20px;
-        }
-
-        .book-1 img {
-            max-width: 80%;
-            max-height: 70%;
-            object-fit: fill;
-            border-radius: 8px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .book-1 img:hover {
-            transform: scale(1.1);
-        }
-
-        .book-title-1,
-        .book-author-1 {
-            margin-top: 10px;
-            font-size: 16px;
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-            word-break: break-all;
-            max-height: 3.6em;
-            overflow: hidden;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .book-title-1:hover,
-        .book-author-1:hover {
-            transform: scale(1.1);
-        }
-
-        .book-title-1 {
-            text-align: center;
-            font-size: 16px;
-            margin-bottom: 5px;
-            font-family: 'Lemonada', cursive;
-        }
-
-        .book-author-1 {
-            text-align: center;
-            font-size: 14px;
-            margin-top: 5px;
-            font-family: 'Lemonada', cursive;
-        }
-
-        .error-message_books {
-            font-size: 30px;
-        }
-
-        /* @media (max-width: 500px) {
-
-            .book-1 {
-                width: 45%;
-                margin: 10px;
-            }
-
-            .book-1 img {
-                max-width: 75%;
-                max-height: 65%;
-                object-fit: fill;
-                border-radius: 8px;
-                margin-bottom: 1%;
-            }
-
-            .book-title-1 {
-                font-size: 14px;
-            }
-
-            .book-author-1 {
-                font-size: 12px;
-            }
-
-            .section_departmaent_book {
-                font-size: 24px;
-                margin-top: 12%;
-            }
-
-            .search_books_form_new_books .search-form-new-books button {
-                font-size: 16px;
-                padding: 8px 16px;
-            }
-
-            .search_books_form_new_books .search-form-new-books input[type="text"] {
-                font-size: 16px;
-                padding: 8px;
-                width: 40%;
-            }
-        } */
-
-        @media screen and (max-width: 660px) {
+<style>
     .main_body_book {
-        margin-top: 14%;
-        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
     }
 
     .section_departmaent_book {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .section_departmaent_book h2 {
         font-size: 24px;
-        margin-top: 7%;
+        margin-bottom: 10px;
     }
 
-    .search_books_form_new_books .search-form-new-books{
-        margin-top: 7%;
-    }
-    .search_books_form_new_books .search-form-new-books button {
-        font-size: 16px;
-        padding: 8px 16px;
+    .search_books_form_new_books {
+        margin-bottom: 20px;
     }
 
-    .search_books_form_new_books .search-form-new-books input[type="text"] {
-        font-size: 16px;
-        width: 250px;
+    .search-form-new-books {
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     }
 
-    .books-container-1 {
-        justify-content: center;
-        margin-top: 30px;
-    }
-
-    .book-1 {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .book-1 img {
-        max-width: 100%;
-        max-height: 60%;
-    }
-
-    .book-title-1,
-    .book-author-1 {
+    .search_books_input_new_books {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
         font-size: 14px;
     }
 
-    .error-message_books {
-        font-size: 24px;
-    }
-}
-
-/* Media Queries for screen widths between 600px and 900px */
-@media screen and (min-width: 600px) and (max-width: 900px) {
-    .main_body_book {
-        margin-top: 6%;
-        padding: 0 15px;
-    }
-
-    .section_departmaent_book {
-        font-size: 28px;
-        margin-top: 40px;
-    }
-
-    .search_books_form_new_books .search-form-new-books button {
-        font-size: 17px;
-        padding: 9px 18px;
-    }
-
-    .search_books_form_new_books .search-form-new-books input[type="text"] {
-        font-size: 17px;
-        width: 270px;
-    }
-
-    .books-container-1 {
-        justify-content: center;
-        margin-top: 40px;
-    }
-
-    .book-1 {
-        width: 45%;
-        margin: 15px;
-    }
-
-    .book-1 img {
-        max-width: 90%;
-        max-height: 65%;
-    }
-
-    .book-title-1,
-    .book-author-1 {
-        font-size: 15px;
-    }
-
-    .error-message_books {
-        font-size: 26px;
-    }
-}
-
-/* Media Queries for screen widths from 900px and above */
-@media screen and (min-width: 900px) {
-    .main_body_book {
-        margin-top: 7%;
-    }
-
-    .section_departmaent_book {
-        font-size: 30px;
-        margin-top: 50px;
-    }
-
-    .search_books_form_new_books .search-form-new-books button {
-        font-size: 18px;
+    .search-form-new-books button {
         padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
     }
 
-    .search_books_form_new_books .search-form-new-books input[type="text"] {
-        font-size: 18px;
-        width: 300px;
-    }
-
-    .books-container-1 {
-        justify-content: space-evenly;
-        margin-top: 50px;
+    #books-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        /* grid-gap: 20px; */
     }
 
     .book-1 {
-        width: 30%;
-        margin: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+        margin: 15px;
+        
     }
 
     .book-1 img {
-        max-width: 80%;
-        max-height: 70%;
+        width: -webkit-fill-available;
+        height: 200px;
+        object-fit: scale-down;
+        margin-bottom: 10px;
     }
 
-    .book-title-1,
-    .book-author-1 {
+    .book-title-1 {
         font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .book-author-1 {
+        font-size: 14px;
+        margin-bottom: 0;
     }
 
     .error-message_books {
-        font-size: 30px;
+        text-align: center;
+        font-size: 16px;
+        color: red;
     }
-}
-
-    </style>
-
+</style>
 <div class="main_body_book">
     <div class="section_departmaent_book">
         @if (App::getLocale() == 'ar')
@@ -319,11 +97,10 @@
         @else
         <h2>{{ $section->Name_English }}</h2>
         @endif      
-          <div class="search_books_form_new_books">
+        <div class="search_books_form_new_books">
             <form action="{{ route('showBooksBySection', ['section' => $section->Name_Arabic]) }}" method="GET" id="search-form" class="search-form-new-books">
                 <input type="text" name="query" id="search-query" placeholder="Find the book"
-                    value="{{ $query ?? '' }}" class="search_books_input_new_books">
-                <button type="submit">{{ cbLang('Search') }}</button>
+                    value="{{ $query ?? '' }}" class="search_books_input_new_books" onkeyup="searchBooks()">
             </form>
         </div>
     </div>
@@ -331,7 +108,7 @@
     <div id="books-container" class="books-container-1">
         @if (isset($books) && !$books->isEmpty())
             @foreach ($books as $book)
-                <div class="book-1">
+                <div class="book-1 book-item">
                     @if ($book->Cover_Image)
                         <img src="{{ asset($book->Cover_Image) }}" alt="Book Cover">
                     @else
@@ -348,20 +125,23 @@
     </div>
 </div>
 
+<script>
+    function searchBooks() {
+        const searchQuery = document.getElementById('search-query').value.toLowerCase();
+        const bookItems = document.querySelectorAll('.book-item');
 
+        bookItems.forEach(item => {
+            const bookTitle = item.querySelector('.book-title-1').textContent.toLowerCase();
+            const bookAuthor = item.querySelector('.book-author-1').textContent.toLowerCase();
 
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('query')) {
-                const url = new URL(window.location);
-                url.searchParams.delete('query');
-                window.history.replaceState({}, document.title, url.pathname);
+            if (bookTitle.includes(searchQuery) || bookAuthor.includes(searchQuery)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
             }
         });
-    </script>
-
+    }
+</script>
 @endsection
 
 
