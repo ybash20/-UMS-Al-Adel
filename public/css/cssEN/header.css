@@ -995,7 +995,7 @@ button:not(:disabled),
     list-style: none;
     padding: 0;
     margin: 0;
-    min-width: 255px;
+    min-width: 196px;
 }
 
 .site-navbar .site-navigation .site-menu .has-children .dropdown>li:first-child>a {
@@ -1057,7 +1057,7 @@ button:not(:disabled),
     margin-top: 0px;
     visibility: visible;
     opacity: 1;
-    text-align: right;
+    text-align: left;
 }
 
 .site-mobile-menu {
