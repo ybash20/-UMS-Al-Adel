@@ -1,5 +1,8 @@
 @extends("crudbooster::admin_template")
 @section("content")
+    @php
+        $page_title = 'Module Generator';
+    @endphp
     @push('head')
         <link rel='stylesheet' href='<?php echo asset("vendor/crudbooster/assets/select2/dist/css/select2.min.css")?>'/>
         <style>

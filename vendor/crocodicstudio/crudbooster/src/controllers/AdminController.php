@@ -296,7 +296,7 @@ class AdminController extends CBController
         // جلب الدرجات الخاصة بالطالب
         $grades = Grades_Student::with('course')
                     ->where('Student_ID', $student_id)
-                    ->orderBy('Semester', 'desc')
+                    ->orderBy('Semester', 'asc')
                     ->get();
                     foreach ($grades as $total) {
                         $total->Grade_100 = $total->Grade_30 + $total->Grade_70;

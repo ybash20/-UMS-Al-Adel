@@ -1,10 +1,12 @@
 <?php
 return [
-
-  'Search'=>'Search',
+    'login_as_student' => 'Login as Student',
+    'login_as_employee' => 'Login as Employee',
+    'Search'=>'Search',
     'Adresses'=>'Adresses',
     'Governorates'=>'Governorates',
     'Directorates'=>'Directorates',
+    'Qualifications' => 'Qualifications',
     'qualifications' => 'Qualifications',
     'qualification_Type' => 'Qualification Type',
     'Institution address information' => 'Institution Address Information',
@@ -45,12 +47,12 @@ return [
     'privilege_helper' => 'Note:To show the menu you have to create a menu at Menu Management',
     'active_menu' => 'Active menu is empty, please add new menu',
     'inactive_menu' => 'Inactive menu is empty',
-    'lang' => 'language',
+    'lang' => 'Language',
     'login_register_style' => 'Login Register Style',
     'email_setting' => 'Email Setting',
     'label_employer' => 'Form Employer',
     'email_footer' => 'Do not reply any email to this email address. This email sent automatically by our system. ',
-    'login_message' => 'login',
+    'login_message' => 'Login',
     'text_forgot_password' => 'Forgot the password ?',
     'page_title_login' => 'Login Panel',
     'page_title_forgot' => 'Forgot Password',
@@ -270,8 +272,8 @@ return [
     'left' => 'left',
 
     'all_rights_reserved' => 'All Rights Reserved',
-    'copyright' => 'Copyright',
-    'powered_by' => 'Powered by',
+    'copyright' => 'Al-Adel University 2012 -',
+    'powered_by' => 'Powered by MABA Team',
 
     'notification_you_have' => 'You Have',
     'notification_notification' => 'Notifications',
@@ -518,7 +520,6 @@ return [
     //footer
     'University logo' => 'University Logo',
     'University location' => 'University location',
-    'copyright' => 'Copyright © All rights reserved. Al-Adil University. 2012 -',
     //page college
     'Dean speech' => 'Dean`s speech',
     'Sections' => 'Sections',

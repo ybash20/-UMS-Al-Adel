@@ -1,6 +1,8 @@
 @extends("crudbooster::admin_template")
 @section("content")
-
+    @php
+        $page_title = 'Module Generator';
+    @endphp
     <ul class="nav nav-tabs">
         <li role="presentation"><a href="{{Route('ModulsControllerGetStep1')."/".$id}}"><i class='fa fa-info'></i> Step 1 - Module Information</a></li>
         <li role="presentation"><a href="{{Route('ModulsControllerGetStep2')."/".$id}}"><i class='fa fa-table'></i> Step 2 - Table Display</a></li>

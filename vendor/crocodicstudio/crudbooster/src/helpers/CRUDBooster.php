@@ -1398,7 +1398,7 @@ class CRUDBooster
 			$this->table 			   = "'.$table.'";
 			$this->title_field         = "'.$name_col.'";
 			$this->limit               = 20;
-			$this->orderby             = "'.$pk.',desc";
+			$this->orderby             = "'.$pk.',";
 			$this->show_numbering      = FALSE;
 			$this->global_privilege    = '.$global_privilege.';
 			$this->button_table_action = '.$button_table_action.';

@@ -39,7 +39,7 @@
                                             <a class="header_a lang-icon" class="dropdown-toggle" data-toggle="dropdown" title='Language' aria-expanded="false"></a>
                                             <ul id='list_language' class="lang-dropdown-menu">
                                                 <li class="lang-header">
-                                                    {{ strtoupper(cbLang('lang')) }}
+                                                    {{ cbLang('lang') }}
                                                 </li>
                                                 <li>
                                                     <div id="langForm" class="form_select">

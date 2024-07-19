@@ -3,56 +3,22 @@
     <div class="slider">
             <!-- list Items -->
         <div class="list">
+            @foreach ($sliders as $slider)
                 <div class="item active">
-                    <img src="image/img1.png">
+                    @foreach ($slider['images'] as $image)
+                        <img src="{!! asset($image['Image']) !!}">
+                    @endforeach
                     <div class="content">
-                        <h2>Slider 01</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex. psum dolor sit amet consectetur adipisicing elit
-                        </p>
+                        @if (App::getLocale() == 'ar')
+                            <h2>{{ $slider->Content_Arabic }}</h2>
+                            <p>{!! $slider->Description_Arabic !!}</p>
+                        @else
+                            <h2>{{ $slider->Content_English }}</h2>
+                            <p>{!! $slider->Description_English !!}</p>
+                        @endif
                     </div>
                 </div>
-                <div class="item">
-                    <img src="image/img2.jpg">
-                    <div class="content">
-                        <h2>Slider 02</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex. psum dolor sit amet consectetur adipisicing elit
-                        </p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="image/img3.jpg">
-                    <div class="content">
-                        <h2>Slider 03</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex. psum dolor sit amet consectetur adipisicing elit
-                        </p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="image/img4.jpg">
-                    <div class="content">
-                        <h2>Slider 04</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex. psum dolor sit amet consectetur adipisicing elit
-                        </p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="image/img5.jpg">
-                    <div class="content">
-                        <h2>Slider 05</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex. psum dolor sit amet consectetur adipisicing elit
-                        </p>
-                    </div>
-                </div>
+            @endforeach
         </div>
             <!-- button arrows -->
         <div class="arrows">

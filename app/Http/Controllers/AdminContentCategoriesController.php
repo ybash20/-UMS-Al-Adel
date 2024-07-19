@@ -12,7 +12,7 @@
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
 			$this->title_field = "id";
 			$this->limit = "20";
-			$this->orderby = "id,desc";
+			$this->orderby = "id,asc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
 			$this->button_bulk_action = true;
@@ -33,6 +33,8 @@
 			$this->col[] = ["label"=>"Id","name"=>"id"];
 			$this->col[] = ["label"=>"Name Arabic","name"=>"Name_Arabic"];
 			$this->col[] = ["label"=>"Name English","name"=>"Name_English"];
+			$this->col[] = ["label"=>"Description Arabic","name"=>"Description_Arabic"];
+			$this->col[] = ["label"=>"Description English","name"=>"Description_English"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE

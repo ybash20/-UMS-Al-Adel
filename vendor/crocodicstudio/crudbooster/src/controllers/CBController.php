@@ -611,7 +611,12 @@ class CBController extends Controller
             if ($this->button_table_action):
 
                 $button_action_style = $this->button_action_style;
-                $html_content[] = "<div class='button_action' style='text-align:right'>".view('crudbooster::components.action', compact('addaction', 'row', 'button_action_style', 'parent_field'))->render()."</div>";
+                if ($module->path == 'module_generator'){
+                    $html_content[] = "<div class='mod_button_action' style='text-align:right'>".view('crudbooster::components.action', compact('addaction', 'row', 'button_action_style', 'parent_field'))->render()."</div>";
+                }else
+                {
+                    $html_content[] = "<div class='button_action' style='text-align:right'>".view('crudbooster::components.action', compact('addaction', 'row', 'button_action_style', 'parent_field'))->render()."</div>";
+                }
 
             endif;//button_table_action
 
@@ -1100,7 +1105,6 @@ class CBController extends Controller
             }
 
             if (@$ro['type'] == 'upload') {
-
                 $this->arr[$name] = CRUDBooster::uploadFile($name, $ro['encrypt'] || $ro['upload_encrypt'], $ro['resize_width'], $ro['resize_height'], CB::myId());
 
                 if (! $this->arr[$name]) {
@@ -1141,7 +1145,6 @@ class CBController extends Controller
             ]));
             CRUDBooster::redirect(CRUDBooster::adminPath(), cbLang("denied_access"));
         }
-
         $this->validation();
         $this->input_assignment();
 
@@ -1179,7 +1182,7 @@ class CBController extends Controller
                         $relationship_table_pk = CB::pk($ro['relationship_table']);
                         foreach ($inputdata as $input_id) {
                             DB::table($ro['relationship_table'])->insert([
-//                                 $relationship_table_pk => CRUDBooster::newId($ro['relationship_table']),
+                                //$relationship_table_pk => CRUDBooster::newId($ro['relationship_table']),
                                 $foreignKey => $id,
                                 $foreignKey2 => $input_id,
                             ]);

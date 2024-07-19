@@ -12,7 +12,7 @@
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
 			$this->title_field = "id";
 			$this->limit = "20";
-			$this->orderby = "id,desc";
+			$this->orderby = "id,asc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
 			$this->button_bulk_action = true;
@@ -32,6 +32,8 @@
 			$this->col = [];
 			$this->col[] = ["label"=>"Id","name"=>"id"];
 			$this->col[] = ["label"=>"Content Arabic","name"=>"Content_ID","join"=>"contents,Content_Arabic"];
+			$this->col[] = ["label"=>"Content English","name"=>"Content_ID","join"=>"contents,Content_English"];
+			$this->col[] = ["label"=>"Image","name"=>"Image","image"=>true];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -42,7 +44,7 @@
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Content','name'=>'Content_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'contents,Content_Arabic'];
+			//$this->form[] = ['label'=>'Content','name'=>'Content_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'Contents,Content_Arabic,Content_English'];
 			//$this->form[] = ['label'=>'Image','name'=>'Image','type'=>'upload','validation'=>'required|image','width'=>'col-sm-9'];
 			# OLD END FORM
 

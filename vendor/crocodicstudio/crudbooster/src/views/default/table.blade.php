@@ -95,8 +95,15 @@
             ?>
 
             @if($button_table_action)
+            @php
+                $module = CRUDBooster::getCurrentModule();
+            @endphp
                 @if(CRUDBooster::isUpdate() || CRUDBooster::isDelete() || CRUDBooster::isRead())
-                    <th width='{{ isset($button_action_width)? $button_action_width :"auto"}}' style="text-align:right">{{cbLang("action_label")}}</th>
+                    @if ($module->path == 'module_generator')
+                        <th class="mod_btn_action" {{ isset($button_action_width)? 'width="'.$button_action_width.'"' :""}}' style="text-align:center">{{cbLang("action_label")}}</th>
+                    @else
+                        <th class="btn_action" {{ isset($button_action_width)? 'width="'.$button_action_width.'"' :""}}' style="text-align:center">{{cbLang("action_label")}}</th>
+                    @endif
                 @endif
             @endif
         </tr>

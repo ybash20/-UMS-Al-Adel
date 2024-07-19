@@ -18,7 +18,7 @@ class MenusController extends CBController
         $this->primary_key = "id";
         $this->title_field = "name";
         $this->limit = 20;
-        $this->orderby = ["id" => "desc"];
+        $this->orderby = ["id" => "asc"];
 
         $this->button_table_action = true;
         $this->button_action_style = "FALSE";

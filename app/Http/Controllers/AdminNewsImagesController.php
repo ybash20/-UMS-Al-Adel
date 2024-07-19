@@ -12,7 +12,7 @@
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
 			$this->title_field = "id";
 			$this->limit = "20";
-			$this->orderby = "id,desc";
+			$this->orderby = "id,asc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
 			$this->button_bulk_action = true;
@@ -37,7 +37,7 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'News','name'=>'News_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'news,Title'];
+			$this->form[] = ['label'=>'News','name'=>'News_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'news,Title_Arabic'];
 			$this->form[] = ['label'=>'News Image','name'=>'News_Image','type'=>'upload','validation'=>'required|image','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Caption','name'=>'Caption','type'=>'text','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE

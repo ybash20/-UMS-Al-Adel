@@ -20,9 +20,7 @@ use App\Http\Controllers\NewsController;
 
 //Home Routes
 Route::redirect('/', '/home');
-Route::get('/home', function () {
-    return view('layouts.home');
-})->name('home');
+Route::get('/home', 'home@index')->name('home');
 
 //Library Routes
 Route::get('/library', 'BookLibraryController@library')->name('library');

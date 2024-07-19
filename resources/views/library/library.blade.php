@@ -15,13 +15,13 @@
                         <div class="item active">
                             <img src="{{ $image->Image }}" alt="Content Image">
                             <div class="content">
-                                @if (App::getLocale() == 'ar')
+                            @if (App::getLocale() == 'ar')
                                 <h2>{{ $content->Content_Arabic }}</h2>
                                 <p>{!! $content->Description_Arabic !!}</p>
                             @else
-                            <h2>{{ $content->Content_English}}</h2>
-                            <p>{!! $content->Description_English !!}</p>
-                            @endif 
+                                <h2>{{ $content->Content_English}}</h2>
+                                <p>{!! $content->Description_English !!}</p>
+                            @endif
                             </div>
                         </div>
                     @endforeach
@@ -69,7 +69,7 @@
                 <h2>{{ $section->Name_Arabic }}</h2>
                 @else
                 <h2>{{ $section->Name_English }}</h2>
-                @endif  
+                @endif
                 <div class="arrows_book">
                     <button class="prev-button"><span><</span></button>
                 </div>

@@ -5,35 +5,25 @@
     <meta charset="UTF-8">
     <title>{{ cbLang('page_title_login') }} </title>
     <meta name='robots' content='noindex,nofollow' />
-    <link rel="shortcut icon"
-        href="{{ CRUDBooster::getSetting('favicon') ? asset(CRUDBooster::getSetting('favicon')) : asset('vendor/crudbooster/assets/logo50.png') }}">
+    <link rel="shortcut icon" href="{{ CRUDBooster::getSetting('favicon') ? asset(CRUDBooster::getSetting('favicon')) : asset('vendor/crudbooster/assets/logo50.png') }}">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
-    <link href="{{ asset('vendor/crudbooster/assets/adminlte/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"
-        type="text/css" />
+    <link href="{{ asset('vendor/crudbooster/assets/adminlte/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
-        type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!-- support rtl-->
-    @if (in_array(App::getLocale(), ['ar', 'fa']))
-        <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css" />
-        <link href="{{ asset('vendor/crudbooster/assets/rtl.css') }}" rel="stylesheet" type="text/css" />
-        <style>
-            .form-control{
-                text-align: left;
-            }
-            .btn-primary{
-                text-align: center;
-            }
-        </style>
-    @endif
-    <link rel='stylesheet' href='{{ asset('vendor/crudbooster/assets/css/main.css') }}' />
     <style type="text/css">
         a {
             color: #3c8dbc;
         }
-
+        input {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: #fff
+        }
         .hidden {
             display: none !important;
         }
@@ -160,7 +150,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 0 15px;
         }
 
         .header-button {
@@ -176,11 +165,6 @@
             width: 40%;
             font-family: sans-serif;
         }
-
-        /* .header-button:hover {
-            background-color: #fff;
-        } */
-
 
         .login-page {
             margin-top: 0;
@@ -208,17 +192,18 @@
 
         .login-box-msg {
             font-weight: 600;
-            font-size: 16px;
+            font-size: 28px;
             margin: 0;
             text-align: center;
-            padding: 0 20px 20px 20px;
+            padding: 10px 20px 0;
+            font-family: 'Dosis';
         }
 
         .alert-warning {
             border: 1px solid transparent;
             padding: 15px;
             border-color: #e08e0b;
-            margin-bottom: 20px;
+            margin-top: 20px;
             border-radius: 3px;
             background-color: #f39c12 !important;
             color: #fff !important;
@@ -297,8 +282,28 @@
             transform-style: preserve-3d;
             text-align: center;
         }
-
+        .login-btn {
+            width: 100%;
+            color: #fff;
+            background-color: #337ab7;
+            cursor: pointer;
+            border: 1px solid transparent;
+            padding: 6px 12px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .login-btn div {
+            width: 45%;
+        }
     </style>
+    @if (in_array(App::getLocale(), ['ar', 'fa']))
+        <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css" />
+        <link href="{{ asset('vendor/crudbooster/assets/rtl.css') }}" rel="stylesheet" type="text/css" />
+    @endif
+    <link rel='stylesheet' href='{{ asset('vendor/crudbooster/assets/css/main.css') }}' />
+
 </head>
 
 <body class="login-page">
@@ -309,8 +314,8 @@
                     {{ cbLang('home') }}
                 </a>
                 <div id="langForm" class="form_select">
-                    <a href="/change-language/ar" name="lang" id="form2-langAR" class="button_lang" value="ar"> AR </a>
-                    <a href="/change-language/en" name="lang" id="form2-langEN" class="button_lang" value="en"> EN </a>
+                    <a href="/change-language/ar" name="lang" id="form1-langAR" class="button_lang" value="ar"> AR </a>
+                    <a href="/change-language/en" name="lang" id="form1-langEN" class="button_lang" value="en"> EN </a>
                 </div>
             </div>
             @if (Session::get('message') != '')
@@ -318,7 +323,6 @@
                     {{ Session::get('message') }}
                 </div>
             @endif
-
             <p class='login-box-msg'>
                 {{ cbLang('login_message') }}
             </p>
@@ -328,26 +332,32 @@
                 @csrf
                 <div>
                     <div>
-                        <input class="input form-control" type="text" name="id" id="ID" placeholder="ID"
-                            required>
+                        <input class="input form-control" type="text" name="id" id="ID" placeholder="ID" required>
                     </div>
                     <div>
-                        <input class="input form-control" type="password" name="Code" id="password2"
-                            placeholder="Code" required>
+                        <input class="input form-control" type="password" name="Code" id="password2" placeholder="Code" required>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">
-                    {{ cbLang('button_sign_in') }}
-                    <i class='fa fa-lock'></i>
+                <button type="submit" class="login-btn">
+                    <div>
+                        {{ cbLang('button_sign_in') }}
+                    </div>
+                    <div>
+                        <i class='fa fa-lock'></i>
+                    </div>
                 </button>
                 <p class="forgot">
                     <a href='{{ route('getForgot') }}'>
                         {{ cbLang('text_forgot_password') }}
                     </a>
                 </p>
-                <button type="button" class="btn btn-primary btn-block" id="btn1">
-                    <i class="fas fa-user-tie"></i>
-                    {{ cbLang('Registeremployee') }}
+                <button type="button" class="login-btn" id="btn1">
+                    <div>
+                        {{ cbLang('login_as_employee') }}
+                    </div>
+                    <div>
+                        <i class="fas fa-user-tie"></i>
+                    </div>
                 </button>
             </form>
 
@@ -359,8 +369,8 @@
                     {{ cbLang('home') }}
                 </a>
                 <div id="langForm" class="form_select">
-                    <a href="/change-language/ar" name="lang" id="form1-langAR" class="button_lang" value="ar"> AR </a>
-                    <a href="/change-language/en" name="lang" id="form1-langEN" class="button_lang" value="en"> EN </a>
+                    <a href="/change-language/ar" name="lang" id="form2-langAR" class="button_lang" value="ar"> AR </a>
+                    <a href="/change-language/en" name="lang" id="form2-langEN" class="button_lang" value="en"> EN </a>
                 </div>
             </div>
 
@@ -380,26 +390,31 @@
                     <p class='login-box-msg'>
                         {{ cbLang('label_employer') }}
                     </p>
-                    {{-- <img src="{{ asset('vendor/crudbooster/assets/empployee.png') }}" class="img_login"> --}}
-                    <input class="input form-control" autocomplete='off' type="text" name='login'
-                        placeholder="Email or Username" required />
+                    <input class="input form-control" autocomplete='off' type="text" name='login' placeholder="Email or Username" required />
                 </div>
                 <div>
-                    <input class="input form-control" autocomplete='off' type="password" name='password'
-                        placeholder="Password" required />
+                    <input class="input form-control" autocomplete='off' type="password" name='password' placeholder="Password" required />
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">
-                    <i class='fa fa-lock'></i>
-                    {{ cbLang('button_sign_in') }}
+                <button type="submit" class="login-btn">
+                    <div>
+                        {{ cbLang('button_sign_in') }}
+                    </div>
+                    <div>
+                        <i class='fa fa-lock'></i>
+                    </div>
                 </button>
                 <p class="forgot">
                     <a href='{{ route('getForgot') }}'>
                         {{ cbLang('text_forgot_password') }}
                     </a>
                 </p>
-                <button type="button" class="btn btn-primary btn-block" id="btn2">
-                    <i class="fas fa-user-graduate"></i>
-                    {{ cbLang('Registerstudent') }}
+                <button type="button" class="login-btn" id="btn2">
+                    <div>
+                        {{ cbLang('login_as_student') }}
+                    </div>
+                    <div>
+                        <i class="fas fa-user-tie"></i>
+                    </div>
                 </button>
             </form>
             <!--a href="#">I forgot my password</a-->

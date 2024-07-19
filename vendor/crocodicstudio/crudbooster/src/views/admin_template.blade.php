@@ -2,44 +2,20 @@
 <html>
 
 <head>
-    <style>
-        /* Center the loader on the screen */
-        #page-loader {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            /* Make sure the loader is on top of everything */
-            height: 250px;
-            /* Adjust height to your animation size */
-        }
-
-        .wr {
-            position: absolute;
-            background: #fff;
-            height: 100%;
-            width: 100%;
-            z-index: 9998;
-        }
-    </style>
     <meta charset="UTF-8">
     <title>{{ $page_title ? get_setting('appname') . ': ' . strip_tags(cbLang($page_title)) : 'Admin Area' }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="noindex,nofollow">
-    <link rel="shortcut icon"
-        href="{{ CRUDBooster::getSetting('favicon') ? asset(CRUDBooster::getSetting('favicon')) : asset('vendor/crudbooster/assets/logo50.png') }}">
+    <link rel="shortcut icon" href="{{ CRUDBooster::getSetting('favicon') ? asset(CRUDBooster::getSetting('favicon')) : asset('vendor/crudbooster/assets/logo50.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="{{ asset('vendor/crudbooster/assets/adminlte/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"
-        type="text/css">
-    <link href="{{ asset('vendor/crudbooster/assets/adminlte/font-awesome/css/font-awesome.min.css') }}"
-        rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/crudbooster/assets/adminlte/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/crudbooster/assets/adminlte/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('vendor/crudbooster/ionic/css/ionicons.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('vendor/crudbooster/assets/adminlte/dist/css/AdminLTE.min.css') }}" rel="stylesheet"
-        type="text/css">
-    <link href="{{ asset('vendor/crudbooster/assets/adminlte/dist/css/skins/_all-skins.min.css') }}" rel="stylesheet"
-        type="text/css">
+    <link href="{{ asset('vendor/crudbooster/assets/adminlte/dist/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/crudbooster/assets/adminlte/dist/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/css/main.css') }}">
+
+    @include('crudbooster::admin_template_plugins')
 
     @if ($style_css)
         <style type="text/css">
@@ -54,6 +30,9 @@
     @endif
 
     <style type="text/css">
+        .dataTables_wrapper{
+            padding: 15px;
+        }
         .dropdown-menu-action {
             left: -130%;
         }
@@ -171,6 +150,32 @@
         .dropdown-menu {
             transition: .3s;
         }
+        .btn_action {
+            width: 90px;
+        }
+        .mod_btn_action {
+            width: 170px;
+        }
+        .mod_button_action a:first-child p {
+            margin: 0;
+            display: inline;
+        }
+        @media (max-width: 880px) {
+            .btn_action,
+            .mod_btn_action {
+                width: 50px
+            }
+            .button_action a,
+            .mod_button_action a {
+                width: 24px;
+                margin: 5px;
+            }
+        }
+        @media (max-width: 981px){
+            .mod_btn_action {
+                width: 90px;
+            }
+        }
     </style>
 
     @push('bottom')
@@ -196,6 +201,22 @@
             }
             // Call the function to remove the empty third <li>
             removeEmptyThirdLi();
+
+            // Check on window resize
+            window.addEventListener('resize', function(){
+                const modButtonActions = document.querySelectorAll('.mod_button_action');
+                modButtonActions.forEach(modButtonAction => {
+                    const firstChild = modButtonAction.firstElementChild;
+                    const pElement = firstChild.querySelector('p');
+                    if (pElement) {
+                        if (window.innerWidth < 981) {
+                            pElement.style.display = 'none';
+                        } else {
+                            pElement.style.display = 'inline';
+                        }
+                    }
+                });
+            });
         </script>
     @endpush
 
@@ -238,17 +259,61 @@
 </head>
 
 <body
-    class="{{ Session::get('theme_color', 'skin-blue') }} {{ config('crudbooster.ADMIN_LAYOUT') }} {{ $sidebar_mode ?? '' }}">
+class="{{ Session::get('theme_color', 'skin-blue-light') }} {{ config('crudbooster.ADMIN_LAYOUT') }} {{ $sidebar_mode ?? '' }}">
     @php
         $module = CRUDBooster::getCurrentModule();
     @endphp
-    @if (!$module)
+    <!-- Loader -->
+    @if ($module->path == 'statistic_builder' || !($module))
+        <style>
+            /* Center the loader on the screen */
+            #page-loader {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+                height: 250px;
+            }
+            .wr {
+                position: absolute;
+                background: #fff;
+                height: 100%;
+                width: 100%;
+                z-index: 9998;
+            }
+            .wrapper{
+                display: none;
+            }
+        </style>
         <!-- Loader -->
         <div class="wr" id="wr-loader">
             <div id="page-loader" class="page-loader"></div>
         </div>
-        <!-- Loader -->
+        <script src="{{ asset('vendor/crudbooster/assets/lottie.min.js') }}"></script>
+        <script>
+            // Load the animation
+            var animation = lottie.loadAnimation({
+                container: document.getElementById('page-loader'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: "{{ asset('vendor/crudbooster/assets/data.json') }}"
+            });
+            // Hide loader and show content when the page has fully loaded
+            $(window).on('load', function() {
+                setTimeout(function() {
+                    // Fade out the loader
+                    $('#page-loader').fadeOut('slow', function() {});
+                    $('#wr-loader').fadeOut('slow', function() {
+                        // Show the main content
+                        $('.wrapper').fadeIn('slow');
+                    });
+                }, 3500); // Adjust the delay as needed
+            });
+        </script>
     @endif
+    <!-- loader -->
     <div id="app" class="wrapper">
         @include('crudbooster::header')
         @include('crudbooster::sidebar')
@@ -268,7 +333,6 @@
                                 <i class="{{ $page_icon ?? $module->icon }}"></i>
                                 {{ cbLang($page_title) }}
                             </li>
-                            {{-- @if ($button_show || ($button_add && CRUDBooster::isCreate()) || ($button_export && CRUDBooster::getCurrentMethod() == 'getIndex') || ($button_import && CRUDBooster::getCurrentMethod() == 'getIndex')) --}}
                             <li>
                                 @if (CRUDBooster::getCurrentMethod() == 'getIndex')
                                     @if ($button_show)
@@ -367,36 +431,6 @@
 
     </div><!-- ./wrapper -->
     {{-- main-content --}}
-
-    @include('crudbooster::admin_template_plugins')
-    <!-- loader -->
-    <script src="{{ asset('vendor/crudbooster/assets/lottie.min.js') }}"></script>
-    <!-- Load jQuery -->
-    <script>
-        // Load the animation
-        var animation = lottie.loadAnimation({
-            container: document.getElementById('page-loader'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: 'vendor/crudbooster/assets/data.json'
-            //path: 'vendor/crocodicstudio/crudbooster/assets/data.json' // Path to your animation file
-        });
-
-        // Hide loader and show content when the page has fully loaded
-        $(window).on('load', function() {
-            setTimeout(function() {
-                // Fade out the loader
-                $('#page-loader').fadeOut('slow', function() {});
-                $('#wr-loader').fadeOut('slow', function() {
-                    // Show the main content
-                    $('.wrapper').fadeIn('slow');
-                });
-            }, 3500); // Adjust the delay as needed
-        });
-    </script>
-    <!-- loader -->
-
 
     <!-- load js -->
     @if ($load_js)

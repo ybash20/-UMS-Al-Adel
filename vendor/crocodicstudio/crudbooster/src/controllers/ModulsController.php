@@ -36,10 +36,6 @@ class ModulsController extends CBController
         $this->col[] = ["label" => "Protected", "name" => "is_protected", "visible" => false];
         # END COLUMNS DO NOT REMOVE THIS LINE
 
-        # START FORM DO NOT REMOVE THIS LINE
-        $this->form = [];
-        $this->form[] = ["label" => "Name", "name" => "name", "placeholder" => "Module name here", 'required' => true];
-
         $tables = CRUDBooster::listTables();
         $tables_list = [];
         foreach ($tables as $tab) {
@@ -62,14 +58,9 @@ class ModulsController extends CBController
             }
         }
 
-        $this->form[] = ["label" => "Table Name", "name" => "table_name", "type" => "select2", "dataenum" => $tables_list, 'required' => true];
-
         $fontawesome = Fontawesome::getIcons();
-
         $row = CRUDBooster::first($this->table, CRUDBooster::getCurrentId());
         $custom = view('crudbooster::components.list_icon', compact('fontawesome', 'row'))->render();
-        $this->form[] = ['label' => 'Icon', 'name' => 'icon', 'type' => 'custom', 'html' => $custom, 'required' => true];
-
         $this->script_js = "
  			$(function() {
  				$('#table_name').change(function() {
@@ -78,7 +69,11 @@ class ModulsController extends CBController
 				})
  			})
  			";
-
+        # START FORM DO NOT REMOVE THIS LINE
+        $this->form = [];
+        $this->form[] = ["label" => "Name", "name" => "name", "placeholder" => "Module name here", 'required' => true];
+        $this->form[] = ["label" => "Table Name", "name" => "table_name", "type" => "select2", "dataenum" => $tables_list, 'required' => true];
+        $this->form[] = ['label' => 'Icon', 'name' => 'icon', 'type' => 'custom', 'html' => $custom, 'required' => true];
         $this->form[] = ["label" => "Path", "name" => "path", "required" => true, 'placeholder' => 'Optional'];
         $this->form[] = ["label" => "Controller", "name" => "controller", "type" => "text", "placeholder" => "(Optional) Auto Generated"];
 
@@ -174,16 +169,15 @@ class ModulsController extends CBController
                 'exception' => true,
             ];
         }
+        # END FORM DO NOT REMOVE THIS LINE
 
+        $this->index_button[] = ['label' => 'Generate New Module', 'icon' => 'fa fa-plus', 'url' => CRUDBooster::mainpath('step1'), 'color' => 'success'];
         $this->addaction[] = [
             'label' => 'Module Wizard',
             'icon' => 'fa fa-wrench',
             'url' => CRUDBooster::mainpath('step1').'/[id]',
             "showIf" => "[is_protected] == 0",
         ];
-
-        $this->index_button[] = ['label' => 'Generate New Module', 'icon' => 'fa fa-plus', 'url' => CRUDBooster::mainpath('step1'), 'color' => 'success'];
-        # END FORM DO NOT REMOVE THIS LINE
 
     }
 
@@ -226,7 +220,7 @@ class ModulsController extends CBController
         }
 
         return redirect()->route("ModulsControllerGetStep1");
-        
+
 
     }
 
@@ -508,8 +502,9 @@ class ModulsController extends CBController
         foreach (glob(base_path('vendor/crocodicstudio/crudbooster/src/views/default/type_components').'/*', GLOB_ONLYDIR) as $dir) {
             $types[] = basename($dir);
         }
+        $page_title = 'Module Generator';
 
-        return view('crudbooster::module_generator.step3', compact('columns', 'cb_form', 'types', 'id'));
+        return view('crudbooster::module_generator.step3', compact('columns', 'cb_form', 'types', 'id', 'page_title'));
     }
 
     public function getTypeInfo($type = 'text')

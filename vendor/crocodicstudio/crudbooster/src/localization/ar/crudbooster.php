@@ -1,6 +1,7 @@
 <?php
 return [
-
+    'login_as_student' => 'تسجيل كطالب',
+    'login_as_employee' => 'تسجيل كموظف',
     'Adresses'=>'العنوان',
     'Governorates'=>'المحافظات',
     'Directorates'=>'المديريات',
@@ -261,8 +262,8 @@ return [
     'left' => 'right',
 
     'all_rights_reserved' => 'كافة الحقوق محفوظة',
-    'copyright' => 'حقوق النسخ',
-    'powered_by' => 'انشئ بواسطة',
+    'copyright' => 'جامعة العادل 2012 -',
+    'powered_by' => 'انشئ بواسطة فريق مابا',
 
     'notification_you_have' => 'لديك',
     'notification_notification' => 'تنبيهات',
@@ -499,7 +500,6 @@ return [
     //footer
     'University logo' => 'شعار الجامعة',
     'University location' => 'موقع الجامعة',
-    'copyright' => 'حقوق &copy; جميع الحقوق محفوظة. جامعة العادل. 2012 - ',
     //page college
     'Dean speech' => 'كلمة العميد',
     'Sections' => 'الاقسام',

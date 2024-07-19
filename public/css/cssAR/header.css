@@ -57,9 +57,20 @@
     font-family: "granada";
     src: url(../../fonts/granada.ttf);
 }
+@font-face {
+    font-family: "Dosis";
+    src: url(../../fonts/Dosis-Medium.ttf);
+}
+@font-face {
+    font-family: "DIN-NEXT";
+    src: url(../../fonts/DIN-NEXT.otf);
+}
+.contact{
+    font-family: "Dosis";
+}
 
 .headerh1{
-    font-family: 'granada';
+    font-family: 'DIN-NEXT';
 }
 
 .fab {
@@ -908,11 +919,11 @@ button:not(:disabled),
 }
 
 .site-navbar .site-navigation .site-menu>li:last-child {
-    padding-right: 0;
+    padding-left: 0;
 }
 
 .site-navbar .site-navigation .site-menu>li:last-child>a {
-    padding-right: 0;
+    padding-left: 0;
 }
 
 .site-navbar .site-navigation .site-menu .has-children {
@@ -921,7 +932,7 @@ button:not(:disabled),
 
 .site-navbar .site-navigation .site-menu .has-children>a {
     position: relative;
-    padding-right: 20px;
+    padding-left: 20px;
 }
 
 .site-navbar .site-navigation .site-menu .has-children>a:before {
@@ -929,7 +940,7 @@ button:not(:disabled),
     content: "\e313";
     font-size: 16px;
     top: 50%;
-    right: 0;
+    left: 0;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
