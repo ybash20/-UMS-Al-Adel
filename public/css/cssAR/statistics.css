@@ -231,7 +231,7 @@
     width: 90%;
 }
 #sta-v5h div:nth-child(2n) .statistic-iix {
-    color: #8f8f8f;
+    color: var(--sub2-color);
 }
 #sta-v5h div:nth-child(2n + 1) .statistic-iix {
     color: var(--sub2-color);
