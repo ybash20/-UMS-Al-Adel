@@ -1,5 +1,6 @@
 <?php
 return [
+  'Appreciation'=>'Appreciation',
     'login_as_student' => 'Login as Student',
     'login_as_employee' => 'Login as Employee',
     'Search'=>'Search',

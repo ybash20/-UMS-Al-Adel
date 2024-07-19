@@ -1,5 +1,6 @@
 <?php
 return [
+    'Appreciation'=>'التقدير',
     'login_as_student' => 'تسجيل كطالب',
     'login_as_employee' => 'تسجيل كموظف',
     'Adresses'=>'العنوان',

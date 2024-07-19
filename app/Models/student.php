@@ -15,4 +15,9 @@ class student extends Model
     {
         return $this->hasMany(Grades_Student::class, 'Student_ID', 'id');
     }
+
+    public function major()
+    {
+        return $this->belongsTo(Major::class, 'Major_ID');
+    }
 }

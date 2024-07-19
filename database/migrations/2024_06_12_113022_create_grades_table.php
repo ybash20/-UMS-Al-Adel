@@ -21,6 +21,8 @@ class CreateGradesTable extends Migration
             $table->unsignedInteger('Grade_70')->nullable();
             $table->unsignedInteger('Grade_100')->nullable();
             $table->string('Spoint')->nullable();
+            $table->string('Appreciation_Arabic')->nullable();
+            $table->string('Appreciation_English')->nullable();
             $table->string('Note')->nullable();
             $table->unsignedInteger('Turn')->nullable();
             $table->unsignedInteger('Semester')->nullable();
