@@ -1,6 +1,10 @@
 @extends('layouts.master')
 @section('title')
-{{ $section->Name }}
+    @if (App::getLocale() == 'ar')
+    {{ $section->Name_Arabic }}
+    @else
+    {{ $section->Name_English }}
+    @endif
 @endsection
 @section('library', 'active')
 
@@ -55,7 +59,7 @@
 
     #books-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(215px, 2fr));
         /* grid-gap: 20px; */
     }
 
@@ -85,9 +89,10 @@
     }
 
     .error-message_books {
-        text-align: center;
-        font-size: 16px;
-        color: red;
+    text-align: center;
+    font-size: 35px;
+    color: red;
+    margin: 120px
     }
 </style>
 <div class="main_body_book">
@@ -98,7 +103,7 @@
         <h2>{{ $section->Name_English }}</h2>
         @endif      
         <div class="search_books_form_new_books">
-            <form action="{{ route('showBooksBySection', ['section' => $section->Name_Arabic]) }}" method="GET" id="search-form" class="search-form-new-books">
+            <form action="{{ route('showBooksBySection', ['section' => $section->Name_English]) }}" method="GET" id="search-form" class="search-form-new-books">
                 <input type="text" name="query" id="search-query" placeholder="Find the book"
                     value="{{ $query ?? '' }}" class="search_books_input_new_books" onkeyup="searchBooks()">
             </form>
@@ -124,11 +129,14 @@
         @endif
     </div>
 </div>
-
+<div id="error-message1" class="error-message_books" style="display: none;">No books found.</div>
 <script>
     function searchBooks() {
         const searchQuery = document.getElementById('search-query').value.toLowerCase();
         const bookItems = document.querySelectorAll('.book-item');
+        const errorMessage = document.getElementById('error-message1');
+
+        let hasMatch = false;
 
         bookItems.forEach(item => {
             const bookTitle = item.querySelector('.book-title-1').textContent.toLowerCase();
@@ -136,12 +144,18 @@
 
             if (bookTitle.includes(searchQuery) || bookAuthor.includes(searchQuery)) {
                 item.style.display = 'block';
+                hasMatch = true;
             } else {
                 item.style.display = 'none';
             }
         });
+
+        if (!hasMatch) {
+            errorMessage.style.display = 'block';
+        } else {
+            errorMessage.style.display = 'none';
+        }
     }
 </script>
 @endsection
-
 

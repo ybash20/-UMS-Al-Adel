@@ -52,7 +52,7 @@ return view('library.library', compact('sections', 'bookShow', 'categories', 'co
     {
         $query = $request->input('query');
         
-        $section = library_section::where('Name_Arabic', $sectionName)->firstOrFail();
+        $section = library_section::where('Name_English', $sectionName)->firstOrFail();
 
         $books = $section->books()
             ->when($query, function ($queryBuilder) use ($query) {
