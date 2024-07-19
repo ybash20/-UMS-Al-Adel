@@ -310,17 +310,52 @@ class AdminController extends CBController
     }
 
     // Controller
-public function StudentStudyplan()
-{
-    // استبدل Major::find(1) بالمعرف المناسب للتخصص
-    $major = Major::find(2); // يفترض أن التخصص معرّف هنا برقم 1
-
-    return view('Student.studyplan', compact('major'));
-}
+    public function StudentStudyplan()
+    {
+        // تحقق من وجود student_id في الجلسة
+        if (Session::has('student_id')) {
+            // استرجع student_id من الجلسة
+            $studentId = Session::get('student_id');
+    
+            // ابحث عن الطالب بناءً على student_id
+            $student = Student::find($studentId);
+    
+            // تحقق من وجود الطالب
+            if ($student) {
+                // ابحث عن التخصص المرتبط بالطالب
+                $major = Major::find($student->Major_ID);
+    
+                return view('Student.studyplan', compact('major'));
+            }
+        }
+    
+        // إذا لم يكن الطالب موجودًا في الجلسة أو لم يُعثر عليه، قم بإعادة التوجيه إلى صفحة تسجيل الدخول
+        return redirect()->route('StudentgetLogin')->with('message', 'You must be logged in to view this page.');
+    }
 
     public function StudentTimetables()
     {
-        return view('Student.timetables');
+    {
+        // تحقق من وجود student_id في الجلسة
+        if (Session::has('student_id')) {
+            // استرجع student_id من الجلسة
+            $studentId = Session::get('student_id');
+    
+            // ابحث عن الطالب بناءً على student_id
+            $student = Student::find($studentId);
+    
+            // تحقق من وجود الطالب
+            if ($student) {
+                // ابحث عن التخصص المرتبط بالطالب
+                $major = Major::find($student->Major_ID);
+    
+                return view('Student.timetables', compact('major'));
+            }
+        }
+    
+        // إذا لم يكن الطالب موجودًا في الجلسة أو لم يُعثر عليه، قم بإعادة التوجيه إلى صفحة تسجيل الدخول
+        return redirect()->route('StudentgetLogin')->with('message', 'You must be logged in to view this page.');
+    }
     }
 
 
