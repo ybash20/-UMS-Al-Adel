@@ -13,8 +13,13 @@
         <div class="divstudent">
             <h1>{{ cbLang('Grades Student') }}</h1>
             <h2>{{ cbLang('Student ID') }} {{ $student->id }}</h2>
-            <h2>{{ cbLang('Student Name') }} {{ $student->Name }}</h2>
+            @if (App::getLocale() == 'ar')
+            <h2>{{ cbLang('Student Name') }} {{ $student->Name_Arabic}}</h2>
+            @else
+            <h2>{{ cbLang('Student Name') }} {{ $student->Name_English}}</h2>
+            @endif
         </div>
+
 
         @if ($grades !== null && $grades->isNotEmpty())
             @php
@@ -30,6 +35,7 @@
                         <th>{{ cbLang('Exam Grade') }}</th>
                         <th>{{ cbLang('Total Grade') }}</th>
                         <th>{{ cbLang('S Point') }}</th>
+                        <th>{{ cbLang('Appreciation') }}</th>
                         <th>{{ cbLang('Note') }}</th>
                     </tr>
                 </thead>
@@ -41,6 +47,11 @@
                             <td>{{ $total->Grade_70 }}</td>
                             <td>{{ $total->Grade_100 }}</td>
                             <td>{{ $total->Spoint }}</td>
+                            @if (App::getLocale() == 'ar')
+                            <td>{{ $total->Appreciation_Arabic }}</td>
+                            @else
+                            <td>{{ $total->Appreciation_English }}</td>
+                            @endif
                             <td>{{ $total->Note }}</td>
                         </tr>
                     @endforeach
@@ -61,6 +72,7 @@
                                     <th>{{ cbLang('Exam Grade') }}</th>
                                     <th>{{ cbLang('Total Grade') }}</th>
                                     <th>{{ cbLang('S Point') }}</th>
+                                    <th>{{ cbLang('Appreciation') }}</th>
                                     <th>{{ cbLang('Note') }}</th>
                                 </tr>
                             </thead>
@@ -72,6 +84,11 @@
                                         <td>{{ $total->Grade_70 }}</td>
                                         <td>{{ $total->Grade_100 }}</td>
                                         <td>{{ $total->Spoint }}</td>
+                                        @if (App::getLocale() == 'ar')
+                                        <td>{{ $total->Appreciation_Arabic }}</td>
+                                        @else
+                                        <td>{{ $total->Appreciation_English }}</td>
+                                        @endif
                                         <td>{{ $total->Note }}</td>
                                     </tr>
                                 @endforeach

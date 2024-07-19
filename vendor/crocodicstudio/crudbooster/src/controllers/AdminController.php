@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\student;
 use App\Models\Grades_Student;
+use App\Models\major;
+
 
 class AdminController extends CBController
 {
@@ -296,21 +298,25 @@ class AdminController extends CBController
         // جلب الدرجات الخاصة بالطالب
         $grades = Grades_Student::with('course')
                     ->where('Student_ID', $student_id)
-                    ->orderBy('Semester', 'asc')
+                    ->orderBy('Semester', 'desc')
                     ->get();
-                    foreach ($grades as $total) {
-                        $total->Grade_100 = $total->Grade_30 + $total->Grade_70;
-
-                    }
+                    // foreach ($grades as $total) {
+                    //     $total->Grade_100 = $total->Grade_30 + $total->Grade_70;
+                        
+                    // }
 
 
         return view('Student.grades', compact('grades','student'));
     }
 
-    public function StudentStudyplan()
-    {
-        return view('Student.studyplan');
-    }
+    // Controller
+public function StudentStudyplan()
+{
+    // استبدل Major::find(1) بالمعرف المناسب للتخصص
+    $major = Major::find(2); // يفترض أن التخصص معرّف هنا برقم 1
+
+    return view('Student.studyplan', compact('major'));
+}
 
     public function StudentTimetables()
     {

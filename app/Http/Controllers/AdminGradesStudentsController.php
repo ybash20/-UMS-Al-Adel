@@ -12,7 +12,7 @@
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
 			$this->title_field = "id";
 			$this->limit = "20";
-			$this->orderby = "id,asc";
+			$this->orderby = "id,desc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
 			$this->button_bulk_action = true;
@@ -38,6 +38,7 @@
 			$this->col[] = ["label"=>"Exam Grade","name"=>"Grade_70"];
 			$this->col[] = ["label"=>"Total Grade","name"=>"Grade_100"];
 			$this->col[] = ["label"=>"Spoint","name"=>"Spoint"];
+			$this->col[] = ["label"=>"Appreciation","name"=>"Appreciation_English"];
 			$this->col[] = ["label"=>"Note","name"=>"Note"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
@@ -45,10 +46,13 @@
 			$this->form = [];
 			$this->form[] = ['label'=>'Student Name','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'students,Name'];
 			$this->form[] = ['label'=>'Course','name'=>'Course_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'courses,Name'];
-			$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required|integer','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required|integer','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','validation'=>'required|integer','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required|integer|between:0,50','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required|integer|between:0,50','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','validation'=>'required|integer|between:1,8','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Total','name'=>'Grade_100','type'=>'number','width'=>'col-sm-9','disabled'=>'true'];
+			$this->form[] = ['label'=>'Spoint','name'=>'Spoint','type'=>'number','width'=>'col-sm-9','disabled'=>'true'];
+			$this->form[] = ['label'=>'Appreciation','name'=>'Appreciation_English','type'=>'text','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','validation'=>'required|integer|between:1,10','width'=>'col-sm-9','disabled'=>'true'];
 			$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
@@ -56,12 +60,13 @@
 			//$this->form = [];
 			//$this->form[] = ['label'=>'Student Name','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'students,Name'];
 			//$this->form[] = ['label'=>'Course','name'=>'Course_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'courses,Name'];
-			//$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Total Grade','name'=>'Grade_100','type'=>'number','width'=>'col-sm-9','readonly'=>'true'];
-			//$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required|integer|between:0,50','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required|integer|between:0,50','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','validation'=>'required|integer|between:1,8','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Total','name'=>'Grade_100','type'=>'number','width'=>'col-sm-9','disabled'=>'true'];
+			//$this->form[] = ['label'=>'Spoint','name'=>'Spoint','type'=>'number','width'=>'col-sm-9','disabled'=>'true'];
+			//$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','validation'=>'required|integer|between:1,10','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-9','disabled'=>'true'];
 			# OLD END FORM
 
 			/*
@@ -269,15 +274,48 @@
 	    | @arr
 	    |
 	    */
-	    public function hook_before_add(&$postdata) {
-	        //Your code here
-				$Grade_30 = $postdata['Grade_30'];
-				$Grade_70 = $postdata['Grade_70'];
-				$Grade_100 = $Grade_30 + $Grade_70 ;
-				$postdata['Grade_100'] = $Grade_100 ;
-				$postdata['Spoint'] = $Grade_100 / 20 ;
-
-	    }
+		public function hook_before_add(&$postdata) {
+			// الحصول على القيم من $postdata
+			$Grade_30 = $postdata['Grade_30'];
+			$Grade_70 = $postdata['Grade_70'];
+			$Grade_100 = $Grade_30 + $Grade_70;
+		
+			// تحقق من القيم وتعيين الحدود
+			if ($Grade_100 > 100) {
+				$Grade_100 = 100;
+			} elseif ($Grade_100 < 0) {
+				$Grade_100 = 0;
+			}
+		
+			// تحقق من القيم المحددة وزيادة العمود Grade_100 وكتابة +1 في عمود Note
+			if (in_array($Grade_100, [89, 79, 64, 49])) {
+				$Grade_100 += 1;
+				$postdata['Note'] = '+1';
+			}
+		
+			// تحديث القيم في $postdata
+			$postdata['Grade_100'] = $Grade_100;
+			$postdata['Spoint'] = $Grade_100 / 20;
+		
+			// تعيين التقديرات بناءً على قيمة Grade_100
+			if ($Grade_100 >= 0 && $Grade_100 <= 49) {
+				$postdata['Appreciation_Arabic'] = 'ضعيف';
+				$postdata['Appreciation_English'] = 'Poor';
+			} elseif ($Grade_100 >= 50 && $Grade_100 <= 64) {
+				$postdata['Appreciation_Arabic'] = 'مقبول';
+				$postdata['Appreciation_English'] = 'Acceptable';
+			} elseif ($Grade_100 >= 65 && $Grade_100 <= 79) {
+				$postdata['Appreciation_Arabic'] = 'جيد';
+				$postdata['Appreciation_English'] = 'Good';
+			} elseif ($Grade_100 >= 80 && $Grade_100 <= 89) {
+				$postdata['Appreciation_Arabic'] = 'جيد جدا';
+				$postdata['Appreciation_English'] = 'Very Good';
+			} elseif ($Grade_100 >= 90 && $Grade_100 <= 100) {
+				$postdata['Appreciation_Arabic'] = 'ممتاز';
+				$postdata['Appreciation_English'] = 'Excellent';
+			}
+		}
+		
 
 	    /*
 	    | ----------------------------------------------------------------------
