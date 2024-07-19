@@ -177,9 +177,9 @@
             font-family: sans-serif;
         }
 
-        .header-button:hover {
+        /* .header-button:hover {
             background-color: #fff;
-        }
+        } */
 
 
         .login-page {
@@ -306,7 +306,7 @@
         <div class="login-box-body form-login1">
             <div class="header-container">
                 <a href="{{ route('home') }}" class="header-button">
-                    Home
+                    {{ cbLang('home') }}
                 </a>
                 <div id="langForm" class="form_select">
                     <a href="/change-language/ar" name="lang" id="form2-langAR" class="button_lang" value="ar"> AR </a>
@@ -346,8 +346,8 @@
                     </a>
                 </p>
                 <button type="button" class="btn btn-primary btn-block" id="btn1">
-                    تسجيل كموظف
                     <i class="fas fa-user-tie"></i>
+                    {{ cbLang('Registeremployee') }}
                 </button>
             </form>
 
@@ -356,12 +356,12 @@
         <div class="login-box-body form-login2 hidden">
             <div class="header-container">
                 <a href="{{ route('home') }}" class="header-button">
-                    <i class="fas fa-home"></i>
+                    {{ cbLang('home') }}
                 </a>
-            </div>
-            <div id="langForm" class="form_select">
-                <a href="/change-language/ar" name="lang" id="form1-langAR" class="button_lang" value="ar"> AR </a>
-                <a href="/change-language/en" name="lang" id="form1-langEN" class="button_lang" value="en"> EN </a>
+                <div id="langForm" class="form_select">
+                    <a href="/change-language/ar" name="lang" id="form1-langAR" class="button_lang" value="ar"> AR </a>
+                    <a href="/change-language/en" name="lang" id="form1-langEN" class="button_lang" value="en"> EN </a>
+                </div>
             </div>
 
             @if (Session::get('message') != '')
@@ -380,7 +380,7 @@
                     <p class='login-box-msg'>
                         {{ cbLang('label_employer') }}
                     </p>
-                    <img src="{{ asset('vendor/crudbooster/assets/empployee.png') }}" class="img_login">
+                    {{-- <img src="{{ asset('vendor/crudbooster/assets/empployee.png') }}" class="img_login"> --}}
                     <input class="input form-control" autocomplete='off' type="text" name='login'
                         placeholder="Email or Username" required />
                 </div>
@@ -397,8 +397,9 @@
                         {{ cbLang('text_forgot_password') }}
                     </a>
                 </p>
-                <button type="button" class="button" id="btn2">
+                <button type="button" class="btn btn-primary btn-block" id="btn2">
                     <i class="fas fa-user-graduate"></i>
+                    {{ cbLang('Registerstudent') }}
                 </button>
             </form>
             <!--a href="#">I forgot my password</a-->

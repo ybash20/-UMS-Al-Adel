@@ -17,6 +17,8 @@ return [
     'Registration Portal' => 'Registration Portal',
     'Management' => 'Management',
     'Users' => 'Users',
+    'Registeremployee' => 'Register as an employee',
+    'Registerstudent' => 'Register as a student',
     'Departments' => 'Departments',
     'Registration' => 'Registration',
     'Menu Management' => ' Menu Management',

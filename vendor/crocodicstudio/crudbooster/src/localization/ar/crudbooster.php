@@ -219,6 +219,8 @@ return [
     'user_image' => 'الصورة الرمزية للمستخدم',
     'online' => 'متصل',
     'controller_route_404' => 'لم يتم العثور على الرابط المطلوب',
+    'Registeremployee' => 'تسجيل كموظف',
+    'Registerstudent' => 'تسجيل كطالب',
     'home' => 'الرئيسية',
     'Notifications' => 'اشعارات',
     'Privileges_Roles' => 'صلاحيات الوصول',
