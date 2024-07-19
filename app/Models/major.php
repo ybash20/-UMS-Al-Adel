@@ -17,4 +17,10 @@ class major extends Model
     {
         return $this->belongsTo(College::class, 'College_ID');
     }
+
+    public function students()
+    {
+        return $this->hasMany(Student::class, 'Major_ID');
+    }
+
 }
