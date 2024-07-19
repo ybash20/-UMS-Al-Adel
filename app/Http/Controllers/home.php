@@ -35,11 +35,21 @@ class home extends Controller
             $newsItem->Article_English = Str::limit($newsItem->Article_English, 220);
         }
 
-        CRUDBooster::insertLog('test latestNews',$latestNews);
+        $emp = DB::table('ums_users')->count();
+        $majors = DB::table('majors')->count();
+        $colleges_count = DB::table('colleges')->count();
+        $books = DB::table('books')->count();
+        $students = DB::table('students')->count();
+
         return view('layouts.home', compact(
             'sliders',
             'latestNews',
-            'mainNews'
+            'mainNews',
+            'students',
+            'books',
+            'colleges_count',
+            'majors',
+            'emp'
         ));
     }
 }

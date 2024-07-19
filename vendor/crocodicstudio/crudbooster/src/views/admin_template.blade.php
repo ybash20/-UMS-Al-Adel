@@ -249,7 +249,6 @@
                 background: #1e282c;
                 border-left-color: #3c8dbc;
             }
-
             .sidebar-menu>li>a {
                 border-left: 3px solid transparent;
             }
@@ -264,7 +263,7 @@ class="{{ Session::get('theme_color', 'skin-blue-light') }} {{ config('crudboost
         $module = CRUDBooster::getCurrentModule();
     @endphp
     <!-- Loader -->
-    @if ($module->path == 'statistic_builder' || !($module))
+    @if (CRUDBooster::getCurrentMethod() == 'getDashboard' || !($module))
         <style>
             /* Center the loader on the screen */
             #page-loader {

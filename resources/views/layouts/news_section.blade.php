@@ -57,9 +57,9 @@
                             </a>
                             <p class="news-post-p">
                                 @if (App::getLocale() == 'ar')
-                                    {{  $NewsItem->Article_Arabic }}
+                                    {!!  $NewsItem->Article_Arabic !!}
                                 @else
-                                    {{  $NewsItem->Article_English }}
+                                    {!!  $NewsItem->Article_English !!}
                                 @endif
                             </p>
                         </div>

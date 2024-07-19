@@ -35,6 +35,8 @@
 			$this->col[] = ["label"=>"Title English","name"=>"Title_English"];
 			$this->col[] = ["label"=>"Category","name"=>"Category_ID","join"=>"news_categories,Name_Arabic"];
 			$this->col[] = ["label"=>"Publication Date","name"=>"Publication_date"];
+			$this->col[] = ["label"=>"Article Arabic","name"=>"Article_Arabic"];
+			$this->col[] = ["label"=>"Article English","name"=>"Article_English"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
