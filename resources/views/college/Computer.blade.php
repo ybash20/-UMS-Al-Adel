@@ -11,18 +11,13 @@
 
 @section('main')
 @if (App::getLocale() == 'ar')
-    <link rel="stylesheet" href="css/cssAr/css_college.css">
+<link rel="stylesheet" href="{{ asset('css/cssAr/css_college.css') }}"> 
 @else
-    <link rel="stylesheet" href="css/cssEN/css_college.css">
+<link rel="stylesheet" href="{{ asset('css/cssEN/css_college.css') }}"> 
 @endif
 <div class="container">
     <div class="content-q4i p-cby">
         <div class="row-nvg item-dr7">
-            @if (App::getLocale() == 'ar')
-                <link rel="stylesheet" href="css/cssAr/css_college.css">
-            @else
-                <link rel="stylesheet" href="css/cssEN/css_college.css">
-            @endif
             <div class="box-content p-4">
                 <div class="row align-items-xl-center">
                     <div class="col-9">
