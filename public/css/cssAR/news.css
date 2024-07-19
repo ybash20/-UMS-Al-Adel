@@ -1,0 +1,112 @@
+
+        .container_news {
+            margin: 20px;
+            margin-top: 80px;
+            direction: rtl;
+        }
+
+        .show-more-button,
+        .show-less-button {
+            margin-top: 20px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            width: 125px;
+            height: 42px;
+            font-size: 19px;
+            border-radius: 10px;
+        }
+
+        .news_section {
+            margin-bottom: 30px;
+        }
+
+        .news_section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: -webkit-center;
+        }
+
+        .arrows_news {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .more-news,
+        .news_list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .news_item {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            justify-self: center;
+            margin-top: 10px;
+
+        }
+
+        .news_item:hover {
+            background-color: #f2f2f2;
+        }
+
+        .news_image {
+            text-align: center;
+        }
+
+        .news_image img {
+            width: 300px;
+            height: 200px;
+            border-radius: 5px;
+        }
+
+        .publication_date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .news_title {
+            font-size: 18px;
+            font-weight: bold;
+            width: 249px;
+        }
+
+        .section_separator {
+            border-top: 1px solid #ccc;
+            margin-top: 30px;
+        }
+
+        .news-header-inner {
+            text-align: center !important;
+            line-height: 1.5;
+            font-size: 32px;
+            font-weight: 500;
+            margin: 30px 0;
+        }
+
+        .news-header-inner a {
+            color: #007bff;
+        }
+
+        .news-header-inner a::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background-color: #00496b;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .news-header-inner a:hover::after {
+            width: 10%;
+        }

@@ -178,6 +178,7 @@
                     <img src="{{ asset($news->images[0]->News_Image) }}" alt="News Image" class="details_news-image">
                 </div>
             </div>
+            @if (count($news->images) > 1)
             <div class="slider-controls">
                 <button class="prev-btn">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left">
@@ -190,6 +191,7 @@
                     </svg>
                 </button>
             </div>
+            @endif
         </div>
         <hr class="section_separator">
     </div>
