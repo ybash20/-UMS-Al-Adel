@@ -510,7 +510,7 @@ $total = $result->total();
                                 <select name='fileformat' class='form-control'>
                                     <option value='pdf'>PDF</option>
                                     <option value='xls'>Microsoft Excel (xls)</option>
-                                    <option value='csv'>CSV</option>
+                                    {{-- <option value='csv'>CSV</option> --}}
                                 </select>
                             </div>
                             <p>
