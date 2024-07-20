@@ -5,18 +5,22 @@
     <meta charset="UTF-8">
     <title>{{ cbLang('page_title_login') }} </title>
     <meta name='robots' content='noindex,nofollow' />
-    <link rel="shortcut icon" href="{{ CRUDBooster::getSetting('favicon') ? asset(CRUDBooster::getSetting('favicon')) : asset('vendor/crudbooster/assets/logo50.png') }}">
+    <link rel="shortcut icon"
+        href="{{ CRUDBooster::getSetting('favicon') ? asset(CRUDBooster::getSetting('favicon')) : asset('vendor/crudbooster/assets/logo50.png') }}">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
-    <link href="{{ asset('vendor/crudbooster/assets/adminlte/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('vendor/crudbooster/assets/adminlte/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"
+        type="text/css" />
     <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!-- support rtl-->
     <style type="text/css">
         a {
             color: #3c8dbc;
         }
+
         input {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-size: 14px;
@@ -24,6 +28,7 @@
             color: #333;
             background-color: #fff
         }
+
         .hidden {
             display: none !important;
         }
@@ -97,7 +102,8 @@
             border-color: var(--primary);
             box-shadow: 0 0 5px var(--primary);
         }
-        #langForm{
+
+        #langForm {
             width: 40%;
         }
 
@@ -176,12 +182,12 @@
             max-width: 508px;
             box-shadow: 10px 10px 35px -10px black;
             border-radius: 15px;
-            height: 100%;
+            height: 450px;
             padding: 37px;
             background-color: white;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: space-between;
             margin-bottom: 5px;
             background: #fff;
             padding: 20px;
@@ -193,7 +199,7 @@
         .login-box-msg {
             font-weight: 600;
             font-size: 28px;
-            margin: 0;
+            margin: 39px;
             text-align: center;
             padding: 10px 20px 0;
             font-family: 'Dosis';
@@ -229,13 +235,13 @@
             transform: translate(-50%, -50%);
         }
 
-        @media (max-width:768px) {
+        /* @media (max-width:768px) {
             .login-box-body {
-                margin-top: -349px;
+                margin-top: -35px;
                 padding: 37px;
                 background-color: white;
             }
-        }
+        } */
 
         .form-control,
         .btn {
@@ -254,15 +260,18 @@
             0% {
                 transform: rotateY(0);
             }
+
             100% {
                 transform: rotateY(90deg);
             }
         }
+
         /* Flip Animation on X-Axis */
         @keyframes flipSecondFrom {
             0% {
                 transform: rotateY(90deg);
             }
+
             100% {
                 transform: rotateY(0);
             }
@@ -275,6 +284,7 @@
             transform-style: preserve-3d;
             text-align: center;
         }
+
         .form-login1.second-anime,
         .form-login2.second-anime {
             animation: flipSecondFrom .75s ease-in-out;
@@ -282,6 +292,7 @@
             transform-style: preserve-3d;
             text-align: center;
         }
+
         .login-btn {
             width: 100%;
             color: #fff;
@@ -294,6 +305,7 @@
             align-items: center;
             justify-content: flex-end;
         }
+
         .login-btn div {
             width: 45%;
         }
@@ -314,8 +326,10 @@
                     {{ cbLang('home') }}
                 </a>
                 <div id="langForm" class="form_select">
-                    <a href="/change-language/ar" name="lang" id="form1-langAR" class="button_lang" value="ar"> AR </a>
-                    <a href="/change-language/en" name="lang" id="form1-langEN" class="button_lang" value="en"> EN </a>
+                    <a href="/change-language/ar" name="lang" id="form1-langAR" class="button_lang" value="ar">
+                        AR </a>
+                    <a href="/change-language/en" name="lang" id="form1-langEN" class="button_lang" value="en">
+                        EN </a>
                 </div>
             </div>
             @if (Session::get('message') != '')
@@ -323,19 +337,19 @@
                     {{ Session::get('message') }}
                 </div>
             @endif
-            <p class='login-box-msg'>
-                {{ cbLang('login_message') }}
-            </p>
+
             <p class='login-box-msg'>{{ cbLang('student_form') }}</p>
 
             <form class="form_2 data_info" action="{{ route('StudentpostLogin') }}" method="post">
                 @csrf
                 <div>
                     <div>
-                        <input class="input form-control" type="text" name="id" id="ID" placeholder="ID" required>
+                        <input class="input form-control" type="text" name="id" id="ID" placeholder="ID"
+                            required>
                     </div>
                     <div>
-                        <input class="input form-control" type="password" name="Code" id="password2" placeholder="Code" required>
+                        <input class="input form-control" type="password" name="Code" id="password2"
+                            placeholder="Code" required>
                     </div>
                 </div>
                 <button type="submit" class="login-btn">
@@ -369,8 +383,10 @@
                     {{ cbLang('home') }}
                 </a>
                 <div id="langForm" class="form_select">
-                    <a href="/change-language/ar" name="lang" id="form2-langAR" class="button_lang" value="ar"> AR </a>
-                    <a href="/change-language/en" name="lang" id="form2-langEN" class="button_lang" value="en"> EN </a>
+                    <a href="/change-language/ar" name="lang" id="form2-langAR" class="button_lang" value="ar">
+                        AR </a>
+                    <a href="/change-language/en" name="lang" id="form2-langEN" class="button_lang" value="en">
+                        EN </a>
                 </div>
             </div>
 
@@ -380,20 +396,18 @@
                 </div>
             @endif
 
-            <p class='login-box-msg'>
-                {{ cbLang('login_message') }}
-            </p>
-
             <form class="form_1 data_info" autocomplete='off' action="{{ route('postLogin') }}" method="post">
                 @csrf
                 <div>
                     <p class='login-box-msg'>
                         {{ cbLang('label_employer') }}
                     </p>
-                    <input class="input form-control" autocomplete='off' type="text" name='login' placeholder="Email or Username" required />
+                    <input class="input form-control" autocomplete='off' type="text" name='login'
+                        placeholder="Email or Username" required />
                 </div>
                 <div>
-                    <input class="input form-control" autocomplete='off' type="password" name='password' placeholder="Password" required />
+                    <input class="input form-control" autocomplete='off' type="password" name='password'
+                        placeholder="Password" required />
                 </div>
                 <button type="submit" class="login-btn">
                     <div>
@@ -450,29 +464,29 @@
             btn1.addEventListener("click", function() {
                 // إخفاء form2 وإظهار form1
                 form1.classList.add("first-anime");
-                setTimeout(function(){
+                setTimeout(function() {
                     form1.classList.add("hidden");
                     form2.classList.remove("hidden");
                     form1.classList.remove("first-anime");
                     form2.classList.add("second-anime");
-                },800);
-                setTimeout(function(){
+                }, 800);
+                setTimeout(function() {
                     form2.classList.remove("second-anime");
-                },1500);
+                }, 1500);
             });
 
             btn2.addEventListener("click", function() {
                 // إخفاء form2 وإظهار form1
                 form2.classList.add("first-anime");
-                setTimeout(function(){
+                setTimeout(function() {
                     form2.classList.add("hidden");
                     form1.classList.remove("hidden");
                     form2.classList.remove("first-anime");
                     form1.classList.add("second-anime");
-                },800);
-                setTimeout(function(){
+                }, 800);
+                setTimeout(function() {
                     form1.classList.remove("second-anime");
-                },1500);
+                }, 1500);
             });
         };
     </script>

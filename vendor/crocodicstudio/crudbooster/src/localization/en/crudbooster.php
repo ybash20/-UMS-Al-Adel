@@ -50,7 +50,7 @@ return [
                         * If you have a big file data, we cannot guarantee. So, please split those files into some parts of file (at least max 5 MB).....
                         * This tool is generate data automatically so, be carefull about your table xls structure. Please make sure correctly the table structure.....
                         * Table structure : Line 1 is heading column , and next is the data. (For example, you can export any module you wish to XLS format)',
-  'student_form' => 'Student Form',
+  'student_form' => 'Student Login',
   'lock_screen' => 'lockscreen',
   'text_helper' => 'Enter your email on the social networking site',
   'privilege_helper' => 'Note:To show the menu you have to create a menu at Menu Management',
@@ -59,7 +59,7 @@ return [
   'lang' => 'Language',
   'login_register_style' => 'Login Register Style',
   'email_setting' => 'Email Setting',
-  'label_employer' => 'Form Employer',
+  'label_employer' => 'Employee Login',
   'email_footer' => 'Do not reply any email to this email address. This email sent automatically by our system. ',
   'login_message' => 'Login',
   'text_forgot_password' => 'Forgot the password ?',
