@@ -18,7 +18,6 @@
 			$this->button_bulk_action = true;
 			$this->button_action_style = "button_icon";
 			$this->button_add = true;
-			$this->button_edit = true;
 			$this->button_delete = true;
 			$this->button_detail = true;
 			$this->button_show = true;
@@ -42,14 +41,14 @@
 			$this->col[] = ["label"=>"Marital","name"=>"Marital_ID","join"=>"maritals,Status"];
 			$this->col[] = ["label"=>"Identity","name"=>"Identity_ID","join"=>"identities,id"];
 			$this->col[] = ["label"=>"Address","name"=>"Address_ID","join"=>"addresses,id"];
-			$this->col[] = ["label"=>"Major","name"=>"Major_ID","join"=>"majors,Name"];
+			$this->col[] = ["label"=>"Major","name"=>"Major_ID","join"=>"majors,Name_Arabic"];
 			$this->col[] = ["label"=>"Certificate","name"=>"Certificate_ID","join"=>"certificates,id"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Name','name'=>'NameAR','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Name','name'=>'NameEN','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Name Arabic','name'=>'NameAR','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Name English','name'=>'NameEN','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Date','name'=>'Date','type'=>'date','validation'=>'required|date','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'0;1','help'=>'0 male   ,   1 female'];
 			$this->form[] = ['label'=>'Nationality','name'=>'Nationality','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
@@ -60,15 +59,15 @@
 			$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'text','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Identity','name'=>'Identity_ID','type'=>'select','width'=>'col-sm-9','datatable'=>'identities,id'];
 			$this->form[] = ['label'=>'Mobile Phone Number','name'=>'Mobile_Phone_Number','type'=>'number','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'majors,Name'];
+			$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'majors,Name_Arabic'];
 			$this->form[] = ['label'=>'Certificate','name'=>'Certificate_ID','type'=>'select','width'=>'col-sm-9','datatable'=>'certificates,id'];
 			$this->form[] = ['label'=>'Photo','name'=>'Photo','type'=>'text','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Name','name'=>'NameAR','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Name','name'=>'NameEN','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Name Arabic','name'=>'NameAR','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Name English','name'=>'NameEN','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Date','name'=>'Date','type'=>'date','validation'=>'required|date','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'0;1','help'=>'0 male   ,   1 female'];
 			//$this->form[] = ['label'=>'Nationality','name'=>'Nationality','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
@@ -79,8 +78,8 @@
 			//$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'text','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Identity','name'=>'Identity_ID','type'=>'select','width'=>'col-sm-9','datatable'=>'identities,id'];
 			//$this->form[] = ['label'=>'Mobile Phone Number','name'=>'Mobile_Phone_Number','type'=>'number','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'majors,Name'];
-			//$this->form[] = ['label'=>'Certificate','name'=>'Certificate_ID','type'=>'select','width'=>'col-sm-9','datatable'=>'certificates,Name'];
+			//$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'majors,Name_Arabic'];
+			//$this->form[] = ['label'=>'Certificate','name'=>'Certificate_ID','type'=>'select','width'=>'col-sm-9','datatable'=>'certificates,id'];
 			//$this->form[] = ['label'=>'Photo','name'=>'Photo','type'=>'text','width'=>'col-sm-9'];
 			# OLD END FORM
 
