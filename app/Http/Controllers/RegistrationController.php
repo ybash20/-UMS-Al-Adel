@@ -37,7 +37,7 @@ class RegistrationController extends Controller
     }
     public function getDirectorates($govId)
     {
-        $dirs = DB::table('directorates')->where('Governorate_ID', $govId)->pluck('Name', 'id');
+        $dirs = DB::table('directorates')->where('Governorate_ID', $govId)->pluck('Name_Arabic','Name_English','id');
 
         return response()->json($dirs);
     }
@@ -49,15 +49,9 @@ class RegistrationController extends Controller
         $identityTypes = identity_types::pluck('Name', 'id');
         $qualificationType = DB::table('qualification_type')->pluck('Name','id');
         $disciplines = DB::table('disciplines')->pluck('Name','id');
-        $colleges = DB::table('colleges')->pluck('Name','id');
+        $colleges = DB::table('colleges')->pluck('Name_Arabic','Name_English','id');
         $gov = DB::table('governorates')->pluck('Name','id');
 
-        // جلب التخصصات حسب الكليات
-        $majorsComputerScience = Major::where('College_ID', 1)->pluck('name', 'id');
-        $majorsAdministration = Major::where('College_ID', 2)->pluck('name', 'id');
-        $majorsIslamicStudies = Major::where('College_ID', 3)->pluck('name', 'id');
-        $majorsSharia = Major::where('College_ID', 4)->pluck('name', 'id');
-        $majorsLanguages = Major::where('College_ID', 6)->pluck('name', 'id');
 
         return view('registration', compact(
             'maritalStatuses',
