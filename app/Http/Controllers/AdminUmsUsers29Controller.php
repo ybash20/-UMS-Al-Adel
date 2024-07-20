@@ -12,7 +12,7 @@
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
 			$this->title_field = "name";
 			$this->limit = "20";
-			$this->orderby = "id,asc";
+			$this->orderby = "id,desc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
 			$this->button_bulk_action = true;
@@ -47,7 +47,6 @@
 			$this->form[] = ['label'=>'Department','name'=>'Department_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'departments,Name'];
 			$this->form[] = ['label'=>'Privileges','name'=>'id_ums_privileges','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'ums_privileges,name','datatable_where'=>'name NOT IN (\'Manager\', \'Admin\')'];
 			$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required|date','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select','width'=>'col-sm-9','datatable'=>'addresses,Neighborhood'];
 			$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','validation'=>'integer','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Photo','name'=>'photo','type'=>'upload','validation'=>'image|max:3000','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'Single;Married'];

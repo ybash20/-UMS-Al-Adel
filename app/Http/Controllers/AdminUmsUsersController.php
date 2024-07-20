@@ -50,8 +50,8 @@ class AdminUmsUsersController extends CBController {
 			$this->form[] = ['label'=>'Password Confirmation','name'=>'password_confirmation','type'=>'password','validation'=>'required','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Governorates','name'=>'Address_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'governorates,Name'];
-			$this->form[] = ['label'=>'Directorates','name'=>'Address_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'directorates,Name'];
+			// $this->form[] = ['label'=>'Governorates','name'=>'Address_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'governorates,Name'];
+			// $this->form[] = ['label'=>'Directorates','name'=>'Address_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'directorates,Name'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM

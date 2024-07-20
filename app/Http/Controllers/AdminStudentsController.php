@@ -12,7 +12,7 @@
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
 			$this->title_field = "id";
 			$this->limit = "20";
-			$this->orderby = "id,asc";
+			$this->orderby = "id,desc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
 			$this->button_bulk_action = true;
@@ -40,17 +40,17 @@
 			$this->form = [];
 			$this->form[] = ['label'=>'Name English','name'=>'Name_English','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Name Arabic','name'=>'Name_Arabic','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'levels,Name_Arabic'];
-			$this->form[] = ['label'=>'Level','name'=>'Level_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Code','name'=>'Code','type'=>'text','validation'=>'required','width'=>'col-sm-9','help'=>'1 Male   ,   0 Female'];
-			$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select2','validation'=>'required','datatable'=>'majors,Name_Arabic','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Level','name'=>'Level_ID','type'=>'select2','validation'=>'required','datatable'=>'levels,Name_Arabic','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Code','name'=>'Code','type'=>'text','validation'=>'required|integer','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required|integer|between:0,1','help'=>'0 Male   ,   1 Female','dataenum'=>'0;1','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required|date','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Email','name'=>'Email','type'=>'email','validation'=>'required','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','validation'=>'required|integer','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','dataenum'=>'Single;Married'];
-			$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select','validation'=>'required','width'=>'col-sm-9'];
+			// $this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','dataenum'=>'Single;Married'];
+			$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select','validation'=>'required','dataenum'=>'Single;Married','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Photo','name'=>'Photo','type'=>'upload','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Not Allowed Show','name'=>'Not_Allowed_Show','type'=>'select','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Not Allowed Show','name'=>'Not_Allowed_Show','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Notes','name'=>'Notes','type'=>'text','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 

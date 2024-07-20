@@ -32,16 +32,18 @@
 			$this->col = [];
 			$this->col[] = ["label"=>"Id","name"=>"id"];
 			$this->col[] = ["label"=>"Name","name"=>"Name"];
+			$this->col[] = ["label"=>"Governorate","name"=>"Governorate_ID","join"=>"governorates,Name"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
 			$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Governorate','name'=>'Governorate_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'governorates,Name'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ["label"=>"Name","name"=>"Name","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ['label'=>'Name','name'=>'Name','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*

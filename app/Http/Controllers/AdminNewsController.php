@@ -12,7 +12,7 @@
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
 			$this->title_field = "id";
 			$this->limit = "20";
-			$this->orderby = "id,asc";
+			$this->orderby = "id,desc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
 			$this->button_bulk_action = true;
@@ -35,8 +35,6 @@
 			$this->col[] = ["label"=>"Title English","name"=>"Title_English"];
 			$this->col[] = ["label"=>"Category","name"=>"Category_ID","join"=>"news_categories,Name_Arabic"];
 			$this->col[] = ["label"=>"Publication Date","name"=>"Publication_date"];
-			$this->col[] = ["label"=>"Article Arabic","name"=>"Article_Arabic"];
-			$this->col[] = ["label"=>"Article English","name"=>"Article_English"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -52,11 +50,13 @@
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'news_categories,Name'];
-			//$this->form[] = ['label'=>'Title','name'=>'Title','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Category','name'=>'Category_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'news_categories,Name_Arabic'];
+			//$this->form[] = ['label'=>'Title Arabic','name'=>'Title_Arabic','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Title English','name'=>'Title_English','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Publication Date','name'=>'Publication_date','type'=>'date','validation'=>'required','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Author','name'=>'Author','type'=>'text','validation'=>'min:1|max:30','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Article','name'=>'Article','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Article Arabic','name'=>'Article_Arabic','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Article English','name'=>'Article_English','type'=>'wysiwyg','validation'=>'required','width'=>'col-sm-9'];
 			# OLD END FORM
 
 			/*
@@ -218,17 +218,17 @@
 	        $this->load_css = array();
 
 
-			$userId = CRUDBooster::myId();
+			// $userId = CRUDBooster::myId();
 
-			$user = DB::table('ums_users')->where('id', $userId)->first();
+			// $user = DB::table('ums_users')->where('id', $userId)->first();
 
-			if ($user->id_ums_privileges == 1 || $user->id_ums_privileges == 2) {
-				$this->button_export = true;
-				$this->button_import = true;
-			} else {
-				$this->button_export = false;
-				$this->button_import = false;
-			}
+			// if ($user->id_ums_privileges == 1 || $user->id_ums_privileges == 2) {
+			// 	$this->button_export = true;
+			// 	$this->button_import = true;
+			// } else {
+			// 	$this->button_export = false;
+			// 	$this->button_import = false;
+			// }
 
 	    }
 

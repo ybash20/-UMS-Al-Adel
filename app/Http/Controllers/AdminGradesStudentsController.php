@@ -38,7 +38,7 @@
 			$this->col[] = ["label"=>"Exam Grade","name"=>"Grade_70"];
 			$this->col[] = ["label"=>"Total Grade","name"=>"Grade_100"];
 			$this->col[] = ["label"=>"Spoint","name"=>"Spoint"];
-			$this->col[] = ["label"=>"Appreciation","name"=>"Appreciation_English"];
+			$this->col[] = ["label"=>"Appreciation","name"=>"Appreciation_Arabic"];
 			$this->col[] = ["label"=>"Note","name"=>"Note"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
@@ -58,7 +58,7 @@
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Student Name','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'students,Name'];
+			//$this->form[] = ['label'=>'Student Name','name'=>'Student_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'students,Name_Arabic'];
 			//$this->form[] = ['label'=>'Course','name'=>'Course_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'courses,Name'];
 			//$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required|integer|between:0,50','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required|integer|between:0,50','width'=>'col-sm-9'];

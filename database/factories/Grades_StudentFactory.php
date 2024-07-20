@@ -27,9 +27,16 @@ class Grades_StudentFactory extends Factory
             $grade100 = 0;
         }
     
+              // تعيين القيمة للعمود Note بناءً على القيمة المحددة
+              $note = '';
+              if (in_array($grade100, [89, 79, 64, 49])) {
+                  $grade100 += 1;
+                  $note = '+1';
+              }
         // تعيين النقاط
         $spoint = $grade100 / 20;
     
+        
         // تعيين التقدير باللغة العربية والإنجليزية بناءً على قيمة Grade_100
         $appreciationArabic = '';
         $appreciationEnglish = '';
@@ -51,12 +58,6 @@ class Grades_StudentFactory extends Factory
             $appreciationEnglish = 'Excellent';
         }
     
-        // تعيين القيمة للعمود Note بناءً على القيمة المحددة
-        $note = '';
-        if (in_array($grade100, [89, 79, 64, 49])) {
-            $grade100 += 1;
-            $note = '+1';
-        }
     
         // إرجاع البيانات النهائية
         return [
