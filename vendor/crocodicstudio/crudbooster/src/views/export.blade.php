@@ -9,11 +9,11 @@
 
 </head>
 
-<body>
+<body onload="window.print()">
     @if (Request::input('fileformat') == 'pdf')
     <header>
         <div class="wrap header">
-            <div class="EN">
+             <div class="EN">
                 <li>
                     Republic of Yemen
                 </li>
