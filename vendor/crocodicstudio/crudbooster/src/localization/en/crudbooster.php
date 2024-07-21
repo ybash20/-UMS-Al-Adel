@@ -374,7 +374,7 @@ return [
   'guardian_directorate' => 'guardian_directorate',
   'guardian_governorate' => 'guardian_governorate',
   'institution_directorate' => 'institution_directorate',
-  ' Institution information' => 'Institution information',
+  'Institution information' => 'Institution information',
   'directorate_label' => 'directorate_label',
   'Other' => 'Other',
   'Select directorate' => 'Select directorate',

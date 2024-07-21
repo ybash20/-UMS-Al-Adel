@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\major;
 use Illuminate\Http\Request;
 use App\Models\news;
 use App\Models\content;
+use App\Models\Book;
+use App\Models\library_section;
+use App\Models\college;
 use crocodicstudio\crudbooster\helpers\CRUDBooster;
 use Illuminate\Support\Str;
 use DB;
@@ -36,10 +40,27 @@ class home extends Controller
         }
 
         $emp = DB::table('ums_users')->count();
-        $majors = DB::table('majors')->count();
+        $major_count = DB::table('majors')->count();
         $colleges_count = DB::table('colleges')->count();
         $books = DB::table('books')->count();
         $students = DB::table('students')->count();
+
+        $sections = library_section::all();
+        $colleges = college::all();
+        $bookShow = [];
+
+        foreach ($sections as $section) {
+            $bookShow[$section->id] = Book::where('Section_ID', $section->id)
+                ->inRandomOrder()
+                ->limit(4) // جلب 4 كتب عشوائية لكل قسم
+                ->get();
+        }
+        foreach ($colleges as $college) {
+            $majors[$college->id] = major::where('College_ID', $college->id)
+                ->inRandomOrder()
+                ->limit(4) // جلب 4 كتب عشوائية لكل قسم
+                ->get();
+        }
 
         return view('layouts.home', compact(
             'sliders',
@@ -48,8 +69,12 @@ class home extends Controller
             'students',
             'books',
             'colleges_count',
-            'majors',
-            'emp'
+            'major_count',
+            'emp',
+            'sections',
+            'bookShow',
+            'colleges',
+            'majors'
         ));
     }
 }

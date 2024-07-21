@@ -16,7 +16,7 @@
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 11px #aaa;
     transition: transform 0.3s;
     position: relative;
     cursor: pointer;

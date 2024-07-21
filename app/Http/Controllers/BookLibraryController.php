@@ -48,30 +48,27 @@ return view('library.library', compact('sections', 'bookShow', 'categories', 'co
 }
 
 
-    public function showBooksBySection(Request $request, $sectionName)
+    public function showBooksBySection(Request $request, $sectionId)
     {
         $query = $request->input('query');
-        
-        $section = library_section::where('Name_English', $sectionName)->firstOrFail();
 
-        $books = $section->books()
-            ->when($query, function ($queryBuilder) use ($query) {
-                return $queryBuilder->where('Title', 'like', '%' . $query . '%');
-            })
+        $section = library_section::where('id', $sectionId)->firstOrFail();
+
+        $books = $section->books()->where('Section_ID', $sectionId)
             ->inRandomOrder()
             ->get();
 
         return view('library.books_computer', compact('books', 'query', 'section'));
     }
-    
 
-    
+
+
 
 
     /**
      * Display a listing of the resource.
      *
-     *  
+     *
      * @return \Illuminate\Http\Response
      */
     // public function index(Request $request)

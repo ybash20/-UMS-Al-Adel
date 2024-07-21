@@ -87,7 +87,7 @@
                             <p>{{ cbLang('Author:') }}{{ $book->Author }}</p>
                         </div>
                     @endforeach
-                    <form action="{{ route('showBooksBySection', ['section' => $section->Name_English]) }}" method="GET">
+                    <form action="{{ route('showBooksBySection', ['section' => $section->id]) }}" method="GET">
                         <button type="submit" class="read-more-button">{{ cbLang('Read more') }}</i>
                         </button>
                     </form>

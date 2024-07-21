@@ -200,6 +200,7 @@
     display: flex;
     justify-content: center;
     max-width: 1562px;
+    margin: auto;
 }
 
 .statistics-header-inner {
@@ -216,7 +217,13 @@
     font-size: 32px;
     font-weight: 500;
 }
-
+.statistics-header-inner a {
+    color: #fff;
+    margin: 0;
+    font-family: "Readex Pro";
+    font-size: 32px;
+    font-weight: 500;
+}
 .statistics-header-inner h3::after {
     content: '';
     width: 0;
@@ -230,11 +237,8 @@
 .statistics-header-inner h3:hover::after {
     width: 90%;
 }
-#sta-v5h div:nth-child(2n) .statistic-iix {
-    color: var(--sub2-color);
-}
-#sta-v5h div:nth-child(2n + 1) .statistic-iix {
-    color: var(--sub2-color);
+#sta-v5h div .statistic-iix {
+    color: #8f8f8f;
 }
 
 .wave-footer {

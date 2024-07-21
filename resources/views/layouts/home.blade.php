@@ -31,13 +31,20 @@
         @if (App::getLocale() == 'ar')
             <link rel="stylesheet" href="{{ asset('css/cssAR/statistics.css') }}">
             <link rel="stylesheet" href="{{ asset('css/cssAR/news_section.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/cssAR/college_section.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/cssAR/library_section.css') }}">
+            {{-- <link rel="stylesheet" href="{{ asset('css/cssAR/college_section.css') }}"> --}}
+            <style>
+                .main_continar {
+                    direction: rtl;
+                    text-align: right;
+                }
+            </style>
         @else
             <link rel="stylesheet" href="{{ asset('css/cssEN/statistics.css') }}">
             <link rel="stylesheet" href="{{ asset('css/cssEN/news_section.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/cssEN/college_section.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/cssEN/library_section.css') }}">
+            {{-- <link rel="stylesheet" href="{{ asset('css/cssEN/college_section.css') }}"> --}}
         @endif
-    <link rel="stylesheet" href="css/lib/styleslider.css">
     @endpush
 
     @push('top_loader')
@@ -59,11 +66,15 @@
 
     {{-- News Section --}}
     @include('layouts.news_section')
-
-    @include('layouts.college')
     {{-- News Section --}}
 
+    {{-- News Section --}}
+    @include('layouts.college_section')
+    {{-- News Section --}}
 
+    {{-- library Section --}}
+    @include('layouts.library_section')
+    {{-- library Section --}}
 
     {{-- Statistics --}}
     @include('layouts.statistics')

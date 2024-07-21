@@ -188,7 +188,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class='treeview'>
+                    {{-- <li class='treeview'>
                         <a href='#'>
                             <i class='fa fa-dashboard'></i>
                             <span>
@@ -213,8 +213,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li class='treeview'>
+                    </li> --}}
+                    {{-- <li class='treeview'>
                         <a href='#'>
                             <i class='fa fa-fire'></i>
                             <span>
@@ -247,8 +247,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li class='treeview'>
+                    </li> --}}
+                    {{-- <li class='treeview'>
                         <a href='#'>
                             <i class='fa fa-envelope-o'></i>
                             <span>
@@ -274,7 +274,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
+                    @endif
                     <li class="{{ Request::is(config('crudbooster.ADMIN_PATH') . '/logs*') ? 'active' : '' }}">
                         <a href='{{ Route('LogsControllerGetIndex') }}'>
                             <i class='fa fa-flag'></i>
@@ -283,7 +284,6 @@
                             </span>
                         </a>
                     </li>
-                @endif
             </ul><!-- /.sidebar-menu -->
         </div>
     </section>
