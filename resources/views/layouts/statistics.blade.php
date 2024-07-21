@@ -21,7 +21,7 @@
                 <h3 class="statistics-h3 statistic-iix">
                     +
                     <span>
-                        {{ $majors }}
+                        {{ $major_count }}
                     </span>
                 </h3>
                 <h4 class="statistics-h4 text-q79">

@@ -16,6 +16,7 @@ use App\Models\major;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use crocodicstudio\crudbooster\helpers\CRUDBooster;
+use App;
 
 class RegistrationController extends Controller
 {
@@ -31,13 +32,16 @@ class RegistrationController extends Controller
     }
     public function getMajors($collegeId)
     {
-        $majors = DB::table('majors')->where('College_ID', $collegeId)->pluck('Name', 'id');
-
+        if (App::getLocale() == 'ar') {
+            $majors = DB::table('majors')->where('College_ID', $collegeId)->pluck('Name_Arabic', 'id');
+        } else {
+            $majors = DB::table('majors')->where('College_ID', $collegeId)->pluck('Name_English', 'id');
+        }
         return response()->json($majors);
     }
     public function getDirectorates($govId)
     {
-        $dirs = DB::table('directorates')->where('Governorate_ID', $govId)->pluck('Name_Arabic','Name_English','id');
+        $dirs = DB::table('directorates')->where('Governorate_ID', $govId)->pluck('Name_Arabic', 'Name_English', 'id');
 
         return response()->json($dirs);
     }
@@ -47,10 +51,10 @@ class RegistrationController extends Controller
         $maritalStatuses = Marital::pluck('Status', 'id');
         $bloodTypes = Blood::pluck('Type', 'id');
         $identityTypes = identity_types::pluck('Name', 'id');
-        $qualificationType = DB::table('qualification_type')->pluck('Name','id');
-        $disciplines = DB::table('disciplines')->pluck('Name','id');
-        $colleges = DB::table('colleges')->pluck('Name_Arabic','Name_English','id');
-        $gov = DB::table('governorates')->pluck('Name','id');
+        $qualificationType = DB::table('qualification_type')->pluck('Name', 'id');
+        $disciplines = DB::table('disciplines')->pluck('Name', 'id');
+        $colleges = DB::table('colleges')->pluck('Name_Arabic', 'Name_English', 'id');
+        $gov = DB::table('governorates')->pluck('Name', 'id');
 
 
         return view('registration', compact(
@@ -66,9 +70,11 @@ class RegistrationController extends Controller
             'majorsComputerScience',
             'colleges',
             'gov'
-        ));
+        )
+        );
     }
-    public function post_reg(Request $request){
+    public function post_reg(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             // Personal Information
             'nameAR' => 'required|string|max:255',
@@ -140,10 +146,10 @@ class RegistrationController extends Controller
             return response()->json(['message' => implode('<br>', $message), 'type' => 'error']);
         }
 
-        try{
+        try {
             DB::beginTransaction();
 
-            if($request->institution_governorate == 'other'){
+            if ($request->institution_governorate == 'other') {
                 DB::table('directorates')->insert([
                     'Name' => $request->institution_directorate,
                 ]);
@@ -152,8 +158,7 @@ class RegistrationController extends Controller
                     'Directorate_ID' => $ins_dir_id,
                 ]);
                 $ins_address_id = DB::getPdo()->lastInsertId();
-            }
-            else{
+            } else {
                 DB::table('addresses')->insert([
                     'Directorate_ID' => $request->institution_directorate,
                 ]);
@@ -189,7 +194,7 @@ class RegistrationController extends Controller
 
             $identity_id = DB::getPdo()->lastInsertId();
 
-            if($request->governorate == 'other'){
+            if ($request->governorate == 'other') {
                 DB::table('directorates')->insert([
                     'Name' => $request->directorate,
                 ]);
@@ -200,8 +205,7 @@ class RegistrationController extends Controller
                     'Notes' => $request->address_notes,
                 ]);
                 $reg_address_id = DB::getPdo()->lastInsertId();
-            }
-            else{
+            } else {
                 DB::table('addresses')->insert([
                     'Directorate_ID' => $request->directorate,
                     'Neighborhood' => $request->neighborhood,
@@ -230,7 +234,7 @@ class RegistrationController extends Controller
 
             $reg_id = DB::getPdo()->lastInsertId();
 
-            if($request->guardian_governorate == 'other'){
+            if ($request->guardian_governorate == 'other') {
                 DB::table('directorates')->insert([
                     'Name' => $request->guardian_directorate,
                 ]);
@@ -239,8 +243,7 @@ class RegistrationController extends Controller
                     'Directorate_ID' => $request->guard_dir_id,
                 ]);
                 $guard_address_id = DB::getPdo()->lastInsertId();
-            }
-            else{
+            } else {
                 DB::table('addresses')->insert([
                     'Directorate_ID' => $request->guardian_directorate,
                 ]);
@@ -259,7 +262,7 @@ class RegistrationController extends Controller
                 'Address_ID' => $guard_address_id, // Set the appropriate address ID
             ]);
 
-            if(isset($request->guardian_name2) && isset($request->guardian_relationship2) && isset($request->guardian_phone2) && isset($request->guardian_landline2)){
+            if (isset($request->guardian_name2) && isset($request->guardian_relationship2) && isset($request->guardian_phone2) && isset($request->guardian_landline2)) {
                 DB::table('guardians')->insert([
                     'Registration_ID' => $reg_id, // Get last inserted ID for registration
                     'Name' => $request->guardian_name2,
@@ -268,7 +271,7 @@ class RegistrationController extends Controller
                     'Landline_Number' => $request->guardian_landline2,
                 ]);
             }
-            if(isset($request->guardian_name3) && isset($request->guardian_relationship3) && isset($request->guardian_phone3) && isset($request->guardian_landline3)){
+            if (isset($request->guardian_name3) && isset($request->guardian_relationship3) && isset($request->guardian_phone3) && isset($request->guardian_landline3)) {
                 DB::table('guardians')->insert([
                     'Registration_ID' => $reg_id, // Get last inserted ID for registration
                     'Name' => $request->guardian_name3,

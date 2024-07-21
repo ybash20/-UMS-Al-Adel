@@ -732,15 +732,6 @@
                                 $.each(data, function(key, value) {
                                     $('#guardian_directorate').append('<option value="' + key + '">' + value + '</option>');
                                 });
-                                // @if (App::getLocale() == 'ar')
-                                //     @foreach ($colleges as $college)
-                                //         <option value="{{ $college->id }}">{{ $college->Name_Arabic }}</option>
-                                //     @endforeach
-                                // @else
-                                //     @foreach ($colleges as $college)
-                                //         <option value="{{ $college->id }}">{{ $college->Name_English }}</option>
-                                //     @endforeach
-                                // @endif
                             },
                             error: function(xhr, status, error) {
                                 console.error('AJAX Error:', status, error);

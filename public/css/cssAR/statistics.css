@@ -200,6 +200,8 @@
     display: flex;
     justify-content: center;
     max-width: 1562px;
+    margin: auto;
+
 }
 
 .statistics-header-inner {
@@ -230,13 +232,9 @@
 .statistics-header-inner h3:hover::after {
     width: 90%;
 }
-#sta-v5h div:nth-child(2n) .statistic-iix {
-    color: var(--sub2-color);
+#sta-v5h div .statistic-iix {
+    color: #8f8f8f;
 }
-#sta-v5h div:nth-child(2n + 1) .statistic-iix {
-    color: var(--sub2-color);
-}
-
 .wave-footer {
     position: relative;
     width: 100%;
