@@ -49,9 +49,9 @@
 
     @push('top_loader')
         {{-- loader  --}}
-        {{-- <div class="wr" id="wr-loader">
+        <div class="wr" id="wr-loader">
             <div id="page-loader" class="page-loader"></div>
-        </div> --}}
+        </div>
         {{-- loader  --}}
         <div class="wrapper">
     @endpush

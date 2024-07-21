@@ -43,7 +43,7 @@ function validateForm(form) {
         }
     });
 
-    return true;
+    return isValid;
 }
 
 // Event listeners for next and back buttons
