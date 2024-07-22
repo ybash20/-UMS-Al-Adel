@@ -34,6 +34,10 @@
 			$this->col[] = ["label"=>"Name Arabic","name"=>"Name_Arabic","width"=>"250"];
 			$this->col[] = ["label"=>"Major","name"=>"Major_ID","join"=>"majors,Name_Arabic","width"=>"250"];
 			$this->col[] = ["label"=>"Level","name"=>"Level_ID","join"=>"levels,Name_Arabic","width"=>"250"];
+			$this->col[] = ["label"=>"Neighborhood","name"=>"Address_ID","join"=>"addresses,Neighborhood","width"=>"250"];
+			$this->col[] = ["label"=>"Address Notes","name"=>"Address_ID","join"=>"addresses,Notes","width"=>"250"];
+			$this->col[] = ["label"=>"Directorate","name"=>"addresses.Directorate_ID","join"=>"directorates,Name","width"=>"250"];
+			$this->col[] = ["label"=>"Governorate","name"=>"directorates.Governorate_ID","join"=>"governorates,Name","width"=>"250"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE

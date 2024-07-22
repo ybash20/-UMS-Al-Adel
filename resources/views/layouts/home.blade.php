@@ -25,7 +25,7 @@
                 z-index: 9998;
             }
             .wrapper{
-                /* display: none; */
+                display: none;
             }
         </style>
         @if (App::getLocale() == 'ar')
