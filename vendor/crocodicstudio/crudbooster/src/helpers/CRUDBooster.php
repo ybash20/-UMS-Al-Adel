@@ -1072,19 +1072,31 @@ class CRUDBooster
             $a['url'] = Request::url();
             $a['description'] = $description;
             $detail = '';
+            
             if (is_array($details) || is_object($details)) {
                 foreach ($details as $key => $val) {
-                    $detail .= $key . ': ' . $val . '<br>';
+                    
+                    if (is_array($val) || is_object($val)){
+                        $detail .= $key . ': ';
+                        foreach ($val as $valkey => $vals) {
+                            $detail .= $valkey . ': ' . $vals;
+                        }
+                        $detail .= '<br>';
+                    }
+                    else{
+                        $detail .= $key . ': ' . $val . '<br>';
+                    }
                 }
             } else {
                 $detail = $details;
             }
+    
             $a['details'] = $detail;
             $a['id_ums_users'] = self::myId();
             DB::table('ums_logs')->insert($a);
         }
     }
-
+    
     public static function referer()
     {
         return Request::server('HTTP_REFERER');

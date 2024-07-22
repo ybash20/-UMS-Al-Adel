@@ -180,17 +180,14 @@
 
         .login-box-body {
             max-width: 508px;
-            box-shadow: 10px 10px 35px -10px black;
+            box-shadow: 5px 5px 20px -10px black !important;
             border-radius: 15px;
-            height: 450px;
-            padding: 37px;
-            background-color: white;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             margin-bottom: 5px;
             background: #fff;
-            padding: 20px;
+            padding: 25px;
             border-top: 0;
             color: #666;
             text-align: center;

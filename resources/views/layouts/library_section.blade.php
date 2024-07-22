@@ -1,7 +1,7 @@
     <!--About-->
     <div class="main_continar">
-        <div class="statistics-header">
-            <div class="statistics-header-inner">
+        <div class="news-header">
+            <div class="news-header-inner">
                 <a href="{{ route('library') }}" style="color: #007bff">
                     {{ cbLang('Library') }}
                 </a>

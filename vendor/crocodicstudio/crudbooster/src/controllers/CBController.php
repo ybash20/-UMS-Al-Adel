@@ -226,7 +226,7 @@ class CBController extends Controller
             if (request('foreign_key')) {
                 $data['parent_field'] = request('foreign_key');
             } else {
-                $data['parent_field'] = CB::getTableForeignKey(g('parent_table'), $this->table);
+                $data['parent_field'] = CB::getTableForeignKey(g('parent_table'));
             }
 
             if ($data['parent_field']) {
@@ -629,7 +629,7 @@ class CBController extends Controller
         } //end foreach data[result]
 
         $html_contents = ['html' => $html_contents, 'data' => $data['result']];
-
+        
         $data['html_contents'] = $html_contents;
 
         return view("crudbooster::default.index", $data);
