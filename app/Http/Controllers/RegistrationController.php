@@ -41,7 +41,7 @@ class RegistrationController extends Controller
     }
     public function getDirectorates($govId)
     {
-        $dirs = DB::table('directorates')->where('Governorate_ID', $govId)->pluck('Name_Arabic', 'Name_English', 'id');
+        $dirs = DB::table('directorates')->where('Governorate_ID', $govId)->pluck('Name', 'id');
 
         return response()->json($dirs);
     }

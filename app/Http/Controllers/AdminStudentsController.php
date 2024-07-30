@@ -39,42 +39,27 @@
 			$this->col[] = ["label"=>"Directorate","name"=>"addresses.Directorate_ID","join"=>"directorates,Name","width"=>"250"];
 			$this->col[] = ["label"=>"Governorate","name"=>"directorates.Governorate_ID","join"=>"governorates,Name","width"=>"250"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
-
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
 			$this->form[] = ['label'=>'Name English','name'=>'Name_English','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Name Arabic','name'=>'Name_Arabic','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select2','validation'=>'required','datatable'=>'majors,Name_Arabic','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Level','name'=>'Level_ID','type'=>'select2','validation'=>'required','datatable'=>'levels,Name_Arabic','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'majors,Name_Arabic'];
+			$this->form[] = ['label'=>'Level','name'=>'Level_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'levels,Name_Arabic'];
 			$this->form[] = ['label'=>'Code','name'=>'Code','type'=>'text','validation'=>'required|integer','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required|integer|between:0,1','help'=>'0 Male   ,   1 Female','dataenum'=>'0;1','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required|integer|between:0,1','width'=>'col-sm-9','dataenum'=>'0;1','help'=>'0 Male   ,   1 Female'];
 			$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required|date','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Email','name'=>'Email','type'=>'email','validation'=>'required','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','validation'=>'required|integer','width'=>'col-sm-9'];
-			// $this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','dataenum'=>'Single;Married'];
-			$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select','validation'=>'required','dataenum'=>'Single;Married','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select','validation'=>'required','width'=>'col-sm-9','dataenum'=>'Active;Graduated'];
 			$this->form[] = ['label'=>'Photo','name'=>'Photo','type'=>'upload','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Not Allowed Show','name'=>'Not_Allowed_Show','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Not Allowed Show','name'=>'Not_Allowed_Show','type'=>'text','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Notes','name'=>'Notes','type'=>'text','width'=>'col-sm-9'];
-			# END FORM DO NOT REMOVE THIS LINE
 
-			# OLD START FORM
-			//$this->form = [];
-			//$this->form[] = ['label'=>'Name English','name'=>'Name_English','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Name Arabic','name'=>'Name_Arabic','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-9','datatable'=>'majors,Name_Arabic'];
-			//$this->form[] = ['label'=>'Major','name'=>'Major_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'levels,Name_Arabic'];
-			//$this->form[] = ['label'=>'Level','name'=>'Level_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','value'=>'123'];
-			//$this->form[] = ['label'=>'Code','name'=>'Code','type'=>'text','validation'=>'required','width'=>'col-sm-9','dataenum'=>'1;0','help'=>'1 Male   ,   0 Female'];
-			//$this->form[] = ['label'=>'Gender','name'=>'Gender','type'=>'select','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'DOB','name'=>'DOB','type'=>'date','validation'=>'required|date','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Email','name'=>'Email','type'=>'email','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Phone Number','name'=>'Phone_number','type'=>'number','validation'=>'required|integer','width'=>'col-sm-9','datatable'=>'addresses,Neighborhood'];
-			//$this->form[] = ['label'=>'Address','name'=>'Address_ID','type'=>'select2','validation'=>'required','width'=>'col-sm-9','dataenum'=>'Single;Married'];
-			//$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select','validation'=>'required','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Photo','name'=>'Photo','type'=>'upload','width'=>'col-sm-9','dataenum'=>'1;0'];
-			//$this->form[] = ['label'=>'Not Allowed Show','name'=>'Not_Allowed_Show','type'=>'select','width'=>'col-sm-9'];
-			//$this->form[] = ['label'=>'Notes','name'=>'Notes','type'=>'text','width'=>'col-sm-9'];
-			# OLD END FORM
+			$this->form[] = ['label'=>'Governorate','type'=>'select','name'=>'Governorate_ID','datatable'=>'governorates,Name'];
+			$this->form[] = ['label'=>'Directorate','type'=>'select','name'=>'Directorate_ID','datatable'=>'directorates,Name','parent_select'=>'Governorate_ID'];
+			$this->form[] = ['label'=>'Neighborhood','name'=>'Neighborhood','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Address Notes','name'=>'AddressNotes','type'=>'textarea','width'=>'col-sm-9'];
+			# END FORM DO NOT REMOVE THIS LINE
 
 			/*
 	        | ----------------------------------------------------------------------
@@ -89,8 +74,8 @@
 	        |
 	        */
 	        $this->sub_module = array();
-
-
+			
+			
 	        /*
 	        | ----------------------------------------------------------------------
 	        | Add More Action Button / Menu
@@ -176,7 +161,7 @@
 	        $this->script_js = NULL;
 
 
-            /*
+			/*
 	        | ----------------------------------------------------------------------
 	        | Include HTML Code before index table
 	        | ----------------------------------------------------------------------
@@ -283,6 +268,15 @@
 	    */
 	    public function hook_before_add(&$postdata) {
 	        //Your code here
+			unset($postdata['Governorate_ID']);
+
+			DB::table('addresses')->insert(['Governorate_ID' => $postdata['Directorate_ID'],'Neighborhood' => $postdata['Neighborhood'],'Notes' => $postdata['AddressNotes']]);
+			
+			$postdata['Address_ID'] = DB::getPdo()->lastInsertId();
+
+			unset($postdata['Directorate_ID']);
+			unset($postdata['Neighborhood']);
+			unset($postdata['AddressNotes']);
 
 	    }
 
@@ -308,6 +302,15 @@
 	    */
 	    public function hook_before_edit(&$postdata,$id) {
 	        //Your code here
+			unset($postdata['Governorate_ID']);
+
+			DB::table('addresses')->insert(['Directorate_ID' => $postdata['Directorate_ID'],'Neighborhood' => $postdata['Neighborhood'],'Notes' => $postdata['AddressNotes']]);
+			
+			$postdata['Address_ID'] = DB::getPdo()->lastInsertId();
+
+			unset($postdata['Directorate_ID']);
+			unset($postdata['Neighborhood']);
+			unset($postdata['AddressNotes']);
 
 	    }
 

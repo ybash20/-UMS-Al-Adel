@@ -86,7 +86,7 @@ return [
   'text_default_help_url' => 'Please enter a valid URL',
   'text_dashboard' => 'Dashboard',
   'text_delete' => 'Delete',
-  'text_prefix_option' => '** Please select a',
+  'text_prefix_option' => 'Select a',
   'text_loading' => 'Please wait loading...',
 
   'message_after_logout' => 'Thank You, See You Later !',

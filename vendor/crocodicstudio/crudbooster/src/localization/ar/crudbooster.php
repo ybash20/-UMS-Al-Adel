@@ -102,7 +102,7 @@ return [
     'text_default_help_text' => 'فضلا ادخل احرف فقط',
     'text_default_help_url' => 'فضلا ادخل رابط إلكتروني صحيح',
     'text_dashboard' => 'الرئيسية',
-    'text_prefix_option' => '** فضلا اختر',
+    'text_prefix_option' => ' اختر',
     'text_loading' => 'فضلا الانتظار جاري التحميل ...',
 
     'message_after_logout' => 'شكرا لك ، نراك لاحقا !',

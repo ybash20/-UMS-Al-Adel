@@ -32,22 +32,20 @@
 			$this->col = [];
 			$this->col[] = ["label"=>"Id","name"=>"id"];
 			$this->col[] = ["label"=>"Directorate","name"=>"Directorate_ID","join"=>"directorates,Name"];
-			$this->col[] = ["label"=>"Governorate","name"=>"Governorate_ID","join"=>"governorates,Name"];
-			$this->col[] = ["label"=>"Neighborhood","name"=>"Neighborhood"];
+			$this->col[] = ["label"=>"Governorate","name"=>"directorates.Governorate_ID","join"=>"governorates,Name"];
+			$this->col[] = ["label"=>"Neighborhood","name"=>"addresses.Neighborhood"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
-
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Governorate','name'=>'Governorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'governorates,Name'];
-			$this->form[] = ['label'=>'Directorate','name'=>'Directorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'directorates,Name'];
+			$this->form[] = ['label'=>'Governorate','type'=>'select','name'=>'Governorate_ID','datatable'=>'governorates,Name'];
+			$this->form[] = ['label'=>'Directorate','type'=>'select','name'=>'Directorate_ID','datatable'=>'directorates,Name','parent_select'=>'Governorate_ID'];
 			$this->form[] = ['label'=>'Neighborhood','name'=>'Neighborhood','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Notes','name'=>'Notes','type'=>'textarea','width'=>'col-sm-9'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Governorate','name'=>'Governorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'governorates,Name'];
-			//$this->form[] = ['label'=>'Directorate','name'=>'Directorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9','datatable'=>'directorates,Name'];
+			//$this->form[] = ['label'=>'Directorate','name'=>'Directorate_ID','type'=>'select','validation'=>'required','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Neighborhood','name'=>'Neighborhood','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Notes','name'=>'Notes','type'=>'textarea','width'=>'col-sm-9'];
 			# OLD END FORM
@@ -259,7 +257,8 @@
 	    */
 	    public function hook_before_add(&$postdata) {
 	        //Your code here
-
+			unset($postdata['Governorate_ID']);
+			
 	    }
 
 	    /*
@@ -284,6 +283,7 @@
 	    */
 	    public function hook_before_edit(&$postdata,$id) {
 	        //Your code here
+			unset($postdata['Governorate_ID']);
 
 	    }
 
