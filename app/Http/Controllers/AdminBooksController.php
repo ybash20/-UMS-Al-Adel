@@ -34,6 +34,7 @@
 			$this->col[] = ["label"=>"Title","name"=>"Title","width"=>"300"];
 			$this->col[] = ["label"=>"Author","name"=>"Author","width"=>"250"];
 			$this->col[] = ["label"=>"Section","name"=>"Section_ID","join"=>"library_sections,Name_Arabic","width"=>"300"];
+			$this->col[] = ["label"=>"Cover","name"=>"Cover_Image","image"=>true];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE

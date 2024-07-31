@@ -555,10 +555,10 @@ class CBController extends Controller
 
         if (isset($col['image'])) {
           if ($value == '') {
-            $value = "<a  data-lightbox='roadtrip' rel='group_{{$table}}' title='$label: $title' href='" . asset('image\user.png') . "'><img width='40px' height='40px' src='" . asset('image\user.png') . "'/></a>";
+            $value = "<a  data-lightbox='roadtrip' rel='group_{{$table}}' title='$label: $title' href='" . asset('images\alt.png') . "'><img width='52px' height='40px' src='" . asset('images\alt.png') . "'/></a>";
           } else {
             $pic = (strpos($value, 'http://') !== false) ? $value : asset($value);
-            $value = "<a data-lightbox='roadtrip'  rel='group_{{$table}}' title='$label: $title' href='" . $pic . "'><img width='40px' height='40px' src='" . $pic . "'/></a>";
+            $value = "<a data-lightbox='roadtrip' rel='group_{{$table}}' title='$label: $title' href='" . $pic . "'><img height='40px' src='" . $pic . "'/></a>";
           }
         }
 

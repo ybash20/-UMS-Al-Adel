@@ -270,7 +270,7 @@
 	        //Your code here
 			unset($postdata['Governorate_ID']);
 
-			DB::table('addresses')->insert(['Governorate_ID' => $postdata['Directorate_ID'],'Neighborhood' => $postdata['Neighborhood'],'Notes' => $postdata['AddressNotes']]);
+			DB::table('addresses')->insert(['Directorate_ID' => $postdata['Directorate_ID'],'Neighborhood' => $postdata['Neighborhood'],'Notes' => $postdata['AddressNotes']]);
 			
 			$postdata['Address_ID'] = DB::getPdo()->lastInsertId();
 

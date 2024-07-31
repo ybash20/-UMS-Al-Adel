@@ -32,6 +32,8 @@
 			$this->col = [];
 			$this->col[] = ["label"=>"Id","name"=>"id"];
 			$this->col[] = ["label"=>"News","name"=>"News_ID","join"=>"news,Title_Arabic"];
+			$this->col[] = ["label"=>"News","name"=>"News_ID","join"=>"news,Title_English"];
+			$this->col[] = ["label"=>"News Image","name"=>"News_Image","image"=>true];
 			$this->col[] = ["label"=>"Caption","name"=>"Caption"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
