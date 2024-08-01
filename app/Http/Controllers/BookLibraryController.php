@@ -19,7 +19,7 @@ class BookLibraryController extends Controller
     $bookShow = [];
 
     foreach ($sections as $section) {
-        $bookShow[$section->id] = Book::where('Section_ID', $section->id)
+        $bookShow[$section->id] = book::where('Section_ID', $section->id)
             ->inRandomOrder()
             ->limit(4) // جلب 9 كتب عشوائية لكل قسم
             ->get();

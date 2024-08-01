@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-use crocodicstudio\crudbooster\helpers\CRUDBooster;
+use App\Helpers\UMS;
 
 
 class BackupDatabase extends Command
@@ -68,14 +68,13 @@ class BackupDatabase extends Command
         } else {
         }
         if ($returnVar !== 0) {
-            CRUDbooster::insertLog(cbLang('backup_database_failed') , implode("\n", $output));
+            UMS::insertLog(lang('backup_database_failed') , implode("\n", $output));
             $this->error("Database Backup Failed,\n Error: " . implode("\n", $output));
             return Command::FAILURE;
         } else {
-            CRUDbooster::insertLog(cbLang('backup_database_done') , $backupPath);
+            UMS::insertLog(lang('backup_database_done') , $backupPath);
             $this->info('Database Backup Done successfully');
             return Command::SUCCESS;
         }
-        return Command::SUCCESS;
     }
 }

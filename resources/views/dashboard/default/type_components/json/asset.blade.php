@@ -1,0 +1,1 @@
+<script src='<?php echo asset("vendor/ums/assets/jsoneditor/jsoneditor.min.js")?>'></script>

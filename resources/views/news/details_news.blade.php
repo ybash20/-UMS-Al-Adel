@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title',cbLang('News Details'))
+@section('title',lang('News Details'))
 @section('details_news', 'active')
 @section('about', 'active')
 

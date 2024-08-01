@@ -3,9 +3,9 @@
 	use Session;
 	use Request;
 	use DB;
-	use CRUDBooster;
+	use UMS;
 
-	class AdminCoursesController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminCoursesController extends UMSController {
 
 	    public function cbInit() {
 

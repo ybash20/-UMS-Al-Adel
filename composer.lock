@@ -339,68 +339,6 @@
             "time": "2023-08-31T09:50:34+00:00"
         },
         {
-            "name": "crocodicstudio/crudbooster",
-            "version": "v5.6.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/crocodic-studio/crudbooster.git",
-                "reference": "ee10ae15e42ed5448264f0fd82586a5041c3a36c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/crocodic-studio/crudbooster/zipball/ee10ae15e42ed5448264f0fd82586a5041c3a36c",
-                "reference": "ee10ae15e42ed5448264f0fd82586a5041c3a36c",
-                "shasum": ""
-            },
-            "require": {
-                "barryvdh/laravel-dompdf": "0.8.*",
-                "doctrine/dbal": "~2.3",
-                "intervention/imagecache": "^2.3",
-                "laravel/framework": "^7.30|^8.34",
-                "maatwebsite/excel": "^3.1",
-                "php": "^7.4"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "crocodicstudio\\crudbooster\\CRUDBoosterServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "crocodicstudio\\crudbooster\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ferry",
-                    "email": "ferry@crocodic.com"
-                }
-            ],
-            "description": "CRUDBooster Is CRUD Generator Based On Laravel Easy To Make An Advanced Backend",
-            "keywords": [
-                "admin-panel",
-                "backend",
-                "crud",
-                "crud-generator",
-                "crudbooster",
-                "generator",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/crocodic-studio/crudbooster/issues",
-                "source": "https://github.com/crocodic-studio/crudbooster/tree/v5.6.2"
-            },
-            "abandoned": true,
-            "time": "2021-07-07T05:32:26+00:00"
-        },
-        {
             "name": "dflydev/dot-access-data",
             "version": "v3.0.2",
             "source": {

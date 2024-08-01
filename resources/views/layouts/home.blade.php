@@ -82,9 +82,9 @@
 
     @push('bottom')
         <!-- loader -->
-        <script src="{{ asset('vendor/crudbooster/assets/lottie.min.js') }}"></script>
+        <script src="{{ asset('vendor/ums/assets/lottie.min.js') }}"></script>
         <!-- Load jQuery -->
-        <script src="{{ asset('vendor/crudbooster/assets/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ asset('vendor/ums/assets/jquery-3.6.0.min.js') }}"></script>
         <script>
             // Load the animation
             var animation = lottie.loadAnimation({
@@ -92,7 +92,7 @@
                 renderer: 'svg',
                 loop: true,
                 autoplay: true,
-                path: 'vendor/crudbooster/assets/data.json'
+                path: 'vendor/ums/assets/data.json'
             });
             // Hide loader and show content when the page has fully loaded
             $(window).on('load', function() {

@@ -11,7 +11,7 @@
         <div class="statistics-header">
             <div class="statistics-header-inner">
                 <h3>
-                    {{ cbLang('University statistics') }}
+                    {{ lang('University statistics') }}
                 </h3>
             </div>
         </div>
@@ -25,7 +25,7 @@
                     </span>
                 </h3>
                 <h4 class="statistics-h4 text-q79">
-                    {{ cbLang('Majors') }}
+                    {{ lang('Majors') }}
                 </h4>
             </div>
             <div class="card-m3b">
@@ -37,7 +37,7 @@
                     </span>
                 </h3>
                 <h4 class="statistics-h4 text-q79">
-                    {{ cbLang('Students') }}
+                    {{ lang('Students') }}
                 </h4>
             </div>
             <div class="card-m3b">
@@ -49,7 +49,7 @@
                     </span>
                 </h3>
                 <h4 class="statistics-h4 text-q79">
-                    {{ cbLang('Employees') }}
+                    {{ lang('Employees') }}
                 </h4>
             </div>
             <div class="card-m3b">
@@ -61,7 +61,7 @@
                     </span>
                 </h3>
                 <h4 class="statistics-h4 text-q79">
-                    {{ cbLang('Books') }}
+                    {{ lang('Books') }}
                 </h4>
             </div>
             <div class="card-m3b">
@@ -73,7 +73,7 @@
                     </span>
                 </h3>
                 <h4 class="statistics-h4 text-q79">
-                    {{ cbLang('Colleges') }}
+                    {{ lang('Colleges') }}
                 </h4>
             </div>
         </div>

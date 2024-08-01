@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 
-class Book extends Model
+class book extends Model
 {
     use HasFactory;
 

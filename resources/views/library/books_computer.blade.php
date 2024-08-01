@@ -128,16 +128,16 @@
                             <img src="{{ asset('image/about.png') }}" alt="Book Cover">
                         @endif
 
-                        <h3 class="book-title-1">{{ cbLang('Book:') }} {{ $book->Title }}</h3>
-                        <p class="book-author-1">{{ cbLang('Author:') }}{{ $book->Author }}</p>
+                        <h3 class="book-title-1">{{ lang('Book:') }} {{ $book->Title }}</h3>
+                        <p class="book-author-1">{{ lang('Author:') }}{{ $book->Author }}</p>
                     </div>
                 @endforeach
             @else
-                <p class="error-message_books">{{ cbLang('No books found') }}</p>
+                <p class="error-message_books">{{ lang('No books found') }}</p>
             @endif
         </div>
     </div>
-    <div id="error-message1" class="error-message_books" style="display: none;">{{ cbLang('No books found') }}</div>
+    <div id="error-message1" class="error-message_books" style="display: none;">{{ lang('No books found') }}</div>
     <script>
         function searchBooks() {
             const searchQuery = document.getElementById('search-query').value.toLowerCase();

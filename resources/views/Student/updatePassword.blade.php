@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', cbLang('Edit Password') )
+@section('title', lang('Edit Password') )
 @section('main')
 <style>
     .content_wrapper_stupass {
@@ -107,16 +107,16 @@
 
 <div class="content_wrapper_stupass">
     <div class="content_stupass">
-        <h2>{{ cbLang('Edit Password') }}</h2>
+        <h2>{{ lang('Edit Password') }}</h2>
         <form id="resetPasswordForm" action="{{ route('updatePassword') }}" method="POST">
             @csrf
-            <label for="newPassword"> {{ cbLang('Enter New Password') }} </label>
+            <label for="newPassword"> {{ lang('Enter New Password') }} </label>
             <input type="password" id="newPassword" name="newPassword" required>
 
-            <label for="confirmPassword"> {{ cbLang('Confirm New Password') }} </label>
+            <label for="confirmPassword"> {{ lang('Confirm New Password') }} </label>
             <input type="password" id="confirmPassword" name="confirmPassword" required>
 
-            <button type="submit">{{ cbLang('Submit') }}</button>
+            <button type="submit">{{ lang('Submit') }}</button>
         </form>
         <div class="success_message_stupass" id="successMessage">
             @if (session('success'))
@@ -157,7 +157,7 @@
                 // If the passwords don't match, display an error message
                 var errorMessage = document.createElement('div');
                 errorMessage.style.color = 'red';
-                errorMessage.textContent = '{{ cbLang("Passwords do not match") }}';
+                errorMessage.textContent = '{{ lang("Passwords do not match") }}';
                 successMessage.appendChild(errorMessage);
             }
         });

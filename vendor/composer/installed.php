@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'bdbed31220cd341398314694bde9dbf9d2bd5a9e',
+        'reference' => 'ea96acaef3f6f54c470ba6d863936fe92ca1db37',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -60,15 +60,6 @@
             'replaced' => array(
                 0 => '*',
             ),
-        ),
-        'crocodicstudio/crudbooster' => array(
-            'pretty_version' => 'v5.6.2',
-            'version' => '5.6.2.0',
-            'reference' => 'ee10ae15e42ed5448264f0fd82586a5041c3a36c',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../crocodicstudio/crudbooster',
-            'aliases' => array(),
-            'dev_requirement' => false,
         ),
         'davedevelopment/hamcrest-php' => array(
             'dev_requirement' => true,
@@ -505,7 +496,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'bdbed31220cd341398314694bde9dbf9d2bd5a9e',
+            'reference' => 'ea96acaef3f6f54c470ba6d863936fe92ca1db37',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

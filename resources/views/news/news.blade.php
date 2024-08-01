@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', cbLang('News'))
+@section('title', lang('News'))
 @section('news', 'active')
 
 @section('main')
@@ -51,7 +51,7 @@
                 @endforeach
             </div>
             @if ($showMore)
-                <button class="show-more-button" data-category-id="{{ $category->id }}">{{ cbLang('Read more') }}</button>
+                <button class="show-more-button" data-category-id="{{ $category->id }}">{{ lang('Read more') }}</button>
                 <div class="more-news" data-category-id="{{ $category->id }}" style="display: none;">
                     @foreach ($sortedNews->skip(3) as $news)
                         <a href="{{ route('news.details', $news->id) }}" class="news_item">
@@ -76,7 +76,7 @@
                     @endforeach
                 </div>
             @endif
-            <button class="show-less-button" data-category-id="{{ $category->id }}" style="display: none;">{{ cbLang('Read less') }}</button>
+            <button class="show-less-button" data-category-id="{{ $category->id }}" style="display: none;">{{ lang('Read less') }}</button>
             <hr class="section_separator">
         </div>
     @endforeach

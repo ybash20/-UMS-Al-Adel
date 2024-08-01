@@ -27,20 +27,20 @@
                 <div class="section-content">
                     <div class="section_content_container">
                         <h2 class="section_title">
-                            {{ cbLang('our_services') }}
+                            {{ lang('our_services') }}
                         </h2>
                         <ul class="footer-ul section_list">
                             <li>
                                 <a href="{{ route('StudentgetLogin') }}">
                                     <span>
-                                        {{ cbLang('Student_login') }}
+                                        {{ lang('Student_login') }}
                                     </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('registration') }}">
                                     <span>
-                                        {{ cbLang('electronic_registration') }}
+                                        {{ lang('electronic_registration') }}
                                     </span>
                                 </a>
                             </li>
@@ -50,34 +50,34 @@
                 <div class="section-content">
                     <div class="section_content_container">
                         <h2 class="section_title">
-                            {{ cbLang('important_link') }}
+                            {{ lang('important_link') }}
                         </h2>
                         <ul class="footer-ul section_list">
                             <li>
                                 <a href="{{ route('news') }}">
                                     <span>
-                                        {{ cbLang('Events and news') }}
+                                        {{ lang('Events and news') }}
                                     </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('library') }}">
                                     <span>
-                                        {{ cbLang('Library') }}
+                                        {{ lang('Library') }}
                                     </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('University_guide') }}">
                                     <span>
-                                        {{ cbLang('University guide') }}
+                                        {{ lang('University guide') }}
                                     </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('Students_Affairs') }}">
                                     <span>
-                                        {{ cbLang('Students Affairs') }}
+                                        {{ lang('Students Affairs') }}
                                     </span>
                                 </a>
                             </li>
@@ -86,39 +86,39 @@
                 </div>
                 <div class="section-content">
                     <h2 class="section_title">
-                        {{ cbLang('University location') }}
+                        {{ lang('University location') }}
                     </h2>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8937.163427615887!2d44.97096182687302!3d12.835120648389855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x161e1d29e7cb165f%3A0x738af63d3af0cc21!2z2KzYp9mF2LnYqSDYp9mE2LnYp9iv2YQg2YTZhNi52YTZiNmFINin2YTYpdmG2LPYp9mG2YrYqSDZiNin2YTYqti32KjZitmC2YrYqQ!5e0!3m2!1sar!2s!4v1715543660465!5m2!1sar!2s" class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="section-content">
                     <a href="#" rel="noreferrer" target="_blank">
                         <h2 class="section_title">
-                            {{ cbLang('University logo') }}
+                            {{ lang('University logo') }}
                         </h2>
-                        <img src="{{ asset('vendor/crudbooster/assets/LOGO.png') }}" />
+                        <img src="{{ asset('vendor/ums/assets/LOGO.png') }}" />
                     </a>
                 </div>
             </div>
         </div>
         <div class="region-bottom-footer">
             <div class="block-copyright-footer">
-                <strong>{{ cbLang('all_rights_reserved') }} &copy;. {{ cbLang('copyright') }} <?php echo date('Y') ?> </strong>
+                <strong>{{ lang('all_rights_reserved') }} &copy;. {{ lang('copyright') }} <?php echo date('Y') ?> </strong>
             </div>
             <nav class="copyright-links">
                 <ul class="footer-ul nav navbar-nav">
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            {{ cbLang('Copyrights') }}
+                            {{ lang('Copyrights') }}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            {{ cbLang('privacy_policy') }}
+                            {{ lang('privacy_policy') }}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            {{ cbLang('terms_of_use') }}
+                            {{ lang('terms_of_use') }}
                         </a>
                     </li>
                 </ul>

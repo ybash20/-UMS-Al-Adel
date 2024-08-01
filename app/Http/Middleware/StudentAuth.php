@@ -17,7 +17,7 @@ class StudentAuth
     public function handle(Request $request, Closure $next)
     {
         if (!Session::has('student_id')) {
-            return redirect()->route('StudentgetLogin')->with('message', cbLang('login-message'));
+            return redirect()->route('StudentgetLogin')->with('message', lang('login-message'));
         }
 
         

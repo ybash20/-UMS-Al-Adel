@@ -6,10 +6,10 @@ use App\Models\major;
 use Illuminate\Http\Request;
 use App\Models\news;
 use App\Models\content;
-use App\Models\Book;
+use App\Models\book;
 use App\Models\library_section;
 use App\Models\college;
-use crocodicstudio\crudbooster\helpers\CRUDBooster;
+use App\Helpers\UMS;
 use Illuminate\Support\Str;
 use DB;
 
@@ -50,7 +50,7 @@ class home extends Controller
         $bookShow = [];
 
         foreach ($sections as $section) {
-            $bookShow[$section->id] = Book::where('Section_ID', $section->id)
+            $bookShow[$section->id] = book::where('Section_ID', $section->id)
                 ->inRandomOrder()
                 ->limit(4) // جلب 4 كتب عشوائية لكل قسم
                 ->get();

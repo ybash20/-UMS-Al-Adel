@@ -15,6 +15,6 @@ class library_section extends Model
 
     public function books()
     {
-        return $this->hasMany(Book::class, 'Section_ID');
+        return $this->hasMany(book::class, 'Section_ID');
     }
 }

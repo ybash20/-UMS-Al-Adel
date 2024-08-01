@@ -15,7 +15,7 @@ use App\Models\identity_types;
 use App\Models\major;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use crocodicstudio\crudbooster\helpers\CRUDBooster;
+use App\Helpers\UMS;
 use App;
 
 class RegistrationController extends Controller
@@ -53,7 +53,7 @@ class RegistrationController extends Controller
         $identityTypes = identity_types::pluck('Name', 'id');
         $qualificationType = DB::table('qualification_type')->pluck('Name', 'id');
         $disciplines = DB::table('disciplines')->pluck('Name', 'id');
-        $colleges = DB::table('colleges')->pluck('Name_Arabic', 'Name_English', 'id');
+        $colleges = DB::table('colleges')->select('Name_Arabic', 'Name_English', 'id');
         $gov = DB::table('governorates')->pluck('Name', 'id');
 
 
@@ -283,12 +283,12 @@ class RegistrationController extends Controller
 
             DB::commit();
 
-            CRUDBooster::insertLog("Registration ID:$reg_id Success ", $request->all());
+            UMS::insertLog("Registration ID:$reg_id Success ", $request->all());
             return response()->json(['message' => 'You have been registered', 'type' => 'success']);
         } catch (\Exception $e) {
             DB::rollBack();
             $message = $e->getMessage();
-            CRUDBooster::insertLog("Registration failed", $message);
+            UMS::insertLog("Registration failed", $message);
             return response()->json(['message' => $message, 'type' => 'error']);
         }
     }

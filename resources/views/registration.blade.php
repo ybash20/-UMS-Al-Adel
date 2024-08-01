@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', cbLang('Electronic registration'))
+@section('title', lang('Electronic registration'))
 @section('registration', 'active')
 
 @section('main')
@@ -46,124 +46,124 @@
                 @csrf
                 <div class="form_1 data_info">
                     <div class="form_inputs">
-                        <h2>{{ cbLang('personal information') }}</h2>
+                        <h2>{{ lang('personal information') }}</h2>
                         <div class="input_wrap">
                             <div>
-                                <label for="nameAR">{{ cbLang('student name Arabic') }}</label>
+                                <label for="nameAR">{{ lang('student name Arabic') }}</label>
                                 <input type="text" name="nameAR" class="input" id="nameAR" required>
                             </div>
                             <div>
-                                <label for="nameEN">{{ cbLang('student name English') }}</label>
+                                <label for="nameEN">{{ lang('student name English') }}</label>
                                 <input type="text" name="nameEN" class="input" id="nameEN" required>
                             </div>
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="gender">{{ cbLang('Select a gender') }}</label>
+                                <label for="gender">{{ lang('Select a gender') }}</label>
                                 <select name="gender" id="gender" class="input" required>
-                                    <option value="">{{ cbLang('Select a gender') }}</option>
-                                    <option value="0">{{ cbLang('Male') }}</option>
-                                    <option value="1">{{ cbLang('Female') }}</option>
+                                    <option value="">{{ lang('Select a gender') }}</option>
+                                    <option value="0">{{ lang('Male') }}</option>
+                                    <option value="1">{{ lang('Female') }}</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="nationality" class="label">{{ cbLang('Nationality') }}</label>
+                                <label for="nationality" class="label">{{ lang('Nationality') }}</label>
                                 <input type="text" name="nationality" class="input" id="nationality" required>
                             </div>
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="place_of_birth" class="label">{{ cbLang('Place of birth') }}</label>
+                                <label for="place_of_birth" class="label">{{ lang('Place of birth') }}</label>
                                 <input type="text" name="place_of_birth" class="input" id="place_of_birth" required>
                             </div>
                             <div>
-                                <label for="date_of_birth">{{ cbLang('date of birth') }}</label>
+                                <label for="date_of_birth">{{ lang('date of birth') }}</label>
                                 <input type="date" name="date_of_birth" class="input" id="date_of_birth" required>
                             </div>
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="blood_type" class="label">{{ cbLang('blood-type') }}</label>
+                                <label for="blood_type" class="label">{{ lang('blood-type') }}</label>
                                 <select name="blood_type" id="blood_type" class="input" required>
-                                    <option value="">{{ cbLang('Select a blood type') }}</option>
+                                    <option value="">{{ lang('Select a blood type') }}</option>
                                     @foreach ($bloodTypes as $id => $type)
                                         <option value="{{ $id }}">{{ $type }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div>
-                                <label for="marital_status" class="label">{{ cbLang('marital status') }}</label>
+                                <label for="marital_status" class="label">{{ lang('marital status') }}</label>
                                 <select name="marital_status" id="marital_status" class="input" required>
-                                    <option value="">{{ cbLang('Select a Marital Status') }}</option>
+                                    <option value="">{{ lang('Select a Marital Status') }}</option>
                                     @foreach ($maritalStatuses as $id => $status)
                                         <option value="{{ $id }}">{{ $status }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        <h2>{{ cbLang('address information') }}</h2>
+                        <h2>{{ lang('address information') }}</h2>
                         <div class="input_wrap">
                             <div>
-                                <label for="governorate">{{ cbLang('Governorate') }}</label>
+                                <label for="governorate">{{ lang('Governorate') }}</label>
                                 <select name="governorate" id="governorate" class="input" required>
-                                    <option value="">{{ cbLang('Select governorate') }}</option>
+                                    <option value="">{{ lang('Select governorate') }}</option>
                                     @foreach ($gov as $id => $name)
                                         <option value="{{ $id }}">{{ $name }}</option>
                                     @endforeach
-                                    <option value="other">{{ cbLang('Other') }}</option>
+                                    <option value="other">{{ lang('Other') }}</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="directorate" id="directorate_label">{{ cbLang('Directorate') }}</label>
+                                <label for="directorate" id="directorate_label">{{ lang('Directorate') }}</label>
                                 <select name="directorate" id="directorate" class="input" required>
-                                    <option value="">{{ cbLang('Select directorate') }}</option>
+                                    <option value="">{{ lang('Select directorate') }}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="neighborhood">{{ cbLang('neighborbooh') }}</label>
+                                <label for="neighborhood">{{ lang('neighborbooh') }}</label>
                                 <input type="text" name="neighborhood" id="neighborhood" class="input" required>
                             </div>
                             <div>
-                                <label for="address_notes">{{ cbLang('address_notes') }}</label>
+                                <label for="address_notes">{{ lang('address_notes') }}</label>
                                 <input type="text" name="address_notes" id="address_notes" class="input">
                             </div>
                         </div>
-                        <h2>{{ cbLang('Communication Methods') }}</h2>
+                        <h2>{{ lang('Communication Methods') }}</h2>
                         <div class="input_wrap">
                             <div>
-                                <label for="mobile" class="label">{{ cbLang('Phone Number') }}</label>
+                                <label for="mobile" class="label">{{ lang('Phone Number') }}</label>
                                 <input type="tel" name="mobile" id="mobile" class="input" required>
                             </div>
                             <div>
-                                <label for="landline">{{ cbLang('Landline Number') }}</label>
+                                <label for="landline">{{ lang('Landline Number') }}</label>
                                 <input type="tel" name="landline" id="landline" class="input">
                             </div>
                         </div>
-                        <h2>{{ cbLang('Identity information') }}</h2>
+                        <h2>{{ lang('Identity information') }}</h2>
                         <div class="input_wrap">
                             <div>
-                                <label for="id_type">{{ cbLang('ID Type') }}</label>
+                                <label for="id_type">{{ lang('ID Type') }}</label>
                                 <select name="id_type" id="id_type" class="input" required>
-                                    <option value="">{{ cbLang('Select ID Type') }}</option>
+                                    <option value="">{{ lang('Select ID Type') }}</option>
                                     @foreach ($identityTypes as $id => $type)
                                         <option value="{{ $id }}">{{ $type }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div>
-                                <label for="id_number">{{ cbLang('ID Number') }}</label>
+                                <label for="id_number">{{ lang('ID Number') }}</label>
                                 <input type="text" name="id_number" id="id_number" class="input" required>
                             </div>
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="issue_location" class="label">{{ cbLang('issue-location') }}</label>
+                                <label for="issue_location" class="label">{{ lang('issue-location') }}</label>
                                 <input type="text" name="issue_location" id="issue_location" class="input" required>
                             </div>
                             <div>
-                                <label for="issue_date" class="label">{{ cbLang('issue-date') }}</label>
+                                <label for="issue_date" class="label">{{ lang('issue-date') }}</label>
                                 <input type="date" name="issue_date" id="issue_date" class="input" required>
                             </div>
                         </div>
@@ -171,56 +171,56 @@
                 </div>
                 <div class="form_2 data_info" style="display: none;">
                     <div class="form_inputs">
-                        <h2> {{ cbLang('qualifications') }} </h2>
+                        <h2> {{ lang('qualifications') }} </h2>
                         <div class="input_wrap">
                             <div>
-                                <label for="qualification_Type">{{ cbLang('qualification_Type') }}</label>
+                                <label for="qualification_Type">{{ lang('qualification_Type') }}</label>
                                 <select name="qualification_Type" id="qualification_Type" class="input" required>
-                                    <option value="">{{ cbLang('Select Qualification Type') }}</option>
+                                    <option value="">{{ lang('Select Qualification Type') }}</option>
                                     @foreach ($qualificationType as $id => $name)
                                         <option value="{{ $id }}">{{ $name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div>
-                                <label for="disciplines">{{ cbLang('disciplines') }}</label>
+                                <label for="disciplines">{{ lang('disciplines') }}</label>
                                 <select name="disciplines" id="disciplines" class="input" required>
-                                    <option value="">{{ cbLang('Select disciplines Type') }}</option>
+                                    <option value="">{{ lang('Select disciplines Type') }}</option>
                                     @foreach ($disciplines as $id => $name)
                                         <option value="{{ $id }}">{{ $name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        <h2>{{ cbLang('Institution information') }}</h2>
+                        <h2>{{ lang('Institution information') }}</h2>
                         <div class="input_wrap">
                             <div>
-                                <label for="institution_name">{{ cbLang('institution_name') }}</label>
+                                <label for="institution_name">{{ lang('institution_name') }}</label>
                                 <input type="text" name="institution_name" id="institution_name" class="input" required>
                             </div>
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="institution_governorate">{{ cbLang('institution_Governorate') }}</label>
+                                <label for="institution_governorate">{{ lang('institution_Governorate') }}</label>
                                 <select type="text" name="institution_governorate" class="input" id="institution_governorate">
-                                    <option value="">{{ cbLang('Select governorate') }}</option>
+                                    <option value="">{{ lang('Select governorate') }}</option>
                                     @foreach ($gov as $id => $name)
                                         <option value="{{ $id }}">{{ $name }}</option>
                                     @endforeach
-                                    <option value="other">{{ cbLang('Other') }}</option>
+                                    <option value="other">{{ lang('Other') }}</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="institution_directorate" id="institution_directorate_label">{{ cbLang('institution_directorate') }}</label>
+                                <label for="institution_directorate" id="institution_directorate_label">{{ lang('institution_directorate') }}</label>
                                 <select name="institution_directorate" id="institution_directorate" class="input">
-                                    <option value="">{{ cbLang('Select directorate') }}</option>
+                                    <option value="">{{ lang('Select directorate') }}</option>
                                 </select>
                             </div>
                         </div>
-                        <h2>{{ cbLang('Certificate Data') }}</h2>
+                        <h2>{{ lang('Certificate Data') }}</h2>
                         <div class="input_wrap">
                             <div>
-                                <label for="academic_year">{{ cbLang('Academic Year') }}</label>
+                                <label for="academic_year">{{ lang('Academic Year') }}</label>
                                 <select name="academic_year" id="academic_year" class="input" required>
                                     <?php
                                     $currentYear = date('Y');
@@ -233,27 +233,27 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="seat_number">{{ cbLang('Seat Number') }}</label>
+                                <label for="seat_number">{{ lang('Seat Number') }}</label>
                                 <input type="number" name="seat_number" id="seat_number" class="input" required>
                             </div>
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="total_grades">{{ cbLang('Final Grade') }}</label>
+                                <label for="total_grades">{{ lang('Final Grade') }}</label>
                                 <input type="number" name="total_grades" id="total_grades" class="input" required>
                             </div>
                             <div>
-                                <label for="max_pass_grade">{{ cbLang('Total Marks') }}</label>
+                                <label for="max_pass_grade">{{ lang('Total Marks') }}</label>
                                 <input type="number" name="max_pass_grade" id="max_pass_grade" class="input" required>
                             </div>
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="percentage">{{ cbLang('Percentage') }}</label>
+                                <label for="percentage">{{ lang('Percentage') }}</label>
                                 <input type="number" name="percentage" id="percentage" class="input" required>
                             </div>
                             <div>
-                                <label for="certificate_date">{{ cbLang('Certificate Date') }}</label>
+                                <label for="certificate_date">{{ lang('Certificate Date') }}</label>
                                 <input type="date" name="certificate_date" id="certificate_date" class="input" required>
                             </div>
                         </div>
@@ -261,12 +261,12 @@
                 </div>
                 <div class="form_3 data_info" style="display: none;">
                     <div class="form_inputs">
-                        <h2>{{ cbLang('Desired Student Specialization') }}</h2>
+                        <h2>{{ lang('Desired Student Specialization') }}</h2>
                         <div class="input_wrap colleges">
                             <div>
-                                <label>{{ cbLang('Colleges') }}</label>
+                                <label>{{ lang('Colleges') }}</label>
                                 <select name="colleges" class="input" id="colleges">
-                                    <option value="">{{ cbLang('Select College') }}</option>
+                                    <option value="">{{ lang('Select College') }}</option>
                                     @if (App::getLocale() == 'ar')
                                         @foreach ($colleges as $college)
                                             <option value="{{ $college->id }}">{{ $college->Name_Arabic }}</option>
@@ -281,9 +281,9 @@
                         </div>
                         <div class="input_wrap majors">
                             <div>
-                                <label>{{ cbLang('Majors') }}</label>
+                                <label>{{ lang('Majors') }}</label>
                                 <select name="majors" class="input" id="majors" required>
-                                    <option value="">{{ cbLang('Select Specialization') }}</option>
+                                    <option value="">{{ lang('Select Specialization') }}</option>
                                 </select>
                             </div>
                         </div>
@@ -291,59 +291,59 @@
                 </div>
                 <div class="form_4 data_info" style="display: none;">
                     <div class="form_inputs">
-                        <h2>{{ cbLang('Student Guardian Information') }}</h2>
+                        <h2>{{ lang('Student Guardian Information') }}</h2>
                         <div class="input_wrap">
                             <div>
-                                <label for="guardian_name">{{ cbLang('Guardian Name') }}</label>
+                                <label for="guardian_name">{{ lang('Guardian Name') }}</label>
                                 <input type="text" id="guardian_name" name="guardian_name" class="input" required>
                             </div>
                             <div>
-                                <label for="guardian_relationship">{{ cbLang('Relationship') }}</label>
+                                <label for="guardian_relationship">{{ lang('Relationship') }}</label>
                                 <input type="text" id="guardian_relationship" name="guardian_relationship" class="input" required>
                             </div>
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="guardian_occupation">{{ cbLang('Occupation') }}</label>
+                                <label for="guardian_occupation">{{ lang('Occupation') }}</label>
                                 <input type="text" id="guardian_occupation" name="guardian_occupation" class="input" required>
                             </div>
                             <div>
-                                <label for="guardian_workplace">{{ cbLang('Workplace') }}</label>
+                                <label for="guardian_workplace">{{ lang('Workplace') }}</label>
                                 <input type="text" id="guardian_workplace" name="guardian_workplace" class="input" required>
                             </div>
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="guardian_phone">{{ cbLang('Phone Number') }}</label>
+                                <label for="guardian_phone">{{ lang('Phone Number') }}</label>
                                 <input type="tel" id="guardian_phone" name="guardian_phone" class="input" required>
                             </div>
                             <div>
-                                <label for="guardian_landline">{{ cbLang('Landline Number') }}</label>
+                                <label for="guardian_landline">{{ lang('Landline Number') }}</label>
                                 <input type="tel" id="guardian_landline" name="guardian_landline" class="input">
                             </div>
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="guardian_governorate">{{ cbLang('guardian_governorate') }}</label>
+                                <label for="guardian_governorate">{{ lang('guardian_governorate') }}</label>
                                 <select type="text" name="guardian_governorate" class="input" id="guardian_governorate">
-                                    <option value="">{{ cbLang('Select governorate') }}</option>
+                                    <option value="">{{ lang('Select governorate') }}</option>
                                     @foreach ($gov as $id => $name)
                                         <option value="{{ $id }}">{{ $name }}</option>
                                     @endforeach
-                                    <option value="other">{{ cbLang('Other') }}</option>
+                                    <option value="other">{{ lang('Other') }}</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="guardian_directorate" id="guardian_directorate_label">{{ cbLang('guardian_directorate') }}</label>
+                                <label for="guardian_directorate" id="guardian_directorate_label">{{ lang('guardian_directorate') }}</label>
                                 <select name="guardian_directorate" id="guardian_directorate" class="input">
-                                    <option value="">{{ cbLang('Select directorate') }}</option>
+                                    <option value="">{{ lang('Select directorate') }}</option>
                                 </select>
                             </div>
                         </div>
-                        <h2>{{ cbLang('Contact Persons') }}</h2>
+                        <h2>{{ lang('Contact Persons') }}</h2>
                         <div class="input_wrap">
                             <div>
-                                <label for="guardian_name2">{{ cbLang('Name') }}</label>
+                                <label for="guardian_name2">{{ lang('Name') }}</label>
                                 <input type="text" id="guardian_name2" name="guardian_name2" class="input">
                             </div>
                             <div>
@@ -352,7 +352,7 @@
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="guardian_relationship2">{{ cbLang('Relationship') }}</label>
+                                <label for="guardian_relationship2">{{ lang('Relationship') }}</label>
                                 <input type="text" id="guardian_relationship2" name="guardian_relationship2" class="input">
                             </div>
                             <div>
@@ -361,7 +361,7 @@
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="guardian_phone2">{{ cbLang('Phone Number') }}</label>
+                                <label for="guardian_phone2">{{ lang('Phone Number') }}</label>
                                 <input type="tel" id="guardian_phone2" name="guardian_phone2" class="input">
                             </div>
                             <div>
@@ -370,7 +370,7 @@
                         </div>
                         <div class="input_wrap">
                             <div>
-                                <label for="guardian_landline2">{{ cbLang('Landline Number') }}</label>
+                                <label for="guardian_landline2">{{ lang('Landline Number') }}</label>
                                 <input type="tel" id="guardian_landline2" name="guardian_landline2" class="input">
                             </div>
                             <div>
@@ -382,7 +382,7 @@
                 <div class="btns_wrap">
                     <div class="common_btns form_1_btns" >
                         <button type="button" class="btn_next">
-                            {{ cbLang('next') }}
+                            {{ lang('next') }}
                             <span class="icon">
                                 <ion-icon name="arrow-forward-sharp"></ion-icon>
                             </span>
@@ -393,10 +393,10 @@
                             <span class="icon">
                                 <ion-icon name="arrow-back-sharp"></ion-icon>
                             </span>
-                            {{ cbLang('back') }}
+                            {{ lang('back') }}
                         </button>
                         <button type="button" class="btn_next">
-                            {{ cbLang('next') }}
+                            {{ lang('next') }}
                             <span class="icon">
                                 <ion-icon name="arrow-forward-sharp"></ion-icon>
                             </span>
@@ -407,10 +407,10 @@
                             <span class="icon">
                                 <ion-icon name="arrow-back-sharp"></ion-icon>
                             </span>
-                            {{ cbLang('back') }}
+                            {{ lang('back') }}
                         </button>
                         <button type="button" class="btn_next">
-                            {{ cbLang('next') }}
+                            {{ lang('next') }}
                             <span class="icon">
                                 <ion-icon name="arrow-forward-sharp"></ion-icon>
                             </span>
@@ -421,25 +421,25 @@
                             <span class="icon">
                                 <ion-icon name="arrow-back-sharp"></ion-icon>
                             </span>
-                            {{ cbLang('back') }}
+                            {{ lang('back') }}
                         </button>
                         <button type="submit" class="form_btn_done">
-                            {{ cbLang('done') }}
+                            {{ lang('done') }}
                         </button>
                     </div>
                 </div>
             </form>
             <div class="form_5 data_info"style="display: none;">
                 <form id="emailForm" class="input_wrap">
-                    <h2>{{ cbLang('Communication Methods') }}</h2>
+                    <h2>{{ lang('Communication Methods') }}</h2>
                     @csrf
                     <label for="email" id="label_email">
-                        {{ cbLang('Email') }}
+                        {{ lang('Email') }}
                     </label>
                     <input type="email" id="email" name="email" class="input_email" required>
                     <div>
                         <button type="submit" name="submit" value="send" class="butten_email">
-                            {{ cbLang('Confirm') }}
+                            {{ lang('Confirm') }}
                         </button>
                     </div>
                 </form>
@@ -450,15 +450,15 @@
                     </div>
                 </div>
                 <form id="codeForm" class="input_wrap" style="display: none;">
-                    <h2>{{ cbLang('Communication Methods') }}</h2>
+                    <h2>{{ lang('Communication Methods') }}</h2>
                     @csrf
                     <label for="code" id="label_email">
-                        {{ cbLang('Confirm Email') }}
+                        {{ lang('Confirm Email') }}
                     </label>
                     <input type="text" id="code" name="code" class="input_email" required>
                     <div>
                         <button type="submit" name="submit" value="send" class="butten_email">
-                            {{ cbLang('Confirm') }}
+                            {{ lang('Confirm') }}
                         </button>
                     </div>
                 </form>
@@ -627,7 +627,7 @@
                         dataType: "json",
                         success: function(data) {
                             $('#majors').empty();
-                            $('#majors').append('<option value="">{{ cbLang("Select Specialization") }}</option>');
+                            $('#majors').append('<option value="">{{ lang("Select Specialization") }}</option>');
                             $.each(data, function(key, value) {
                                 $('#majors').append('<option value="' + key + '">' + value + '</option>');
                             });
@@ -638,7 +638,7 @@
                     });
                 } else {
                     $('#majors').empty();
-                    $('#majors').append('<option value="">{{ cbLang("Select Specialization") }}</option>');
+                    $('#majors').append('<option value="">{{ lang("Select Specialization") }}</option>');
                 }
             });
             $('#governorate').on('change', function() {
@@ -647,11 +647,11 @@
                 if (governorateID === "other") {
                     // Change to text input and update the label
                     $('#directorate').replaceWith('<input type="text" name="directorate" id="directorate" class="input">');
-                    $('#directorate_label').text('{{ cbLang("Location") }}');
+                    $('#directorate_label').text('{{ lang("Location") }}');
                 } else {
                     // Revert to select input and update the label
-                    $('#directorate_label').text('{{ cbLang("directorate_label") }}');
-                    $('#directorate').replaceWith('<select name="directorate" id="directorate" class="input"><option value="">{{ cbLang("Select directorate") }}</option></select>');
+                    $('#directorate_label').text('{{ lang("directorate_label") }}');
+                    $('#directorate').replaceWith('<select name="directorate" id="directorate" class="input"><option value="">{{ lang("Select directorate") }}</option></select>');
 
                     if (governorateID) {
                         $.ajax({
@@ -660,7 +660,7 @@
                             dataType: "json",
                             success: function(data) {
                                 $('#directorate').empty();
-                                $('#directorate').append('<option value="">{{ cbLang("Select directorate") }}</option>');
+                                $('#directorate').append('<option value="">{{ lang("Select directorate") }}</option>');
                                 $.each(data, function(key, value) {
                                     $('#directorate').append('<option value="' + key + '">' + value + '</option>');
                                 });
@@ -671,7 +671,7 @@
                         });
                     } else {
                         $('#directorate').empty();
-                        $('#directorate').append('<option value="">{{ cbLang("Select directorate") }}</option>');
+                        $('#directorate').append('<option value="">{{ lang("Select directorate") }}</option>');
                     }
                 }
             });
@@ -681,11 +681,11 @@
                 if (governorateID === "other") {
                     // Change to text input and update the label
                     $('#institution_directorate').replaceWith('<input type="text" name="institution_directorate" id="institution_directorate" class="input">');
-                    $('#institution_directorate_label').text('{{ cbLang("Location") }}');
+                    $('#institution_directorate_label').text('{{ lang("Location") }}');
                 } else {
                     // Revert to select input and update the label
-                    $('#institution_directorate_label').text('{{ cbLang("institution_directorate") }}');
-                    $('#institution_directorate').replaceWith('<select name="institution_directorate" id="institution_directorate" class="input"><option value="">{{ cbLang("Select directorate") }}</option></select>');
+                    $('#institution_directorate_label').text('{{ lang("institution_directorate") }}');
+                    $('#institution_directorate').replaceWith('<select name="institution_directorate" id="institution_directorate" class="input"><option value="">{{ lang("Select directorate") }}</option></select>');
 
                     if (governorateID) {
                         $.ajax({
@@ -694,7 +694,7 @@
                             dataType: "json",
                             success: function(data) {
                                 $('#institution_directorate').empty();
-                                $('#institution_directorate').append('<option value="">{{ cbLang("Select directorate") }}</option>');
+                                $('#institution_directorate').append('<option value="">{{ lang("Select directorate") }}</option>');
                                 $.each(data, function(key, value) {
                                     $('#institution_directorate').append('<option value="' + key + '">' + value + '</option>');
                                 });
@@ -705,7 +705,7 @@
                         });
                     } else {
                         $('#institution_directorate').empty();
-                        $('#institution_directorate').append('<option value="">{{ cbLang("Select directorate") }}</option>');
+                        $('#institution_directorate').append('<option value="">{{ lang("Select directorate") }}</option>');
                     }
                 }
             });
@@ -715,11 +715,11 @@
                 if (governorateID === "other") {
                     // Change to text input and update the label
                     $('#guardian_directorate').replaceWith('<input type="text" name="guardian_directorate" id="guardian_directorate" class="input">');
-                    $('#guardian_directorate_label').text('{{ cbLang("Location") }}');
+                    $('#guardian_directorate_label').text('{{ lang("Location") }}');
                 } else {
                     // Revert to select input and update the label
-                    $('#guardian_directorate_label').text('{{ cbLang("guardian_directorate") }}');
-                    $('#guardian_directorate').replaceWith('<select name="guardian_directorate" id="guardian_directorate" class="input"><option value="">{{ cbLang("Select directorate") }}</option></select>');
+                    $('#guardian_directorate_label').text('{{ lang("guardian_directorate") }}');
+                    $('#guardian_directorate').replaceWith('<select name="guardian_directorate" id="guardian_directorate" class="input"><option value="">{{ lang("Select directorate") }}</option></select>');
 
                     if (governorateID) {
                         $.ajax({
@@ -728,7 +728,7 @@
                             dataType: "json",
                             success: function(data) {
                                 $('#guardian_directorate').empty();
-                                $('#guardian_directorate').append('<option value="">{{ cbLang("Select directorate") }}</option>');
+                                $('#guardian_directorate').append('<option value="">{{ lang("Select directorate") }}</option>');
                                 $.each(data, function(key, value) {
                                     $('#guardian_directorate').append('<option value="' + key + '">' + value + '</option>');
                                 });
@@ -739,7 +739,7 @@
                         });
                     } else {
                         $('#guardian_directorate').empty();
-                        $('#guardian_directorate').append('<option value="">{{ cbLang("Select directorate") }}</option>');
+                        $('#guardian_directorate').append('<option value="">{{ lang("Select directorate") }}</option>');
                     }
                 }
             });

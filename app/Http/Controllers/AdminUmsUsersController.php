@@ -3,10 +3,9 @@
 use Session;
 use Request;
 use DB;
-use CRUDbooster;
-use crocodicstudio\crudbooster\controllers\CBController;
+use UMS;
 
-class AdminUmsUsersController extends CBController {
+class AdminUmsUsersController extends UMSController {
 
 
 	public function cbInit() {
@@ -90,9 +89,9 @@ class AdminUmsUsersController extends CBController {
 		$this->hide_form 	  = ['id_ums_privileges'];
 
 		$data['page_title'] = "label_button_profile";
-		$data['row']        = CRUDBooster::first('ums_users',CRUDBooster::myId());
+		$data['row']        = UMS::first('ums_users',UMS::myId());
 
-        return $this->view('crudbooster::default.form',$data);
+        return $this->view('dashboard.default.form',$data);
 	}
 	public function hook_before_edit(&$postdata,$id) {
 		unset($postdata['password_confirmation']);

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', cbLang('Library'))
+@section('title', lang('Library'))
 @section('library', 'active')
 
 <!-- slider -->
@@ -64,9 +64,9 @@
     <div class="main_continar">
         <div class="about">
             <div class="about_tag">
-                <h1>{{ cbLang('About Us') }}</h1>
+                <h1>{{ lang('About Us') }}</h1>
                 <p>
-                    {{ cbLang('contentlib') }}
+                    {{ lang('contentlib') }}
                 </p>
             </div>
         </div>
@@ -83,12 +83,12 @@
                         <div class="book">
                             <img src="{{ $book->Cover_Image ? asset($book->Cover_Image) : asset('image/about.png') }}"
                                 alt="صورة الكتاب">
-                            <p>{{ cbLang('Book:') }} {{ $book->Title }}</p>
-                            <p>{{ cbLang('Author:') }}{{ $book->Author }}</p>
+                            <p>{{ lang('Book:') }} {{ $book->Title }}</p>
+                            <p>{{ lang('Author:') }}{{ $book->Author }}</p>
                         </div>
                     @endforeach
                     <form action="{{ route('showBooksBySection', ['section' => $section->id]) }}" method="GET">
-                        <button type="submit" class="read-more-button">{{ cbLang('Read more') }}</i>
+                        <button type="submit" class="read-more-button">{{ lang('Read more') }}</i>
                         </button>
                     </form>
                 </div>

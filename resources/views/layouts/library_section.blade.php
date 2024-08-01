@@ -3,7 +3,7 @@
         <div class="news-header">
             <div class="news-header-inner">
                 <a href="{{ route('library') }}" style="color: #007bff">
-                    {{ cbLang('Library') }}
+                    {{ lang('Library') }}
                 </a>
             </div>
         </div>
@@ -34,7 +34,7 @@
     </div>
         {{-- <form class="read-more-form" action="{{ route('showBooksBySection', ['section' => $section->Name_English]) }}" method="GET">
             <button type="submit" class="read-more-button">
-                {{ cbLang('Read more') }}
+                {{ lang('Read more') }}
             </button>
         </form> --}}
     <script>

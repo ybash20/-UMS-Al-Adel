@@ -39,7 +39,7 @@
                                             <a class="header_a lang-icon" class="dropdown-toggle" data-toggle="dropdown" title='Language' aria-expanded="false"></a>
                                             <ul id='list_language' class="lang-dropdown-menu">
                                                 <li class="lang-header">
-                                                    {{ cbLang('lang') }}
+                                                    {{ lang('lang') }}
                                                 </li>
                                                 <li>
                                                     <div id="langForm" class="form_select">
@@ -76,7 +76,7 @@
                             <div class="col-2">
                                 <h1 class="headerh1 my-0 site-logo">
                                     <a class="header_a" href="{{ route('home') }}">
-                                        {{ strtoupper(cbLang('Al-Adel Unveristiy')) }}
+                                        {{ strtoupper(lang('Al-Adel Unveristiy')) }}
                                     </a>
                                 </h1>
                             </div>
@@ -91,22 +91,22 @@
                                         <ul class="header_ul site-menu main-menu js-clone-nav d-none d-lg-block">
                                             <li class="@yield('home')">
                                                 <a href="{{ route('home') }}" class="header_a nav-link">
-                                                    {{ cbLang('home') }}
+                                                    {{ lang('home') }}
                                                 </a>
                                             </li>
                                             <li class="@yield('news')">
                                                 <a href="{{ route('news') }}" class="header_a nav-link">
-                                                    {{ cbLang('news') }}
+                                                    {{ lang('news') }}
                                                 </a>
                                             </li>
                                             <li class="@yield('library')">
                                                 <a href="{{ route('library') }}" class="header_a nav-link">
-                                                    {{ cbLang('Library') }}
+                                                    {{ lang('Library') }}
                                                 </a>
                                             </li>
                                             <li class="has-children @yield('college')">
                                                 <a href="#" class="header_a nav-link">
-                                                    {{ cbLang('College') }}
+                                                    {{ lang('College') }}
                                                 </a>
                                                 <ul class="header_ul dropdown arrow-top">
                                                     @if(isset($colleges) && $colleges->count() > 0)
@@ -129,75 +129,75 @@
                                             </li>
                                             <li class="has-children @yield('about')">
                                                 <a href="#" class="header_a nav-link">
-                                                    {{ cbLang('About') }}
+                                                    {{ lang('About') }}
                                                 </a>
                                                 <ul class="header_ul dropdown arrow-top">
                                                     <li class="@yield('university_president')">
                                                         <a href="{{ route('university_president') }}" class="header_a nav-link">
-                                                            {{ cbLang('University President speech') }}
+                                                            {{ lang('University President speech') }}
                                                         </a>
                                                     </li>
                                                     <li class="@yield('SCBT_AlAdel')">
                                                         <a href="{{ route('SCBT_AlAdel') }}" class="header_a nav-link">
-                                                            {{ cbLang('Speech of the Chairman of the Board of Trustees of Al-Adel University') }}
+                                                            {{ lang('Speech of the Chairman of the Board of Trustees of Al-Adel University') }}
                                                         </a>
                                                     </li>
                                                     <li class="@yield('University_Establishment')">
                                                         <a href="{{ route('University_Establishment') }}" class="header_a nav-link">
-                                                            {{ cbLang('University Establishment') }}
+                                                            {{ lang('University Establishment') }}
                                                         </a>
                                                     </li>
                                                     <li class="@yield('Students_Affairs')">
                                                         <a href="{{ route('Students_Affairs') }}" class="header_a nav-link">
-                                                            {{ cbLang('Students Affairs') }}
+                                                            {{ lang('Students Affairs') }}
                                                         </a>
                                                     </li>
                                                     {{-- <li class="@yield('Foreign_relations')">
                                                         <a href="{{ route('Foreign_relations') }}"
                                                             class="header_a nav-link">
-                                                            {{ cbLang('Foreign relations') }}
+                                                            {{ lang('Foreign relations') }}
                                                         </a>
                                                     </li> --}}
                                                     <li class="@yield('University_guide')">
                                                         <a href="{{ route('University_guide') }}" class="header_a nav-link">
-                                                            {{ cbLang('University guide') }}
+                                                            {{ lang('University guide') }}
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li class="@yield('registration')">
                                                 <a href="{{ route('registration') }}" class="header_a nav-link">
-                                                    {{ cbLang('Regstiration') }}
+                                                    {{ lang('Regstiration') }}
                                                 </a>
                                             </li>
                                             @if (session()->has('student_id'))
                                                 <li class="has-children @yield('profile')">
                                                     <a href="#" class="header_a nav-link">
-                                                        {{ cbLang('Profile') }}
+                                                        {{ lang('Profile') }}
                                                     </a>
                                                     <ul class="header_ul dropdown arrow-top">
                                                         <li class="@yield('StudentgetLogin')">
                                                             <a href="{{ route('StudentgetLogin') }}" class="header_a nav-link">
-                                                                {{ cbLang('Main') }}
+                                                                {{ lang('Main') }}
                                                             </a>
                                                         </li>
                                                         <li class="@yield('updatePassword')">
                                                             <a href="{{ route('updatePassword') }}" class="header_a nav-link">
-                                                                {{ cbLang('Edit Password') }}
+                                                                {{ lang('Edit Password') }}
                                                             </a>
                                                         </li>
                                                     </ul>
                                                 </li>
                                                 <li class="nav-item @yield('logout')">
                                                     <a href="{{ route('StudentgetLogout') }}" class="header_a nav-link">
-                                                        {{ cbLang('Logout') }}
+                                                        {{ lang('Logout') }}
                                                         <i class="fas fa-sign-out-alt"></i>
                                                     </a>
                                                 </li>
                                             @else
                                                 <li class="nav-item @yield('login')">
                                                     <a href="{{ route('StudentgetLogin') }}" class="header_a nav-link">
-                                                        {{ cbLang('Login') }}
+                                                        {{ lang('Login') }}
                                                         <i class="fas fa-sign-in-alt"></i>
                                                     </a>
                                                 </li>

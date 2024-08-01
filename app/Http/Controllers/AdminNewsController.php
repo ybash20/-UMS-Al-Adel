@@ -3,9 +3,9 @@
 	use Session;
 	use Request;
 	use DB;
-	use CRUDBooster;
+	use UMS;
 
-	class AdminNewsController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminNewsController extends UMSController {
 
 	    public function cbInit() {
 
@@ -218,7 +218,7 @@
 	        $this->load_css = array();
 
 
-			// $userId = CRUDBooster::myId();
+			// $userId = UMS::myId();
 
 			// $user = DB::table('ums_users')->where('id', $userId)->first();
 

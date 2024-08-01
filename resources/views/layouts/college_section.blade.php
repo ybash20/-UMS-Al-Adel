@@ -3,7 +3,7 @@
         <div class="statistics-header">
             <div class="statistics-header-inner">
                 <h3 style="color: #007bff">
-                    {{ cbLang('College') }}
+                    {{ lang('College') }}
                 </h3>
             </div>
         </div>

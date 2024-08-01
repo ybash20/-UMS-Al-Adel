@@ -1,11 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use crocodicstudio\crudbooster\controllers\AdminController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookLibraryController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\NewsController;
+
+use App\Helpers\UMSRouter;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +20,8 @@ use App\Http\Controllers\NewsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+UMSRouter::route();
 
 //Home Routes
 Route::redirect('/', '/home');

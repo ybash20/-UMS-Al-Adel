@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', cbLang('studyplan'))
+@section('title', lang('studyplan'))
 
 @section('main')
 <style>

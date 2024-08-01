@@ -3,9 +3,9 @@
 	use Session;
 	use Request;
 	use DB;
-	use CRUDBooster;
+	use UMS;
 
-	class AdminBloods33Controller extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminBloods33Controller extends UMSController {
 
 	    public function cbInit() {
 

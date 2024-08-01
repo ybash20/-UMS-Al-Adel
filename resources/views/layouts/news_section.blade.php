@@ -2,7 +2,7 @@
     <div class="news-header">
         <div class="news-header-inner">
             <a href="{{ route('news') }}">
-                {{ cbLang('Events and news') }}
+                {{ lang('Events and news') }}
             </a>
         </div>
     </div>
@@ -67,7 +67,7 @@
                 @endforeach
                 <div class="more-news">
                     <a href="{{ route('news') }}">
-                        {{ cbLang('more') }}
+                        {{ lang('more') }}
                     </a>
                 </div>
             </div>
