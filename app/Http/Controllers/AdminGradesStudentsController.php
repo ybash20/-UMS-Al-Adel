@@ -49,11 +49,11 @@
 			$this->form[] = ['label'=>'Semester Grade','name'=>'Grade_30','type'=>'number','validation'=>'required|integer|between:0,50','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Exam Grade','name'=>'Grade_70','type'=>'number','validation'=>'required|integer|between:0,50','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Semester','name'=>'Semester','type'=>'number','validation'=>'required|integer|between:1,8','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','validation'=>'required|integer|between:1,5','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Total','name'=>'Grade_100','type'=>'number','width'=>'col-sm-9','disabled'=>'true'];
 			$this->form[] = ['label'=>'Spoint','name'=>'Spoint','type'=>'number','width'=>'col-sm-9','disabled'=>'true'];
-			$this->form[] = ['label'=>'Appreciation','name'=>'Appreciation_English','type'=>'text','width'=>'col-sm-9'];
-			$this->form[] = ['label'=>'Turn','name'=>'Turn','type'=>'number','validation'=>'required|integer|between:1,10','width'=>'col-sm-9','disabled'=>'true'];
-			$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Appreciation','name'=>'Appreciation_English','type'=>'text','disabled'=>'true','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Note','name'=>'Note','type'=>'text','width'=>'col-sm-9','disabled'=>'true'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
