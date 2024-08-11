@@ -12,16 +12,17 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Config;
-use Intervention\Image\Facades\Image;
+use Image;
+use Driver;
 use Exception;
-
 
 class UMS
 {
     /**
      *	Comma-delimited data output from the child table
      */
-    public static function echoSelect2Mult($values, $table, $id, $name) {
+    public static function echoSelect2Mult($values, $table, $id, $name)
+    {
         $values = explode(",", $values);
         return implode(", ", DB::table($table)->whereIn($id, $values)->pluck($name)->toArray());
         //implode(", ", DB::table("syudo_list_pokemons_types")->whereIn("id", explode(",", $row->type))->pluck("name")->toArray())
@@ -30,7 +31,7 @@ class UMS
 
     public static function uploadBase64($value, $id = null)
     {
-        if (! self::myId()) {
+        if (!self::myId()) {
             $userID = 0;
         } else {
             $userID = self::myId();
@@ -46,13 +47,13 @@ class UMS
         @$mime_type = explode('/', $mime_type);
         @$mime_type = $mime_type[1];
         if ($mime_type) {
-            $filePath = 'uploads/'.$userID.'/'.date('Y-m');
+            $filePath = 'uploads/' . $userID . '/' . date('Y-m');
             Storage::makeDirectory($filePath);
-            $filename = md5(str_random(5)).'.'.$mime_type;
-            if (Storage::put($filePath.'/'.$filename, $filedata)) {
-                self::resizeImage($filePath.'/'.$filename);
+            $filename = md5(str_random(5)) . '.' . $mime_type;
+            if (Storage::put($filePath . '/' . $filename, $filedata)) {
+                self::resizeImage($filePath . '/' . $filename);
 
-                return $filePath.'/'.$filename;
+                return $filePath . '/' . $filename;
             }
         }
     }
@@ -60,7 +61,7 @@ class UMS
     public static function uploadFile($name, $encrypt = false, $resize_width = null, $resize_height = null, $id = null)
     {
         if (Request::hasFile($name)) {
-            if (! self::myId()) {
+            if (!self::myId()) {
                 $userID = 0;
             } else {
                 $userID = self::myId();
@@ -73,26 +74,26 @@ class UMS
             $file = Request::file($name);
             $ext = $file->getClientOriginalExtension();
             $filename = str_slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
-            if(method_exists($file, 'getClientSize')) {
+            if (method_exists($file, 'getClientSize')) {
                 $filesize = $file->getClientSize() / 1024;
             } else {
                 $filesize = $file->getSize() / 1024;
             }
-            $file_path = 'uploads/'.$userID.'/'.date('Y-m');
+            $file_path = 'uploads/' . $userID . '/' . date('Y-m');
 
             //Create Directory Monthly
             Storage::makeDirectory($file_path);
 
             if ($encrypt == true) {
-                $filename = md5(str_random(5)).'.'.$ext;
+                $filename = md5(str_random(5)) . '.' . $ext;
             } else {
-                $filename = str_slug($filename, '_').'.'.$ext;
+                $filename = str_slug($filename, '_') . '.' . $ext;
             }
 
             if (Storage::putFileAs($file_path, $file, $filename)) {
-                self::resizeImage($file_path.'/'.$filename, $resize_width, $resize_height);
+                self::resizeImage($file_path . '/' . $filename, $resize_width, $resize_height);
 
-                return $file_path.'/'.$filename;
+                return $file_path . '/' . $filename;
             } else {
                 return null;
             }
@@ -103,6 +104,7 @@ class UMS
 
     private static function resizeImage($fullFilePath, $resize_width = null, $resize_height = null, $qty = 100, $thumbQty = 75)
     {
+
         $images_ext = config('ums.IMAGE_EXTENSIONS', 'jpg,png,gif,bmp');
         $images_ext = explode(',', $images_ext);
 
@@ -110,58 +112,50 @@ class UMS
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
         $file_path = trim(str_replace($filename, '', $fullFilePath), '/');
 
-        $file_path_thumbnail = 'uploads_thumbnail/'.date('Y-m');
+        $file_path_thumbnail = 'uploads_thumbnail/' . date('Y-m');
         Storage::makeDirectory($file_path_thumbnail);
 
         if (in_array(strtolower($ext), $images_ext)) {
 
+            $manager = new Image(new Driver());
+            $img = $manager->read(storage_path('app/' . $file_path . '/' . $filename));
+
             if ($resize_width && $resize_height) {
-                $img = Image::make(storage_path('app/'.$file_path.'/'.$filename));
-                $img->fit($resize_width, $resize_height);
-                $img->save(storage_path('app/'.$file_path.'/'.$filename), $qty);
-            } elseif ($resize_width && ! $resize_height) {
-                $img = Image::make(storage_path('app/'.$file_path.'/'.$filename));
-                $img->resize($resize_width, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
-                $img->save(storage_path('app/'.$file_path.'/'.$filename), $qty);
-            } elseif (! $resize_width && $resize_height) {
-                $img = Image::make(storage_path('app/'.$file_path.'/'.$filename));
-                $img->resize(null, $resize_height, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
-                $img->save(storage_path('app/'.$file_path.'/'.$filename), $qty);
+                $img->resize($resize_width, $resize_height);
+            } elseif ($resize_width && !$resize_height) {
+                $img->scale($resize_width);
+            } elseif (!$resize_width && $resize_height) {
+                $img->scale(height: $resize_height);
             } else {
-                $img = Image::make(storage_path('app/'.$file_path.'/'.$filename));
                 if ($img->width() > 1300) {
-                    $img->resize(1300, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
+                    $img->scale(1300);
                 }
-                $img->save(storage_path('app/'.$file_path.'/'.$filename), $qty);
             }
 
-            $img = Image::make(storage_path('app/'.$file_path.'/'.$filename));
-            $img->fit(350, 350);
-            $img->save(storage_path('app/'.$file_path_thumbnail.'/'.$filename), $thumbQty);
+            $img->save(storage_path('app/' . $file_path . '/' . $filename), $qty);
+            unset($manager);
+            $manager = new Image(new Driver());
+            $img = $manager->read(storage_path('app/' . $file_path . '/' . $filename));
+            $img->resize(350, 350);
+            $img->save(storage_path('app/' . $file_path_thumbnail . '/' . $filename), $thumbQty);
         }
     }
 
     public static function getSetting($name)
     {
-        if (Cache::has('setting_'.$name)) {
-            return Cache::get('setting_'.$name);
+        if (Cache::has('setting_' . $name)) {
+            return Cache::get('setting_' . $name);
         }
 
         $query = DB::table('ums_settings')->where('name', $name)->first();
-        Cache::forever('setting_'.$name, $query->content);
+        Cache::forever('setting_' . $name, $query->content);
 
         return $query->content;
     }
 
     public static function insert($table, $data = [])
     {
-        if (! $data['created_at']) {
+        if (!$data['created_at']) {
             if (Schema::hasColumn($table, 'created_at')) {
                 $data['created_at'] = date('Y-m-d H:i:s');
             }
@@ -182,11 +176,9 @@ class UMS
             foreach ($id as $k => $v) {
                 $first->where($k, $v);
             }
-
             return $first->first();
         } else {
             $pk = self::pk($table);
-
             return DB::table($table)->where($pk, $id)->first();
         }
     }
@@ -384,14 +376,14 @@ class UMS
     {
         $modulepath = self::getModulePath();
 
-        if (Cache::has('moduls_'.$modulepath)) {
-            return Cache::get('moduls_'.$modulepath);
+        if (Cache::has('moduls_' . $modulepath)) {
+            return Cache::get('moduls_' . $modulepath);
         } else {
 
             $module = DB::table('ums_moduls')->where('path', self::getModulePath())->first();
 
             //supply modulpath instead of $module incase where user decides to create form and custom url that does not exist in ums_moduls table.
-            return ($module)?:$modulepath;
+            return ($module) ?: $modulepath;
         }
     }
 
@@ -422,7 +414,7 @@ class UMS
     public static function sidebarDashboard()
     {
 
-        $menu = DB::table('ums_menus')->whereRaw("ums_menus.id IN (select id_ums_menus from ums_menus_privileges where id_ums_privileges = '".self::myPrivilegeId()."')")->where('is_dashboard', 1)->where('is_active', 1)->first();
+        $menu = DB::table('ums_menus')->whereRaw("ums_menus.id IN (select id_ums_menus from ums_menus_privileges where id_ums_privileges = '" . self::myPrivilegeId() . "')")->where('is_dashboard', 1)->where('is_active', 1)->first();
 
         switch ($menu->type) {
             case 'Route':
@@ -440,7 +432,7 @@ class UMS
                 $url = self::adminPath($menu->path);
                 break;
         }
-        
+
         @$menu->url = $url;
 
         return $menu;
@@ -448,7 +440,7 @@ class UMS
 
     public static function sidebarMenu()
     {
-        $menu_active = DB::table('ums_menus')->whereRaw("ums_menus.id IN (select id_ums_menus from ums_menus_privileges where id_ums_privileges = '".self::myPrivilegeId()."')")->where('parent_id', 0)->where('is_active', 1)->where('is_dashboard', 0)->orderby('sorting', 'asc')->select('ums_menus.*')->get();
+        $menu_active = DB::table('ums_menus')->whereRaw("ums_menus.id IN (select id_ums_menus from ums_menus_privileges where id_ums_privileges = '" . self::myPrivilegeId() . "')")->where('parent_id', 0)->where('is_active', 1)->where('is_dashboard', 0)->orderby('sorting', 'asc')->select('ums_menus.*')->get();
 
         foreach ($menu_active as &$menu) {
 
@@ -479,7 +471,7 @@ class UMS
             $menu->url = $url;
             $menu->url_path = trim(str_replace(url('/'), '', $url), "/");
 
-            $child = DB::table('ums_menus')->whereRaw("ums_menus.id IN (select id_ums_menus from ums_menus_privileges where id_ums_privileges = '".self::myPrivilegeId()."')")->where('is_dashboard', 0)->where('is_active', 1)->where('parent_id', $menu->id)->select('ums_menus.*')->orderby('sorting', 'asc')->get();
+            $child = DB::table('ums_menus')->whereRaw("ums_menus.id IN (select id_ums_menus from ums_menus_privileges where id_ums_privileges = '" . self::myPrivilegeId() . "')")->where('is_dashboard', 0)->where('is_active', 1)->where('parent_id', $menu->id)->select('ums_menus.*')->orderby('sorting', 'asc')->get();
             if (count($child)) {
 
                 foreach ($child as &$c) {
@@ -521,13 +513,13 @@ class UMS
     public static function deleteConfirm($redirectTo)
     {
         echo "swal({
-				title: \"".lang('delete_title_confirm')."\",
-				text: \"".lang('delete_description_confirm')."\",
+				title: \"" . lang('delete_title_confirm') . "\",
+				text: \"" . lang('delete_description_confirm') . "\",
 				type: \"warning\",
 				showCancelButton: true,
 				confirmButtonColor: \"#ff0000\",
-				confirmButtonText: \"".lang('confirmation_yes')."\",
-				cancelButtonText: \"".lang('confirmation_no')."\",
+				confirmButtonText: \"" . lang('confirmation_yes') . "\",
+				cancelButtonText: \"" . lang('confirmation_no') . "\",
 				closeOnConfirm: false },
 				function(){  location.href=\"$redirectTo\" });";
     }
@@ -535,12 +527,12 @@ class UMS
     public static function getModulePath()
     {
         // Check to position of admin_path
-        if(config("ums.ADMIN_PATH")) {
+        if (config("ums.ADMIN_PATH")) {
             $adminPathSegments = explode('/', Request::path());
             $no = 1;
-            foreach($adminPathSegments as $path) {
-                if($path == config("ums.ADMIN_PATH")) {
-                    $segment = $no+1;
+            foreach ($adminPathSegments as $path) {
+                if ($path == config("ums.ADMIN_PATH")) {
+                    $segment = $no + 1;
                     break;
                 }
                 $no++;
@@ -556,13 +548,13 @@ class UMS
     {
 
         $controllername = str_replace(["App\Http\Controllers\\"], "", strtok(Route::currentRouteAction(), '@'));
-        $route_url = route($controllername.'GetIndex');
+        $route_url = route($controllername . 'GetIndex');
 
         if ($path) {
             if (substr($path, 0, 1) == '?') {
-                return trim($route_url, '/').$path;
+                return trim($route_url, '/') . $path;
             } else {
-                return $route_url.'/'.$path;
+                return $route_url . '/' . $path;
             }
         } else {
             return trim($route_url, '/');
@@ -571,14 +563,14 @@ class UMS
 
     public static function adminPath($path = null)
     {
-        return url(config('ums.ADMIN_PATH').'/'.$path);
+        return url(config('ums.ADMIN_PATH') . '/' . $path);
     }
 
     public static function getCurrentId()
     {
         $id = Session::get('current_row_id');
         $id = intval($id);
-        $id = (! $id) ? Request::segment(4) : $id;
+        $id = (!$id) ? Request::segment(4) : $id;
         $id = intval($id);
 
         return $id;
@@ -604,18 +596,18 @@ class UMS
 
     public static function isColumnNULL($table, $field)
     {
-        if (Cache::has('field_isNull_'.$table.'_'.$field)) {
-            return Cache::get('field_isNull_'.$table.'_'.$field);
+        if (Cache::has('field_isNull_' . $table . '_' . $field)) {
+            return Cache::get('field_isNull_' . $table . '_' . $field);
         }
 
         try {
             //MySQL & SQL Server
-            $isNULL = DB::select(DB::raw("select IS_NULLABLE from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME='$table' and COLUMN_NAME = '$field'"))[0]->IS_NULLABLE;
+            $isNULL = DB::select("select IS_NULLABLE from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME='$table' and COLUMN_NAME = '$field'")[0]->IS_NULLABLE;
             $isNULL = ($isNULL == 'YES') ? true : false;
-            Cache::forever('field_isNull_'.$table.'_'.$field, $isNULL);
+            Cache::forever('field_isNull_' . $table . '_' . $field, $isNULL);
         } catch (Exception $e) {
             $isNULL = false;
-            Cache::forever('field_isNull_'.$table.'_'.$field, $isNULL);
+            Cache::forever('field_isNull_' . $table . '_' . $field, $isNULL);
         }
 
         return $isNULL;
@@ -623,20 +615,20 @@ class UMS
 
     public static function getFieldType($table, $field)
     {
-        if (Cache::has('field_type_'.$table.'_'.$field)) {
-            return Cache::get('field_type_'.$table.'_'.$field);
+        if (Cache::has('field_type_' . $table . '_' . $field)) {
+            return Cache::get('field_type_' . $table . '_' . $field);
         }
 
-        $typedata = Cache::rememberForever('field_type_'.$table.'_'.$field, function () use ($table, $field) {
+        $typedata = Cache::rememberForever('field_type_' . $table . '_' . $field, function () use ($table, $field) {
 
             try {
                 //MySQL & SQL Server
-                $typedata = DB::select(DB::raw("select DATA_TYPE from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME='$table' and COLUMN_NAME = '$field'"))[0]->DATA_TYPE;
+                $typedata = DB::select("select DATA_TYPE from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME='$table' and COLUMN_NAME = '$field'")[0]->DATA_TYPE;
             } catch (Exception $e) {
 
             }
 
-            if (! $typedata) {
+            if (!$typedata) {
                 $typedata = 'varchar';
             }
 
@@ -649,30 +641,39 @@ class UMS
     public static function getValueFilter($field)
     {
         $filter = Request::get('filter_column');
-        if ($filter[$field]) {
-            return $filter[$field]['value'];
+
+        if (is_array($filter) && isset($filter[$field])) {
+            return $filter[$field]['value'] ?? null;
         }
+
+        return null;
     }
 
     public static function getSortingFilter($field)
     {
         $filter = Request::get('filter_column');
-        if ($filter[$field]) {
-            return $filter[$field]['sorting'];
+
+        if (is_array($filter) && isset($filter[$field])) {
+            return $filter[$field]['sorting'] ?? null;
         }
+
+        return null;
     }
 
     public static function getTypeFilter($field)
     {
         $filter = Request::get('filter_column');
-        if ($filter[$field]) {
-            return $filter[$field]['type'];
+
+        if (is_array($filter) && isset($filter[$field])) {
+            return $filter[$field]['type'] ?? null;
         }
+
+        return null;
     }
 
     public static function stringBetween($string, $start, $end)
     {
-        $string = ' '.$string;
+        $string = ' ' . $string;
         $ini = strpos($string, $start);
         if ($ini == 0) {
             return '';
@@ -686,7 +687,7 @@ class UMS
     public static function timeAgo($datetime_to, $datetime_from = null, $full = false)
     {
         $datetime_from = ($datetime_from) ?: date('Y-m-d H:i:s');
-        $now = new \DateTime;
+        $now = new \DateTime();
         if ($datetime_from != '') {
             $now = new \DateTime($datetime_from);
         }
@@ -707,17 +708,17 @@ class UMS
         ];
         foreach ($string as $k => &$v) {
             if ($diff->$k) {
-                $v = $diff->$k.' '.$v.($diff->$k > 1 ? 's' : '');
+                $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
             } else {
                 unset($string[$k]);
             }
         }
 
-        if (! $full) {
+        if (!$full) {
             $string = array_slice($string, 0, 1);
         }
 
-        return $string ? implode(', ', $string).' ' : 'just now';
+        return $string ? implode(', ', $string) . ' ' : 'just now';
     }
 
     public static function sendEmailQueue($queue)
@@ -736,15 +737,7 @@ class UMS
         $cc_email = $queue->email_cc_email;
         $attachments = unserialize($queue->email_attachments);
 
-        Mail::send("dashboard.emails.blank", ['content' => $html], function ($message) use (
-            $html,
-            $to,
-            $subject,
-            $from_email,
-            $from_name,
-            $cc_email,
-            $attachments
-        ) {
+        Mail::send("dashboard.emails.blank", ['content' => $html], function ($message) use ($html, $to, $subject, $from_email, $from_name, $cc_email, $attachments) {
             $message->priority(1);
             $message->to($to);
             $message->from($from_email, $from_name);
@@ -776,8 +769,8 @@ class UMS
         $template = UMS::first('ums_email_templates', ['slug' => $template]);
         $html = $template->content;
         foreach ($data as $key => $val) {
-            $html = str_replace('['.$key.']', $val, $html);
-            $template->subject = str_replace('['.$key.']', $val, $template->subject);
+            $html = str_replace('[' . $key . ']', $val, $html);
+            $template->subject = str_replace('[' . $key . ']', $val, $template->subject);
         }
         $subject = $template->subject;
         $attachments = ($config['attachments']) ?: [];
@@ -859,7 +852,7 @@ class UMS
         } elseif (count($f) == 2) {
             return ["database" => $f[0], "table" => $f[1]];
         } elseif (count($f) == 3) {
-            return ["table" => $f[0], "schema" => $f[1], "table" => $f[2]];
+            return ["table" => $f[0], "schema" => $f[1], "database" => $f[2]];
         }
 
         return false;
@@ -914,44 +907,52 @@ class UMS
         return self::findPrimaryKey($table);
     }
 
-//     public static function findPrimaryKey($table)
-//     {
-//         if (! $table) {
-//             return 'id';
-//         }
+    //     public static function findPrimaryKey($table)
+    //     {
+    //         if (! $table) {
+    //             return 'id';
+    //         }
 
-//         if (self::getCache('table_'.$table, 'primary_key')) {
-//             return self::getCache('table_'.$table, 'primary_key');
-//         }
-//         $table = UMS::parseSqlTable($table);
+    //         if (self::getCache('table_'.$table, 'primary_key')) {
+    //             return self::getCache('table_'.$table, 'primary_key');
+    //         }
+    //         $table = UMS::parseSqlTable($table);
 
-//         if (! $table['table']) {
-//             throw new Exception("parseSqlTable can't determine the table");
-//         }
-//         $query = config('database.connections.'.config('database.default').'.driver') == 'pgsql' ? "select * from information_schema.key_column_usage WHERE TABLE_NAME = '$table[table]'" : "select * from information_schema.COLUMNS where TABLE_SCHEMA = '$table[database]' and TABLE_NAME = '$table[table]' and COLUMN_KEY = 'PRI'";
-//         $keys = DB::select($query);
-//         $primary_key = $keys[0]->COLUMN_NAME;
-//         if ($primary_key) {
-//             self::putCache('table_'.$table, 'primary_key', $primary_key);
+    //         if (! $table['table']) {
+    //             throw new Exception("parseSqlTable can't determine the table");
+    //         }
+    //         $query = config('database.connections.'.config('database.default').'.driver') == 'pgsql' ? "select * from information_schema.key_column_usage WHERE TABLE_NAME = '$table[table]'" : "select * from information_schema.COLUMNS where TABLE_SCHEMA = '$table[database]' and TABLE_NAME = '$table[table]' and COLUMN_KEY = 'PRI'";
+    //         $keys = DB::select($query);
+    //         $primary_key = $keys[0]->COLUMN_NAME;
+    //         if ($primary_key) {
+    //             self::putCache('table_'.$table, 'primary_key', $primary_key);
 
-//             return $primary_key;
-//         } else {
-//             return 'id';
-//         }
-//     }
+    //             return $primary_key;
+    //         } else {
+    //             return 'id';
+    //         }
+    //     }
 
     public static function findPrimaryKey($table)
     {
-        if(!$table)
-        {
+        if (!$table) {
             return 'id';
         }
 
-        $pk = DB::getDoctrineSchemaManager()->listTableDetails($table)->getPrimaryKey();
-        if(!$pk) {
+        if (!Schema::hasTable($table)) {
             return null;
         }
-        return $pk->getColumns()[0];
+
+        $primaryKey = null;
+
+        // Execute the raw SQL query directly as a string
+        $index = DB::select("SHOW KEYS FROM {$table} WHERE Key_name = 'PRIMARY'");
+
+        if (!empty($index)) {
+            $primaryKey = $index[0]->Column_name;
+        }
+
+        return $primaryKey;
     }
 
     public static function newId($table)
@@ -965,10 +966,10 @@ class UMS
     public static function isColumnExists($table, $field)
     {
 
-        if (! $table) {
+        if (!$table) {
             throw new Exception("\$table is empty !", 1);
         }
-        if (! $field) {
+        if (!$field) {
             throw new Exception("\$field is empty !", 1);
         }
 
@@ -991,10 +992,10 @@ class UMS
     {
         $parent_table = UMS::parseSqlTable($parent_table)['table'];
         $child_table = UMS::parseSqlTable($child_table)['table'];
-        if (Schema::hasColumn($child_table, 'id_'.$parent_table)) {
-            return 'id_'.$parent_table;
+        if (Schema::hasColumn($child_table, 'id_' . $parent_table)) {
+            return 'id_' . $parent_table;
         } else {
-            return $parent_table.'_id';
+            return $parent_table . '_id';
         }
     }
 
@@ -1018,17 +1019,17 @@ class UMS
             $table = substr($fieldName, 0, (strlen($fieldName) - 3));
         }
 
-        if (Cache::has('isForeignKey_'.$fieldName)) {
-            return Cache::get('isForeignKey_'.$fieldName);
+        if (Cache::has('isForeignKey_' . $fieldName)) {
+            return Cache::get('isForeignKey_' . $fieldName);
         } else {
             if ($table) {
                 $hasTable = Schema::hasTable($table);
                 if ($hasTable) {
-                    Cache::forever('isForeignKey_'.$fieldName, true);
+                    Cache::forever('isForeignKey_' . $fieldName, true);
 
                     return true;
                 } else {
-                    Cache::forever('isForeignKey_'.$fieldName, false);
+                    Cache::forever('isForeignKey_' . $fieldName, false);
 
                     return false;
                 }
@@ -1043,7 +1044,7 @@ class UMS
         $params = Request::all();
         $mainpath = trim(self::mainpath(), '/');
 
-        if ($params['filter_column'] && $singleSorting) {
+        if (isset($params['filter_column']) && isset($singleSorting)) {
             foreach ($params['filter_column'] as $k => $filter) {
                 foreach ($filter as $t => $val) {
                     if ($t == 'sorting') {
@@ -1056,9 +1057,9 @@ class UMS
         $params['filter_column'][$key][$type] = $value;
 
         if (isset($params)) {
-            return $mainpath.'?'.http_build_query($params);
+            return $mainpath . '?' . http_build_query($params);
         } else {
-            return $mainpath.'?filter_column['.$key.']['.$type.']='.$value;
+            return $mainpath . '?filter_column[' . $key . '][' . $type . ']=' . $value;
         }
     }
 
@@ -1067,36 +1068,35 @@ class UMS
         if (UMS::getSetting('api_debug_mode')) {
             $a = [];
             $a['created_at'] = date('Y-m-d H:i:s');
-            $a['ipaddress'] = $_SERVER['REMOTE_ADDR'];
-            $a['useragent'] = $_SERVER['HTTP_USER_AGENT'];
+            $a['ipaddress'] = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
+            $a['useragent'] = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : null;
             $a['url'] = Request::url();
             $a['description'] = $description;
             $detail = '';
-            
+
             if (is_array($details) || is_object($details)) {
                 foreach ($details as $key => $val) {
-                    
-                    if (is_array($val) || is_object($val)){
+
+                    if (is_array($val) || is_object($val)) {
                         $detail .= $key . ': ';
                         foreach ($val as $valkey => $vals) {
                             $detail .= $valkey . ': ' . $vals;
                         }
                         $detail .= '<br>';
-                    }
-                    else{
+                    } else {
                         $detail .= $key . ': ' . $val . '<br>';
                     }
                 }
             } else {
                 $detail = $details;
             }
-    
+
             $a['details'] = $detail;
             $a['id_ums_users'] = self::myId();
             DB::table('ums_logs')->insert($a);
         }
     }
-    
+
     public static function referer()
     {
         return Request::server('HTTP_REFERER');
@@ -1119,7 +1119,7 @@ class UMS
             }
         } else {
             try {
-                $tables = DB::select("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.Tables WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = '".$db_database."'");
+                $tables = DB::select("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.Tables WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = '" . $db_database . "'");
             } catch (Exception $e) {
                 $tables = [];
             }
@@ -1179,12 +1179,12 @@ class UMS
             }
         }
 
-        $accessToken = ltrim($authorization,"Bearer ");
-        $accessTokenData = Cache::get("api_token_".$accessToken);
-        if(!$accessTokenData) {
+        $accessToken = ltrim($authorization, "Bearer ");
+        $accessTokenData = Cache::get("api_token_" . $accessToken);
+        if (!$accessTokenData) {
             response()->json([
-                'api_status'=> 0,
-                'api_message'=> 'Forbidden Access!'
+                'api_status' => 0,
+                'api_message' => 'Forbidden Access!'
             ], 403)->send();
             exit;
         }
@@ -1211,7 +1211,7 @@ class UMS
 
     public static function sendFCM($regID = [], $data)
     {
-        if (! $data['title'] || ! $data['content']) {
+        if (!$data['title'] || !$data['content']) {
             return 'title , content null !';
         }
 
@@ -1230,7 +1230,7 @@ class UMS
             'priority' => 'high',
         ];
         $headers = [
-            'Authorization:key='.$apikey,
+            'Authorization:key=' . $apikey,
             'Content-Type:application/json',
         ];
 
@@ -1295,10 +1295,10 @@ class UMS
     public static function isExistsController($table)
     {
         $controllername = ucwords(str_replace('_', ' ', $table));
-        $controllername = str_replace(' ', '', $controllername).'Controller';
+        $controllername = str_replace(' ', '', $controllername) . 'Controller';
         $path = base_path("app/Http/Controllers/");
         $path2 = base_path("app/Http/Controllers/ControllerMaster/");
-        if (file_exists($path.'Admin'.$controllername.'.php') || file_exists($path2.'Admin'.$controllername.'.php') || file_exists($path2.$controllername.'.php')) {
+        if (file_exists($path . 'Admin' . $controllername . '.php') || file_exists($path2 . 'Admin' . $controllername . '.php') || file_exists($path2 . $controllername . '.php')) {
             return true;
         } else {
             return false;
@@ -1315,40 +1315,40 @@ class UMS
 		use DB;
 		use UMS;
 
-		class Api'.$controller_name.'Controller extends ApiController {
+		class Api' . $controller_name . 'Controller extends ApiController {
 
 		    function __construct() {
-				$this->table       = "'.$table_name.'";
-				$this->permalink   = "'.$permalink.'";
-				$this->method_type = "'.$method_type.'";
+				$this->table       = "' . $table_name . '";
+				$this->permalink   = "' . $permalink . '";
+				$this->method_type = "' . $method_type . '";
 		    }
 		';
 
-        $php .= "\n".'
+        $php .= "\n" . '
 		    public function hook_before(&$postdata) {
 		        //This method will be execute before run the main process
 
 		    }';
 
-        $php .= "\n".'
+        $php .= "\n" . '
 		    public function hook_query(&$query) {
 		        //This method is to customize the sql query
 
 		    }';
 
-        $php .= "\n".'
+        $php .= "\n" . '
 		    public function hook_after($postdata,&$result) {
 		        //This method will be execute after run the main process
 
 		    }';
 
-        $php .= "\n".'
+        $php .= "\n" . '
 		}
 		';
 
         $php = trim($php);
         $path = base_path("app/Http/Controllers/");
-        file_put_contents($path.'Api'.$controller_name.'Controller.php', $php);
+        file_put_contents($path . 'Api' . $controller_name . 'Controller.php', $php);
     }
 
     public static function generateController($table, $name = null, $path = null)
@@ -1364,18 +1364,18 @@ class UMS
         $url_candidate = explode(',', config("ums.URL_FIELDS_CANDIDATE"));
 
         $controllername = ucwords(str_replace('_', ' ', $table));
-        $controllername = str_replace(' ', '', $controllername).'Controller';
+        $controllername = str_replace(' ', '', $controllername) . 'Controller';
         if ($name) {
             $controllername = ucwords(str_replace(['_', '-'], ' ', $name));
-            $controllername = str_replace(' ', '', $controllername).'Controller';
+            $controllername = str_replace(' ', '', $controllername) . 'Controller';
         }
 
-        $countSameFile = count(glob($path.'Admin'.$controllername.'.php'));
+        $countSameFile = count(glob($path . 'Admin' . $controllername . '.php'));
 
         if ($countSameFile != 0) {
             $suffix = $countSameFile;
-            $controllername = ucwords(str_replace(['_', '-'], ' ', $name)).$suffix;
-            $controllername = str_replace(' ', '', $controllername).'Controller';
+            $controllername = ucwords(str_replace(['_', '-'], ' ', $name)) . $suffix;
+            $controllername = str_replace(' ', '', $controllername) . 'Controller';
         }
 
         $coloms = UMS::getTableColumns($table);
@@ -1403,27 +1403,27 @@ class UMS
 	use DB;
 	use UMS;
 
-	class Admin'.$controllername.' extends UMSController {
+	class Admin' . $controllername . ' extends UMSController {
 
 	    public function cbInit() {
 	    	# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->table 			   = "'.$table.'";
-			$this->title_field         = "'.$name_col.'";
+			$this->table 			   = "' . $table . '";
+			$this->title_field         = "' . $name_col . '";
 			$this->limit               = 20;
-			$this->orderby             = "'.$pk.',";
+			$this->orderby             = "' . $pk . ',";
 			$this->show_numbering      = FALSE;
-			$this->global_privilege    = '.$global_privilege.';
-			$this->button_table_action = '.$button_table_action.';
-			$this->button_action_style = "'.$button_action_style.'";
-			$this->button_add          = '.$button_add.';
-			$this->button_delete       = '.$button_delete.';
-			$this->button_edit         = '.$button_edit.';
-			$this->button_detail       = '.$button_detail.';
-			$this->button_show         = '.$button_show.';
-			$this->button_filter       = '.$button_filter.';
-			$this->button_export       = '.$button_export.';
-			$this->button_import       = '.$button_import.';
-			$this->button_bulk_action  = '.$button_bulk_action.';
+			$this->global_privilege    = ' . $global_privilege . ';
+			$this->button_table_action = ' . $button_table_action . ';
+			$this->button_action_style = "' . $button_action_style . '";
+			$this->button_add          = ' . $button_add . ';
+			$this->button_delete       = ' . $button_delete . ';
+			$this->button_edit         = ' . $button_edit . ';
+			$this->button_detail       = ' . $button_detail . ';
+			$this->button_show         = ' . $button_show . ';
+			$this->button_filter       = ' . $button_filter . ';
+			$this->button_export       = ' . $button_export . ';
+			$this->button_import       = ' . $button_import . ';
+			$this->button_bulk_action  = ' . $button_bulk_action . ';
 			$this->sidebar_mode		   = "normal"; //normal,mini,collapse,collapse-mini
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
@@ -1449,25 +1449,25 @@ class UMS
                 $jointable = str_replace('id_', '', $field);
                 $joincols = UMS::getTableColumns($jointable);
                 $joinname = UMS::getNameTable($joincols);
-                $php .= "\t\t".'$this->col[] = array("label"=>"'.$label.'","name"=>"'.$field.'","join"=>"'.$jointable.','.$joinname.'");'."\n";
+                $php .= "\t\t" . '$this->col[] = array("label"=>"' . $label . '","name"=>"' . $field . '","join"=>"' . $jointable . ',' . $joinname . '");' . "\n";
             } elseif (substr($field, -3) == '_id') {
                 $jointable = substr($field, 0, (strlen($field) - 3));
                 $joincols = UMS::getTableColumns($jointable);
                 $joinname = UMS::getNameTable($joincols);
-                $php .= "\t\t".'$this->col[] = array("label"=>"'.$label.'","name"=>"'.$field.'","join"=>"'.$jointable.','.$joinname.'");'."\n";
+                $php .= "\t\t" . '$this->col[] = array("label"=>"' . $label . '","name"=>"' . $field . '","join"=>"' . $jointable . ',' . $joinname . '");' . "\n";
             } else {
                 $image = '';
                 if (in_array($field, $image_candidate)) {
                     $image = ',"image"=>true';
                 }
-                $php .= "\t\t".'$this->col[] = array("label"=>"'.$label.'","name"=>"'.$field.'" '.$image.');'."\n";
+                $php .= "\t\t" . '$this->col[] = array("label"=>"' . $label . '","name"=>"' . $field . '" ' . $image . ');' . "\n";
             }
         }
 
         $php .= "\n\t\t\t# END COLUMNS DO NOT REMOVE THIS LINE";
 
         $php .= "\n\t\t\t# START FORM DO NOT REMOVE THIS LINE";
-        $php .= "\n\t\t".'$this->form = [];'."\n";
+        $php .= "\n\t\t" . '$this->form = [];' . "\n";
 
         foreach ($coloms as $c) {
             $attribute = [];
@@ -1526,7 +1526,7 @@ class UMS
                 $jointable = str_replace('id_', '', $field);
                 $joincols = UMS::getTableColumns($jointable);
                 $joinname = UMS::getNameTable($joincols);
-                $attribute['datatable'] = $jointable.','.$joinname;
+                $attribute['datatable'] = $jointable . ',' . $joinname;
                 $type = 'select2';
             }
 
@@ -1534,7 +1534,7 @@ class UMS
                 $jointable = str_replace('_id', '', $field);
                 $joincols = UMS::getTableColumns($jointable);
                 $joinname = UMS::getNameTable($joincols);
-                $attribute['datatable'] = $jointable.','.$joinname;
+                $attribute['datatable'] = $jointable . ',' . $joinname;
                 $type = 'select2';
             }
 
@@ -1542,7 +1542,7 @@ class UMS
                 $type = 'radio';
                 $label_field = ucwords(substr($field, 3));
                 $validation = ['required|integer'];
-                $attribute['dataenum'] = ['1|'.$label_field, '0|Un-'.$label_field];
+                $attribute['dataenum'] = ['1|' . $label_field, '0|Un-' . $label_field];
             }
 
             if (in_array($field, $password_candidate)) {
@@ -1572,7 +1572,7 @@ class UMS
 
             if (in_array($field, $email_candidate)) {
                 $type = 'email';
-                $validation[] = 'email|unique:'.$table;
+                $validation[] = 'email|unique:' . $table;
                 $attribute['placeholder'] = lang('text_default_help_email');
             }
 
@@ -1589,10 +1589,10 @@ class UMS
             $validation = implode('|', $validation);
 
             $php .= "\t\t";
-            $php .= '$this->form[] = ["label"=>"'.$label.'","name"=>"'.$field.'","type"=>"'.$type.'","required"=>TRUE';
+            $php .= '$this->form[] = ["label"=>"' . $label . '","name"=>"' . $field . '","type"=>"' . $type . '","required"=>TRUE';
 
             if ($validation) {
-                $php .= ',"validation"=>"'.$validation.'"';
+                $php .= ',"validation"=>"' . $validation . '"';
             }
 
             if ($attribute) {
@@ -1600,9 +1600,9 @@ class UMS
                     if (is_bool($val)) {
                         $val = ($val) ? "TRUE" : "FALSE";
                     } else {
-                        $val = '"'.$val.'"';
+                        $val = '"' . $val . '"';
                     }
-                    $php .= ',"'.$key.'"=>'.$val;
+                    $php .= ',"' . $key . '"=>' . $val;
                 }
             }
 
@@ -1895,9 +1895,9 @@ class UMS
         $php = trim($php);
 
         //create file controller
-        file_put_contents($path.'Admin'.$controllername.'.php', $php);
+        file_put_contents($path . 'Admin' . $controllername . '.php', $php);
 
-        return 'Admin'.$controllername;
+        return 'Admin' . $controllername;
     }
 
     /*
@@ -1912,14 +1912,14 @@ class UMS
     public static function routeController($prefix, $controller)
     {
 
-        $prefix = trim($prefix, '/').'/';
+        $prefix = trim($prefix, '/') . '/';
 
         $namespace = 'App\Http\Controllers';
 
         try {
-            Route::get($prefix, ['uses' => $controller.'@getIndex', 'as' => $controller.'GetIndex']);
+            Route::get($prefix, ['uses' => $controller . '@getIndex', 'as' => $controller . 'GetIndex']);
 
-            $controller_class = new \ReflectionClass($namespace.'\\'.$controller);
+            $controller_class = new \ReflectionClass($namespace . '\\' . $controller);
             $controller_methods = $controller_class->getMethods(\ReflectionMethod::IS_PUBLIC);
             $wildcards = '/{one?}/{two?}/{three?}/{four?}/{five?}';
             foreach ($controller_methods as $method) {
@@ -1930,13 +1930,13 @@ class UMS
                         $slug = array_filter(preg_split('/(?=[A-Z])/', $method_name));
                         $slug = strtolower(implode('-', $slug));
                         $slug = ($slug == 'index') ? '' : $slug;
-                        Route::get($prefix.$slug.$wildcards, ['uses' => $controller.'@'.$method->name, 'as' => $controller.'Get'.$method_name]);
+                        Route::get($prefix . $slug . $wildcards, ['uses' => $controller . '@' . $method->name, 'as' => $controller . 'Get' . $method_name]);
                     } elseif (substr($method->name, 0, 4) == 'post') {
                         $method_name = substr($method->name, 4);
                         $slug = array_filter(preg_split('/(?=[A-Z])/', $method_name));
-                        Route::post($prefix.strtolower(implode('-', $slug)).$wildcards, [
-                            'uses' => $controller.'@'.$method->name,
-                            'as' => $controller.'Post'.$method_name,
+                        Route::post($prefix . strtolower(implode('-', $slug)) . $wildcards, [
+                            'uses' => $controller . '@' . $method->name,
+                            'as' => $controller . 'Post' . $method_name,
                         ]);
                     }
                 }

@@ -3,10 +3,13 @@
 namespace Illuminate\Testing;
 
 use Illuminate\Console\OutputStyle;
+use Illuminate\Console\PromptValidationException;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Traits\Conditionable;
+use Illuminate\Support\Traits\Macroable;
 use Mockery;
 use Mockery\Exception\NoMatchingExpectationException;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
@@ -17,6 +20,9 @@ use Symfony\Component\Console\Output\BufferedOutput;
 
 class PendingCommand
 {
+    use Conditionable;
+    use Macroable;
+
     /**
      * The test being run.
      *
@@ -131,11 +137,17 @@ class PendingCommand
     /**
      * Specify output that should be printed when the command runs.
      *
-     * @param  string  $output
+     * @param  string|null  $output
      * @return $this
      */
-    public function expectsOutput($output)
+    public function expectsOutput($output = null)
     {
+        if ($output === null) {
+            $this->test->expectsOutput = true;
+
+            return $this;
+        }
+
         $this->test->expectedOutput[] = $output;
 
         return $this;
@@ -144,12 +156,44 @@ class PendingCommand
     /**
      * Specify output that should never be printed when the command runs.
      *
-     * @param  string  $output
+     * @param  string|null  $output
      * @return $this
      */
-    public function doesntExpectOutput($output)
+    public function doesntExpectOutput($output = null)
     {
+        if ($output === null) {
+            $this->test->expectsOutput = false;
+
+            return $this;
+        }
+
         $this->test->unexpectedOutput[$output] = false;
+
+        return $this;
+    }
+
+    /**
+     * Specify that the given string should be contained in the command output.
+     *
+     * @param  string  $string
+     * @return $this
+     */
+    public function expectsOutputToContain($string)
+    {
+        $this->test->expectedOutputSubstrings[] = $string;
+
+        return $this;
+    }
+
+    /**
+     * Specify that the given string shouldn't be contained in the command output.
+     *
+     * @param  string  $string
+     * @return $this
+     */
+    public function doesntExpectOutputToContain($string)
+    {
+        $this->test->unexpectedOutputSubstrings[$string] = false;
 
         return $this;
     }
@@ -224,6 +268,16 @@ class PendingCommand
     }
 
     /**
+     * Assert that the command has the success exit code.
+     *
+     * @return $this
+     */
+    public function assertOk()
+    {
+        return $this->assertSuccessful();
+    }
+
+    /**
      * Assert that the command does not have the success exit code.
      *
      * @return $this
@@ -264,6 +318,8 @@ class PendingCommand
             }
 
             throw $e;
+        } catch (PromptValidationException) {
+            $exitCode = Command::FAILURE;
         }
 
         if ($this->expectedExitCode !== null) {
@@ -311,7 +367,15 @@ class PendingCommand
             $this->test->fail('Output "'.Arr::first($this->test->expectedOutput).'" was not printed.');
         }
 
+        if (count($this->test->expectedOutputSubstrings)) {
+            $this->test->fail('Output does not contain "'.Arr::first($this->test->expectedOutputSubstrings).'".');
+        }
+
         if ($output = array_search(true, $this->test->unexpectedOutput)) {
+            $this->test->fail('Output "'.$output.'" was printed.');
+        }
+
+        if ($output = array_search(true, $this->test->unexpectedOutputSubstrings)) {
             $this->test->fail('Output "'.$output.'" was printed.');
         }
     }
@@ -324,7 +388,7 @@ class PendingCommand
     protected function mockConsoleOutput()
     {
         $mock = Mockery::mock(OutputStyle::class.'[askQuestion]', [
-            (new ArrayInput($this->parameters)), $this->createABufferedOutputMock(),
+            new ArrayInput($this->parameters), $this->createABufferedOutputMock(),
         ]);
 
         foreach ($this->test->expectedQuestions as $i => $question) {
@@ -363,6 +427,18 @@ class PendingCommand
                 ->shouldAllowMockingProtectedMethods()
                 ->shouldIgnoreMissing();
 
+        if ($this->test->expectsOutput === false) {
+            $mock->shouldReceive('doWrite')->never();
+
+            return $mock;
+        }
+
+        if ($this->test->expectsOutput === true
+            && count($this->test->expectedOutput) === 0
+            && count($this->test->expectedOutputSubstrings) === 0) {
+            $mock->shouldReceive('doWrite')->atLeast()->once();
+        }
+
         foreach ($this->test->expectedOutput as $i => $output) {
             $mock->shouldReceive('doWrite')
                 ->once()
@@ -373,13 +449,35 @@ class PendingCommand
                 });
         }
 
+        foreach ($this->test->expectedOutputSubstrings as $i => $text) {
+            $mock->shouldReceive('doWrite')
+                ->atLeast()
+                ->times(0)
+                ->withArgs(fn ($output) => str_contains($output, $text))
+                ->andReturnUsing(function () use ($i) {
+                    unset($this->test->expectedOutputSubstrings[$i]);
+                });
+        }
+
         foreach ($this->test->unexpectedOutput as $output => $displayed) {
             $mock->shouldReceive('doWrite')
+                ->atLeast()
+                ->times(0)
                 ->ordered()
                 ->with($output, Mockery::any())
                 ->andReturnUsing(function () use ($output) {
                     $this->test->unexpectedOutput[$output] = true;
                 });
+        }
+
+        foreach ($this->test->unexpectedOutputSubstrings as $text => $displayed) {
+            $mock->shouldReceive('doWrite')
+                 ->atLeast()
+                 ->times(0)
+                 ->withArgs(fn ($output) => str_contains($output, $text))
+                 ->andReturnUsing(function () use ($text) {
+                     $this->test->unexpectedOutputSubstrings[$text] = true;
+                 });
         }
 
         return $mock;
@@ -393,7 +491,9 @@ class PendingCommand
     protected function flushExpectations()
     {
         $this->test->expectedOutput = [];
+        $this->test->expectedOutputSubstrings = [];
         $this->test->unexpectedOutput = [];
+        $this->test->unexpectedOutputSubstrings = [];
         $this->test->expectedTables = [];
         $this->test->expectedQuestions = [];
         $this->test->expectedChoices = [];

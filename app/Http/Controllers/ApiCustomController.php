@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use UMS;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +24,7 @@ class ApiCustomController extends UMSController
         $this->button_export = false;
     }
 
-    function getIndex()
+    public function getIndex()
     {
         $this->cbLoader();
 
@@ -40,7 +42,7 @@ class ApiCustomController extends UMSController
         return view('dashboard.api_documentation', $data);
     }
 
-    function apiDocumentation()
+    public function apiDocumentation()
     {
         $this->cbLoader();
         $data = [];
@@ -50,7 +52,7 @@ class ApiCustomController extends UMSController
         return view('dashboard.api_documentation_public', $data);
     }
 
-    function getDownloadPostman()
+    public function getDownloadPostman()
     {
         $this->cbLoader();
         $data = [];
@@ -178,7 +180,7 @@ class ApiCustomController extends UMSController
         return view('dashboard.api_generator', $data);
     }
 
-    function getGenerateScreetKey()
+    public function getGenerateScreetKey()
     {
         $this->cbLoader();
         //Generate a random string.
@@ -224,7 +226,7 @@ class ApiCustomController extends UMSController
         }
     }
 
-    function getColumnTable($table, $type = 'list')
+    public function getColumnTable($table, $type = 'list')
     {
         $this->cbLoader();
         $result = [];
@@ -275,7 +277,7 @@ class ApiCustomController extends UMSController
         return response()->json($new_result);
     }
 
-    function postSaveApiCustom()
+    public function postSaveApiCustom()
     {
         $this->cbLoader();
         $posts = Request::all();
@@ -346,7 +348,7 @@ class ApiCustomController extends UMSController
         return redirect(UMS::mainpath())->with(['message' => 'Yeay, your api has been saved successfully !', 'message_type' => 'success']);
     }
 
-    function getDeleteApi($id)
+    public function getDeleteApi($id)
     {
         $this->cbLoader();
         $row = DB::table('ums_apicustom')->where('id', $id)->first();

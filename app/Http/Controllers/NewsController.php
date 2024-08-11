@@ -8,8 +8,6 @@ use App\Models\news;
 use App\Models\news_category;
 use App\Models\news_image;
 
-
-
 class NewsController extends Controller
 {
     public function getnews()

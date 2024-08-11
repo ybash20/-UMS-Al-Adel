@@ -30,7 +30,7 @@
                 &nbsp; {{lang('form_back_to_list',['module'=>urldecode(g('label'))])}}</a></p>
     @endif
 
-    @if($parent_table)
+    @if(isset($parent_table))
         <div class="box box-default">
             <div class="box-body table-responsive">
                 <table class='table table-bordered'>
@@ -83,8 +83,12 @@
             @endif
             <div class="box-tools pull-{{ lang('right') }}" style="position: relative;margin-top: -5px;margin-right: -10px">
 
-                @if($button_filter)
-                    <a style="margin-top:-23px" href="javascript:void(0)" id='btn_advanced_filter' data-url-parameter='{{$build_query}}'
+                @if(isset($button_filter))
+                    @if (isset($build_query))
+                        <a style="margin-top:-23px" href="javascript:void(0)" id='btn_advanced_filter' data-url-parameter='{{$build_query}}'
+                    @else
+                        <a style="margin-top:-23px" href="javascript:void(0)" id='btn_advanced_filter'
+                    @endif
                        title='{{lang('filter_dialog_title')}}' class="btn btn-sm btn-default {{(Request::get('filter_column'))?'active':''}}">
                         <i class="fa fa-filter"></i> {{lang("button_filter")}}
                     </a>
@@ -104,8 +108,7 @@
                                 $build_query = ($build_query) ? "?".$build_query : "";
                                 $build_query = (Request::all()) ? $build_query : "";
                                 ?>
-                                <button type='button' onclick='location.href="{{ UMS::mainpath().$build_query}}"'
-                                        title="{{lang('button_reset')}}" class='btn btn-sm btn-warning'><i class='fa fa-ban'></i></button>
+                                <button type='button' onclick='location.href="{{ UMS::mainpath().$build_query}}"' title="{{lang('button_reset')}}" class='btn btn-sm btn-warning'><i class='fa fa-ban'></i></button>
                             @endif
                             <button type='submit' class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
                         </div>

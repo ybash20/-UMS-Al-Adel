@@ -20,7 +20,6 @@ use App;
 
 class RegistrationController extends Controller
 {
-
     public function index()
     {
         // جلب كافة البيانات من الجداول المرتبطة
@@ -57,20 +56,17 @@ class RegistrationController extends Controller
         $gov = DB::table('governorates')->pluck('Name', 'id');
 
 
-        return view('registration', compact(
-            'maritalStatuses',
-            'bloodTypes',
-            'identityTypes',
-            'qualificationType',
-            'disciplines',
-            'majorsAdministration',
-            'majorsLanguages',
-            'majorsSharia',
-            'majorsIslamicStudies',
-            'majorsComputerScience',
-            'colleges',
-            'gov'
-        )
+        return view(
+            'registration',
+            compact(
+                'maritalStatuses',
+                'bloodTypes',
+                'identityTypes',
+                'qualificationType',
+                'disciplines',
+                'colleges',
+                'gov'
+            )
         );
     }
     public function post_reg(Request $request)

@@ -268,38 +268,38 @@
 
                         $('#table-parameters tfoot').show();
                     }
-
+                    </script>
+                @if(isset($parameters))
+                    <script>
                     function init_data_parameters() {
-                                @if($parameters)
-
-                        var resp = {!!$parameters!!};
+                        var resp = {!! $parameters !!};
                         var tipe_action = $('#tipe_action').val();
-
+                        
                         var no_params = 0;
                         $('#table-parameters tbody').empty();
                         $.each(resp, function (i, obj) {
                             var param_html = $('#table-parameters tfoot tr').clone();
                             $('#table-parameters tbody').append(param_html);
                         })
-
+                        
                         var i = 0;
                         $('#table-parameters tbody tr').each(function () {
-
+                            
                             var field_type = resp[i].type;
                             var field_name = resp[i].name;
                             var required = resp[i].required;
                             var used = resp[i].used;
                             var config = resp[i].config;
-
+                            
                             console.log(field_name + ' - ' + field_type);
-
+                            
                             if (tipe_action == 'save_add' && field_name == 'id') {
                                 $(this).remove();
                             } else {
                                 no_params += 1;
                             }
-
-
+                            
+                            
                             switch (field_type) {
                                 default:
                                     var type = field_type;
@@ -349,12 +349,12 @@
 
                         $('#table-parameters tfoot').show();
 
-                        @endif
                     } //end function init_data_parameter
-
-
+                </script>
+                @endif
+                @if(isset($responses))
+                <script>
                     function init_data_responses() {
-                                @if($responses)
 
                         var t = $('#combo_tabel').val();
                         var type = 'list';
@@ -441,12 +441,15 @@
 
                         $('#table-response tfoot').show();
 
-                        @endif
                     } //end function init_data_responses
+                </script>
+                @endif
 
+
+                <script>
                     $(function () {
 
-                        @if($row)
+                        @if(isset($row))
                         init_data_parameters();
                         init_data_responses();
                         @endif
@@ -590,12 +593,12 @@
 
             <form method='post' action='{{ route("ApiCustomControllerPostSaveApiCustom")}}'>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                <input type="hidden" name="id" value="{{$row->id}}">
+                <input type="hidden" name="id" value="{{isset($row->id) ? $row->id : null}}">
                 <div class='row'>
                     <div class='col-sm-8'>
                         <div class='form-group'>
                             <label>API Name</label>
-                            <input type='text' class='form-control' value='{{$row->nama}}' required name='nama' id='input-nama'/>
+                            <input type='text' class='form-control' value='{{isset($row->nama) ? $row->nama : null}}' required name='nama' id='input-nama'/>
                         </div>
                     </div>
 
@@ -605,7 +608,7 @@
                             <select id='combo_tabel' name='tabel' required class='form-control'>
                                 <option value=''>** Choose a Table</option>
                                 @foreach($tables as $tab)
-                                    <option {{($row->tabel == $tab)?"selected":""}} value='{{$tab}}'>{{$tab}}</option>
+                                    <option {{(isset($row->tabel) && $row->tabel == $tab) ? "selected":""}} value='{{$tab}}'>{{$tab}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -618,7 +621,7 @@
                             <label>API Slug</label>
                             <div class='input-group'>
                                 <span class="input-group-addon" id="basic-addon1" style="background:#eeeeee">{{url("api")}}/</span>
-                                <input type='text' class='form-control' value='{{$row->permalink}}' required name='permalink' id='input-permalink'/>
+                                <input type='text' class='form-control' value='{{isset($row->permalink) ? $row->permalink : null }}' required name='permalink' id='input-permalink'/>
                             </div>
                         </div>
                     </div>
@@ -627,11 +630,11 @@
                             <label>Action Type</label>
                             <select id='tipe_action' name='aksi' required class='form-control'>
                                 <option value=''>** Select Action</option>
-                                <option value='list' {{ ($row->aksi == 'list')?"selected":"" }} >LISTING</option>
-                                <option value='detail' {{ ($row->aksi == 'detail')?"selected":"" }}>DETAIL / READ</option>
-                                <option value='save_add' {{ ($row->aksi == 'save_add')?"selected":"" }}>CREATE / ADD</option>
-                                <option value='save_edit' {{ ($row->aksi == 'save_edit')?"selected":"" }}>UPDATE</option>
-                                <option value='delete' {{ ($row->aksi == 'delete')?"selected":"" }}>DELETE</option>
+                                <option value='list' {{ (isset($row->aksi) && $row->aksi == 'list')?"selected":"" }} >LISTING</option>
+                                <option value='detail' {{ (isset($row->aksi) && $row->aksi == 'detail')?"selected":"" }}>DETAIL / READ</option>
+                                <option value='save_add' {{ (isset($row->aksi) && $row->aksi == 'save_add')?"selected":"" }}>CREATE / ADD</option>
+                                <option value='save_edit' {{ (isset($row->aksi) && $row->aksi == 'save_edit')?"selected":"" }}>UPDATE</option>
+                                <option value='delete' {{ (isset($row->aksi) && $row->aksi == 'delete')?"selected":"" }}>DELETE</option>
                             </select>
                         </div>
                     </div>
@@ -640,11 +643,11 @@
                             <label>Method Type</label>
                             <br/>
                             <label class='radio-inline'>
-                                <input type='radio' required class='method_type' {{ ($row->method_type == 'get')?"checked":"" }} name='method_type'
+                                <input type='radio' required class='method_type' {{ (isset($row->method_type) && $row->method_type == 'get')?"checked":"" }} name='method_type'
                                        value='get'/> GET
                             </label>
                             <label class='radio-inline'>
-                                <input type='radio' class='method_type' {{ ($row->method_type == 'post')?"checked":"" }} name='method_type' value='post'/> POST
+                                <input type='radio' class='method_type' {{ (isset($row->method_type) && $row->method_type == 'post')?"checked":"" }} name='method_type' value='post'/> POST
                             </label>
 
                         </div>
@@ -797,7 +800,7 @@
 
                 <div class='form-group'>
                     <label>API Description</label>
-                    <textarea name='keterangan' rows='3' class='form-control wysiwyg' placeholder='Optional'>{{$row->keterangan}}</textarea>
+                    <textarea name='keterangan' rows='3' class='form-control wysiwyg' placeholder='Optional'>{{isset($row->keterangan)?$row->keterangan:null}}</textarea>
                 </div>
 
                 <div class='form-group'>

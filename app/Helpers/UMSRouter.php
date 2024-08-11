@@ -72,40 +72,40 @@ class UMSRouter
     }
 
     private static function studentAuthRoute()
-{
-    Route::group(['middleware' => ['web'], 'namespace' => static::$ums_namespace], function () {
-        // مسارات تسجيل الدخول والخروج للطلاب
-        Route::get('StudentgetLogin', 'AdminController@StudentgetLogin')->name('StudentgetLogin'); // رابط الراوت للطلاب /student
-        Route::post('StudentpostLogin', 'AdminController@StudentpostLogin')->name('StudentpostLogin'); // تسجيل الدخول
-        Route::get('StudentgetLogout', 'AdminController@StudentgetLogout')->name('StudentgetLogout'); // تسجيل الخروج
+    {
+        Route::group(['middleware' => ['web'], 'namespace' => static::$ums_namespace], function () {
+            // مسارات تسجيل الدخول والخروج للطلاب
+            Route::get('StudentgetLogin', 'AdminController@StudentgetLogin')->name('StudentgetLogin'); // رابط الراوت للطلاب /student
+            Route::post('StudentpostLogin', 'AdminController@StudentpostLogin')->name('StudentpostLogin'); // تسجيل الدخول
+            Route::get('StudentgetLogout', 'AdminController@StudentgetLogout')->name('StudentgetLogout'); // تسجيل الخروج
 
-        // مسارات محمية بواسطة ميدلوير الطلاب
-        Route::group(['middleware' => 'student.auth'], function () {
-            // الصفحة الرئيسية للطالب
-            Route::get('/student', function () {
-                return view('Student.student');
-            })->name('student'); // اسم الراوت للصفحة الرئيسية للطالب
+            // مسارات محمية بواسطة ميدلوير الطلاب
+            Route::group(['middleware' => 'student.auth'], function () {
+                // الصفحة الرئيسية للطالب
+                Route::get('/student', function () {
+                    return view('Student.student');
+                })->name('student'); // اسم الراوت للصفحة الرئيسية للطالب
 
-            // مسار تحديث كلمة المرور
-            Route::post('updatePassword', 'StudentControllerProfile@updatePassword')->name('updatePassword');
+                // مسار تحديث كلمة المرور
+                Route::post('updatePassword', 'StudentControllerProfile@updatePassword')->name('updatePassword');
 
-            // باقي المسارات الخاصة بالطلاب
-            Route::get('student_grades', 'AdminController@StudentGrades')->name('StudentGrades');
-            Route::get('student_studyplan', 'AdminController@StudentStudyplan')->name('StudentStudyplan');
-            Route::get('student_timetables', 'AdminController@StudentTimetables')->name('StudentTimetables');
+                // باقي المسارات الخاصة بالطلاب
+                Route::get('student_grades', 'AdminController@StudentGrades')->name('StudentGrades');
+                Route::get('student_studyplan', 'AdminController@StudentStudyplan')->name('StudentStudyplan');
+                Route::get('student_timetables', 'AdminController@StudentTimetables')->name('StudentTimetables');
 
-            Route::get('updatePassword', function () {
-                if (Session::has('student_id')) {
-                    return view('Student.updatePassword');
-                } else {
-                    return redirect()->route('StudentgetLogin');
-                }
-            })->name('updatePassword');
+                Route::get('updatePassword', function () {
+                    if (Session::has('student_id')) {
+                        return view('Student.updatePassword');
+                    } else {
+                        return redirect()->route('StudentgetLogin');
+                    }
+                })->name('updatePassword');
+            });
+
+
         });
-
-
-    });
-}
+    }
 
     private static function userControllerRoute()
     {

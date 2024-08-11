@@ -30,14 +30,14 @@ class UMSBackend
 
             return redirect($url);
         }
-        if($request->url()==UMS::adminPath('')){
-            $menus=DB::table('ums_menus')->whereRaw("ums_menus.id IN (select id_ums_menus from ums_menus_privileges where id_ums_privileges = '".UMS::myPrivilegeId()."')")->where('is_dashboard', 1)->where('is_active', 1)->first();
+        if($request->url() == UMS::adminPath('')) {
+            $menus = DB::table('ums_menus')->whereRaw("ums_menus.id IN (select id_ums_menus from ums_menus_privileges where id_ums_privileges = '".UMS::myPrivilegeId()."')")->where('is_dashboard', 1)->where('is_active', 1)->first();
             if ($menus) {
                 if ($menus->type == 'Statistic') {
                     return redirect()->route('StatisticBuilderControllerGetDashboard');
                 } elseif ($menus->type == 'Module') {
                     $module = UMS::first('ums_moduls', ['path' => $menus->path]);
-                    return redirect()->action( $module->controller.'@getIndex');
+                    return redirect()->action($module->controller.'@getIndex');
                 } elseif ($menus->type == 'Route') {
                     $action = str_replace("Controller", "Controller@", $menus->path);
                     $action = str_replace(['Get', 'Post'], ['get', 'post'], $action);

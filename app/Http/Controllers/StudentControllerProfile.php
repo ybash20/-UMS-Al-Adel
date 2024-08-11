@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use App\Helpers\UMS;
 use Illuminate\Support\Facades\DB;
@@ -8,8 +10,8 @@ use App\Models\student;
 use App\Models\Grades_Student;
 use Illuminate\Http\Request;
 
-class StudentControllerProfile extends UMSController{
-
+class StudentControllerProfile extends UMSController
+{
     public function updatePassword(Request $request)
     {
         // Validate request

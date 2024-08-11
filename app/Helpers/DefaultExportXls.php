@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Helpers;
-
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -18,6 +16,6 @@ class DefaultExportXls implements FromView
 
     public function view(): View
     {
-        return view("dashboard.export",$this->data);
+        return view("dashboard.export", $this->data);
     }
 }

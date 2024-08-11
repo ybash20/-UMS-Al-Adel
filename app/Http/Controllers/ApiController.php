@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use UMS;
 use Illuminate\Support\Facades\DB;
@@ -217,7 +219,7 @@ class ApiController extends Controller
             return response()->json($this->output);
         }
 
-        $limit = ($this->limit)?:$posts['limit'];
+        $limit = ($this->limit) ?: $posts['limit'];
         $offset = ($posts['offset']) ?: 0;
         $orderby = ($posts['orderby']) ?: $table.'.'.$pk.',desc';
         $uploads_format_candidate = explode(',', config("ums.UPLOAD_TYPES"));
@@ -571,11 +573,10 @@ class ApiController extends Controller
             if ($action_type == 'save_add') {
 
                 DB::beginTransaction();
-                try{
+                try {
                     $id = DB::table($table)->insertGetId($row_assign);
                     DB::commit();
-                }catch (\Exception $e)
-                {
+                } catch (\Exception $e) {
                     DB::rollBack();
                     throw new \Exception($e->getMessage());
                 }
@@ -635,11 +636,13 @@ class ApiController extends Controller
 
 
         $this->hook_after($posts, $result);
-        if($this->output) return response()->json($this->output);
+        if($this->output) {
+            return response()->json($this->output);
+        }
 
         if($output == 'JSON') {
             return response()->json($result, 200);
-        }else{
+        } else {
             return $result;
         }
     }

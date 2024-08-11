@@ -1,11 +1,14 @@
 <?php
-if ($form['datatable']) {
+if (isset($form['datatable'])) {
     $datatable = explode(',', $form['datatable']);
     $table = $datatable[0];
     $field = $datatable[1];
-    echo UMS::first($table, ['id' => $value])->$field;
+    $result = UMS::first($table, ['id' => $value]);
+
+    echo isset($result) ? $result->$field : null;
+
 }
-if ($form['dataquery']) {
+if (isset($form['dataquery'])) {
     $dataquery = $form['dataquery'];
     $query = DB::select(DB::raw($dataquery));
     if ($query) {
@@ -17,7 +20,7 @@ if ($form['dataquery']) {
         }
     }
 }
-if ($form['dataenum']) {
+if (isset($form['dataenum'])) {
     echo $value;
 }
 ?>

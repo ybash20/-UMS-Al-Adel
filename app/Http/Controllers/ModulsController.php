@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Excel;
@@ -8,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use App\Helpers\Fontawesome;
 use App\Helpers\UMS;
 use App\Http\Controllers\MenusController;
+
 class ModulsController extends UMSController
 {
     public function cbInit()
@@ -181,13 +184,13 @@ class ModulsController extends UMSController
 
     }
 
-    function hook_query_index(&$query)
+    public function hook_query_index(&$query)
     {
         $query->where('is_protected', 0);
         //$query->whereNotIn('ums_moduls.controller', ['AdminUmsUsersController']);
     }
 
-    function hook_before_delete($id)
+    public function hook_before_delete($id)
     {
         $modul = DB::table('ums_moduls')->where('id', $id)->first();
         $menus = DB::table('ums_menus')->where('path', 'like', '%'.$modul->controller.'%')->delete();
@@ -250,7 +253,7 @@ class ModulsController extends UMSController
             }
         }
         $moduls = DB::table('ums_moduls')->where('is_protected', 0)->get();
-        foreach($moduls as $modul){
+        foreach($moduls as $modul) {
             $tables_list[] = $modul->table_name;
         }
 
@@ -288,7 +291,7 @@ class ModulsController extends UMSController
 
         if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
             $response = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
-        }else{
+        } else {
             return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
         }
         $column_datas = extract_unit($response, "# START COLUMNS DO NOT REMOVE THIS LINE", "# END COLUMNS DO NOT REMOVE THIS LINE");
@@ -300,7 +303,7 @@ class ModulsController extends UMSController
         $data['id'] = $id;
         $data['columns'] = $columns;
         $data['table_list'] = $table_list;
-        $data['cb_col'] = (isset($cb_col))?$cb_col:null;
+        $data['cb_col'] = (isset($cb_col)) ? $cb_col : null;
 
         return view('dashboard.module_generator.step2', $data);
     }
@@ -445,7 +448,7 @@ class ModulsController extends UMSController
 
         if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
             $raw = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
-        }else{
+        } else {
             return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
         }
         $raw = explode("# START COLUMNS DO NOT REMOVE THIS LINE", $raw);
@@ -458,7 +461,7 @@ class ModulsController extends UMSController
         $file_controller .= "\t\t\t# END COLUMNS DO NOT REMOVE THIS LINE\n\n";
         $file_controller .= "\t\t\t".trim($rraw[1]);
 
-        if(file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))){
+        if(file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
             file_put_contents(app_path('Http/Controllers/'.$row->controller.'.php'), $file_controller);
         } else {
             return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
@@ -485,7 +488,7 @@ class ModulsController extends UMSController
 
         if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
             $response = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
-        }else{
+        } else {
             return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
         }
         $column_datas = extract_unit($response, "# START FORM DO NOT REMOVE THIS LINE", "# END FORM DO NOT REMOVE THIS LINE");
@@ -549,7 +552,7 @@ class ModulsController extends UMSController
 
         if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
             $raw = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
-        }else{
+        } else {
             return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
         }
         $raw = explode("# START FORM DO NOT REMOVE THIS LINE", $raw);
@@ -593,7 +596,7 @@ class ModulsController extends UMSController
         //CREATE FILE CONTROLLER
         if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
             file_put_contents(app_path('Http/Controllers/'.$row->controller.'.php'), $file_controller);
-        }else{
+        } else {
             return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
         }
 
@@ -616,7 +619,7 @@ class ModulsController extends UMSController
         $data['id'] = $id;
         if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
             $response = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
-        }else{
+        } else {
             return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
         }
         $column_datas = extract_unit($response, "# START CONFIGURATION DO NOT REMOVE THIS LINE", "# END CONFIGURATION DO NOT REMOVE THIS LINE");
@@ -649,11 +652,9 @@ class ModulsController extends UMSController
 
             if ($val == 'true' || $val == 'false') {
                 $script_config[$i] = "\t\t\t".'$this->'.$key.' = '.$val.';';
-            }
-            elseif ($val != '') {
+            } elseif ($val != '') {
                 $script_config[$i] = "\t\t\t".'$this->'.$key.' = "'.$val.'";';
-            }
-            else{
+            } else {
                 continue;
             }
             $i++;
@@ -662,7 +663,7 @@ class ModulsController extends UMSController
         $scripts = implode("\n", $script_config);
         if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
             $raw = file_get_contents(app_path('Http/Controllers/'.$row->controller.'.php'));
-        }else{
+        } else {
             return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
         }
         $raw = explode("# START CONFIGURATION DO NOT REMOVE THIS LINE", $raw);
@@ -676,7 +677,7 @@ class ModulsController extends UMSController
 
         if (file_exists(app_path('Http/Controllers/'.str_replace('.', '', $row->controller).'.php'))) {
             file_put_contents(app_path('Http/Controllers/'.$row->controller.'.php'), $file_controller);
-        }else{
+        } else {
             return redirect()->back()->with(['message' => 'Controller not found', 'message_type' => 'danger']);
         }
 
@@ -710,7 +711,7 @@ class ModulsController extends UMSController
         //Insert Menu
         if ($this->arr['controller']) {
             $parent_menu_sort = DB::table('ums_menus')->where('parent_id', 0)->max('sorting') + 1;
-//            $parent_menu_id = DB::table('ums_menus')->max('id') + 1;
+            //            $parent_menu_id = DB::table('ums_menus')->max('id') + 1;
             $parent_menu_id = DB::table('ums_menus')->insertGetId([
                 'created_at' => date('Y-m-d H:i:s'),
                 'name' => $this->arr['name'],

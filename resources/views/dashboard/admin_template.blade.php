@@ -352,9 +352,11 @@ class="{{ Session::get('theme_color', 'skin-blue-light') }} {{ config('ums.ADMIN
                                     @endif
                                 @endif
                                 @if ($button_export && UMS::getCurrentMethod() == 'getIndex')
-                                    <a href="javascript:void(0)" id="btn_export_data"
-                                        data-url-parameter="{{ $build_query }}" title="Export Data"
-                                        class="btn btn-sm btn-primary btn-export-data">
+                                    @if (isset($build_query))
+                                        <a href="javascript:void(0)" id="btn_export_data" data-url-parameter="{{ $build_query }}" title="Export Data" class="btn btn-sm btn-primary btn-export-data">
+                                    @else
+                                        <a href="javascript:void(0)" id="btn_export_data" title="Export Data" class="btn btn-sm btn-primary btn-export-data">
+                                    @endif
                                         <i class="fa fa-upload"></i>
                                         {{ lang('button_export') }}
                                     </a>

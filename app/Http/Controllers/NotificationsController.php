@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use UMS;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +25,7 @@ class NotificationsController extends UMSController
         $this->global_privilege = true;
         # END CONFIGURATION DO NOT REMOVE THIS LINE
 
-		# START COLUMNS DO NOT REMOVE THIS LINE
+        # START COLUMNS DO NOT REMOVE THIS LINE
         $this->col = [];
         $this->col[] = ["label" => "Content", "name" => "content", "callback_php" => '"<a href=\"'.url(config('ums.ADMIN_PATH')).'/notifications/read'.'/$row->id\">$row->content</a>"'];
         $this->col[] = [
@@ -33,7 +35,7 @@ class NotificationsController extends UMSController
         ];
         # END COLUMNS DO NOT REMOVE THIS LINE
 
-		# START FORM DO NOT REMOVE THIS LINE
+        # START FORM DO NOT REMOVE THIS LINE
         $this->form = [];
         $this->form[] = ["label" => "Content", "name" => "content", "type" => "text"];
         $this->form[] = ["label" => "Icon", "name" => "icon", "type" => "text"];

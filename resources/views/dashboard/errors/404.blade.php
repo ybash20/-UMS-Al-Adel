@@ -11,7 +11,6 @@
     <!-- Theme style -->
     <link href="{{asset('vendor/ums/assets/adminlte/dist/css/AdminLTE.min.css')}}" rel="stylesheet" type="text/css"/>
 
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -46,7 +45,6 @@
         </div><!-- /.error-content -->
     </div><!-- /.error-page -->
 </section><!-- /.content -->
-
 
 <!-- jQuery 2.2.3 -->
 <script src="{{asset('vendor/ums/assets/adminlte/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>

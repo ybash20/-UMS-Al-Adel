@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+
 class StudentAuth
 {
     /**
@@ -20,7 +21,7 @@ class StudentAuth
             return redirect()->route('StudentgetLogin')->with('message', lang('login-message'));
         }
 
-        
+
         return $next($request);
     }
 }

@@ -3,7 +3,6 @@
 namespace Illuminate\Database\Schema;
 
 use Illuminate\Database\Connection;
-use Illuminate\Support\Str;
 
 class PostgresSchemaState extends SchemaState
 {
@@ -16,19 +15,19 @@ class PostgresSchemaState extends SchemaState
      */
     public function dump(Connection $connection, $path)
     {
-        $excludedTables = collect($connection->getSchemaBuilder()->getAllTables())
-                        ->map->tablename
-                        ->reject(function ($table) {
-                            return $table === $this->migrationTable;
-                        })->map(function ($table) {
-                            return '--exclude-table-data="*.'.$table.'"';
-                        })->implode(' ');
+        $commands = collect([
+            $this->baseDumpCommand().' --schema-only > '.$path,
+        ]);
 
-        $this->makeProcess(
-            $this->baseDumpCommand().' --file="${:LARAVEL_LOAD_PATH}" '.$excludedTables
-        )->mustRun($this->output, array_merge($this->baseVariables($this->connection->getConfig()), [
-            'LARAVEL_LOAD_PATH' => $path,
-        ]));
+        if ($this->hasMigrationTable()) {
+            $commands->push($this->baseDumpCommand().' -t '.$this->getMigrationTable().' --data-only >> '.$path);
+        }
+
+        $commands->map(function ($command, $path) {
+            $this->makeProcess($command)->mustRun($this->output, array_merge($this->baseVariables($this->connection->getConfig()), [
+                'LARAVEL_LOAD_PATH' => $path,
+            ]));
+        });
     }
 
     /**
@@ -41,7 +40,7 @@ class PostgresSchemaState extends SchemaState
     {
         $command = 'pg_restore --no-owner --no-acl --clean --if-exists --host="${:LARAVEL_LOAD_HOST}" --port="${:LARAVEL_LOAD_PORT}" --username="${:LARAVEL_LOAD_USER}" --dbname="${:LARAVEL_LOAD_DATABASE}" "${:LARAVEL_LOAD_PATH}"';
 
-        if (Str::endsWith($path, '.sql')) {
+        if (str_ends_with($path, '.sql')) {
             $command = 'psql --file="${:LARAVEL_LOAD_PATH}" --host="${:LARAVEL_LOAD_HOST}" --port="${:LARAVEL_LOAD_PORT}" --username="${:LARAVEL_LOAD_USER}" --dbname="${:LARAVEL_LOAD_DATABASE}"';
         }
 
@@ -53,13 +52,25 @@ class PostgresSchemaState extends SchemaState
     }
 
     /**
+     * Get the name of the application's migration table.
+     *
+     * @return string
+     */
+    protected function getMigrationTable(): string
+    {
+        [$schema, $table] = $this->connection->getSchemaBuilder()->parseSchemaAndTable($this->migrationTable);
+
+        return $schema.'.'.$this->connection->getTablePrefix().$table;
+    }
+
+    /**
      * Get the base dump command arguments for PostgreSQL as a string.
      *
      * @return string
      */
     protected function baseDumpCommand()
     {
-        return 'pg_dump --no-owner --no-acl -Fc --host="${:LARAVEL_LOAD_HOST}" --port="${:LARAVEL_LOAD_PORT}" --username="${:LARAVEL_LOAD_USER}" --dbname="${:LARAVEL_LOAD_DATABASE}"';
+        return 'pg_dump --no-owner --no-acl --host="${:LARAVEL_LOAD_HOST}" --port="${:LARAVEL_LOAD_PORT}" --username="${:LARAVEL_LOAD_USER}" --dbname="${:LARAVEL_LOAD_DATABASE}"';
     }
 
     /**
@@ -70,11 +81,11 @@ class PostgresSchemaState extends SchemaState
      */
     protected function baseVariables(array $config)
     {
-        $config['host'] = $config['host'] ?? '';
+        $config['host'] ??= '';
 
         return [
             'LARAVEL_LOAD_HOST' => is_array($config['host']) ? $config['host'][0] : $config['host'],
-            'LARAVEL_LOAD_PORT' => $config['port'],
+            'LARAVEL_LOAD_PORT' => $config['port'] ?? '',
             'LARAVEL_LOAD_USER' => $config['username'],
             'PGPASSWORD' => $config['password'],
             'LARAVEL_LOAD_DATABASE' => $config['database'],

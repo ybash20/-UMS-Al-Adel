@@ -77,7 +77,7 @@
                         <ul class='treeview-menu'>
                             <li class="{{ Request::is(config('ums.ADMIN_PATH') . '/privileges/add*') ? 'active' : '' }}">
                                 <a href='{{ Route('PrivilegesControllerGetAdd') }}'>
-                                    {{ $current_path }}
+                                    {{-- {{ $current_path }} --}}
                                     <i class='fa fa-plus'></i>
                                     <span>
                                         {{ lang('Add_New_Privilege') }}

@@ -3,45 +3,56 @@
 namespace Illuminate\Database\Eloquent\Relations;
 
 use Closure;
+use Illuminate\Contracts\Database\Eloquent\Builder as BuilderContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\MultipleRecordsFoundException;
 use Illuminate\Database\Query\Expression;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Traits\ForwardsCalls;
 use Illuminate\Support\Traits\Macroable;
 
 /**
- * @mixin \Illuminate\Database\Eloquent\Builder
+ * @template TRelatedModel of \Illuminate\Database\Eloquent\Model
+ * @template TDeclaringModel of \Illuminate\Database\Eloquent\Model
+ * @template TResult
+ *
+ * @mixin \Illuminate\Database\Eloquent\Builder<TRelatedModel>
  */
-abstract class Relation
+abstract class Relation implements BuilderContract
 {
     use ForwardsCalls, Macroable {
-        __call as macroCall;
+        Macroable::__call as macroCall;
     }
 
     /**
      * The Eloquent query builder instance.
      *
-     * @var \Illuminate\Database\Eloquent\Builder
+     * @var \Illuminate\Database\Eloquent\Builder<TRelatedModel>
      */
     protected $query;
 
     /**
      * The parent model instance.
      *
-     * @var \Illuminate\Database\Eloquent\Model
+     * @var TDeclaringModel
      */
     protected $parent;
 
     /**
      * The related model instance.
      *
-     * @var \Illuminate\Database\Eloquent\Model
+     * @var TRelatedModel
      */
     protected $related;
+
+    /**
+     * Indicates whether the eagerly loaded relation should implicitly return an empty collection.
+     *
+     * @var bool
+     */
+    protected $eagerKeysWereEmpty = false;
 
     /**
      * Indicates if the relation is adding constraints.
@@ -74,8 +85,8 @@ abstract class Relation
     /**
      * Create a new relation instance.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  \Illuminate\Database\Eloquent\Model  $parent
+     * @param  \Illuminate\Database\Eloquent\Builder<TRelatedModel>  $query
+     * @param  TDeclaringModel  $parent
      * @return void
      */
     public function __construct(Builder $query, Model $parent)
@@ -119,7 +130,7 @@ abstract class Relation
     /**
      * Set the constraints for an eager load of the relation.
      *
-     * @param  array  $models
+     * @param  array<int, TDeclaringModel>  $models
      * @return void
      */
     abstract public function addEagerConstraints(array $models);
@@ -127,58 +138,62 @@ abstract class Relation
     /**
      * Initialize the relation on a set of models.
      *
-     * @param  array  $models
+     * @param  array<int, TDeclaringModel>  $models
      * @param  string  $relation
-     * @return array
+     * @return array<int, TDeclaringModel>
      */
     abstract public function initRelation(array $models, $relation);
 
     /**
      * Match the eagerly loaded results to their parents.
      *
-     * @param  array  $models
-     * @param  \Illuminate\Database\Eloquent\Collection  $results
+     * @param  array<int, TDeclaringModel>  $models
+     * @param  \Illuminate\Database\Eloquent\Collection<int, TRelatedModel>  $results
      * @param  string  $relation
-     * @return array
+     * @return array<int, TDeclaringModel>
      */
     abstract public function match(array $models, Collection $results, $relation);
 
     /**
      * Get the results of the relationship.
      *
-     * @return mixed
+     * @return TResult
      */
     abstract public function getResults();
 
     /**
      * Get the relationship for eager loading.
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Database\Eloquent\Collection<int, TRelatedModel>
      */
     public function getEager()
     {
-        return $this->get();
+        return $this->eagerKeysWereEmpty
+                    ? $this->query->getModel()->newCollection()
+                    : $this->get();
     }
 
     /**
      * Execute the query and get the first result if it's the sole matching record.
      *
      * @param  array|string  $columns
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return TRelatedModel
      *
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<TRelatedModel>
      * @throws \Illuminate\Database\MultipleRecordsFoundException
      */
     public function sole($columns = ['*'])
     {
         $result = $this->take(2)->get($columns);
 
-        if ($result->isEmpty()) {
+        $count = $result->count();
+
+        if ($count === 0) {
             throw (new ModelNotFoundException)->setModel(get_class($this->related));
         }
 
-        if ($result->count() > 1) {
-            throw new MultipleRecordsFoundException;
+        if ($count > 1) {
+            throw new MultipleRecordsFoundException($count);
         }
 
         return $result->first();
@@ -188,7 +203,7 @@ abstract class Relation
      * Execute the query as a "select" statement.
      *
      * @param  array  $columns
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Database\Eloquent\Collection<int, TRelatedModel>
      */
     public function get($columns = ['*'])
     {
@@ -225,9 +240,9 @@ abstract class Relation
     /**
      * Add the constraints for a relationship count query.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  \Illuminate\Database\Eloquent\Builder  $parentQuery
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  \Illuminate\Database\Eloquent\Builder<TRelatedModel>  $query
+     * @param  \Illuminate\Database\Eloquent\Builder<TDeclaringModel>  $parentQuery
+     * @return \Illuminate\Database\Eloquent\Builder<TRelatedModel>
      */
     public function getRelationExistenceCountQuery(Builder $query, Builder $parentQuery)
     {
@@ -241,10 +256,10 @@ abstract class Relation
      *
      * Essentially, these queries compare on column names like whereColumn.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  \Illuminate\Database\Eloquent\Builder  $parentQuery
+     * @param  \Illuminate\Database\Eloquent\Builder<TRelatedModel>  $query
+     * @param  \Illuminate\Database\Eloquent\Builder<TDeclaringModel>  $parentQuery
      * @param  array|mixed  $columns
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \Illuminate\Database\Eloquent\Builder<TRelatedModel>
      */
     public function getRelationExistenceQuery(Builder $query, Builder $parentQuery, $columns = ['*'])
     {
@@ -267,9 +282,9 @@ abstract class Relation
     /**
      * Get all of the primary keys for an array of models.
      *
-     * @param  array  $models
+     * @param  array<int, TDeclaringModel>  $models
      * @param  string|null  $key
-     * @return array
+     * @return array<int, int|string>
      */
     protected function getKeys(array $models, $key = null)
     {
@@ -281,7 +296,7 @@ abstract class Relation
     /**
      * Get the query builder that will contain the relationship constraints.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \Illuminate\Database\Eloquent\Builder<TRelatedModel>
      */
     protected function getRelationQuery()
     {
@@ -291,7 +306,7 @@ abstract class Relation
     /**
      * Get the underlying query for the relation.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \Illuminate\Database\Eloquent\Builder<TRelatedModel>
      */
     public function getQuery()
     {
@@ -309,9 +324,19 @@ abstract class Relation
     }
 
     /**
+     * Get a base query builder instance.
+     *
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function toBase()
+    {
+        return $this->query->toBase();
+    }
+
+    /**
      * Get the parent model of the relation.
      *
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return TDeclaringModel
      */
     public function getParent()
     {
@@ -331,7 +356,7 @@ abstract class Relation
     /**
      * Get the related model of the relation.
      *
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return TRelatedModel
      */
     public function getRelated()
     {
@@ -366,6 +391,24 @@ abstract class Relation
     public function relatedUpdatedAt()
     {
         return $this->related->getUpdatedAtColumn();
+    }
+
+    /**
+     * Add a whereIn eager constraint for the given set of model keys to be loaded.
+     *
+     * @param  string  $whereIn
+     * @param  string  $key
+     * @param  array  $modelKeys
+     * @param  \Illuminate\Database\Eloquent\Builder<TRelatedModel>|null  $query
+     * @return void
+     */
+    protected function whereInEager(string $whereIn, string $key, array $modelKeys, ?Builder $query = null)
+    {
+        ($query ?? $this->query)->{$whereIn}($key, $modelKeys);
+
+        if ($modelKeys === []) {
+            $this->eagerKeysWereEmpty = true;
+        }
     }
 
     /**
@@ -425,7 +468,7 @@ abstract class Relation
      * @param  bool  $merge
      * @return array
      */
-    public static function morphMap(array $map = null, $merge = true)
+    public static function morphMap(?array $map = null, $merge = true)
     {
         $map = static::buildMorphMapFromModels($map);
 
@@ -443,9 +486,9 @@ abstract class Relation
      * @param  string[]|null  $models
      * @return array|null
      */
-    protected static function buildMorphMapFromModels(array $models = null)
+    protected static function buildMorphMapFromModels(?array $models = null)
     {
-        if (is_null($models) || Arr::isAssoc($models)) {
+        if (is_null($models) || ! array_is_list($models)) {
             return $models;
         }
 
@@ -463,6 +506,17 @@ abstract class Relation
     public static function getMorphedModel($alias)
     {
         return static::$morphMap[$alias] ?? null;
+    }
+
+    /**
+     * Get the alias associated with a custom polymorphic class.
+     *
+     * @param  string  $className
+     * @return int|string
+     */
+    public static function getMorphAlias(string $className)
+    {
+        return array_search($className, static::$morphMap, strict: true) ?: $className;
     }
 
     /**

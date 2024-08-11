@@ -1,9 +1,12 @@
-<?php 
+<?php
+
 namespace App\Helpers;
 
-class Fontawesome {
-	public static function getIcons() {
-		return [
+class Fontawesome
+{
+    public static function getIcons()
+    {
+        return [
             "glass",
             "music",
             "search",
@@ -699,5 +702,5 @@ class Fontawesome {
             "bluetooth-b",
             "percent",
         ];
-	}
+    }
 }

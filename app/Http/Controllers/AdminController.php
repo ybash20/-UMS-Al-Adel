@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use App\Helpers\UMS;
 use Illuminate\Support\Facades\DB;
@@ -10,10 +12,9 @@ use App\Models\student;
 use App\Models\Grades_Student;
 use App\Models\major;
 
-
 class AdminController extends UMSController
 {
-    function getIndex()
+    public function getIndex()
     {
         $data = [];
         $data['page_title'] = 'Dashboard';
@@ -62,42 +63,43 @@ class AdminController extends UMSController
 
     public function postLogin()
     {
-    $validator = Validator::make(Request::all(), [
-        'login' => 'required',
-        'password' => 'required',
-    ]);
+        $validator = Validator::make(Request::all(), [
+            'login' => 'required',
+            'password' => 'required',
+        ]);
 
-    if ($validator->fails()) {
-        $message = $validator->errors()->all();
-        return redirect()->back()->with(['message' => implode('<br>', $message), 'message_type' => 'danger']);
-    }
+        if ($validator->fails()) {
+            $message = $validator->errors()->all();
+            return redirect()->back()->with(['message' => implode('<br>', $message), 'message_type' => 'danger']);
+        }
 
-    $login = Request::input("login");
-    $password = Request::input("password");
+        $login = Request::input("login");
+        $password = Request::input("password");
 
-    $user = DB::table(config('ums.USER_TABLE'))->where(function($query) use ($login) {
-        $query->where("email", $login)->orWhere("Username", $login);
-    })->first();
+        $user = DB::table(config('ums.USER_TABLE'))->where(function ($query) use ($login) {
+            $query->where("email", $login)->orWhere("Username", $login);
+        })->first();
 
-    if ($user && \Hash::check($password, $user->password)) {
-        AdminController::login($user);
-        return redirect(UMS::adminPath());
-    } else {
-        if (DB::table('password_resets')->where('email', $login)->where('active', '1')->exists()) {
-            $token = DB::table('password_resets')->where("email", $login)->first();
-            if (\Hash::check($password, $token->token)) {
-                AdminController::login($user);
-                DB::table('password_resets')->where('email', $login)->update(['active' => '0', 'updated_at' => date('Y-m-d H:i:s')]);
-                return redirect(UMS::adminPath())->with(['message' => lang('password_reset'), 'message_type' => 'reset_password']);
+        if ($user && \Hash::check($password, $user->password)) {
+            AdminController::login($user);
+            return redirect(UMS::adminPath());
+        } else {
+            if (DB::table('password_resets')->where('email', $login)->where('active', '1')->exists()) {
+                $token = DB::table('password_resets')->where("email", $login)->first();
+                if (\Hash::check($password, $token->token)) {
+                    AdminController::login($user);
+                    DB::table('password_resets')->where('email', $login)->update(['active' => '0', 'updated_at' => date('Y-m-d H:i:s')]);
+                    return redirect(UMS::adminPath())->with(['message' => lang('password_reset'), 'message_type' => 'reset_password']);
+                } else {
+                    return redirect()->route('getLogin')->with('message', lang('alert_password_wrong'));
+                }
             } else {
                 return redirect()->route('getLogin')->with('message', lang('alert_password_wrong'));
             }
-        } else {
-            return redirect()->route('getLogin')->with('message', lang('alert_password_wrong'));
         }
     }
-}
-    private static function login($users){
+    private static function login($users)
+    {
         $priv = DB::table("ums_privileges")->where("id", $users->id_ums_privileges)->first();
 
         $roles = DB::table('ums_privileges_roles')->where('id_ums_privileges', $users->id_ums_privileges)->join('ums_moduls', 'ums_moduls.id', '=', 'id_ums_moduls')->select('ums_moduls.name', 'ums_moduls.path', 'is_visible', 'is_create', 'is_read', 'is_edit', 'is_delete')->get();
@@ -116,7 +118,7 @@ class AdminController extends UMSController
 
         UMS::insertLog(lang("log_login"), ['email' => $users->email, 'ip' => Request::server('REMOTE_ADDR')]);
 
-        $cb_hook_session = new \App\Http\Controllers\UMSHook;
+        $cb_hook_session = new \App\Http\Controllers\UMSHook();
         $cb_hook_session->afterLogin();
     }
 
@@ -139,7 +141,7 @@ class AdminController extends UMSController
             $message = $validator->errors()->all();
             return redirect()->back()->with(['message' => implode('<br>', $message), 'message_type' => 'danger']);
         }
-        try{
+        try {
 
             $user = UMS::first(config('ums.USER_TABLE'), ['email' => g('email')]);
             $rand_string = str_random(12);
@@ -147,9 +149,9 @@ class AdminController extends UMSController
             UMS::sendEmail(['to' => $user->email, 'data' => $user, 'template' => 'forgot_password_backend']);
             $password = \Hash::make($rand_string);
 
-            if(DB::table("password_resets")->where('email', g('email'))->exists()){
+            if(DB::table("password_resets")->where('email', g('email'))->exists()) {
                 DB::table("password_resets")->where('email', $user->email)->update(['token' => $password,'updated_at' => date('Y-m-d H:i:s')]);
-            }else{
+            } else {
                 DB::table("password_resets")->insert(['email' => $user->email,'token' => $password,'active' => '1','created_at' => date('Y-m-d H:i:s')]);
             }
 
@@ -180,9 +182,9 @@ class AdminController extends UMSController
             UMS::sendEmail(['to' => g('email'), 'data' => $data, 'template' => 'check_email']);
             $data['code'] = \Hash::make($rand_string);
 
-            if(DB::table('email_check')->where('email', $data['email'])->exists()){
+            if(DB::table('email_check')->where('email', $data['email'])->exists()) {
                 DB::table('email_check')->where('email', $data['email'])->update(['code' => $data['code'],'updated_at' => date('Y-m-d H:i:s')]);
-            }else{
+            } else {
                 DB::table('email_check')->insert(['email' => $data['email'],'code' => $data['code'],'created_at' => date('Y-m-d H:i:s')]);
             }
             Session::put('email', g('email'));
@@ -197,8 +199,8 @@ class AdminController extends UMSController
     }
     public function checkCode()
     {
-        UMS::insertLog('the code',g('code'));
-        UMS::insertLog('the email',Session::get('email'));
+        UMS::insertLog('the code', g('code'));
+        UMS::insertLog('the email', Session::get('email'));
         $validator = Validator::make(Request::all(), [
             'code' => 'required|integer|between:999999,9999999',
         ], [
@@ -218,8 +220,7 @@ class AdminController extends UMSController
                 DB::table('email_check')->where('email', $email)->delete();
                 UMS::insertLog($email.' '.lang("email_check_code_done"), ['email' => $email, 'ip' => Request::server('REMOTE_ADDR')]);
                 return response()->json(['message' => lang("email_check_code_done"), 'type' => 'success']);
-            }
-            else {
+            } else {
                 UMS::insertLog(lang('email_check_code_failed'), 'code is invalid');
                 return response()->json(['message' => lang('email_check_code_failed'), 'type' => 'error']);
             }
@@ -246,7 +247,7 @@ class AdminController extends UMSController
 
 
 
-     public function StudentgetLogin()
+    public function StudentgetLogin()
     {
         if (Session::has('student_id')) {
             return redirect('/student');
@@ -300,13 +301,13 @@ class AdminController extends UMSController
                     ->where('Student_ID', $student_id)
                     ->orderBy('Semester', 'desc')
                     ->get();
-                    // foreach ($grades as $total) {
-                    //     $total->Grade_100 = $total->Grade_30 + $total->Grade_70;
-                        
-                    // }
+        // foreach ($grades as $total) {
+        //     $total->Grade_100 = $total->Grade_30 + $total->Grade_70;
+
+        // }
 
 
-        return view('Student.grades', compact('grades','student'));
+        return view('Student.grades', compact('grades', 'student'));
     }
 
     // Controller
@@ -316,46 +317,46 @@ class AdminController extends UMSController
         if (Session::has('student_id')) {
             // استرجع student_id من الجلسة
             $studentId = Session::get('student_id');
-    
+
             // ابحث عن الطالب بناءً على student_id
             $student = Student::find($studentId);
-    
+
             // تحقق من وجود الطالب
             if ($student) {
                 // ابحث عن التخصص المرتبط بالطالب
                 $major = Major::find($student->Major_ID);
-    
+
                 return view('Student.studyplan', compact('major'));
             }
         }
-    
+
         // إذا لم يكن الطالب موجودًا في الجلسة أو لم يُعثر عليه، قم بإعادة التوجيه إلى صفحة تسجيل الدخول
         return redirect()->route('StudentgetLogin')->with('message', 'You must be logged in to view this page.');
     }
 
     public function StudentTimetables()
     {
-    {
-        // تحقق من وجود student_id في الجلسة
-        if (Session::has('student_id')) {
-            // استرجع student_id من الجلسة
-            $studentId = Session::get('student_id');
-    
-            // ابحث عن الطالب بناءً على student_id
-            $student = Student::find($studentId);
-    
-            // تحقق من وجود الطالب
-            if ($student) {
-                // ابحث عن التخصص المرتبط بالطالب
-                $major = Major::find($student->Major_ID);
-    
-                return view('Student.timetables', compact('major'));
+        {
+            // تحقق من وجود student_id في الجلسة
+            if (Session::has('student_id')) {
+                // استرجع student_id من الجلسة
+                $studentId = Session::get('student_id');
+
+                // ابحث عن الطالب بناءً على student_id
+                $student = Student::find($studentId);
+
+                // تحقق من وجود الطالب
+                if ($student) {
+                    // ابحث عن التخصص المرتبط بالطالب
+                    $major = Major::find($student->Major_ID);
+
+                    return view('Student.timetables', compact('major'));
+                }
             }
+
+            // إذا لم يكن الطالب موجودًا في الجلسة أو لم يُعثر عليه، قم بإعادة التوجيه إلى صفحة تسجيل الدخول
+            return redirect()->route('StudentgetLogin')->with('message', 'You must be logged in to view this page.');
         }
-    
-        // إذا لم يكن الطالب موجودًا في الجلسة أو لم يُعثر عليه، قم بإعادة التوجيه إلى صفحة تسجيل الدخول
-        return redirect()->route('StudentgetLogin')->with('message', 'You must be logged in to view this page.');
-    }
     }
 
 

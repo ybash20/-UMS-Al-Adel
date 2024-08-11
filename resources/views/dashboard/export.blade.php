@@ -98,12 +98,12 @@
                                     echo "<td><a class='btn btn-sm btn-primary' href='$url' target='_blank' title='Download File'>Download</a></td>";
                                 } else {
                                     //limit character
-                                    if ($col['str_limit']) {
+                                    if (isset($col['str_limit'])) {
                                         $value = trim(strip_tags($value));
                                         $value = Str::limit($value, $col['str_limit']);
                                     }
 
-                                    if ($col['nl2br']) {
+                                    if (isset($col['nl2br'])) {
                                         $value = nl2br($value);
                                     }
 

@@ -34,7 +34,7 @@
             <div class="panel-body" style="padding:20px 0px 0px 0px">
                 @php
                     $action = (@$row) ? UMS::mainpath("edit-save/$row->id") : UMS::mainpath("add-save");
-                    $return_url = ($return_url) ?: g('return_url');
+                    $return_url = (isset($return_url)) ?: g('return_url');
                 @endphp
                 <form class='form-horizontal' method='post' id="form" enctype="multipart/form-data" action='{{$action}}'>
                     @csrf
@@ -45,7 +45,7 @@
                         <input type="hidden" name="hide_form" value='{!! serialize($hide_form) !!}'>
                     @endif
                     <div class="box-body" id="parent-form-area">
-                        @if($command == 'detail')
+                        @if(isset($command) && $command == 'detail')
                             @include("dashboard.default.form_detail")
                         @else
                             @include("dashboard.default.form_body")
@@ -72,7 +72,7 @@
                                     @if(UMS::isCreate() && $button_addmore==TRUE && $command == 'add')
                                         <input type="submit" name="submit" value='{{lang("button_save_more")}}' class='btn btn-success'>
                                     @endif
-                                    @if($button_save && $command != 'detail')
+                                    @if($button_save && (isset($command) && $command != 'detail'))
                                         <input type="submit" name="submit" value='{{lang("button_save")}}' class='btn btn-success'>
                                     @endif
                                 @endif

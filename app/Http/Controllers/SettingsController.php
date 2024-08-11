@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use UMS;
 use Illuminate\Support\Facades\Cache;
@@ -70,7 +72,7 @@ class SettingsController extends UMSController
         # END FORM DO NOT REMOVE THIS LINE
     }
 
-    function getShow()
+    public function getShow()
     {
         $this->cbLoader();
 
@@ -84,12 +86,12 @@ class SettingsController extends UMSController
         return view('dashboard.setting', $data);
     }
 
-    function hook_before_edit(&$posdata, $id)
+    public function hook_before_edit(&$posdata, $id)
     {
         $this->return_url = UMS::mainpath("show")."?group=".$posdata['group_setting'];
     }
 
-    function getDeleteFileSetting()
+    public function getDeleteFileSetting()
     {
         $id = g('id');
         $row = UMS::first('ums_settings', $id);
@@ -101,7 +103,7 @@ class SettingsController extends UMSController
         UMS::redirect(Request::server('HTTP_REFERER'), lang('alert_delete_data_success'), 'success');
     }
 
-    function postSaveSetting()
+    public function postSaveSetting()
     {
 
         if (! UMS::isManager()) {
@@ -148,13 +150,13 @@ class SettingsController extends UMSController
         return redirect()->back()->with(['message' => 'Your setting has been saved !', 'message_type' => 'success']);
     }
 
-    function hook_before_add(&$arr)
+    public function hook_before_add(&$arr)
     {
         $arr['name'] = str_slug($arr['label'], '_');
         $this->return_url = UMS::mainpath("show")."?group=".$arr['group_setting'];
     }
 
-    function hook_after_edit($id)
+    public function hook_after_edit($id)
     {
         $row = DB::table($this->table)->where($this->primary_key, $id)->first();
 

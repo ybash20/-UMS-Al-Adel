@@ -1,6 +1,6 @@
 @if($form['datatable'])
 
-    @if($form['relationship_table'])
+    @if(isset($form['relationship_table']))
         @push('bottom')
             <script type="text/javascript">
                 $(function () {
@@ -9,7 +9,7 @@
             </script>
         @endpush
     @else
-        @if($form['datatable_ajax'] == true)
+        @if(isset($form['datatable_ajax']) && $form['datatable_ajax'] == true)
 
             <?php
             $datatable = @$form['datatable'];
@@ -126,8 +126,8 @@
 
     <div class="{{$col_width?:'col-sm-9'}}">
         <select style='width:100%' class='form-control' id="{{$name}}"
-                {{$required}} {{$readonly}} {!!$placeholder!!} {{$disabled}} name="{{$name}}{{($form['relationship_table'])?'[]':''}}" {{ ($form['relationship_table'])?'multiple="multiple"':'' }} >
-            @if($form['dataenum'])
+                {{$required}} {{$readonly}} {!!$placeholder!!} {{$disabled}} name="{{$name}}{{(isset($form['relationship_table']))?'[]':''}}" {{ (isset($form['relationship_table']))?'multiple="multiple"':'' }} >
+            @if(isset($form['dataenum']))
                 <option value=''>{{lang('text_prefix_option')}} {{$form['label']}}</option>
                 <?php
                 $dataenum = $form['dataenum'];
@@ -150,8 +150,8 @@
                 @endforeach
             @endif
 
-            @if($form['datatable'])
-                @if($form['relationship_table'])
+            @if(isset($form['datatable']))
+                @if(isset($form['relationship_table']))
                     <?php
                     $select_table = explode(',', $form['datatable'])[0];
                     $select_title = explode(',', $form['datatable'])[1];
@@ -159,12 +159,12 @@
                     $pk = UMS::findPrimaryKey($select_table);
 
                     $result = DB::table($select_table)->select($pk, $select_title);
-                    if ($select_where) {
+                    if (isset($select_where)) {
                         $result->whereraw($select_where);
                     }
                     $result = $result->orderby($select_title, 'asc')->get();
 
-                    if($form['datatable_orig'] != ''){
+                    if(isset($form['datatable_orig']) && $form['datatable_orig'] != ''){
                         $params = explode("|", $form['datatable_orig']);
                         if(!isset($params[2])) $params[2] = "id";
                         $value = DB::table($params[0])->where($params[2], $id)->first()->{$params[1]};
@@ -184,7 +184,7 @@
                     }
                     ?>
                 @else
-                    @if($form['datatable_ajax'] == false)
+                    @if(isset($form['datatable_ajax']) && $form['datatable_ajax'] == false)
                         <option value=''>{{lang('text_prefix_option')}} {{$form['label']}}</option>
                         <?php
                         $select_table = explode(',', $form['datatable'])[0];
@@ -193,10 +193,10 @@
                         $datatable_format = $form['datatable_format'];
                         $select_table_pk = UMS::findPrimaryKey($select_table);
                         $result = DB::table($select_table)->select($select_table_pk, $select_title);
-                        if ($datatable_format) {
+                        if (isset($datatable_format)) {
                             $result->addSelect(DB::raw("CONCAT(".$datatable_format.") as $select_title"));
                         }
-                        if ($select_where) {
+                        if (isset($select_where)) {
                             $result->whereraw($select_where);
                         }
                         if (UMS::isColumnExists($select_table, 'deleted_at')) {

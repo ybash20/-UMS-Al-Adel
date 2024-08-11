@@ -185,6 +185,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         
         App\Providers\UmsServiceProvider::class,
+
     ],
 
     /*
@@ -239,9 +240,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'PDF' => Barryvdh\DomPDF\Facade::class,
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'Image' => Intervention\Image\ImageManagerStatic::class,
+        //'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Excel' => Maatwebsite\Excel\Excel::class,
+        'Image' => Intervention\Image\ImageManager::class,
+        'Driver' => Intervention\Image\Drivers\Gd\Driver::class,
         'UMS' => App\Helpers\UMS::class,
 
     ],

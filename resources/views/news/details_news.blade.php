@@ -218,12 +218,14 @@
 
     let currentSlide = 0;
     const images = [];
-
-    // Populate the images array dynamically
-    @foreach ($news->images as $image)
+</script>
+{{-- Populate the images array dynamically --}}
+@foreach ($news->images as $image)
+    <script>
         images.push('{{ asset($image->News_Image) }}');
-    @endforeach
-
+    </script>
+@endforeach
+<script>
     // Function to move to the next slide
     function nextSlide() {
         currentSlide++;
@@ -232,7 +234,6 @@
         }
         updateSlide();
     }
-
     // Function to move to the previous slide
     function prevSlide() {
         currentSlide--;

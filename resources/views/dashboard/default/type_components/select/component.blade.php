@@ -1,5 +1,5 @@
 <?php $default = ! empty($form['default']) ? $form['default'] : lang('text_prefix_option')." ".$form['label'];?>
-@if($form['parent_select'])
+@if(isset($form['parent_select']))
     <?php
     $parent_select = (count(explode(",", $form['parent_select'])) > 1) ? explode(",", $form['parent_select']) : $form['parent_select'];
     $parent = is_array($parent_select) ? $parent_select[0] : $parent_select;
@@ -69,7 +69,7 @@
         <select class='form-control' id="{{$name}}" data-value='{{$value}}' {{$required}} {!!$placeholder!!} {{$readonly}} {{$disabled}} name="{{$name}}">
             <option value=''>{{$default}}</option>
             <?php
-            if (! $form['parent_select']) {
+            if (! isset($form['parent_select'])) {
                 if (@$form['dataquery']):
 
                     $query = DB::select(DB::raw($form['dataquery']));
@@ -105,8 +105,13 @@
 
                 if (@$form['datatable']):
                     $raw = explode(",", $form['datatable']);
-                    $format = $form['datatable_format'];
-                    $datatable_order = explode(',', $form['datatable_order']);
+
+                    if(isset($form['datatable_format'])){
+                        $format = $form['datatable_format'];
+                    }
+                    if(isset($form['datatable_order'])){
+                        $datatable_order = explode(',', $form['datatable_order']);
+                    }
                     $table1 = $raw[0];
                     $column1 = $raw[1];
 
@@ -143,7 +148,7 @@
                         $orderby_column = $column3;
                     }
 
-                    if ($format) {
+                    if (isset($format)) {
                         $format = str_replace('&#039;', "'", $format);
                         $selects_data->addselect(DB::raw("CONCAT($format) as label"));
                         $selects_data = $selects_data->orderby(

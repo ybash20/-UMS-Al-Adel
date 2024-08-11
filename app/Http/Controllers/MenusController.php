@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use UMS;
 use Illuminate\Support\Facades\Cache;
@@ -146,14 +148,14 @@ class MenusController extends UMSController
 			";
         # END CONFIGURATION DO NOT REMOVE THIS LINE
 
-		# START COLUMNS DO NOT REMOVE THIS LINE
+        # START COLUMNS DO NOT REMOVE THIS LINE
         $this->col = [];
         $this->col[] = ["label" => "Name", "name" => "name"];
         $this->col[] = ["label" => "Is Active", "name" => "is_active"];
         $this->col[] = ["label" => "Privileges", "name" => "id_ums_privileges", "join" => "ums_privileges,name"];
-		# END COLUMNS DO NOT REMOVE THIS LINE
+        # END COLUMNS DO NOT REMOVE THIS LINE
 
-		# START FORM DO NOT REMOVE THIS LINE
+        # START FORM DO NOT REMOVE THIS LINE
         $this->form = [];
         $this->form[] = [
             "label" => "Privileges",

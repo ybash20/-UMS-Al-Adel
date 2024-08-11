@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\College;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+
 class CollegeController extends Controller
 {
-
     public function __construct()
     {
         // Share colleges data with all views

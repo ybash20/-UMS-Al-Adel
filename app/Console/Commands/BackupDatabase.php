@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use App\Helpers\UMS;
 
-
 class BackupDatabase extends Command
 {
     /**
@@ -68,11 +67,11 @@ class BackupDatabase extends Command
         } else {
         }
         if ($returnVar !== 0) {
-            UMS::insertLog(lang('backup_database_failed') , implode("\n", $output));
+            UMS::insertLog(lang('backup_database_failed'), implode("\n", $output));
             $this->error("Database Backup Failed,\n Error: " . implode("\n", $output));
             return Command::FAILURE;
         } else {
-            UMS::insertLog(lang('backup_database_done') , $backupPath);
+            UMS::insertLog(lang('backup_database_done'), $backupPath);
             $this->info('Database Backup Done successfully');
             return Command::SUCCESS;
         }

@@ -32,11 +32,11 @@
     }
 
     $label = $a['label'];
-    $title = ($a['title']) ?: $a['label'];
+    $title = isset($a['title']) ?$a['title']: $a['label'];
     $icon = $a['icon'];
-    $color = $a['color'] ?: 'primary';
-    $confirmation = $a['confirmation'];
-    $target = $a['target'] ?: '_self';
+    $color = isset($a['color']) ?$a['color']: 'primary';
+    $confirmation = isset($a['confirmation'])? $a['confirmation'] : null;
+    $target = isset($a['target']) ?$a['target']: '_self';
 
     $url = $a['url'];
     if (isset($confirmation) && ! empty($confirmation)) {

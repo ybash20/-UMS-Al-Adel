@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use UMS;
 use Illuminate\Support\Facades\DB;
@@ -28,7 +30,7 @@ class StatisticBuilderController extends UMSController
         $this->button_filter = false;
         $this->button_export = false;
         $this->button_import = false;
-		# END CONFIGURATION DO NOT REMOVE THIS LINE
+        # END CONFIGURATION DO NOT REMOVE THIS LINE
 
         # START COLUMNS DO NOT REMOVE THIS LINE
         $this->col = [];
@@ -75,7 +77,7 @@ class StatisticBuilderController extends UMSController
 
         $this->cbLoader();
 
-        $menus= DB::table('ums_menus')
+        $menus = DB::table('ums_menus')
             ->whereRaw("ums_menus.id IN (select id_ums_menus from ums_menus_privileges where id_ums_privileges = '".UMS::myPrivilegeId()."')")
             ->where('is_dashboard', 1)
             ->where('is_active', 1)
@@ -92,7 +94,7 @@ class StatisticBuilderController extends UMSController
         $data['id_ums_statistics'] = $id_ums_statistics;
         $data['page_title'] = $page_title;
 
-        return view('dashboard.statistic_builder.show',$data);
+        return view('dashboard.statistic_builder.show', $data);
     }
 
     public function getShow($slug)

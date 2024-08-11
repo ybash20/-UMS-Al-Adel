@@ -3,9 +3,13 @@
 namespace Illuminate\Database\Eloquent;
 
 /**
- * @method static static|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder withTrashed(bool $withTrashed = true)
- * @method static static|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder onlyTrashed()
- * @method static static|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static> withTrashed(bool $withTrashed = true)
+ * @method static \Illuminate\Database\Eloquent\Builder<static> onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static> withoutTrashed()
+ * @method static static restoreOrCreate(array<string, mixed> $attributes = [], array<string, mixed> $values = [])
+ * @method static static createOrRestore(array<string, mixed> $attributes = [], array<string, mixed> $values = [])
+ *
+ * @mixin \Illuminate\Database\Eloquent\Model
  */
 trait SoftDeletes
 {
@@ -45,6 +49,10 @@ trait SoftDeletes
      */
     public function forceDelete()
     {
+        if ($this->fireModelEvent('forceDeleting') === false) {
+            return false;
+        }
+
         $this->forceDeleting = true;
 
         return tap($this->delete(), function ($deleted) {
@@ -54,6 +62,16 @@ trait SoftDeletes
                 $this->fireModelEvent('forceDeleted', false);
             }
         });
+    }
+
+    /**
+     * Force a hard delete on a soft deleted model without raising any events.
+     *
+     * @return bool|null
+     */
+    public function forceDeleteQuietly()
+    {
+        return static::withoutEvents(fn () => $this->forceDelete());
     }
 
     /**
@@ -87,7 +105,7 @@ trait SoftDeletes
 
         $this->{$this->getDeletedAtColumn()} = $time;
 
-        if ($this->timestamps && ! is_null($this->getUpdatedAtColumn())) {
+        if ($this->usesTimestamps() && ! is_null($this->getUpdatedAtColumn())) {
             $this->{$this->getUpdatedAtColumn()} = $time;
 
             $columns[$this->getUpdatedAtColumn()] = $this->fromDateTime($time);
@@ -103,7 +121,7 @@ trait SoftDeletes
     /**
      * Restore a soft-deleted model instance.
      *
-     * @return bool|null
+     * @return bool
      */
     public function restore()
     {
@@ -129,6 +147,16 @@ trait SoftDeletes
     }
 
     /**
+     * Restore a soft-deleted model instance without raising any events.
+     *
+     * @return bool
+     */
+    public function restoreQuietly()
+    {
+        return static::withoutEvents(fn () => $this->restore());
+    }
+
+    /**
      * Determine if the model instance has been soft-deleted.
      *
      * @return bool
@@ -141,7 +169,7 @@ trait SoftDeletes
     /**
      * Register a "softDeleted" model event callback with the dispatcher.
      *
-     * @param  \Closure|string  $callback
+     * @param  \Illuminate\Events\QueuedClosure|\Closure|string  $callback
      * @return void
      */
     public static function softDeleted($callback)
@@ -152,7 +180,7 @@ trait SoftDeletes
     /**
      * Register a "restoring" model event callback with the dispatcher.
      *
-     * @param  \Closure|string  $callback
+     * @param  \Illuminate\Events\QueuedClosure|\Closure|string  $callback
      * @return void
      */
     public static function restoring($callback)
@@ -163,7 +191,7 @@ trait SoftDeletes
     /**
      * Register a "restored" model event callback with the dispatcher.
      *
-     * @param  \Closure|string  $callback
+     * @param  \Illuminate\Events\QueuedClosure|\Closure|string  $callback
      * @return void
      */
     public static function restored($callback)
@@ -172,9 +200,20 @@ trait SoftDeletes
     }
 
     /**
+     * Register a "forceDeleting" model event callback with the dispatcher.
+     *
+     * @param  \Illuminate\Events\QueuedClosure|\Closure|string  $callback
+     * @return void
+     */
+    public static function forceDeleting($callback)
+    {
+        static::registerModelEvent('forceDeleting', $callback);
+    }
+
+    /**
      * Register a "forceDeleted" model event callback with the dispatcher.
      *
-     * @param  \Closure|string  $callback
+     * @param  \Illuminate\Events\QueuedClosure|\Closure|string  $callback
      * @return void
      */
     public static function forceDeleted($callback)
@@ -199,7 +238,7 @@ trait SoftDeletes
      */
     public function getDeletedAtColumn()
     {
-        return defined('static::DELETED_AT') ? static::DELETED_AT : 'deleted_at';
+        return defined(static::class.'::DELETED_AT') ? static::DELETED_AT : 'deleted_at';
     }
 
     /**

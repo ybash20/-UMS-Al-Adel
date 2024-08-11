@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\student;
 use App\Models\course;
+
 class Grades_Student extends Model
 {
     use HasFactory;
@@ -13,7 +14,7 @@ class Grades_Student extends Model
 
     protected $fillable = ['Student_ID','Course_ID','Grade_30', 'Grade_70', 'Grade_100','Semester']; // قم بتضمين 'Grade_100' هنا إذا لم يت
 
-        // العلاقة مع نموذج الطلاب
+    // العلاقة مع نموذج الطلاب
     public function student()
     {
         return $this->belongsTo(Student::class, 'Student_ID', 'id');

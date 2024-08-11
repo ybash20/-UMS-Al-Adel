@@ -13,39 +13,39 @@ use App\Models\content_category;
 class BookLibraryController extends Controller
 {
     public function library()
-{
-    // جلب جميع الأقسام
-    $sections = library_section::all();
-    $bookShow = [];
+    {
+        // جلب جميع الأقسام
+        $sections = library_section::all();
+        $bookShow = [];
 
-    foreach ($sections as $section) {
-        $bookShow[$section->id] = book::where('Section_ID', $section->id)
-            ->inRandomOrder()
-            ->limit(4) // جلب 9 كتب عشوائية لكل قسم
-            ->get();
-    }
-
-    $categories = content_category::all();
-    $contents = [];
-
-    // حلقة لجلب المحتويات المرتبطة بكل فئة
-    foreach ($categories as $category) {
-        // التحقق من اسم الفئة
-        if ($category->Name_Arabic == 'شريط تمرير محتوى المكتبة') {
-            // جلب المحتويات التي تنتمي للفئة المحددة بشرط Category_ID
-            $contents[$category->id] = Content::where('Category_ID', $category->id)
-            ->with(['images' => function ($query) {
-                $query->inRandomOrder(); // جلب الصور بشكل عشوائي
-            }])
-            ->get();
+        foreach ($sections as $section) {
+            $bookShow[$section->id] = book::where('Section_ID', $section->id)
+                ->inRandomOrder()
+                ->limit(4) // جلب 9 كتب عشوائية لكل قسم
+                ->get();
         }
+
+        $categories = content_category::all();
+        $contents = [];
+
+        // حلقة لجلب المحتويات المرتبطة بكل فئة
+        foreach ($categories as $category) {
+            // التحقق من اسم الفئة
+            if ($category->Name_Arabic == 'شريط تمرير محتوى المكتبة') {
+                // جلب المحتويات التي تنتمي للفئة المحددة بشرط Category_ID
+                $contents[$category->id] = Content::where('Category_ID', $category->id)
+                ->with(['images' => function ($query) {
+                    $query->inRandomOrder(); // جلب الصور بشكل عشوائي
+                }])
+                ->get();
+            }
+        }
+
+
+        // عرض البيانات إلى الصفحة
+        return view('library.library', compact('sections', 'bookShow', 'categories', 'contents'));
+
     }
-
-
-// عرض البيانات إلى الصفحة
-return view('library.library', compact('sections', 'bookShow', 'categories', 'contents'));
-
-}
 
 
     public function showBooksBySection(Request $request, $sectionId)

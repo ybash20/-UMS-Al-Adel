@@ -15,7 +15,8 @@ use DB;
 
 class home extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $sliders = Content::with('Images')
             ->where('Category_ID', 10)
             ->get();

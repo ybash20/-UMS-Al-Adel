@@ -99,7 +99,7 @@
                 @endforeach
             </div>
         @elseif ($grades !== null && $grades->isEmpty())
-            <div class="alert alert-info">{{ $message }}</div>
+            <div class="alert alert-info">{{ isset($message) ? $message : null }}</div>
         @else
             <div class="alert alert-danger">{{ lang('An error occurred while retrieving the grades.') }}</div>
         @endif

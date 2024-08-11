@@ -60,15 +60,15 @@
             <?php endif;?>
             <?php
             foreach ($columns as $col) {
-                if ($col['visible'] === FALSE) continue;
+                if (isset($col['visible']) && $col['visible'] === FALSE) continue;
 
                 $sort_column = Request::get('filter_column');
                 $colname = $col['label'];
                 $name = $col['name'];
                 $field = $col['field_with'];
                 $width = (isset($col['width'])) ?$col['width']: "auto";
-		$style = (isset($col['style'])) ?$col['style']: "";
-                $mainpath = trim(UMS::mainpath(), '/').$build_query;
+                $style = (isset($col['style'])) ?$col['style']: "";
+                $mainpath = (isset($build_query)) ? trim(UMS::mainpath(), '/').$build_query : trim(UMS::mainpath(), '/');
                 echo "<th width='$width' $style>";
                 if (isset($sort_column[$field])) {
                     switch ($sort_column[$field]['sorting']) {
@@ -148,7 +148,11 @@
                     @endif
 
                     @foreach($hc as $j=>$h)
-                        <td {{ $columns[$j]['style'] or ''}}>{!! $h !!}</td>
+                        @if (isset($columns[$j]['style']))
+                            <td {{ $columns[$j]['style']}}>{!! $h !!}</td>    
+                        @else
+                            <td>{!! $h !!}</td>    
+                        @endif
                     @endforeach
                 </tr>
                 @endforeach
@@ -167,7 +171,7 @@
 
             <?php
             foreach ($columns as $col) {
-                if ($col['visible'] === FALSE) continue;
+                if (isset($col['visible']) && $col['visible'] === FALSE) continue;
                 $colname = $col['label'];
                 $width = (isset($col['width'])) ?$col['width']: "auto";
 		$style = (isset($col['style'])) ? $col['style']: "";
@@ -318,7 +322,7 @@ $total = $result->total();
                     <form method='get' action=''>
                         <div class="modal-body">
                             <?php foreach($columns as $key => $col):?>
-                            <?php if (isset($col['image']) || isset($col['download']) || $col['visible'] === FALSE) continue;?>
+                            <?php if (isset($col['image']) || isset($col['download']) || (isset($col['visible']) && $col['visible'] === FALSE)) continue;?>
 
                             <div class='form-group'>
 
@@ -525,20 +529,33 @@ $total = $result->total();
                                         {{lang("export_dialog_page_size")}}
                                     </label>
                                     <select class='form-control' name='page_size'>
-                                        <option <?=($setting->default_paper_size == 'Letter') ? "selected" : ""?> value='Letter'>Letter</option>
-                                        <option <?=($setting->default_paper_size == 'Legal') ? "selected" : ""?> value='Legal'>Legal</option>
-                                        <option <?=($setting->default_paper_size == 'Ledger') ? "selected" : ""?> value='Ledger'>Ledger</option>
-                                        <?php for($i = 0;$i <= 8;$i++):
-                                            $select = ($setting->default_paper_size == 'A'.$i) ? "selected" : "";
-                                        ?>
-                                        <option <?=$select?> value='A{{$i}}'>A{{$i}}</option>
-                                        <?php endfor;?>
+                                        @if (isset($setting))
+                                            <option <?=($setting->default_paper_size == 'Letter') ? "selected" : ""?> value='Letter'>Letter</option>
+                                            <option <?=($setting->default_paper_size == 'Legal') ? "selected" : ""?> value='Legal'>Legal</option>
+                                            <option <?=($setting->default_paper_size == 'Ledger') ? "selected" : ""?> value='Ledger'>Ledger</option>
+                                            <?php for($i = 0;$i <= 8;$i++):
+                                                $select = ($setting->default_paper_size == 'A'.$i) ? "selected" : "";
+                                            ?>
+                                            <option <?=$select?> value='A{{$i}}'>A{{$i}}</option>
+                                            <?php endfor;?>
 
-                                        <?php for($i = 0;$i <= 10;$i++):
-                                            $select = ($setting->default_paper_size == 'B'.$i) ? "selected" : "";
-                                        ?>
-                                        <option <?=$select?> value='B{{$i}}'>B{{$i}}</option>
-                                        <?php endfor;?>
+                                            <?php for($i = 0;$i <= 10;$i++):
+                                                $select = ($setting->default_paper_size == 'B'.$i) ? "selected" : "";
+                                            ?>
+                                            <option <?=$select?> value='B{{$i}}'>B{{$i}}</option>
+                                            <?php endfor;?>                                            
+                                        @else
+                                            <option value='Letter'>Letter</option>
+                                            <option value='Legal'>Legal</option>
+                                            <option value='Ledger'>Ledger</option>
+                                            <?php for($i = 0;$i <= 8;$i++): ?>
+                                                <option value='A{{$i}}'>A{{$i}}</option>
+                                            <?php endfor;?>
+
+                                            <?php for($i = 0;$i <= 10;$i++):?>
+                                            <option value='B{{$i}}'>B{{$i}}</option>
+                                            <?php endfor;?>     
+                                        @endif
                                     </select>
                                     <div class='help-block'>
                                         <input type='checkbox' name='default_paper_size' value='1'/>

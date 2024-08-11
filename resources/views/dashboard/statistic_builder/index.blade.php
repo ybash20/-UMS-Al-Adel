@@ -2,8 +2,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Ensure jQuery is loaded -->
     <script type="text/javascript">
         $(function () {
             $.ajaxSetup({
@@ -27,11 +26,12 @@
         })
     </script>
 @endpush
+
 @push('head')
     <style type="text/css">
         .control-sidebar ul {
-            padding: 0 0 0 0;
-            margin: 0 0 0 0;
+            padding: 0;
+            margin: 0;
             list-style-type: none;
         }
 
@@ -62,16 +62,15 @@
 @endpush
 
 @push('bottom')
-    <!-- ADDITION FUNCTION FOR BUTTON -->
     <script type="text/javascript">
-        var id_ums_statistics = '{{$id_ums_statistics}}';
+        var id_ums_statistics = '{{ $id_ums_statistics }}';
 
         function addWidget(id_ums_statistics, area, component) {
             var id = new Date().getTime();
             $('#' + area).append("<div id='" + id + "' class='area-loading'><i class='fa fa-spin fa-spinner'></i></div>");
 
             var sorting = $('#' + area + ' .border-box').length;
-            $.post("{{UMS::mainpath('add-component')}}", {
+            $.post("{{ UMS::mainpath('add-component') }}", {
                 component_name: component,
                 id_ums_statistics: id_ums_statistics,
                 sorting: sorting,
@@ -79,20 +78,15 @@
             }, function (response) {
                 $('#' + area).append(response.layout);
                 $('#' + id).remove();
-            })
+            });
         }
-
     </script>
-    <!--DATATABLE-->
-    <link rel="stylesheet" href="{{ asset ('vendor/ums/assets/adminlte/plugins/datatables/dataTables.bootstrap.css')}}">
-    <script src="{{ asset ('vendor/ums/assets/adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{ asset ('vendor/ums/assets/adminlte/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
-    <!--END HERE-->
+    <link rel="stylesheet" href="{{ asset('vendor/ums/assets/adminlte/plugins/datatables/dataTables.bootstrap.css') }}">
+    <script src="{{ asset('vendor/ums/assets/adminlte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('vendor/ums/assets/adminlte/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
 @endpush
 
-
 @push('head')
-    <!-- jQuery UI 1.11.4 -->
     <style type="text/css">
         .sort-highlight {
             border: 3px dashed #cccccc;
@@ -115,15 +109,10 @@
             font-size: 20px;
             display: none;
             text-align: center;
-            display: none;
-            padding: 3px 5px 3px 5px;
+            padding: 3px 5px;
             background: #DD4B39;
             color: #ffffff;
             width: 70px;
-            -webkit-border-bottom-right-radius: 5px;
-            -webkit-border-bottom-left-radius: 5px;
-            -moz-border-radius-bottomright: 5px;
-            -moz-border-radius-bottomleft: 5px;
             border-bottom-right-radius: 5px;
             border-bottom-left-radius: 5px;
             position: absolute;
@@ -137,10 +126,6 @@
             color: #ffffff;
         }
 
-        .border-box:hover {
-            /*border:2px dotted #BC3F30;*/
-        }
-
         @if(UMS::getCurrentMethod() == 'getBuilder')
         .border-box:hover .action {
             display: block;
@@ -149,7 +134,6 @@
         .panel-heading, .inner-box, .box-header, .btn-add-widget {
             cursor: move;
         }
-
         @endif
 
         .connectedSortable {
@@ -181,12 +165,10 @@
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
         $(function () {
-
             var cloneSidebar = $('.control-sidebar').clone();
 
             @if(UMS::getCurrentMethod() == 'getBuilder')
             createSortable();
-
             @endif
 
             function createSortable() {
@@ -197,18 +179,15 @@
                     forcePlaceholderSize: true,
                     zIndex: 999999,
                     stop: function (event, ui) {
-                        console.log(ui.item.attr('class'));
                         var className = ui.item.attr('class');
                         var idName = ui.item.attr('id');
-                        if (className == 'button-widget-area') {
+                        if (className.includes('button-widget-area')) {
                             var areaname = $('#' + idName).parent('.connectedSortable').attr('id');
                             var component = $('#' + idName + ' > a').data('component');
-                            console.log(areaname);
                             $('#' + idName).remove();
                             addWidget(id_ums_statistics, areaname, component);
                             $('.control-sidebar').html(cloneSidebar);
                             cloneSidebar = $('.control-sidebar').clone();
-
                             createSortable();
                         }
                     },
@@ -218,68 +197,55 @@
                             var areaname = $('#' + componentID).parent('.connectedSortable').attr("id");
                             var index = $('#' + componentID).index();
 
-
-                            $.post("{{UMS::mainpath('update-area-component')}}", {
+                            $.post("{{ UMS::mainpath('update-area-component') }}", {
                                 componentid: componentID,
                                 sorting: index,
                                 areaname: areaname
-                            }, function (response) {
-
-                            })
+                            });
                         }
                     }
                 });
             }
-
-        })
-
+        });
     </script>
 
     <script type="text/javascript">
         $(function () {
-
             $('.connectedSortable').each(function () {
                 var areaname = $(this).attr('id');
 
-                $.get("{{UMS::adminpath('statistic_builder/list-component')}}/" + id_ums_statistics + "/" + areaname, function (response) {
+                $.get("{{ UMS::adminpath('statistic_builder/list-component') }}/" + id_ums_statistics + "/" + areaname, function (response) {
                     if (response.components) {
-
                         $.each(response.components, function (i, obj) {
                             $('#' + areaname).append("<div id='area-loading-" + obj.componentID + "' class='area-loading'><i class='fa fa-spin fa-spinner'></i></div>");
-                            $.get("{{UMS::adminpath('statistic_builder/view-component')}}/" + obj.componentID, function (view) {
-                                console.log('View For CID ' + view.componentID);
+                            $.get("{{ UMS::adminpath('statistic_builder/view-component') }}/" + obj.componentID, function (view) {
                                 $('#area-loading-' + obj.componentID).remove();
                                 $('#' + areaname).append(view.layout);
-
-                            })
-                        })
+                            });
+                        });
                     }
-                })
-            })
-
+                });
+            });
 
             $(document).on('click', '.btn-delete-component', function () {
                 var componentID = $(this).data('componentid');
                 var $this = $(this);
 
                 swal({
-                        title: "Are you sure?",
-                        text: "You will not be able to recover this widget !",
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "Yes",
-                        closeOnConfirm: true
-                    },
-                    function () {
-
-                        $.get("{{UMS::mainpath('delete-component')}}/" + componentID, function () {
-                            $this.parents('.border-box').remove();
-
-                        });
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this widget!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes",
+                    closeOnConfirm: true
+                }, function () {
+                    $.get("{{ UMS::mainpath('delete-component') }}/" + componentID, function () {
+                        $this.parents('.border-box').remove();
                     });
+                });
+            });
 
-            })
             $(document).on('click', '.btn-edit-component', function () {
                 var componentID = $(this).data('componentid');
                 var name = $(this).data('name');
@@ -288,31 +254,29 @@
                 $('#modal-statistic .modal-body').html("<i class='fa fa-spin fa-spinner'></i> Please wait loading...");
                 $('#modal-statistic').modal('show');
 
-                $.get("{{UMS::mainpath('edit-component')}}/" + componentID, function (response) {
+                $.get("{{ UMS::mainpath('edit-component') }}/" + componentID, function (response) {
                     $('#modal-statistic .modal-body').html(response);
-                })
-            })
+                });
+            });
 
             $('#modal-statistic .btn-submit').click(function () {
-
                 $('#modal-statistic form .has-error').removeClass('has-error');
 
                 var required_input = [];
                 $('#modal-statistic form').find('input[required],textarea[required],select[required]').each(function () {
                     var $input = $(this);
-                    var $form_group = $input.parent('.form-group');
                     var value = $input.val();
 
-                    if (value == '') {
+                    if (value === '') {
                         required_input.push($input.attr('name'));
                     }
-                })
+                });
 
                 if (required_input.length) {
                     setTimeout(function () {
                         $.each(required_input, function (i, name) {
                             $('#modal-statistic form').find('input[name="' + name + '"],textarea[name="' + name + '"],select[name="' + name + '"]').parent('.form-group').addClass('has-error');
-                        })
+                        });
                     }, 200);
 
                     return false;
@@ -323,20 +287,19 @@
                 $.ajax({
                     data: $('#modal-statistic form').serialize(),
                     type: 'POST',
-                    url: "{{UMS::mainpath('save-component')}}",
+                    url: "{{ UMS::mainpath('save-component') }}",
                     success: function () {
-
                         $button.removeClass('disabled').text('Save Changes');
                         $('#modal-statistic').modal('hide');
-                        window.location.href = "{{Request::fullUrl()}}";
+                        location.reload();
                     },
                     error: function () {
-                        alert('Sorry something went wrong !');
+                        alert('Sorry, something went wrong!');
                         $button.removeClass('disabled').text('Save Changes');
                     }
-                })
-            })
-        })
+                });
+            });
+        });
     </script>
 @endpush
 
@@ -354,32 +317,18 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn-submit btn btn-primary" data-loading-text="Saving..." autocomplete="off">Save changes</button>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>
 
 <div id='statistic-area'>
-
-
     <div class="statistic-row row">
-        <div id='area1' class="col-sm-3 connectedSortable">
-
-        </div>
-        <div id='area2' class="col-sm-3 connectedSortable">
-
-        </div>
-        <div id='area3' class="col-sm-3 connectedSortable">
-
-        </div>
-        <div id='area4' class="col-sm-3 connectedSortable">
-
-        </div>
+        <div id='area1' class="col-sm-3 connectedSortable"></div>
+        <div id='area2' class="col-sm-3 connectedSortable"></div>
+        <div id='area3' class="col-sm-3 connectedSortable"></div>
+        <div id='area4' class="col-sm-3 connectedSortable"></div>
     </div>
-
     <div class='statistic-row row'>
-        <div id='area5' class="col-sm-12 connectedSortable">
-
-        </div>
+        <div id='area5' class="col-sm-12 connectedSortable"></div>
     </div>
-
-</div><!--END STATISTIC AREA-->
+</div>

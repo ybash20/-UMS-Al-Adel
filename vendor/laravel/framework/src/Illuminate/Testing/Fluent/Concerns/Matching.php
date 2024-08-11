@@ -2,6 +2,7 @@
 
 namespace Illuminate\Testing\Fluent\Concerns;
 
+use BackedEnum;
 use Closure;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;
@@ -35,6 +36,10 @@ trait Matching
             $expected = $expected->toArray();
         }
 
+        if ($expected instanceof BackedEnum) {
+            $expected = $expected->value;
+        }
+
         $this->ensureSorted($expected);
         $this->ensureSorted($actual);
 
@@ -42,6 +47,53 @@ trait Matching
             $expected,
             $actual,
             sprintf('Property [%s] does not match the expected value.', $this->dotPath($key))
+        );
+
+        return $this;
+    }
+
+    /**
+     * Asserts that the property does not match the expected value.
+     *
+     * @param  string  $key
+     * @param  mixed|\Closure  $expected
+     * @return $this
+     */
+    public function whereNot(string $key, $expected): self
+    {
+        $this->has($key);
+
+        $actual = $this->prop($key);
+
+        if ($expected instanceof Closure) {
+            PHPUnit::assertFalse(
+                $expected(is_array($actual) ? Collection::make($actual) : $actual),
+                sprintf('Property [%s] was marked as invalid using a closure.', $this->dotPath($key))
+            );
+
+            return $this;
+        }
+
+        if ($expected instanceof Arrayable) {
+            $expected = $expected->toArray();
+        }
+
+        if ($expected instanceof BackedEnum) {
+            $expected = $expected->value;
+        }
+
+        $this->ensureSorted($expected);
+        $this->ensureSorted($actual);
+
+        PHPUnit::assertNotSame(
+            $expected,
+            $actual,
+            sprintf(
+                'Property [%s] contains a value that should be missing: [%s, %s]',
+                $this->dotPath($key),
+                $key,
+                $expected
+            )
         );
 
         return $this;
@@ -116,13 +168,15 @@ trait Matching
             $this->prop($key) ?? $this->prop()
         );
 
-        $missing = Collection::make($expected)->reject(function ($search) use ($key, $actual) {
-            if ($actual->containsStrict($key, $search)) {
-                return true;
-            }
+        $missing = Collection::make($expected)
+            ->map(fn ($search) => $search instanceof BackedEnum ? $search->value : $search)
+            ->reject(function ($search) use ($key, $actual) {
+                if ($actual->containsStrict($key, $search)) {
+                    return true;
+                }
 
-            return $actual->containsStrict($search);
-        });
+                return $actual->containsStrict($search);
+            });
 
         if ($missing->whereInstanceOf('Closure')->isNotEmpty()) {
             PHPUnit::assertEmpty(
@@ -181,7 +235,7 @@ trait Matching
      * @param  \Closure|null  $scope
      * @return $this
      */
-    abstract public function has(string $key, $value = null, Closure $scope = null);
+    abstract public function has(string $key, $value = null, ?Closure $scope = null);
 
     /**
      * Retrieve a prop within the current scope using "dot" notation.
@@ -189,5 +243,5 @@ trait Matching
      * @param  string|null  $key
      * @return mixed
      */
-    abstract protected function prop(string $key = null);
+    abstract protected function prop(?string $key = null);
 }

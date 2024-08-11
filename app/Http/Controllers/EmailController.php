@@ -15,7 +15,7 @@ class EmailController extends Controller
         ]);
 
         $email = $request->input('email');
-        
+
         $mail = new PHPMailer(true);
 
         try {

@@ -1,13 +1,13 @@
 <?php
 $datatable = $form['datatable'];
-if ($datatable && ! $form['relationship_table']) {
+if ($datatable && ! isset($form['relationship_table'])) {
     $datatable = explode(',', $datatable);
     $table = $datatable[0];
     $field = $datatable[1];
     echo UMS::first($table, ['id' => $value])->$field;
 }
 
-if ($datatable && $form['relationship_table']) {
+if ($datatable && isset($form['relationship_table'])) {
     $datatable_table = explode(',', $datatable)[0];
     $datatable_field = explode(',', $datatable)[1];
     if($form['datatable_orig'] != ''){
@@ -26,7 +26,7 @@ if ($datatable && $form['relationship_table']) {
     echo implode(", ", $tableData);
 }
 
-if ($form['dataenum']) {
+if (isset($form['dataenum'])) {
     echo $value;
 }
 

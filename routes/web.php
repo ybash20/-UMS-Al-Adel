@@ -23,6 +23,8 @@ use App\Helpers\UMSRouter;
 
 UMSRouter::route();
 
+Route::get('/admin/samllbox', function (){return view('dashboard.statistic_builder.components.smallbox');});
+
 //Home Routes
 Route::redirect('/', '/home');
 Route::get('/home', 'home@index')->name('home');

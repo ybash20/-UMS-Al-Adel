@@ -30,7 +30,7 @@ class ForgotConroller extends Controller
             $user->save();
 
             $mail = new PHPMailer(true);
-            
+
             try {
                 //إعدادات الخادم
                 $mail->isSMTP();
@@ -58,27 +58,27 @@ class ForgotConroller extends Controller
                 Log::error('Email sending error: ' . $e->getMessage());
                 return redirect()->back()->with('error', 'Failed to send verification email.');
             }
-        }        
+        }
     }
 
     public function verifyCode(Request $request)
-{
-    $request->validate([
-        'code' => 'required|string|min:6|max:6',
-    ]);
+    {
+        $request->validate([
+            'code' => 'required|string|min:6|max:6',
+        ]);
 
-    $code = $request->input('code');
+        $code = $request->input('code');
 
-    $user = User::where('verification_code', $code)->first();
+        $user = User::where('verification_code', $code)->first();
 
-    if ($user && $code == $user->verification_code) {
-        // Verification successful, do something here
-        $user->email_verified_at = now();
-        $user->verification_code = null;
-        $user->save(); // Save the updated user model
-        return redirect()->route('dashboard')->with('success', 'Email verified');
-    } else {
-        return redirect()->back()->with('error', 'Invalid verification code');
+        if ($user && $code == $user->verification_code) {
+            // Verification successful, do something here
+            $user->email_verified_at = now();
+            $user->verification_code = null;
+            $user->save(); // Save the updated user model
+            return redirect()->route('dashboard')->with('success', 'Email verified');
+        } else {
+            return redirect()->back()->with('error', 'Invalid verification code');
+        }
     }
-}
 }
