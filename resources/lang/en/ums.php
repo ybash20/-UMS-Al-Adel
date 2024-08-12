@@ -1,5 +1,7 @@
 <?php
 return [
+  'not_allowed_show' => 'You are not allowed to see your grades',
+  'not_allowed_show_p' => 'Please pay the university fees to see your grades',
   'Appreciation' => 'Appreciation',
   'login_as_student' => 'Login as Student',
   'login_as_employee' => 'Login as Employee',

@@ -339,14 +339,21 @@
                 @csrf
                 <div>
                     <div>
-                        <input class="input form-control" type="text" name="id" id="ID" placeholder="ID"
-                            required>
+                        <input class="input form-control" type="text" name="id" id="ID" placeholder="ID" required>
                     </div>
                     <div>
-                        <input class="input form-control" type="password" name="Code" id="password2"
-                            placeholder="Code" required>
+                        <input class="input form-control" type="password" name="Code" id="password2" placeholder="Code">
                     </div>
                 </div>
+                @if (App::getLocale() == 'ar')
+                    <p style="font-family:'Dosis';">
+                        اذا كانت المرة الاولى ضع الكود رقمك التعريفي
+                    </p>
+                @else
+                    <p style="font-family:sans-serif;">
+                        If First Time Set Code as ID
+                    </p>
+                @endif
                 <button type="submit" class="login-btn">
                     <div>
                         {{ lang('button_sign_in') }}

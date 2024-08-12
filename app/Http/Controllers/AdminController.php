@@ -256,32 +256,47 @@ class AdminController extends UMSController
     }
 
     public function StudentpostLogin()
-    {
-        $validator = Validator::make(Request::all(), [
-            'id' => 'required|numeric|exists:students,id',
-            'Code' => 'required|string',
-        ]);
+{
+    $validator = Validator::make(Request::all(), [
+        'id' => 'required|numeric|exists:students,id',
+        'Code' => 'required|string',
+    ]);
 
-        if ($validator->fails()) {
-            $message = $validator->errors()->all();
-            return redirect()->back()->with(['message' => implode('<br>', $message), 'message_type' => 'danger']);
+    if ($validator->fails()) {
+        $message = $validator->errors()->all();
+        return redirect()->back()->with(['message' => implode('<br>', $message), 'message_type' => 'danger']);
+    }
+
+    $id = Request::input("id");
+    $code = Request::input("Code");
+    $student = Student::where('id', $id)->first();
+
+    if ($student) {
+        if (empty($student->Code)) {
+            if ($id == $code) {
+                Session::put('student_id', $student->id);
+                Session::put('student_Email', $student->Email);
+                return redirect('/updatePassword')->with('message', lang('student_login_success'));
+            }
+            else{
+                return redirect('/admin/login')->with('message', lang('student_login_failed'));
+            }
         }
-
-        $id = Request::input("id");
-        $code = Request::input("Code");
-        $student = Student::where('id', $id)->first();
-
-        if ($student && $student->Code === $code) {
-            // تسجيل الدخول بنجاح
+        // If the Code is set and matches the provided code, redirect to updatePassword
+        elseif($student->Code === $code) {
             Session::put('student_id', $student->id);
             Session::put('student_Email', $student->Email);
             Session::put('student_code', $student->Code);
-
             return redirect('/student')->with('message', lang('student_login_success'));
         } else {
             return redirect('/admin/login')->with('message', lang('student_login_failed'));
         }
+    } 
+    else {
+        return redirect('/admin/login')->with('message', lang('student_login_failed'));
     }
+}
+
 
     public function StudentgetLogout()
     {

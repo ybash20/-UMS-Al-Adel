@@ -1,5 +1,7 @@
 <?php
 return [
+    'not_allowed_show' => 'غير مسموح لك برؤية درجاتك',
+    'not_allowed_show_p' => 'يرجى سداد رسوم الجامعة لرؤية درجاتك ',
     'Appreciation'=>'التقدير',
     'login_as_student' => 'تسجيل كطالب',
     'login_as_employee' => 'تسجيل كموظف',

@@ -26,7 +26,7 @@ class CreateStudentsTable extends Migration
             $table->string('Phone_number')->nullable();
             $table->unsignedBigInteger('Address_ID')->nullable();
             $table->string('Status', 30)->nullable();
-            $table->boolean('Not_Allowed_Show')->nullable();
+            $table->boolean('Not_Allowed_Show')->default(False);
             $table->text('Notes')->nullable();
             $table->text('Photo')->nullable();
             $table->timestamps();

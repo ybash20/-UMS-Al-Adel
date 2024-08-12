@@ -10,23 +10,34 @@
 @endif
 
 <div class="container-grades">
+    @if ($student->Not_Allowed_Show)
+        <h1 style="text-align: center;font-size: 48px;">
+            {{ lang('not_allowed_show') }}
+        </h1>
+        <h2 style="text-align: center;font-size: 28px;">
+            {{ lang('not_allowed_show_p') }}
+        </h2>
+    @else
+    <div style="display: flex; justify-content: space-between;">
         <div class="divstudent">
             <h1>{{ lang('Grades Student') }}</h1>
             <h2>{{ lang('Student ID') }} {{ $student->id }}</h2>
             @if (App::getLocale() == 'ar')
             <h2>{{ lang('Student Name') }} {{ $student->Name_Arabic}}</h2>
             @else
-            <h2>{{ lang('Student Name') }} {{ $student->Name_English}}</h2>
+            <h2>{{ lang('Student Name') }} {{ isset($student->Name_English) ? $student->Name_English : $student->Name_Arabic}}</h2>
             @endif
         </div>
-
-
+        <div class="pic" >
+            <img style="width: 200px;margin: 0 150px;" src="{{ asset("image/user.png") }}" />
+        </div>
+    </div>
         @if ($grades !== null && $grades->isNotEmpty())
             @php
                 $latestSemester = $grades->max('Semester');
                 $semesterGrades = $grades->where('Semester', $latestSemester);
             @endphp
-            <h2>{{ lang('Semester') }} {{ $latestSemester }}</h2>
+            <h2 style="font-size: 23px;">{{ lang('Semester') }} {{ $latestSemester }}</h2>
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -42,16 +53,23 @@
                 <tbody>
                     @foreach ($semesterGrades as $total)
                         <tr>
-                            <td>{{ $total->course->Name }}</td>
+                            @if (App::getLocale() == 'ar')
+                            <td>{{ $total->course->Name_Arabic }}</td>
+                            @else
+                                <td>{{ $total->course->Name_English }}</td>
+                            @endif
+
                             <td>{{ $total->Grade_30 }}</td>
                             <td>{{ $total->Grade_70 }}</td>
                             <td>{{ $total->Grade_100 }}</td>
                             <td>{{ $total->Spoint }}</td>
+
                             @if (App::getLocale() == 'ar')
-                            <td>{{ $total->Appreciation_Arabic }}</td>
+                                <td>{{ $total->Appreciation_Arabic }}</td>
                             @else
-                            <td>{{ $total->Appreciation_English }}</td>
+                                <td>{{ isset($total->Appreciation_English) ? $total->Appreciation_English : $total->Appreciation_Arabic}}</td>
                             @endif
+
                             <td>{{ $total->Note }}</td>
                         </tr>
                     @endforeach
@@ -79,16 +97,24 @@
                             <tbody>
                                 @foreach ($semesterGrades as $total)
                                     <tr>
-                                        <td>{{ $total->course->Name }}</td>
+
+                                        @if (App::getLocale() == 'ar')
+                                            <td>{{ $total->course->Name_Arabic }}</td>
+                                        @else
+                                            <td>{{ $total->course->Name_English }}</td>
+                                        @endif
+
                                         <td>{{ $total->Grade_30 }}</td>
                                         <td>{{ $total->Grade_70 }}</td>
                                         <td>{{ $total->Grade_100 }}</td>
                                         <td>{{ $total->Spoint }}</td>
+
                                         @if (App::getLocale() == 'ar')
-                                        <td>{{ $total->Appreciation_Arabic }}</td>
+                                            <td>{{ $total->Appreciation_Arabic }}</td>
                                         @else
-                                        <td>{{ $total->Appreciation_English }}</td>
+                                            <td>{{ isset($total->Appreciation_English) ? $total->Appreciation_English : $total->Appreciation_Arabic}}</td>
                                         @endif
+
                                         <td>{{ $total->Note }}</td>
                                     </tr>
                                 @endforeach
@@ -103,7 +129,8 @@
         @else
             <div class="alert alert-danger">{{ lang('An error occurred while retrieving the grades.') }}</div>
         @endif
-    </div>
+    @endif
+</div>
 
     <script>
         var toggleAllSemestersBtn = document.getElementById('toggleAllSemestersBtn');

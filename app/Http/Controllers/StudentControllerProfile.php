@@ -38,6 +38,6 @@ class StudentControllerProfile extends UMSController
             return redirect()->route('updatePassword')->with('error', 'Failed to update password.');
         }
 
-        return redirect()->route('updatePassword')->with('success', 'Password updated successfully.');
+        return redirect()->route('student')->with('message', 'Password updated successfully.');
     }
 }
