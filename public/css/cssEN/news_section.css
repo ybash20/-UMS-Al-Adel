@@ -104,6 +104,22 @@
 .text-oqa {
     text-align: center !important;
 }
+@media screen and (max-width: 591px){
+    
+    .post-217 img {
+        /* width: 100%; */
+        max-height: 67px;
+    }
+    .card-4ox img {
+        width: 100%;
+        height: auto;
+    }
+    .card-4ox .title-b9o {
+        color: #fff;
+        padding-bottom: 10px;
+        font-size: 11px;
+    }
+}
 
 .row-qk7 {
     --bs-gutter-x: 1.5rem;

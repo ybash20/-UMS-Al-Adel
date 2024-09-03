@@ -349,6 +349,23 @@
 a {
     text-decoration: none;
 }
+@media screen and (max-width: 591px){
+    
+    .post-217 img {
+        /* width: 100%; */
+        max-height: 67px;
+    }
+    .card-4ox img {
+        width: 100%;
+        height: auto;
+    }
+    .card-4ox .title-b9o {
+        color: #fff;
+        padding-bottom: 10px;
+        font-size: 11px;
+    }
+}
+
 
 .more-news {
     text-align: center !important;
