@@ -65,8 +65,8 @@
     font-family: "DIN-NEXT";
     src: url(../../fonts/DIN-NEXT.otf);
 }
-.contact{
-    font-family: "Dosis";
+.contact {
+    margin-right: 10px;
 }
 
 .headerh1{
@@ -304,7 +304,8 @@ button:not(:disabled),
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 .col-2,
@@ -740,9 +741,8 @@ button:not(:disabled),
     -ms-flex-align: center !important;
     align-items: center !important;
     font-size: 16px;
-    display: ruby-text;
+    /* display: ruby-text; */
 }
-
 .my-0 {
     margin-top: 0 !important;
 }
@@ -779,9 +779,9 @@ button:not(:disabled),
     padding-bottom: 1rem !important;
 }
 
-.mr-auto {
+/* .mr-auto {
     margin-right: auto !important;
-}
+} */
 
 @media (min-width: 768px) {
 
