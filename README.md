@@ -162,7 +162,7 @@ Once the server is running, you can access the application at `http://localhost:
 - **Admins:** Have full control over the system, including user management, content updates, and system settings.
 
 ## Authors
-- Bilal Ali Saeed Hasil
+- Belal Ali Saeed Hasel
 - Asem Abdalbaset Ahmed Banafa
 - Mohammed Gamal Salem Al-Haj
 - Ayman Ali Hassan Salman
